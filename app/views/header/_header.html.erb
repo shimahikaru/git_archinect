@@ -1,9 +1,16 @@
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+
 <header>
 <div class="container">
+  <div class="container-small">
   <%= link_to "Archinect", root_path , :class =>"headA" %>
+
+  <button type="button" class="headC">
+  <%= fa_icon("bars") %>
+  </button>
+</div>
 
 <nav class="headB">
   <ul>
@@ -19,3 +26,4 @@
 
 </div>
 </header>
+
