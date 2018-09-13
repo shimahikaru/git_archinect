@@ -1,6 +1,55 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.box-typeA{
-  margin-top: 50px;
+.boxtypeA{
+  margin-top: 80px;
+  display: block;
+  text-align: center;
+
+ h1 {
+    letter-spacing: 0.3em;
+    font-size: 10vw;
+ }
+
+ .buttonbox {
+    display: block;
+    text-align: center;
+ }
+
+  .button1{
+    border-radius: 5px;
+    display: block;
+    padding: 2px 10px;
+    width: 240px;
+    text-align: center;
+    margin: 5px;
+    border: 2px solid #ec576b;
+    border-radius: 30px;
+  }
+
+p {
+  font-size: 15px;
+  letter-spacing: 0.4em;
+  color: #ec576b;
+}
+
+}
+
+@media (min-width: 768px){
+
+ .boxtypeA{
+  width: 1200px;
+  margin: 0 auto;
+
+  h1{
+    font-size: 75px;
+    margin-top: 80px;
+  }
+ .buttonbox {
+  display: flex;
+ }
+
+ }
+
+
 }
