@@ -52,7 +52,26 @@ letter-spacing: 0.3em
   background-color: rgba(0,0,0,0.3);
 }
 
-.headC {
+.headB .inner{
+  display: none;
+}
+
+.panel-item{
+  padding: 10px;
+  font-size: 13px;
+  letter-spacing: 0.3em
+}
+
+@media (max-width: 767px) {
+  header .container-small {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+ .headB {
+  display: none;
+ }
+ .headC {
   margin-right: 15px;
   padding: none;
   border: none;
@@ -66,22 +85,12 @@ letter-spacing: 0.3em
   opacity: 0.3;
 }
 
-@media (max-width: 767px) {
-  header .container-small {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
- .headB {
-  display: none;
- }
 
 }
 
 @media (min-width: 768px) {
   header .container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   max-width: 1200px;
   margin-left: auto;
@@ -89,9 +98,15 @@ letter-spacing: 0.3em
 }
 .headB {
   display: block !important;
+  margin-top: 18px;
 }
 .headB ul {
   display: flex;
+}
+
+.headB a {
+  width: 160px;
+  text-align: center;
 }
 .headC {
   display: none;

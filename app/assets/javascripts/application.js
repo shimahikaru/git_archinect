@@ -11,19 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery-ui
+//= require jquery.turbolinks
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-
-$(function(){
-  $(".headC").click(function(){
-    &(".headB").slideTogle();
-  });
-});
-
 
 
 

@@ -1,7 +1,6 @@
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
 <header>
 <div class="container">
   <div class="container-small">
@@ -12,18 +11,49 @@
   </button>
 </div>
 
-<nav class="headB">
+<nav class="headB" id="js-accordion">
   <ul>
-    <li><a>TOP</a></li>
-     <li><a>MYPAGE</a></li>
-     <li><a>PHOTO</a></li>
-     <li><a>USERS</a></li>
-     <li><a>SEARCH</a></li>
+    <li><a>MY PAGE</a></li>
+     <li><a>PHOTOS</a>
+     <ul class="inner">
+      <li class="panel-item">ALL</li>
+      <li class="panel-item">FOOD・CAFE</li>
+      <li class="panel-item">CLINIC・BEAUTY</li>
+      <li class="panel-item">SHOP</li>
+      <li class="panel-item">OFFICE・SCHOOL</li>
+      <li class="panel-item">BAR・RESTAURAN</li>
+      <li class="panel-item">HOUSE</li>
+      <li class="panel-item">APARTMENT</li>
+      <li class="panel-item">SEARCH</li>
+      </ul>
+    </li>
+     <li><a>USERS</a>
+      <ul class="inner">
+      <li class="panel-item">ALL</li>
+      <li class="panel-item">NEW</li>
+      <li class="panel-item">SEARCH</li>
+      </ul>
+     </li>
+     <li><a>RANKING</a></li>
      <li><a>LOGOUT</a></li>
      <li><a>ABOUT</a></li>
+
   </ul>
 </nav>
 
 </div>
 </header>
-
+<script>
+$(".headC").click(function(){
+  $(".headB").slideToggle();
+});
+</script>
+<script>
+$(function(){
+    //.accordion1の中のp要素がクリックされたら
+  $('.headB a').click(function(){
+    //クリックされた.accordion1の中のp要素に隣接するul要素が開いたり閉じたりする。
+    $(this).next('ul').slideToggle();
+  });
+});
+</script>
