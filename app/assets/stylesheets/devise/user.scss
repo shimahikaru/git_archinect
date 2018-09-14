@@ -1,0 +1,54 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.usernew{
+  display: block;
+  margin-top: 80px;
+  text-align: center;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 3px #000000;
+  padding-top: 35px;
+  padding-bottom: 50px;
+  h2 {
+  letter-spacing: 0.4em;
+  }
+
+  p {
+    font-size: 14px;
+    letter-spacing: 0.2em;
+  }
+
+  .user {
+    height: 25px;
+    width: 240px;
+    border: solid 0.5px #000000;
+       border-radius: 5px;
+  }
+
+.field {
+  margin: 25px;
+}
+
+.button {
+  letter-spacing: 0.3em;
+   border-radius: 30px;
+   height: 35px;
+}
+
+.button:hover {
+  background-color: #ec576b;
+  color: #fff;
+  border: none;
+}
+
+}
+
+
+@media (min-width: 768px){
+  .usernew{
+    max-width: 1200px;
+  }
+}
