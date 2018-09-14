@@ -1,6 +1,9 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// トップページ
+
 .boxtypeA{
   margin-top: 80px;
   display: block;
@@ -11,9 +14,8 @@
     font-size: 10vw;
  }
 
- .buttonbox {
+ .container {
     display: block;
-    text-align: center;
  }
 
   .button1{
@@ -23,17 +25,43 @@
     width: 240px;
     text-align: center;
     margin: 5px;
-    border: 2px solid #ec576b;
     border-radius: 30px;
+    background-color: #ec576b;
+  }
+  .button2 a{
+   letter-spacing: 1.2em;
   }
 
-p {
-  font-size: 15px;
-  letter-spacing: 0.4em;
-  color: #ec576b;
+
+  a{
+  text-decoration: none;
+    color: #fff;
+      font-size: 15px;
+  letter-spacing: 0.5em;
+  }
+
+.button1:hover {
+  opacity: 0.7;
 }
 
 }
+
+
+@media (max-width: 767px) {
+ .container{
+  .button1{
+    margin: 20px auto;
+    padding: 1px 3px;
+
+ a{
+        font-size: 11px;
+ }
+
+
+  }
+ }
+}
+
 
 @media (min-width: 768px){
 
@@ -45,11 +73,13 @@ p {
     font-size: 75px;
     margin-top: 80px;
   }
- .buttonbox {
+ .container {
   display: flex;
+    width: 800px;
+    margin: 0 auto;
+    justify-content: space-around;
  }
 
  }
-
 
 }
