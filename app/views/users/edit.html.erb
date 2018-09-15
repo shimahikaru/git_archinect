@@ -1,0 +1,83 @@
+<%= stylesheet_link_tag    'devise/user', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<div class="usernew">
+
+<h2>プロフィール編集</h2>
+
+<%= form_with model: @user, local: true do |f| %>
+
+
+      <div class="field">
+    <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname",  placeholder: "#{@user.familyname}" , class: 'user form' %>
+  </div>
+      <div class="field">
+     <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname",  placeholder: "#{@user.firstname}", class: 'user form' %>
+    </div>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: "メールアドレス", class: 'user form' %>
+  </div>
+
+    <div class="field">
+  <p><%= f.label :所属している会社または事務所名 %></p>
+    <%= f.text_field :office, autofocus: true, autocomplete: "office", placeholder: "#{@user.office}", class: 'user form' %>
+    </div>
+
+    <div class="field">
+  <p><%= f.label :主な勤務地 %></p>
+  <%= f.select :location, User.locations.keys, class: 'user btn-info' , placeholder: "#{@user.location}" %>
+   </div>
+
+       <div class="field">
+    <%= f.text_field :local, autofocus: true, autocomplete: "local", placeholder: "都道府県以降の住所", class: 'user form' %>
+    </div>
+
+     <div class="field">
+    <p><%= f.label :メールアドレス %></p>
+    <%= f.email_field :address, autofocus: true, autocomplete: "address",  placeholder: "マイページに掲載可能なメールアドレス", class: 'user form' %>
+  </div>
+
+   <div class="field">
+    <p><%= f.label :電話番号 %></p>
+    <%= f.telephone_field :phone, autofocus: true, autocomplete: "phone",  placeholder: "マイページに掲載可能な電話番号", class: 'user form' %>
+  </div>
+
+   <div class="field">
+    <p><%= f.label :ホームページ %></p>
+    <%= f.url_field :url, autofocus: true, autocomplete: "url",  placeholder: "マイページに掲載可能なurl", class: 'user form' %>
+  </div>
+
+   <div class="field">
+  <%= f.label :プロフィール画像 %>
+  <%= f.file_field :avatar, autofocus: true %>
+  <%= f.hidden_field :image_cache %>
+  </div>
+
+<!--        <div class="field">
+      <p><%= f.label :主な仕事内容 %></p>
+    <% %w(商業施設 店舗設計 新築住宅 中古リノベーション 不動産 家具デザイン 照明デザイン インテリア 建築意匠設計 プロダクトデザイン).each.with_index do |ingredient,i| %>
+    <label>
+      <%= check_box_tag 'samurai[ingredients][]', ingredient,false,id:"samurai_ingredients_#{i}"%>
+      <%= ingredient %>
+    </label>
+    <% end %>
+  </div>
+
+       <div class="field">
+     <p><%= f.label :募集する場合はチェックしてください %></p>
+    <% %w(求人募集中 インターン受付中 ).each.with_index do |ingredient,i| %>
+    <label>
+      <%= check_box_tag 'samurai[ingredients][]', ingredient,false,id:"samurai_ingredients_#{i}"%>
+      <%= ingredient %>
+    </label>
+    <% end %>
+  </div> -->
+
+  <div class="field">
+    <%= f.submit "プロフィールを編集", class: 'user button' %>
+  </div>
+<% end %>
+
+</div>
+

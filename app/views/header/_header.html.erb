@@ -11,7 +11,7 @@
   </button>
 <% end %>
 </div>
-
+<% if user_signed_in? %>
 <nav class="headB" id="js-accordion">
   <ul>
     <li><%= link_to "MY PAGE", user_path(current_user) %></li>
@@ -41,7 +41,7 @@
 
   </ul>
 </nav>
-
+<% end %>
 </div>
 </header>
 <script>
