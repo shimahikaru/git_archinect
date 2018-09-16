@@ -10,11 +10,14 @@
     <ul>
       <li><h4><%= @user.name %></h4></li>
       <li><a><%= @user.office %></a></li>
-      <li><a>形態</a></li>
+      <li><a><%= @work.work1 %><a><a><%= @work.work2 %><a><a><%= @work.work3 %><a><a><%= @work.work4 %><a><a><%= @work.work5 %><a><a><%= @work.work6 %><a><a><%= @work.work7 %><a><a><%= @work.work8 %><a><a><%= @work.work9 %><a><a><%= @work.work10 %><a><a><%= @work.work11 %><a></li>
       <li><a><%= fa_icon("map-pin") %></a><a><%= @user.location + @user.local %></a></li>
       <li><a><%= fa_icon("link") %></a><a><%= @user.url %></a></li>
       <li><a><%= fa_icon("envelope") %></a><a><%= @user.address %></a></li>
       <li><a><%= fa_icon("phone") %></a><a><%= @user.phone %></a></li>
+      <% if @user.offer? %>
+      <li><a>求人募集</a></li>
+      <% end %>
     </ul>
      <% if user_signed_in? && current_user %>
     <%= link_to "プロフィールを編集", edit_user_path(current_user) %>

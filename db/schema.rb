@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_15_093541) do
+ActiveRecord::Schema.define(version: 2018_09_16_093352) do
+
+  create_table "tag_works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.boolean "work1"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "work2"
+    t.boolean "work3"
+    t.boolean "work4"
+    t.boolean "work5"
+    t.boolean "work6"
+    t.boolean "work7"
+    t.boolean "work8"
+    t.boolean "work9"
+    t.boolean "work10"
+    t.boolean "work11"
+    t.boolean "work12"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,7 +50,7 @@ ActiveRecord::Schema.define(version: 2018_09_15_093541) do
     t.string "local"
     t.string "encrypted_password", default: "", null: false
     t.string "work"
-    t.string "offer"
+    t.boolean "offer"
     t.string "url"
     t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true

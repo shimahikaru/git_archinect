@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+has_many :tag_works
+accepts_nested_attributes_for :tag_works, allow_destroy: true
+
 validates :familyname, :firstname, :office, :location, presence: true
 
 mount_uploader :avatar, AvatarsUploader
