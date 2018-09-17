@@ -1,0 +1,45 @@
+<%= stylesheet_link_tag    'products', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<div class="usernew">
+
+<h2>プロフィール編集</h2>
+
+   <%= form_with(model: [@user, @product], local: true) do |f| %>
+
+
+     <div class="field">
+     <%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "タイトル" , class: 'user form' %>
+     </div>
+
+     <div class="field">
+     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle",  placeholder: "サブタイトル", class: 'user form' %>
+     </div>
+
+     <div class="field">
+     <%= f.number_field :whet, autofocus: true, autocomplete: "whet", class: 'user form' %>
+     </div>
+
+
+
+     <div class="field">
+     <p><%= f.label :主な勤務地 %></p>
+     <%= f.select :location, Product.locations.keys, placeholder: "選択して下さい", class: 'localform' %><br />
+     <%= f.text_field :lcation2, autofocus: true, autocomplete: "location2", placeholder: "都道府県以降の住所", class: 'user form' %>
+     </div>
+
+      <div class="field">
+     <%= f.number_field :area, autofocus: true, autocomplete: "area", class: 'user form' %>
+     </div>
+
+     <p><%= f.label :説明（１５０文字以内） %></p>
+     <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "", class: 'user form text' %>
+     </div>
+
+     <div class="field">
+     <%= f.submit "投稿", class: 'user button' %>
+     </div>
+     <% end %>
+
+</div>
+
