@@ -4,32 +4,32 @@
 
 // マイページ
 .user_page{
-  display: block;
-  margin-top: 80px;
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
+display: block;
+margin-top: 80px;
+width: 95%;
+margin-left: auto;
+margin-right: auto;
 
        .container{
-        display: block;
-        border: solid 1px #000000;
-        border-radius: 25px;
-        padding: 20px;
+                 display: block;
+                 border: solid 1px #000000;
+                 border-radius: 25px;
+                 padding: 20px;
 
            .image{
-             width: 100%;
-             max-width: 630px;
-             background-color: red;
-             border-radius: 25px;
-             margin-right: auto;
-             margin-left: auto;
-             }
+                 width: 100%;
+                 max-width: 630px;
+                 background-color: red;
+                 border-radius: 25px;
+                 margin-right: auto;
+                 margin-left: auto;
+                 }
 
             .profile {
-             width: 100%;
-             max-width: 650px;
-             margin-right: auto;
-             margin-left: auto;
+                      width: 100%;
+                      max-width: 650px;
+                      margin-right: auto;
+                      margin-left: auto;
 
                     .edituser {
                              a{
@@ -39,28 +39,28 @@
                               }
 
                    h4 {
-                    letter-spacing: 0.4em;
-                    margin-bottom: 5px;;
-                    }
+                       letter-spacing: 0.4em;
+                       margin-bottom: 5px;;
+                       }
 
              li{
-             list-style: none;
-             margin-left: -30px;
+                list-style: none;
+                margin-left: -30px;
                    p {
-                    font-size: 12px;
-                    display: inline-block;
-                    margin: 0;
-                    margin-right: 3px;
-                    line-height: 19px;
-                    background-color: #c5c1c0;
-                    color: #fff;
-                    border-radius: 3px;
+                      font-size: 12px;
+                      display: inline-block;
+                      margin: 0;
+                      margin-right: 3px;
+                      line-height: 19px;
+                      background-color: #c5c1c0;
+                      color: #fff;
+                      border-radius: 3px;
                       }
                   a {
                     letter-spacing: 0.3em;
                     font-size: 13px;
                     }
-                }
+                 }
 
                     text{
                       p {
@@ -73,15 +73,15 @@
               // ここまでが.profile
 
         .textarea{
-            p {
-            letter-spacing: 0.3em;
-            font-size: 13px;
-            max-width: 1130px;
-            margin-left: auto;
-            margin-right: auto;
-            }
-         }
- }
+                p {
+                  letter-spacing: 0.3em;
+                  font-size: 13px;
+                  max-width: 1130px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  }
+                  }
+      }
 // ここまでが .container
 }
 // ここまでが.user_page
@@ -90,22 +90,22 @@
 
 
 @media (min-width: 768px){
-  .user_page{
-  width: 1200px;
+.user_page{
+            width: 1200px;
 
    .userA{
-     display: flex;
-      .image{
-      max-width: 450px;
-      position: center;
-      max-height: 300px;
+         display: flex;
+             .image{
+                   max-width: 450px;
+                   position: center;
+                   max-height: 300px;
+                   }
 
-      }
-      .profile{
-         a{
-         font-size: 14px;
+          .profile{
+                   a{
+                    font-size: 14px;
+                     }
+                   }
          }
-      }
-   }
- }
+        }
 }

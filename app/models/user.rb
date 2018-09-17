@@ -8,6 +8,7 @@ has_many :tag_works
 accepts_nested_attributes_for :tag_works, allow_destroy: true
 
 validates :familyname, :firstname, :office, :location, presence: true
+validates :text, length: { maximum: 150 }
 
 mount_uploader :avatar, AvatarsUploader
 

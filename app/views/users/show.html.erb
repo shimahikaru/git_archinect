@@ -18,9 +18,15 @@
                    <p><a><%= work %></a></p>
                    <% end %></li>
                  <li><a><%= fa_icon("map-pin") %></a><a><%= @user.location + @user.local %></a></li>
+                 <% if @user.url? %>
                  <li><a><%= fa_icon("link") %></a><a><%= @user.url %></a></li>
+                 <% end %>
+                 <% if @user.address? %>
                  <li><a><%= fa_icon("envelope") %></a><a><%= @user.address %></a></li>
+                 <% end %>
+                 <% if @user.phone? %>
                  <li><a><%= fa_icon("phone") %></a><a><%= @user.phone %></a></li>
+                 <% end %>
                  </ul>
                  <text><%= simple_format(@user.text) %></text>
              <% if user_signed_in? && current_user %>

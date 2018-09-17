@@ -5,83 +5,84 @@
 
 <h2>プロフィール編集</h2>
 
-<%= form_with model: @user, local: true do |f| %>
+   <%= form_with model: @user, local: true do |f| %>
 
-
-      <div class="field">
-    <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname",  placeholder: "#{@user.familyname}" , class: 'user form' %>
-  </div>
-      <div class="field">
-     <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname",  placeholder: "#{@user.firstname}", class: 'user form' %>
-    </div>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: "メールアドレス", class: 'user form' %>
-  </div>
-
-    <div class="field">
-  <p><%= f.label :所属 %></p>
-    <%= f.text_field :office, autofocus: true, autocomplete: "office", placeholder: "#{@user.office}", class: 'user form' %>
-    </div>
-
-    <div class="field">
-  <p><%= f.label :主な勤務地 %></p>
-  <%= f.select :location, User.locations.keys, placeholder: "#{@user.location}", class: 'localform' %><br />
-    <%= f.text_field :local, autofocus: true, autocomplete: "local", placeholder: "都道府県以降の住所", class: 'user form' %>
-    </div>
-
-<%= f.fields_for :tag_works, @user.tag_works do |f| %>
-<div class="field">
-   <p><%= f.label :仕事内容（複数選択可） %></p>
-  <label><%= f.check_box :work1, { class: 'userform' }, "true", 'false' %>戸建て・新築</label>
-  <label><%= f.check_box :work2, { class: 'userform' }, "true", 'false' %>リノベーション</label>
-  <label><%= f.check_box :work3, { class: 'userform' }, "true", 'false' %>商業施設</label>
-  <label><%= f.check_box :work4, { class: 'userform' }, "true", 'false' %>店舗設計</label>
-  <label><%= f.check_box :work5, { class: 'userform' }, "true", 'false' %>プロダクトデザイン</label>
-  <label><%= f.check_box :work6, { class: 'userform' }, "true", 'false' %>家具・照明デザイン</label>
-  <label><%= f.check_box :work7, { class: 'userform' }, "true", 'false' %>内装設計・管理</label>
-  <label><%= f.check_box :work8, { class: 'userform' }, "true", 'false' %>家具・照明デザイン</label>
-  <label><%= f.check_box :work9, { class: 'userform' }, "true", 'false' %>建築・施工管理</label>
-  <label><%= f.check_box :work10, { class: 'userform' }, "true", 'false' %>空間デザイン</label>
-  <label><%= f.check_box :work11, { class: 'userform' }, "true", 'false' %>グラフィックデザイン</label>
- </div>
-<% end %>
 
      <div class="field">
-    <p><%= f.label :メールアドレス %></p>
-    <%= f.email_field :address, autofocus: true, autocomplete: "address",  placeholder: "マイページに掲載可能なメールアドレス", class: 'user form' %>
-  </div>
+     <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname",  placeholder: "#{@user.familyname}" , class: 'user form' %>
+     </div>
 
-   <div class="field">
-    <p><%= f.label :電話番号 %></p>
-    <%= f.telephone_field :phone, autofocus: true, autocomplete: "phone",  placeholder: "マイページに掲載可能な電話番号", class: 'user form' %>
-  </div>
+     <div class="field">
+     <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname",  placeholder: "#{@user.firstname}", class: 'user form' %>
+     </div>
 
-   <div class="field">
-    <p><%= f.label :ホームページ %></p>
-    <%= f.url_field :url, autofocus: true, autocomplete: "url",  placeholder: "マイページに掲載可能なurl", class: 'user form' %>
-  </div>
+     <div class="field">
+     <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: "メールアドレス", class: 'user form' %>
+     </div>
 
-   <div class="field">
-  <p><%= f.label :プロフィール画像 %></p>
-  <%= f.file_field :avatar, autofocus: true %>
-  <%= f.hidden_field :image_cache %>
-  </div>
+     <div class="field">
+     <p><%= f.label :所属 %></p>
+     <%= f.text_field :office, autofocus: true, autocomplete: "office", placeholder: "#{@user.office}", class: 'user form' %>
+     </div>
 
-   <div class="field">
-    <p><%= f.label :コメント %></p>
-    <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "", class: 'user form' %>
-  </div>
+     <div class="field">
+     <p><%= f.label :主な勤務地 %></p>
+     <%= f.select :location, User.locations.keys, placeholder: "#{@user.location}", class: 'localform' %><br />
+     <%= f.text_field :local, autofocus: true, autocomplete: "local", placeholder: "都道府県以降の住所", class: 'user form' %>
+     </div>
 
-   <div class="field">
-    <label><%= f.check_box :offer, { class: 'userform' }, 'true', 'false' %>求人募集タグをつける</label><br />
-  </div>
+   <%= f.fields_for :tag_works, @user.tag_works do |f| %>
+       <div class="field">
+           <p><%= f.label :仕事内容（複数選択可） %></p>
+               <label><%= f.check_box :work1, { class: 'userform' }, "true", 'false' %>戸建て・新築</label>
+               <label><%= f.check_box :work2, { class: 'userform' }, "true", 'false' %>リノベーション</label>
+               <label><%= f.check_box :work3, { class: 'userform' }, "true", 'false' %>商業施設</label>
+               <label><%= f.check_box :work4, { class: 'userform' }, "true", 'false' %>店舗設計</label>
+               <label><%= f.check_box :work5, { class: 'userform' }, "true", 'false' %>プロダクトデザイン</label>
+               <label><%= f.check_box :work6, { class: 'userform' }, "true", 'false' %>家具・照明デザイン</label>
+               <label><%= f.check_box :work7, { class: 'userform' }, "true", 'false' %>内装設計・管理</label>
+               <label><%= f.check_box :work8, { class: 'userform' }, "true", 'false' %>家具・照明デザイン</label>
+               <label><%= f.check_box :work9, { class: 'userform' }, "true", 'false' %>建築・施工管理</label>
+               <label><%= f.check_box :work10, { class: 'userform' }, "true", 'false' %>空間デザイン</label>
+               <label><%= f.check_box :work11, { class: 'userform' }, "true", 'false' %>グラフィックデザイン</label>
+        </div>
+   <% end %>
+
+     <div class="field">
+      <p><%= f.label :メールアドレス %></p>
+      <%= f.email_field :address, autofocus: true, autocomplete: "address",  placeholder: "マイページに掲載可能なメールアドレス", class: 'user form' %>
+     </div>
+
+     <div class="field">
+     <p><%= f.label :電話番号 %></p>
+     <%= f.telephone_field :phone, autofocus: true, autocomplete: "phone",  placeholder: "マイページに掲載可能な電話番号", class: 'user form' %>
+     </div>
+
+     <div class="field">
+     <p><%= f.label :ホームページ %></p>
+     <%= f.url_field :url, autofocus: true, autocomplete: "url",  placeholder: "マイページに掲載可能なurl", class: 'user form' %>
+     </div>
+
+     <div class="field">
+     <p><%= f.label :プロフィール画像 %></p>
+     <%= f.file_field :avatar, autofocus: true %>
+     <%= f.hidden_field :image_cache %>
+     </div>
+
+     <div class="field">
+     <p><%= f.label :コメント（１５０文字以内） %></p>
+     <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "", class: 'user form text' %>
+     </div>
+
+     <div class="field">
+     <label><%= f.check_box :offer, { class: 'userform' }, 'true', 'false' %>求人募集タグをつける</label><br />
+     </div>
 
 
-  <div class="field">
-    <%= f.submit "プロフィールを編集", class: 'user button' %>
-  </div>
-<% end %>
+     <div class="field">
+     <%= f.submit "プロフィールを編集", class: 'user button' %>
+     </div>
+     <% end %>
 
 </div>
 
