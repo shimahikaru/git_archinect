@@ -10,9 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_17_043452) do
+ActiveRecord::Schema.define(version: 2018_09_17_061000) do
+
+  create_table "details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.string "image"
+    t.string "title"
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genre_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.boolean "genre1"
+    t.boolean "genre2"
+    t.boolean "genre3"
+    t.boolean "genre4"
+    t.boolean "genre5"
+    t.boolean "genre6"
+    t.boolean "genre7"
+    t.boolean "genre8"
+    t.boolean "genre9"
+    t.boolean "genre10"
+    t.boolean "genre11"
+    t.boolean "genre12"
+    t.boolean "genre13"
+    t.boolean "genre14"
+    t.boolean "genre15"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.string "title", null: false
     t.string "subtitle", null: false
     t.integer "whet", null: false
@@ -69,6 +100,13 @@ ActiveRecord::Schema.define(version: 2018_09_17_043452) do
     t.string "text"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "whole_photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "photo"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

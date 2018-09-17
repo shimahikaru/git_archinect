@@ -1,6 +1,7 @@
 class CreateProducts < ActiveRecord::Migration[5.2]
   def change
     create_table :products do |t|
+      t.integer :user_id, null: false
       t.string :title, null: false
       t.string :subtitle, null: false
       t.integer :whet, null: false

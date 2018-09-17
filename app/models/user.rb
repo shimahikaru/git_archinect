@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
 has_many :tag_works
 accepts_nested_attributes_for :tag_works, allow_destroy: true
+has_many :products
 
 validates :familyname, :firstname, :office, :location, presence: true
 validates :text, length: { maximum: 150 }

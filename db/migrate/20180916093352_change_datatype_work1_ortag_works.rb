@@ -11,6 +11,6 @@ class ChangeDatatypeWork1OrtagWorks < ActiveRecord::Migration[5.2]
   change_column :tag_works, :work9, :boolean
   change_column :tag_works, :work10, :boolean
   change_column :tag_works, :work11, :boolean
-  change_column :tag_works, :work12, :boolean
+
   end
 end
