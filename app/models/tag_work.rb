@@ -2,6 +2,11 @@ class TagWork < ApplicationRecord
 
 belongs_to :user
 
+def work_tag
+  works = [work1, work2, work3, work4, work5, work6, work7, work8, work9, work10, work11]
+  works.compact
+end
+
     def work1
        "戸建て・新築" if self.work1?
     end

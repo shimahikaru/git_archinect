@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_093352) do
+ActiveRecord::Schema.define(version: 2018_09_16_131908) do
 
   create_table "tag_works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "work1"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_093352) do
     t.boolean "offer"
     t.string "url"
     t.string "avatar"
+    t.string "text"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

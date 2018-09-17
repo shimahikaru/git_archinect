@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
-    @work = TagWork.find_by(user_id: current_user.id)
+    work = TagWork.find_by(user_id: current_user.id)
+    @works = work.work_tag
   end
 
   def edit
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
 private
 
 def update_params
-  params.require(:user).permit(:phone, :address, :local, :url, :avatar, :offer, tag_works_attributes:[:work1, :work2, :work3,:work4, :work5, :work6, :work7, :work8, :work9, :work10, :work11, :_destroy, :id])
+  params.require(:user).permit(:phone, :address, :local, :url, :avatar, :offer, :text, tag_works_attributes:[:work1, :work2, :work3,:work4, :work5, :work6, :work7, :work8, :work9, :work10, :work11, :_destroy, :id])
 end
 
 
