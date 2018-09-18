@@ -18,7 +18,6 @@ margin-right: auto;
 
            .image{
                  width: 100%;
-                 max-width: 630px;
                  background-color: red;
                  border-radius: 25px;
                  margin-right: auto;
@@ -32,54 +31,54 @@ margin-right: auto;
                       margin-left: auto;
 
                     .edituser {
-                             a{
-                             text-decoration: none;
-                             font-size: 12px;
-                              }
+                                 a{
+                                  text-decoration: none;
+                                  font-size: 12px;
+                                  }
                               }
 
-                   h4 {
-                       letter-spacing: 0.4em;
-                       margin-bottom: 5px;;
-                       }
+                          h4 {
+                             letter-spacing: 0.4em;
+                             margin-bottom: 5px;;
+                             }
 
-             li{
-                list-style: none;
-                margin-left: -30px;
-                   p {
-                      font-size: 12px;
-                      display: inline-block;
-                      margin: 0;
-                      margin-right: 3px;
-                      line-height: 19px;
-                      background-color: #c5c1c0;
-                      color: #fff;
-                      border-radius: 3px;
+                          li{
+                            list-style: none;
+                            margin-left: -30px;
+
+                                 p {
+                                   font-size: 12px;
+                                   display: inline-block;
+                                   margin: 0;
+                                   margin-right: 3px;
+                                   line-height: 19px;
+                                   background-color: #c5c1c0;
+                                   border-radius: 3px;
+                                   }
+                                 a {
+                                   letter-spacing: 0.3em;
+                                   font-size: 13px;
+                                   }
+                              }
+
+                         text{
+                                p {
+                                  font-size: 13px;
+                                  letter-spacing: 0.3em;
+                                  }
+                             }
+
                       }
-                  a {
-                    letter-spacing: 0.3em;
-                    font-size: 13px;
-                    }
-                 }
-
-                    text{
-                      p {
-                       font-size: 13px;
-                        letter-spacing: 0.3em;
-                        }
-                        }
-
-              }
               // ここまでが.profile
 
         .textarea{
-                p {
-                  letter-spacing: 0.3em;
-                  font-size: 13px;
-                  max-width: 1130px;
-                  margin-left: auto;
-                  margin-right: auto;
-                  }
+                     p {
+                       letter-spacing: 0.3em;
+                       font-size: 13px;
+                       max-width: 1130px;
+                       margin-left: auto;
+                       margin-right: auto;
+                       }
                   }
       }
 // ここまでが .container
@@ -91,7 +90,7 @@ margin-right: auto;
 
 @media (min-width: 768px){
 .user_page{
-            width: 1200px;
+            max-width: 1200px;
 
    .userA{
          display: flex;
@@ -102,6 +101,7 @@ margin-right: auto;
                    }
 
           .profile{
+                   margin-left: 20px;
                    a{
                     font-size: 14px;
                      }

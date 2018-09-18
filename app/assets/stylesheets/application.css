@@ -14,7 +14,10 @@
 *= require_self
 *= require font-awesome
  */
-
+html, body {
+  width: 100%;
+  margin: 0;
+}
 .headA {
   display: inline-block;
   line-height: 70px;
