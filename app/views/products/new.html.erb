@@ -1,45 +1,115 @@
-<%= stylesheet_link_tag    'products', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'product/new', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-<div class="usernew">
+<div class="product_new">
 
-<h2>プロフィール編集</h2>
+<div class="container">
+
+<h3>建築事例を投稿</h3>
 
    <%= form_with(model: [@user, @product], local: true) do |f| %>
 
 
      <div class="field">
-     <%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "タイトル" , class: 'user form' %>
+     <%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "タイトル・物件名" , class: 'product form' %>
      </div>
 
      <div class="field">
-     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle",  placeholder: "サブタイトル", class: 'user form' %>
+     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle",  placeholder: "サブタイトル", class: 'product form' %>
+     </div>
+
+　　　<p><%= f.label :全体の写真 %></p>
+     <%= f.fields_for :whole_photos do |f| %>
+     <div class="field">
+     <%= f.file_field :photo, id: :post_image, autofocus: true, autocomplete: "photo", multiple: true %>
+     </div>
+     <div id="preview"></div>
+     <% end %>
+
+     <div class="field">
+     <p><%= f.label :完成年月 %></p>
+     <%= f.date_select(:completion, {:discard_day => true}, start_year: 2010, end_year:(Time.now.year), :class => " form", default: Date.new(2018, 1 ))  %>
      </div>
 
      <div class="field">
-     <%= f.number_field :whet, autofocus: true, autocomplete: "whet", class: 'user form' %>
+     <p><%= f.label :工期 %></p>
+     <%= f.number_field :whet, autofocus: true, autocomplete: "whet", class: ' form' %>ヶ月
      </div>
 
-
-
      <div class="field">
-     <p><%= f.label :主な勤務地 %></p>
-     <%= f.select :location, Product.locations.keys, placeholder: "選択して下さい", class: 'localform' %><br />
-     <%= f.text_field :lcation2, autofocus: true, autocomplete: "location2", placeholder: "都道府県以降の住所", class: 'user form' %>
+     <p><%= f.label :場所 %></p>
+     <%= f.select :location, Product.locations.keys, placeholder: "選択して下さい", class: 'product form' %><br />
+     <%= f.text_field :lcation2, autofocus: true, autocomplete: "location2", placeholder: "都道府県以降の住所", class: 'product form' %>
      </div>
 
       <div class="field">
-     <%= f.number_field :area, autofocus: true, autocomplete: "area", class: 'user form' %>
+     <%= f.number_field :area, autofocus: true, autocomplete: "area", class: 'form' %>㎡
      </div>
 
+
+
      <p><%= f.label :説明（１５０文字以内） %></p>
-     <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "", class: 'user form text' %>
+     <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "", class: ' text form' %>
+
+     <%= f.fields_for(@product.genre_tag) do |f| %>
+       <div class="field">
+           <p><%= f.label :ジャンル（複数選択可） %></p>
+               <label><%= f.check_box :genre1, { class: 'userform' }, "true", 'false' %>戸建て・新築</label>
+               <label><%= f.check_box :genre2, { class: 'userform' }, "true", 'false' %>リノベーション</label>
+               <label><%= f.check_box :genre3, { class: 'userform' }, "true", 'false' %>商業施設</label>
+               <label><%= f.check_box :genre4, { class: 'userform' }, "true", 'false' %>店舗設計</label>
+               <label><%= f.check_box :genre5, { class: 'userform' }, "true", 'false' %>プロダクトデザイン</label>
+               <label><%= f.check_box :genre6, { class: 'userform' }, "true", 'false' %>家具・照明デザイン</label>
+               <label><%= f.check_box :genre7, { class: 'userform' }, "true", 'false' %>内装設計・管理</label>
+               <label><%= f.check_box :genre8, { class: 'userform' }, "true", 'false' %>家具・照明デザイン</label>
+               <label><%= f.check_box :genre9, { class: 'userform' }, "true", 'false' %>建築・施工管理</label>
+               <label><%= f.check_box :genre10, { class: 'userform' }, "true", 'false' %>空間デザイン</label>
+               <label><%= f.check_box :genre11, { class: 'userform' }, "true", 'false' %>グラフィックデザイン</label>
+        </div>
+     <% end %>
+
+     <%= f.fields_for :details do |f| %>
+     <div class="field">
+     <%= f.file_field :image, :class => "img_create", autofocus: true, autocomplete: "image" %>
      </div>
 
      <div class="field">
-     <%= f.submit "投稿", class: 'user button' %>
+     <%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "場所" , class: 'user form' %>
+     </div>
+
+     <div class="field">
+     <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "詳細", class: ' form text' %>
+     </div>
+     <% end %>
+
+     <div class="field">
+     <%= f.submit "投稿", class: 'product button' %>
      </div>
      <% end %>
 
 </div>
+
+</div>
+
+<script>
+function Filepreview(evt){
+ var files = evt.target.files;
+
+document.getElementById('preview').innerHTML =""
+
+ for(var i = 0; i < 3;i++){
+ var reader = new FileReader();
+ var f = files[i]
+ reader.onload = (function(){
+ return function(e) {
+ var span = document.createElement('span');
+ span.innerHTML= "<img src='" +e.target.result + "'>";
+ document.getElementById('preview').insertBefore(span,null);
+ };
+ })(f);
+ reader.readAsDataURL(f);
+ }
+}
+document.getElementById('post_image').addEventListener('change',Filepreview,false);
+</script>
 
