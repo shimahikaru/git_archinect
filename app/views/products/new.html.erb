@@ -18,13 +18,7 @@
      <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle",  placeholder: "サブタイトル", class: 'product form' %>
      </div>
 
-　　　<p><%= f.label :全体の写真 %></p>
-     <%= f.fields_for :whole_photos do |f| %>
-     <div class="field">
-     <%= f.file_field :photo, id: :post_image, autofocus: true, autocomplete: "photo", multiple: true %>
-<!--      <div id="preview"></div> -->
-     </div>
-     <% end %>
+
 
      <div class="field">
      <p><%= f.label :完成年月 %></p>
@@ -52,37 +46,9 @@
      <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "", class: ' form text' %>
      </div>
 
-     <%= f.fields_for(@product.genre_tag) do |f| %>
-       <div class="field">
-           <p><%= f.label :ジャンル（複数選択可） %></p>
-               <label><%= f.check_box :genre1, { class: 'userform' }, "true", 'false' %>フードショップ・カフェ</label>
-               <label><%= f.check_box :genre2, { class: 'userform' }, "true", 'false' %>クリニック・美容院</label>
-               <label><%= f.check_box :genre3, { class: 'userform' }, "true", 'false' %>ショップ</label>
-               <label><%= f.check_box :genre4, { class: 'userform' }, "true", 'false' %>オフィス・スクール</label>
-               <label><%= f.check_box :genre5, { class: 'userform' }, "true", 'false' %>バー・レストラン・ラウンジ</label>
-               <label><%= f.check_box :genre6, { class: 'userform' }, "true", 'false' %>居酒屋</label>
-               <label><%= f.check_box :genre7, { class: 'userform' }, "true", 'false' %>戸建て・新築</label>
-               <label><%= f.check_box :genre8, { class: 'userform' }, "true", 'false' %>戸建て・リノベーション</label>
-               <label><%= f.check_box :genre9, { class: 'userform' }, "true", 'false' %>マンション・リノベーション</label>
-               <label><%= f.check_box :genre10, { class: 'userform' }, "true", 'false' %>商業施設・その他</label>
-               <label><%= f.check_box :genre11, { class: 'userform' }, "true", 'false' %>住宅・その他</label>
-        </div>
-     <% end %>
 
-     <%= f.fields_for :details do |f| %>
-     <p><%= f.label :部分詳細 %></p>
-     <div class="field">
-     <%= f.file_field :image, :class => "img_create", autofocus: true, autocomplete: "image" %>
-     </div>
 
-     <div class="field">
-     <%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "場所・部分・部屋名など" , class: 'user form' %>
-     </div>
 
-     <div class="field">
-     <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "設備や素材や寸法など詳細を入力して下さい。", class: ' form text' %>
-     </div>
-     <% end %>
 
      <div class="field">
      <%= f.submit "投稿", class: 'product button' %>
