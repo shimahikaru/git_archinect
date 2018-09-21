@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 private
 
 def update_params
-  params.require(:user).permit(:familyname, :firstname, :email, :location, :office, :phone, :address, :local, :url, :avatar, :offer, :text, tag_works_attributes:[:work1, :work2, :work3,:work4, :work5, :work6, :work7, :work8, :work9, :work10, :work11, :_destroy, :id])
+  params.require(:user).permit(:familyname, :firstname, :email, :location, :office, :phone, :address, :local, :url, :avatar, :offer, :text, :avatar_cache, tag_works_attributes:[:work1, :work2, :work3,:work4, :work5, :work6, :work7, :work8, :work9, :work10, :work11, :_destroy, :id])
 end
 
 

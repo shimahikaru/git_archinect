@@ -71,11 +71,12 @@
                     </div>
                <% end %>
 
-
+            <p><%= f.label :部分詳細 %></p>
             <%= f.fields_for :details do |f| %>
-                 <p><%= f.label :部分詳細 %></p>
+
                  <div class="field">
                  <%= f.file_field :image, :class => "img_create", autofocus: true, autocomplete: "image" %>
+                      <%= f.hidden_field :image_cache %>
                  </div>
 
                  <div class="field">

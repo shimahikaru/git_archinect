@@ -22,7 +22,7 @@
                  <li><a><%= fa_icon("link") %></a><a><%= @user.url %></a></li>
                  <% end %>
                  <% if @user.address? %>
-                 <li><a><%= fa_icon("envelope") %></a><a><%= @user.address %></a></li>
+                 <li><a><%= fa_icon("envelope") %></a><a><%= mail_to @user.address, '連絡先' %></a></li>
                  <% end %>
                  <% if @user.phone? %>
                  <li><a><%= fa_icon("phone") %></a><a><%= @user.phone %></a></li>
@@ -31,6 +31,7 @@
                  <text><%= simple_format(@user.text) %></text>
              <% if user_signed_in? && current_user %>
              <div class="edituser" ><%= link_to "プロフィール編集", edit_user_path(current_user) %></div>
+             <div class ="edituser"><%= link_to "作品を投稿", new_user_product_path(user_id: current_user.id) %></div>
              <% end %>
            </nav>
 
