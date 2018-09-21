@@ -17,18 +17,20 @@ margin-right: auto;
                  border: solid 1px #000000;
                  border-radius: 25px;
                  padding: 20px;
-                 text-align: center;
+                 align-items: center;
 
            .swiper-container{
                                   max-width: 900px;
                              }
 
-          .swiper-pagination {
+          .pagination {
+                             width: 200px;
                              margin-right: auto;
                              margin-left: auto;
+                             display: block;
 
                        .swiper-pagination-bullet {
-                                                 margin: 10px;
+                                                 margin: 7px;
                                                  background-color: #000000;
                                                  }
                              }

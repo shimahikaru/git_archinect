@@ -6,16 +6,18 @@
      <div class="container">
 
            <div class="swiper-container">
-
                      <div class="swiper-wrapper">
                          <% @photos.each do | img | %>
                          <%= image_tag img.photo_url(:thumb), :class => "swiper-slide" %>
                          <% end %>
                      </div>
-
            </div>
 
-           <div class="swiper-pagination"></div>
+           <div class="pagination">
+                     <div class="swiper-pagination"></div>
+           </div>
+
+        <%= render partial: 'products/show', locals: { product: @product, genre: @genre } %>
 
      </div>
 

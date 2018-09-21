@@ -24,6 +24,8 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @photos = @product.whole_photos.select(:id, :photo)
+    genre = GenreTag.find_by(product_id: @product.id)
+    @genre = genre.genretag
   end
 
 
