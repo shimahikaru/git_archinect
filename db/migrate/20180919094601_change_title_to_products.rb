@@ -7,6 +7,7 @@ class ChangeTitleToProducts < ActiveRecord::Migration[5.2]
     change_column :Products, :location, :integer, null: true
     change_column :Products, :area, :float, null: true
     change_column :Products, :text, :text, null: true
+
   end
 
   def down
@@ -17,6 +18,7 @@ class ChangeTitleToProducts < ActiveRecord::Migration[5.2]
     change_column :Products, :location, :integer, null: false
     change_column :Products, :area, :float, null: false
     change_column :Products, :text, :text, null: false
+
   end
 end
 

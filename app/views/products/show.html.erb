@@ -1,17 +1,38 @@
 <%= stylesheet_link_tag    'product/show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-<div class="user_page">
+<div class="product_page">
 
+     <div class="container">
 
-   <div class="container">
+           <div class="swiper-container">
 
-         <% @photos.each do | img | %>
-         <%= image_tag img.photo_url(:thumb) %>
-         <% end %>
+                     <div class="swiper-wrapper">
+                         <% @photos.each do | img | %>
+                         <%= image_tag img.photo_url(:thumb), :class => "swiper-slide" %>
+                         <% end %>
+                     </div>
 
+           </div>
 
-   </div>
+           <div class="swiper-pagination"></div>
 
+     </div>
 
 </div>
+
+ <script>
+var mySwiper = new Swiper ('.swiper-container', {
+loop: true,
+spaceBetween: 50,
+slidesPerView: 1,
+
+// ページネーション
+pagination: '.swiper-pagination',
+
+// ナビゲーションボタン
+// nextButton: '.swiper-button-next',
+// prevButton: '.swiper-button-prev',
+
+});
+</script>

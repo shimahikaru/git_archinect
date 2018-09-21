@@ -41,10 +41,10 @@
      <div class="field">
      <p><%= f.label :場所 %></p>
      <%= f.select :location, Product.locations.keys, placeholder: "選択して下さい", class: 'product form' %><br />
-     <%= f.text_field :lcation2, autofocus: true, autocomplete: "location2", placeholder: "都道府県以降の住所", class: 'product form' %>
      </div>
 
       <div class="field">
+     <p><%= f.label :床面積 %></p>
      <%= f.number_field :area, autofocus: true, autocomplete: "area", class: 'form' %>㎡
      </div>
 

@@ -1,0 +1,37 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//product詳細ページ
+
+.product_page{
+display: block;
+margin-top: 80px;
+width: 95%;
+margin-left: auto;
+margin-right: auto;
+
+
+      .container{
+                 display: block;
+                 border: solid 1px #000000;
+                 border-radius: 25px;
+                 padding: 20px;
+                 text-align: center;
+
+           .swiper-container{
+                                  max-width: 900px;
+                             }
+
+          .swiper-pagination {
+                             margin-right: auto;
+                             margin-left: auto;
+
+                       .swiper-pagination-bullet {
+                                                 margin: 10px;
+                                                 background-color: #000000;
+                                                 }
+                             }
+                 }
+
+}
