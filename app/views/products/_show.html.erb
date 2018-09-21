@@ -1,17 +1,18 @@
 <%= stylesheet_link_tag    'product/show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-           <nav class="productA">
-                <ul>
-                  <li><%= product.title %></li>
-                  <li><%= product.subtitle %></li>
-                  <li><%= product.completion %></li>
-                  <li><% genre.each do |genr| %>
-                  <p><a><%= genr %></a></p>
-                  <% end %></li>
-                  <li><%= product.whet %></li>
-                  <li><%= product.location %></li>
-                  <li><%= product.area %></li>
-                  <li><%= simple_format(product.text) %></li>
-                </ul>
-           </nav>
+    <nav class="productA">
+         <ul>
+             <li><a><%= product.title %></a></li>
+             <li><a><%= product.subtitle %></a></li>
+             <li><a><%= product.completion %></a></li>
+             <li><%= link_to product.user.name, user_path(product.user) %></li>
+             <li><% genre.each do |genr| %>
+             <p><a><%= genr %></a></p>
+             <% end %></li>
+             <li><a><%= product.whet %>ヶ月</a></li>
+             <li><a><%= fa_icon("map-pin") %></a><%= link_to product.location, root_path() %></li>
+             <li><a><%= product.area %>㎡<a></li>
+             <li><%= simple_format(product.text) %></li>
+         </ul>
+    </nav>

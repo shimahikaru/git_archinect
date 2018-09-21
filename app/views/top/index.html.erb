@@ -2,14 +2,16 @@
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 <% unless user_signed_in? %>
 <div class="boxtypeA">
-  <h1>Archinect</h1>
-  <div class=container>
-    <div class="button1">
-      <p><%= link_to "新規ユーザー登録", new_user_registration_path %></p>
+    <h1>Archinect</h1>
+    <div class=container>
+          <div class="button1">
+              <p><%= link_to "新規ユーザー登録", new_user_registration_path %></p>
+          </div>
+          <div class="button1 button2">
+              <p><%= link_to "ログイン",  new_user_session_path %></p>
+          </div>
     </div>
-    <div class="button1 button2">
-      <p><%= link_to "ログイン",  new_user_session_path %></p>
-    </div>
-  </div>
 </div>
 <% end %>
+
+

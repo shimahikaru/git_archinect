@@ -21,6 +21,9 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def show
     @product = Product.find(params[:id])
     @photos = @product.whole_photos.select(:id, :photo)

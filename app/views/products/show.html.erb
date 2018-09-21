@@ -4,20 +4,27 @@
 <div class="product_page">
 
      <div class="container">
+           <div class="proA">
+                   <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                           <% @photos.each do | img | %>
+                           <%= image_tag img.photo_url(:thumb), :class => "swiper-slide" %>
+                           <% end %>
+                        </div>
+                   </div>
 
-           <div class="swiper-container">
-                     <div class="swiper-wrapper">
-                         <% @photos.each do | img | %>
-                         <%= image_tag img.photo_url(:thumb), :class => "swiper-slide" %>
-                         <% end %>
-                     </div>
+                   <div class="pagination">
+                           <div class="swiper-pagination"></div>
+                   </div>
            </div>
 
-           <div class="pagination">
-                     <div class="swiper-pagination"></div>
+           <div class="proB">
+                    <%= render partial: 'products/show', locals: { product: @product, genre: @genre } %>
            </div>
 
-        <%= render partial: 'products/show', locals: { product: @product, genre: @genre } %>
+                    <% if  @product.user_id == current_user.id %>
+                    <div class="edituser" ><%= link_to "編集", edit_user_product_path(user_id: @product.user.id, id: @product.id ) %></div>
+                    <% end %>
 
      </div>
 
