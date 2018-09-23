@@ -54,22 +54,14 @@
      <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "", class: ' form text' %>
      </div>
 
-               <%= f.fields_for :genre_tag, @product.genre_tag do |f| %>
-                    <div class="field">
-                       <p><%= f.label :ジャンル（複数選択可） %></p>
-                       <label><%= f.check_box :genre1, { class: 'userform' }, "true", 'false' %>フードショップ・カフェ</label>
-                       <label><%= f.check_box :genre2, { class: 'userform' }, "true", 'false' %>クリニック・美容院</label>
-                       <label><%= f.check_box :genre3, { class: 'userform' }, "true", 'false' %>ショップ</label>
-                        <label><%= f.check_box :genre4, { class: 'userform' }, "true", 'false' %>オフィス・スクール</label>
-                       <label><%= f.check_box :genre5, { class: 'userform' }, "true", 'false' %>バー・レストラン・ラウンジ</label>
-                       <label><%= f.check_box :genre6, { class: 'userform' }, "true", 'false' %>居酒屋</label>
-                       <label><%= f.check_box :genre7, { class: 'userform' }, "true", 'false' %>戸建て・新築</label>
-                       <label><%= f.check_box :genre8, { class: 'userform' }, "true", 'false' %>戸建て・リノベーション</label>
-                       <label><%= f.check_box :genre9, { class: 'userform' }, "true", 'false' %>マンション・リノベーション</label>
-                       <label><%= f.check_box :genre10, { class: 'userform' }, "true", 'false' %>商業施設・その他</label>
-                       <label><%= f.check_box :genre11, { class: 'userform' }, "true", 'false' %>住宅・その他</label>
-                    </div>
-               <% end %>
+     <div class="field">
+     <p><%= f.label :ジャンル（複数選択可） %></p>
+     <% [ "クリニック・美容院", "ショップ", "オフィス・スクール", "バー・レストラン・ラウンジ", "居酒屋", "戸建て・新築", "戸建て・リノベーション", "マンション・リノベーション", "商業施設・その他", "住宅・その他"].each do | tag | %>
+     <label><%= f.check_box :genre,{:multiple => true},tag, nil %>
+       <%= tag %>
+     </label>
+     <% end %>
+     </div>
 
             <p><%= f.label :部分詳細 %></p>
             <%= f.fields_for :details do |f| %>

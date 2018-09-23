@@ -1,14 +1,12 @@
 class ProductsController < ApplicationController
 
  def index
-  @products = Product.joins(:genre_tag).where(genre_tag: { genretag: params[:key_word] } )
-
+  @products = Product.where(location: params[:key_word])
  end
 
   def new
   @product = Product.new
   @user = User.find(current_user.id)
-  @product.build_genre_tag
   2.times { @product.details.build }
   4.times { @product.whole_photos.build }
   @product.user = @user
@@ -21,7 +19,6 @@ class ProductsController < ApplicationController
     else
       @product = Product.new(create_params)
       @user = User.find(current_user.id)
-      @product.build_genre_tag
       render action: :new
     end
   end
@@ -43,7 +40,7 @@ class ProductsController < ApplicationController
   private
 
   def create_params
-    params.require(:product).permit(:title, :subtitle, :whet, :completion, :location, :area, :text, genre_tag_attributes:[:genre1, :genre2, :genre3, :genre4, :genre5, :genre6, :genre7, :genre8, :genre9, :genre10, :genre11], details_attributes:[:image, :title, :text, :image_cache ],whole_photos_attributes:[:photo, :photo_cache] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:title, :subtitle, :whet, :completion, :location, :area, :text, details_attributes:[:image, :title, :text, :image_cache ],whole_photos_attributes:[:photo, :photo_cache], genre: [] ).merge(user_id: current_user.id)
   end
 
 end
