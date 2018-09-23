@@ -8,10 +8,10 @@
              <li><a><%= product.completion %></a></li>
              <li><%= link_to product.user.name, user_path(product.user) %></li>
              <li><% genre.each do |genr| %>
-             <p><a><%= genr %></a></p>
+             <p><%= link_to genr, products_path(key_word: genr) %></p>
              <% end %></li>
              <li><a><%= product.whet %>ヶ月</a></li>
-             <li><a><%= fa_icon("map-pin") %></a><%= link_to product.location, root_path() %></li>
+             <li><a><%= fa_icon("map-pin") %></a><%= link_to product.location, products_path(key_word: product.location) %></li>
              <li><a><%= product.area %>㎡<a></li>
              <li><%= simple_format(product.text) %></li>
          </ul>

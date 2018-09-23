@@ -31,7 +31,7 @@
                  <text><%= simple_format(@user.text) %></text>
              <% if user_signed_in? && current_user %>
              <div class="edituser" ><%= link_to "プロフィール編集", edit_user_path(current_user) %></div>
-             <div class ="edituser"><%= link_to "作品を投稿", new_user_product_path(user_id: current_user.id) %></div>
+             <div class ="edituser"><%= link_to "作品を投稿", new_product_path %></div>
              <% end %>
            </nav>
 

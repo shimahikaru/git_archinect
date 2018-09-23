@@ -1,6 +1,6 @@
 class TopController < ApplicationController
   def index
-    # @product = Product.find
+   @products = Product.all
 
   end
 end

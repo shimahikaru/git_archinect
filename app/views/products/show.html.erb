@@ -19,11 +19,11 @@
            </div>
 
            <div class="proB">
-                    <%= render partial: 'products/show', locals: { product: @product, genre: @genre } %>
+                    <%= render partial: 'products/show', locals: { product: @product, genre: @genre, products: @products } %>
            </div>
 
                     <% if  @product.user_id == current_user.id %>
-                    <div class="edituser" ><%= link_to "編集", edit_user_product_path(user_id: @product.user.id, id: @product.id ) %></div>
+                    <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %></div>
                     <% end %>
 
      </div>

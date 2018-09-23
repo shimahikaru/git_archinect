@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
 
+ def index
+  @products = Product.joins(:genre_tag).where(genre_tag: { genretag: params[:key_word] } )
+
+ end
+
   def new
   @product = Product.new
   @user = User.find(current_user.id)
@@ -29,6 +34,7 @@ class ProductsController < ApplicationController
     @photos = @product.whole_photos.select(:id, :photo)
     genre = GenreTag.find_by(product_id: @product.id)
     @genre = genre.genretag
+    @products = Product.where(location: @product.location)
   end
 
 
