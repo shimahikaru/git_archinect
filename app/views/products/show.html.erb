@@ -6,20 +6,34 @@
      <div class="container">
            <div class="proA">
                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
+
                            <% @photos.each do | img | %>
                            <%= image_tag img.photo_url(:thumb), :class => "swiper-slide" %>
                            <% end %>
-                        </div>
+
                    </div>
 
-                   <div class="pagination">
+<!--                    <div class="pagination">
                            <div class="swiper-pagination"></div>
-                   </div>
+                   </div> -->
            </div>
 
            <div class="proB">
-                    <%= render partial: 'products/show', locals: { product: @product, genre: @genre, products: @products } %>
+                   <nav class="profile">
+                    <ul>
+                      <li><%= @product.title %></li>
+                      <li><a><%= @product.subtitle %></a></li>
+                      <li><a><%= @product.genre %></a></li>
+                      <li><a><% @tags.each do | t | %>
+                      <%= link_to t.genre.tag, search_products_path(key_word: t.genre_id) %>
+                      <% end %></a></li>
+                      <li><a><%= @product.completion %></a></li>
+                      <li><a>場所：<%= @product.location %></a></li>
+                      <li><a>面積：<%= @product.area %>㎡</a></li>
+                      <li><a>工期<%= @product.whet %>ヶ月</a></li>
+                      <li><a><%= @product.text %></a></li>
+                    </ul>
+                   </nav>
            </div>
 
                     <% if  @product.user_id == current_user.id %>
@@ -29,7 +43,7 @@
      </div>
 
 </div>
-
+<!--
  <script>
 var mySwiper = new Swiper ('.swiper-container', {
 loop: true,
@@ -45,3 +59,4 @@ pagination: '.swiper-pagination',
 
 });
 </script>
+ -->

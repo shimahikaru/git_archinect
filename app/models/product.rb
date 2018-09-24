@@ -12,7 +12,7 @@ class Product < ApplicationRecord
   has_many :genres, through: :genre_products
   accepts_nested_attributes_for :genre_products, allow_destroy: true
 
-  validates :user_id, :title, :subtitle, :whet, :completion, :location, :area, :text, presence: true
+  validates :user_id, :title, :subtitle, :whet, :completion, :location, :area, :text, :genre, presence: true
 
   enum genre: {
     クラブ:1, ホテル:2, レストラン:3, ショップ:4, スクール:5, オフィス:6, バー:7, カフェ:8, 居酒屋:9, クリニック:10, ビューティー:11, 戸建て:12, 戸建てリノベーション:13, マンション:14, マンションリノベーション:15, イベント会場:16, その他:17

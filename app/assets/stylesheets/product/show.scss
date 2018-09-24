@@ -7,7 +7,8 @@
 .product_page{
 display: block;
 margin-top: 80px;
-width: 95%;
+width: 99%;
+max-width: 1200px;
 margin-left: auto;
 margin-right: auto;
 
@@ -15,30 +16,28 @@ margin-right: auto;
       .container{
                  display: block;
                  border: solid 1px #000000;
-                 border-radius: 25px;
-                 padding: 20px;
+                 border-radius: 8px;
+                 padding: 8px;
                  align-items: center;
 
            .swiper-container{
-                                  max-width: 900px;
+                                  max-width: 1200px;
                              }
 
-                .pagination {
-                             width: 200px;
-                             margin-right: auto;
-                             margin-left: auto;
-                             display: block;
+                // .swiper-pagination {
+                //              width: 100%;
+                //              margin-right: auto;
+                //              margin-left: auto;
 
-                       .swiper-pagination-bullet {
-                                                 margin: 7px;
-                                                 background-color: #000000;
-                                                 }
-                             }
+                //        .swiper-pagination-bullet {
+                //                                  margin: 7px;
+                //                                  background-color: #000000;
+                //                                  }
+                //              }
 
                     .proB {
                       margin-top: 50px;
 
-                          .productA{
                             li{
                               list-style: none;
                               margin-left: -30px;
@@ -58,12 +57,13 @@ margin-right: auto;
                                       font-size: 13px;
                                       letter-spacing: 0.3em;
                                       color: #000000;
-                                     }
+                                       }
 
                             }
-                          }
+
                     }
 
                  }
+          // ここまでが.container
 
 }

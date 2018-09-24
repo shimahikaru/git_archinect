@@ -1,7 +1,13 @@
 class ProductsController < ApplicationController
 
  def index
+  @products = Product.all
+ end
+
+ def search
   @products = Product.where(location: params[:key_word])
+  productgenre = GenreProduct.where(genre_id: params[:key_word]).select(:product_id)
+  @products = Product.where(id: productgenre)
  end
 
   def new
@@ -29,8 +35,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @photos = @product.whole_photos.select(:id, :photo)
-    genre = GenreTag.find_by(product_id: @product.id)
-    @genre = genre.genretag
+    @tags = @product.genre_products
     @products = Product.where(location: @product.location)
   end
 

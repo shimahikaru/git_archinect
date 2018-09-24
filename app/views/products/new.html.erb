@@ -7,6 +7,10 @@
 
 <h3>建築事例を投稿</h3>
 
+<% unless @product.save %>
+   <p>入力内容を確認してください。</p>
+<% end %>
+
    <%= form_with model:  @product, local: true  do |f| %>
 
 
