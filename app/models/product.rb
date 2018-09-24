@@ -8,10 +8,15 @@ class Product < ApplicationRecord
   has_many :details
   accepts_nested_attributes_for :details, allow_destroy: true
 
-  has_one :genre_tag
-  accepts_nested_attributes_for :genre_tag, allow_destroy: true
+  has_many :genre_products
+  has_many :genres, through: :genre_products
+  accepts_nested_attributes_for :genre_products, allow_destroy: true
 
   validates :user_id, :title, :subtitle, :whet, :completion, :location, :area, :text, presence: true
+
+  enum genre: {
+    クラブ:1, ホテル:2, レストラン:3, ショップ:4, スクール:5, オフィス:6, バー:7, カフェ:8, 居酒屋:9, クリニック:10, ビューティー:11, 戸建て:12, 戸建てリノベーション:13, マンション:14, マンションリノベーション:15, イベント会場:16, その他:17
+  }
 
   enum location: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

@@ -40,7 +40,7 @@
 
      <div class="field">
      <p><%= f.label :場所 %></p>
-     <%= f.select :location, Product.locations.keys, placeholder: "選択して下さい", class: 'product form' %><br />
+     <%= f.select :location, Product.locations.keys, {prompt: '選択してください'}, class: 'product form' %><br />
      </div>
 
       <div class="field">
@@ -55,10 +55,14 @@
      </div>
 
      <div class="field">
-     <p><%= f.label :ジャンル（複数選択可） %></p>
-     <% [ "クリニック・美容院", "ショップ", "オフィス・スクール", "バー・レストラン・ラウンジ", "居酒屋", "戸建て・新築", "戸建て・リノベーション", "マンション・リノベーション", "商業施設・その他", "住宅・その他"].each do | tag | %>
-     <label><%= f.check_box :genre,{:multiple => true},tag, nil %>
-       <%= tag %>
+     <p><%= f.label :ジャンル %></p>
+     <%= f.select :genre, Product.genres.keys, {prompt: '選択してください'}, class: 'product form' %><br />
+     </div>
+
+     <div class="field">
+     <p><%= f.label :関連キーワード（複数選択可） %></p>
+     <label><%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :tag) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
      </label>
      <% end %>
      </div>

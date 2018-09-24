@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
   private
 
   def create_params
-    params.require(:product).permit(:title, :subtitle, :whet, :completion, :location, :area, :text, details_attributes:[:image, :title, :text, :image_cache ],whole_photos_attributes:[:photo, :photo_cache], genre: [] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:title, :subtitle, :whet, :completion, :location, :area, :text, :genre, { :genre_ids=> [] }, details_attributes:[:image, :title, :text, :image_cache ], whole_photos_attributes:[:photo, :photo_cache] ).merge(user_id: current_user.id)
   end
 
 end

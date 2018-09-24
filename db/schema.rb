@@ -10,13 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_24_031802) do
+ActiveRecord::Schema.define(version: 2018_09_24_041814) do
 
   create_table "details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "product_id", null: false
     t.string "image"
     t.string "title"
     t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genre_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_genre_products_on_genre_id"
+    t.index ["product_id"], name: "index_genre_products_on_product_id"
+  end
+
+  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "tag", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -86,6 +101,8 @@ ActiveRecord::Schema.define(version: 2018_09_24_031802) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "genre_products", "genres"
+  add_foreign_key "genre_products", "products"
   add_foreign_key "user_works", "users"
   add_foreign_key "user_works", "works"
 end
