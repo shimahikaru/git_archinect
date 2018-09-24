@@ -10,34 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_025755) do
+ActiveRecord::Schema.define(version: 2018_09_24_031802) do
 
   create_table "details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "product_id", null: false
     t.string "image"
     t.string "title"
     t.string "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "genre_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.boolean "genre1"
-    t.boolean "genre2"
-    t.boolean "genre3"
-    t.boolean "genre4"
-    t.boolean "genre5"
-    t.boolean "genre6"
-    t.boolean "genre7"
-    t.boolean "genre8"
-    t.boolean "genre9"
-    t.boolean "genre10"
-    t.boolean "genre11"
-    t.boolean "genre12"
-    t.boolean "genre13"
-    t.boolean "genre14"
-    t.boolean "genre15"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,22 +36,13 @@ ActiveRecord::Schema.define(version: 2018_09_23_025755) do
     t.string "genre"
   end
 
-  create_table "tag_works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "work1"
-    t.integer "user_id"
+  create_table "user_works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "work_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "work2"
-    t.boolean "work3"
-    t.boolean "work4"
-    t.boolean "work5"
-    t.boolean "work6"
-    t.boolean "work7"
-    t.boolean "work8"
-    t.boolean "work9"
-    t.boolean "work10"
-    t.boolean "work11"
-    t.boolean "work12"
+    t.index ["user_id"], name: "index_user_works_on_user_id"
+    t.index ["work_id"], name: "index_user_works_on_work_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -110,4 +80,12 @@ ActiveRecord::Schema.define(version: 2018_09_23_025755) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "tag", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "user_works", "users"
+  add_foreign_key "user_works", "works"
 end

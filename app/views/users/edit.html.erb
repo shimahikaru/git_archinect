@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag    'devise/user', media: 'all', 'data-turbolinks-track': 'reload' %>
+2<%= stylesheet_link_tag    'devise/user', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 <div class="usernew">
@@ -31,22 +31,13 @@
      <%= f.text_field :local, autofocus: true, autocomplete: "local", placeholder: "都道府県以降の住所", class: 'user form' %>
      </div>
 
-   <%= f.fields_for :tag_works, @user.tag_works do |f| %>
-       <div class="field">
-           <p><%= f.label :仕事内容（複数選択可） %></p>
-               <label><%= f.check_box :work1, { class: 'userform' }, "true", 'false' %>戸建て・新築</label>
-               <label><%= f.check_box :work2, { class: 'userform' }, "true", 'false' %>リノベーション</label>
-               <label><%= f.check_box :work3, { class: 'userform' }, "true", 'false' %>商業施設</label>
-               <label><%= f.check_box :work4, { class: 'userform' }, "true", 'false' %>店舗設計</label>
-               <label><%= f.check_box :work5, { class: 'userform' }, "true", 'false' %>プロダクトデザイン</label>
-               <label><%= f.check_box :work6, { class: 'userform' }, "true", 'false' %>家具・照明デザイン</label>
-               <label><%= f.check_box :work7, { class: 'userform' }, "true", 'false' %>内装設計・管理</label>
-               <label><%= f.check_box :work8, { class: 'userform' }, "true", 'false' %>家具・照明デザイン</label>
-               <label><%= f.check_box :work9, { class: 'userform' }, "true", 'false' %>建築・施工管理</label>
-               <label><%= f.check_box :work10, { class: 'userform' }, "true", 'false' %>空間デザイン</label>
-               <label><%= f.check_box :work11, { class: 'userform' }, "true", 'false' %>グラフィックデザイン</label>
-        </div>
-   <% end %>
+     <div class="field">
+     <p><%= f.label :仕事内容（複数選択可） %></p>
+     <label><%= f.collection_check_boxes(:work_ids, Work.all, :id, :tag) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+     </label>
+     <% end %>
+     </div>
 
      <div class="field">
       <p><%= f.label :メールアドレス %></p>

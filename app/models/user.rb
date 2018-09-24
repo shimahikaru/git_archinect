@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-has_many :tag_works
-accepts_nested_attributes_for :tag_works, allow_destroy: true
+has_many :user_works
+has_many :works, through: :user_works
+accepts_nested_attributes_for :user_works, allow_destroy: true
+# accepts_nested_attributes_for :tag_works, allow_destroy: true
 has_many :products
 
 validates :familyname, :firstname, :office, :location, presence: true

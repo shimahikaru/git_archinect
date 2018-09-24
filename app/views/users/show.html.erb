@@ -14,9 +14,9 @@
                  <ul>
                  <li><h4><%= @user.name %></h4></li>
                  <li><a><%= @user.office %></a></li>
-                 <li><% @works.each do |work| %>
-                   <p><a><%= work %></a></p>
-                   <% end %></li>
+                 <li><a><% @user.user_works.each do | user_work | %>
+                 <%= user_work.work.tag %>
+                 <% end %></a></li>
                  <li><a><%= fa_icon("map-pin") %></a><a><%= @user.location + @user.local %></a></li>
                  <% if @user.url? %>
                  <li><a><%= fa_icon("link") %></a><a><%= @user.url %></a></li>
