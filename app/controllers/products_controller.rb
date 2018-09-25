@@ -1,14 +1,15 @@
 class ProductsController < ApplicationController
 
  def index
-  @products = Product.all
+  @products = Product.select(:id, :location, :category, :completion)
+
  end
 
    def show
     @product = Product.find(params[:id])
     @photos = @product.whole_photos.select(:id, :photo)
     @tags = @product.genre_products
-    @details =@product.details
+    @details = @product.details
   end
 
  def search
