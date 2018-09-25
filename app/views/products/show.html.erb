@@ -5,10 +5,10 @@
 
      <div class="container">
            <div class="proA">
-                   <div class="swiper-container">
+                   <div class="img-container">
 
                            <% @photos.each do | img | %>
-                           <%= image_tag img.photo_url(:thumb), :class => "swiper-slide" %>
+                           <%= image_tag img.photo_url(:thumb), :class => "photos" %>
                            <% end %>
 
                    </div>
@@ -23,17 +23,26 @@
                     <ul>
                       <li><%= @product.title %></li>
                       <li><a><%= @product.subtitle %></a></li>
-                      <li><a><%= @product.genre %></a></li>
-                      <li><a><% @tags.each do | t | %>
-                      <%= link_to t.genre.tag, search_products_path(key_word: t.genre_id) %>
-                      <% end %></a></li>
-                      <li><a><%= @product.completion %></a></li>
-                      <li><a>場所：<%= @product.location %></a></li>
+                      <li><a>カテゴリー：</a><%= link_to @product.category, search_products_path(key_word: @product.category) %></li>
+                      <li><a>キーワード：</a><% @tags.each do | t | %>
+                      <p><%= link_to t.genre.tag, search_products_path(key_word: t.genre_id) %></p>
+                      <% end %></li>
+                      <li><a>完成日：<%= @product.completion %></a></li>
+                      <li><a><%= link_to @product.user.name, user_path(@product.user.id) %></a></li>
+                      <li><a>場所：<%= link_to @product.location, search_products_path(key_word: @product.location) %></a></li>
                       <li><a>面積：<%= @product.area %>㎡</a></li>
-                      <li><a>工期<%= @product.whet %>ヶ月</a></li>
-                      <li><a><%= @product.text %></a></li>
+                      <li><a>工期：<%= @product.whet %>ヶ月</a></li>
+                      <li><text><%= simple_format(@product.text) %></text></li>
                     </ul>
                    </nav>
+           </div>
+
+           <div class="proC">
+                 <% @details.each do |detail| %>
+                  <%=image_tag detail.image_url(:thumb), :class => "photos" %>
+                  <a><%= detail.title %></a>
+                  <%= simple_format(detail.text) %>
+                 <% end %>
            </div>
 
                     <% if  @product.user_id == current_user.id %>

@@ -17,7 +17,7 @@
     <li><%= link_to "MY PAGE", user_path(current_user) %></li>
      <li><a>PHOTOS</a>
      <ul class="inner">
-      <li class="panel-item">ALL</li>
+      <li class="panel-item"><%= link_to "ALL", products_path %></li>
       <li class="panel-item">FOOD・CAFE</li>
       <li class="panel-item">CLINIC・BEAUTY</li>
       <li class="panel-item">SHOP</li>
@@ -30,7 +30,7 @@
     </li>
      <li><a>USERS</a>
       <ul class="inner">
-      <li class="panel-item">ALL</li>
+      <li class="panel-item"><%= link_to "ALL", users_path %></li>
       <li class="panel-item">NEW</li>
       <li class="panel-item">SEARCH</li>
       </ul>

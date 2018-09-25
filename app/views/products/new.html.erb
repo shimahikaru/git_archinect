@@ -59,8 +59,8 @@
      </div>
 
      <div class="field">
-     <p><%= f.label :ジャンル %></p>
-     <%= f.select :genre, Product.genres.keys, {prompt: '選択してください'}, class: 'product form' %><br />
+     <p><%= f.label :カテゴリー %></p>
+     <%= f.select :category, Product.categories.keys, {prompt: '選択してください'}, class: 'product form' %><br />
      </div>
 
      <div class="field">

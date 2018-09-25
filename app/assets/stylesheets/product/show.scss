@@ -20,23 +20,17 @@ margin-right: auto;
                  padding: 8px;
                  align-items: center;
 
-           .swiper-container{
-                                  max-width: 1200px;
-                             }
+                 .proA{
+                      .img-container{
+                                    max-width: 1200px;
+                                    }
+                           .photos {
+                                    width: 100%;
+                                    }
+                      }
 
-                // .swiper-pagination {
-                //              width: 100%;
-                //              margin-right: auto;
-                //              margin-left: auto;
-
-                //        .swiper-pagination-bullet {
-                //                                  margin: 7px;
-                //                                  background-color: #000000;
-                //                                  }
-                //              }
-
-                    .proB {
-                      margin-top: 50px;
+                .proB {
+                       margin-top: 50px;
 
                             li{
                               list-style: none;
@@ -44,11 +38,11 @@ margin-right: auto;
                               margin-bottom: 2px;
 
                                      p {
-                                       font-size: 12px;
+                                       font-size: 10px;
                                        display: inline-block;
                                        margin: 0;
+                                       padding: 1px 3px;
                                        margin-right: 3px;
-                                       line-height: 19px;
                                        background-color: #c5c1c0;
                                        border-radius: 3px;
                                        }
@@ -57,11 +51,19 @@ margin-right: auto;
                                       font-size: 13px;
                                       letter-spacing: 0.3em;
                                       color: #000000;
+                                      text_decoration: none;
+                                       }
+                                  text {
+                                             p {
+                                               background: none;
+                                               font-size: 13px;
+                                               letter-spacing: 0.3em;
+                                               }
                                        }
 
-                            }
-
-                    }
+                               }
+                        }
+                      // ここまでがproB
 
                  }
           // ここまでが.container

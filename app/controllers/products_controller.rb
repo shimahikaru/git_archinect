@@ -4,10 +4,16 @@ class ProductsController < ApplicationController
   @products = Product.all
  end
 
+   def show
+    @product = Product.find(params[:id])
+    @photos = @product.whole_photos.select(:id, :photo)
+    @tags = @product.genre_products
+    @details =@product.details
+  end
+
  def search
-  @products = Product.where(location: params[:key_word])
   productgenre = GenreProduct.where(genre_id: params[:key_word]).select(:product_id)
-  @products = Product.where(id: productgenre)
+  @products = Product.where(location: params[:key_word]).or( Product.where(category: params[:key_word]) ).or( Product.where(id: productgenre) )
  end
 
   def new
@@ -21,10 +27,8 @@ class ProductsController < ApplicationController
   def create
      @product = Product.new(create_params)
     if @product.save
-    redirect_to user_path(current_user) and return
+    redirect_to user_path(current_user)
     else
-      @product = Product.new(create_params)
-      @user = User.find(current_user.id)
       render action: :new
     end
   end
@@ -32,20 +36,10 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  def show
-    @product = Product.find(params[:id])
-    @photos = @product.whole_photos.select(:id, :photo)
-    @tags = @product.genre_products
-    @products = Product.where(location: @product.location)
-  end
-
-
-
-
   private
 
   def create_params
-    params.require(:product).permit(:title, :subtitle, :whet, :completion, :location, :area, :text, :genre, { :genre_ids=> [] }, details_attributes:[:image, :title, :text, :image_cache ], whole_photos_attributes:[:photo, :photo_cache] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:title, :subtitle, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:image, :title, :text, :image_cache ], whole_photos_attributes:[:photo, :photo_cache] ).merge(user_id: current_user.id)
   end
 
 end
