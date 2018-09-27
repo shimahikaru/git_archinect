@@ -11,13 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require nested_form_fields
 //= require jquery.turbolinks
-
-//= require rails-ujs
+//= require jquery-ui
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require swiper
+//= require_tree .
 
 
 

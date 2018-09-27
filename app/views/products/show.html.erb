@@ -4,14 +4,21 @@
 <div class="product_page">
 
      <div class="container">
+      <div class="swiper-container">
            <div class="proA">
-                   <div class="img-container">
+                 <div class="swiper-wrapper">
                       <% @photos.each do | img | %>
-                      <%= image_tag img.photo_url(:thumb), :class => "photos" %>
-                      <% end %>
-                   </div>
+                      <div class="img-container swiper-slide">
+                       <%= image_tag img.photo_url(:thumb), :class => "photos" %>
+                       </div>
+                       <% end %>
+                 </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
 
            </div>
+        </div>
 
            <div class="proB">
                    <nav class="profile">
@@ -50,20 +57,18 @@
      </div>
 
 </div>
-<!--
+
  <script>
-var mySwiper = new Swiper ('.swiper-container', {
-loop: true,
-spaceBetween: 50,
-slidesPerView: 1,
+$( function() {
+var swiper = new Swiper('swiper-container', {
+  direction: 'vertical',
+  speed: 600,
+  loop: true,
 
-// ページネーション
 pagination: '.swiper-pagination',
-
-// ナビゲーションボタン
-// nextButton: '.swiper-button-next',
-// prevButton: '.swiper-button-prev',
-
+nextButton: '.swiper-button-next',
+prevButton: '.swiper-button-prev',
+});
 });
 </script>
- -->
+

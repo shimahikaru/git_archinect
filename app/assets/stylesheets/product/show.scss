@@ -18,16 +18,20 @@ margin-right: auto;
                  border: solid 1px #000000;
                  border-radius: 8px;
                  padding: 8px;
-                 align-items: center;
+
 
                  .proA{
                       .img-container{
-                                    max-width: 1200px;
+                                    width: 100%;
+                                    height: 70vw;
+                                    text-align: center;
                                     }
                            .photos {
-                                    width: 100%;
+                                    height: 100%;
+                                    max-width: 100%;
                                     }
                       }
+
 
                 .proB {
                        margin-top: 30px;

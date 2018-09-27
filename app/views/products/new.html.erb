@@ -7,8 +7,13 @@
 
 <h3>建築事例を投稿</h3>
 
-<% unless @product.save %>
-   <p>入力内容を確認してください。</p>
+<% if @product.errors.any? %>
+    <h3>入力した内容にエラーが<%= @product.errors.count %>件あります</h3>
+
+      <% @product.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+
 <% end %>
 
    <%= form_with model:  @product, local: true  do |f| %>
@@ -23,12 +28,14 @@
      </div>
 
      <p><%= f.label :全体画像 %></p>
-     <%= f.fields_for :whole_photos do |f| %>
+     <%= f.nested_fields_for :whole_photos, wrapper_tag: :div do |f| %>
      <div class="field">
      <%= f.file_field :photo, autofocus: true, autocomplete: "photo" %>
      <%= f.hidden_field :photo_cache %>
+     <%= f.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %>
      </div>
      <% end %>
+     <%= f.add_nested_fields_link :whole_photos, 'Add new', class: 'btn btn-primary', role: 'button' %>
 
 
 
@@ -72,7 +79,7 @@
      </div>
 
             <p><%= f.label :部分詳細 %></p>
-            <%= f.fields_for :details do |f| %>
+            <%= f.nested_fields_for :details, wrapper_tag: :div do |f| %>
 
                  <div class="field">
                  <%= f.file_field :image, :class => "img_create", autofocus: true, autocomplete: "image" %>
@@ -86,7 +93,12 @@
                  <div class="field">
                  <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "設備や素材や寸法など詳細を入力して下さい。", class: ' form text' %>
                  </div>
+
+                 <div class="field">
+                 <%= f.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %>
+                 </div>
             <% end %>
+            <%= f.add_nested_fields_link :details, 'Add new', class: 'btn btn-primary', role: 'button' %>
 
 
 
