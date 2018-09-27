@@ -3,6 +3,7 @@
 
 <div class="product_page">
 
+
      <div class="container">
       <div class="swiper-container">
            <div class="proA">
@@ -43,7 +44,7 @@
               <div class="container-B">
                    <h4>詳細</h4>
                    <% @details.each do |detail| %>
-                   <%=image_tag detail.image_url(:thumb), :class => "photos" %>
+                   <%=image_tag detail.image_url(:thumb), :class => "images" %>
                    <a><%= detail.title %></a>
                    <text><%= simple_format(detail.text) %></text>
                    <% end %>

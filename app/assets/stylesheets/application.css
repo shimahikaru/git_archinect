@@ -39,6 +39,16 @@ header {
   background-color: rgba(255,255,255,0.9);
 }
 
+  header .container-small {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+ .headB {
+  display: none;
+ }
+
 .headB ul {
   margin: 0;
   padding: 0;
@@ -61,21 +71,6 @@ letter-spacing: 0.3em
   display: none;
 }
 
-.panel-item{
-  padding: 10px;
-  font-size: 13px;
-  letter-spacing: 0.3em
-}
-
-@media (max-width: 767px) {
-  header .container-small {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
- .headB {
-  display: none;
- }
  .headC {
   margin-right: 15px;
   padding: none;
@@ -86,12 +81,18 @@ letter-spacing: 0.3em
   opacity: 0.7;
   cursor: pointer;
 }
+
 .headC:hover {
   opacity: 0.3;
 }
 
-
+.panel-item{
+  padding: 10px;
+  font-size: 13px;
+  letter-spacing: 0.3em
 }
+
+
 
 @media (min-width: 768px) {
   header .container {
