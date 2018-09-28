@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .index-container {
 display: block;
 margin-top: 80px;
@@ -10,17 +11,16 @@ margin-left: auto;
 margin-right: auto;
 max-width: 1200px;
 display: flex;
-flex-wrap: wrap;
 
          article {
                  display: block;
-                 border: solid 1px #000000;
+                 border: solid 1px #A9A9A9;
                  border-radius: 8px;
-                 padding: 8px;
+                 padding: 6px;
                  width: 45%;
                  max-width: 400px;
 
-                    .img {
+                    img {
                       width: 100%;
                     }
                  }
