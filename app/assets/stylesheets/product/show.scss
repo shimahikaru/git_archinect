@@ -51,7 +51,13 @@ margin-right: auto;
 
                 .proB {
                        margin-top: 30px;
+                       border-bottom: solid 1px #696969;
+                       padding-bottom: 25px;
 
+                      .profile {
+                        width: 80%;
+                        margin: auto;
+                      }
                             li{
                               list-style: none;
                               margin-left: -30px;
@@ -93,39 +99,31 @@ margin-right: auto;
                         }
                       // ここまでがproB
 
-                .proC {
-                      margin-top: 30px;
-                               .container-B {
-                                          width: 100%;
-                                          height: 50vw;
-                                          max-height: 500px;
+                   .proC {
+                     margin-top: 30px;
+                     text-align: center;
+                     article {
+                      margin-bottom: 20px;
 
 
-                                             .images {
-                                                      height: 100%;
 
-                                                     }
-
-                                                   a {
-                                                     font-size: 13px;
-                                                     letter-spacing: 0.3em;
-                                                     color: #000000;
-                                                     text_decoration: none;
-                                                     }
-
-                                               text {
-                                                       p {
-                                                         background: none;
-                                                         font-size: 12px;
-                                                         letter-spacing: 0.2em;
-                                                         margin-bottom: 50px;
-                                                          }
-                                                     }
-
-                                            }
+                       .photos {
+                        height: 70vw;
+                        max-width: 100%;
+                        min-height: 250px;
+                        max-height: 450px;
+                       }
+                       .text {
+                        width: 80%;
+                        margin: auto;
+                       }
+                      p {
+                        font-size: 12px;
+                        margin: 0 auto;
                       }
-                      // ここまでがproC
-
+                    }
+                   }
+// ここまでがproC
                  }
           // ここまでが.container
 }
@@ -134,8 +132,8 @@ margin-right: auto;
 .product_page{
 max-width: 1200px;
 
-        .container{
-         padding: 20px;
+    .container{
+        padding: 20px;
 
               .proA {
                  .swiper-button-prev,.swiper-container-rtl .swiper-button-next{
@@ -153,9 +151,30 @@ max-width: 1200px;
                   left: auto;
                   }
                }
+               // ここまでがproA
+            .proB{
+              .profile {
+                max-width: 700px;
+                margin-right: auto;
+                margin-left: auto;
+              }
 
-        }
-   }
+            }
+
+            .proC {
+
+              .text {
+                max-width: 700px;
+                margin-right: auto;
+                margin-left: auto;
+              }
+            }
+
+        .container-B {
+             display: flex;
+             }
+      }
+}
 }
 
 

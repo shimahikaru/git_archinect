@@ -38,19 +38,11 @@
                       <li><text><%= simple_format(@product.text) %></text></li>
                     </ul>
                    </nav>
-           </div>
 
-           <div class="proC">
-              <div class="container-B">
-                   <h4>詳細</h4>
-                   <% @details.each do |detail| %>
-                   <%=image_tag detail.image_url(:thumb), :class => "images" %>
-                   <a><%= detail.title %></a>
-                   <text><%= simple_format(detail.text) %></text>
-                   <% end %>
-              </div>
            </div>
-
+<div class="proC">
+<%= render partial: 'products/detail', collection: @details %>
+</div>
                     <% if  @product.user_id == current_user.id %>
                     <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %></div>
                     <% end %>

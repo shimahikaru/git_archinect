@@ -15,9 +15,13 @@
 *= require font-awesome
 *= require swiper
  */
-html, body {
+body {
   width: 100%;
   margin: 0;
+  text-align: center;
+  position: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 .headA {
   display: inline-block;
