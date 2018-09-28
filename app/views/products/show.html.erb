@@ -30,7 +30,7 @@
                       <li><a><%= fa_icon("tag") %></a><% @tags.each do | t | %>
                       <p><%= link_to t.genre.tag, search_products_path(key_word: t.genre_id), :class => "tags" %></p>
                       <% end %></li>
-                      <li><a>完成日：<%= @product.completion %></a></li>
+                      <li><a>完成日：<%= @product.completion.strftime("%Y年%m月") %></a></li>
                       <li><a><%= fa_icon("user") %></a>     <%= link_to @product.user.name, user_path(@product.user.id) %></li>
                       <li><a>場所：<%= link_to @product.location, search_products_path(key_word: @product.location) %></a></li>
                       <li><a>面積：<%= @product.area %>㎡</a></li>
