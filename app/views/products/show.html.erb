@@ -3,23 +3,23 @@
 
 <div class="product_page">
 
+  <div class="container">
+    <div class="proA">
+     <div class=" swiper-container">
+       <div class="swiper-wrapper">
+        <% @photos.each do | img | %>
+          <div class="swiper-slide">
+          <%= image_tag img.photo_url(:thumb), :class => "photos" %>    <!-- Slide-01　コンテンツを挿入する -->
+          </div>
+        <% end %>
+     </div>
 
-     <div class="container">
-      <div class="swiper-container">
-           <div class="proA">
-                 <div class="swiper-wrapper">
-                      <% @photos.each do | img | %>
-                      <div class="img-container swiper-slide">
-                       <%= image_tag img.photo_url(:thumb), :class => "photos" %>
-                       </div>
-                       <% end %>
-                 </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+       <div class="swiper-pagination"></div>
+       <div class="swiper-button-prev"><%= fa_icon("chevron-circle-left") %></div>
+       <div class="swiper-button-next"><%= fa_icon("chevron-circle-right") %></div>
 
-           </div>
-        </div>
+     </div>
+    </div>
 
            <div class="proB">
                    <nav class="profile">
@@ -27,11 +27,11 @@
                       <li><h4><%= @product.title %></h4></li>
                       <li><a><%= @product.subtitle %></a></li>
                       <li><a>カテゴリー：</a><%= link_to @product.category, search_products_path(key_word: @product.category) %></li>
-                      <li><a>キーワード：</a><% @tags.each do | t | %>
-                      <p><%= link_to t.genre.tag, search_products_path(key_word: t.genre_id) %></p>
+                      <li><a><%= fa_icon("tag") %></a><% @tags.each do | t | %>
+                      <p><%= link_to t.genre.tag, search_products_path(key_word: t.genre_id), :class => "tags" %></p>
                       <% end %></li>
                       <li><a>完成日：<%= @product.completion %></a></li>
-                      <li><a><%= link_to @product.user.name, user_path(@product.user.id) %></a></li>
+                      <li><a><%= fa_icon("user") %></a>     <%= link_to @product.user.name, user_path(@product.user.id) %></li>
                       <li><a>場所：<%= link_to @product.location, search_products_path(key_word: @product.location) %></a></li>
                       <li><a>面積：<%= @product.area %>㎡</a></li>
                       <li><a>工期：<%= @product.whet %>ヶ月</a></li>
@@ -60,16 +60,18 @@
 </div>
 
  <script>
-$( function() {
-var swiper = new Swiper('swiper-container', {
-  direction: 'vertical',
+var swiper = new Swiper('.swiper-container', {
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  parallax: true,
   speed: 600,
   loop: true,
-
-pagination: '.swiper-pagination',
-nextButton: '.swiper-button-next',
-prevButton: '.swiper-button-prev',
-});
+  speed: 200,
+  slidesPerView: 1,
+    navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
 </script>
 
