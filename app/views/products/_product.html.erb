@@ -1,13 +1,14 @@
 
 <article>
      <% @photos.each do | top | %>
-   <% if product.id == top.product_id %>
-   <%= link_to image_tag(top.photo_url(:gallery)), product_path(product.id), :class => "img" %>
-   <% end %>
+        <% if product.id == top.product_id %>
+        <%= link_to image_tag(top.photo_url(:gallery)), product_path(product.id), :class => "img" %>
         <% end %>
-
-  <p><%= product.title %></p>
-  <p><%= product.location %></p>
-  <p><%= product.category %></p>
-  <p><%= product.completion %></p>
+     <% end %>
+    <div class="text">
+        <p><%= product.title %></p>
+        <p><%= product.location %></p>
+        <p><%= product.category %></p>
+        <p><%= product.completion %></p>
+     </div>
 </article>

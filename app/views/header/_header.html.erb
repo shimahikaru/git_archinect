@@ -6,40 +6,49 @@
           <div class="container">
             <div class="container-small">
             <%= link_to "Archinect", root_path , :class =>"headA" %>
-                   <% if user_signed_in? %>
-                   <button type="button" class="headC"><%= fa_icon("bars") %></button>
-                   <% end %>
+            <% if user_signed_in? %>
+            <button type="button" class="headC"><%= fa_icon("bars") %></button>
+            <% end %>
             </div>
                    <% if user_signed_in? %>
                    <nav class="headB" id="js-accordion">
                    <ul>
+
                    <li><%= link_to "MY PAGE", user_path(current_user) %></li>
+
                    <li><a>PHOTOS</a>
-                          <ul class="inner">
-                          <li class="panel-item"><%= link_to "ALL", products_path %></li>
-                          <li class="panel-item">FOOD・CAFE</li>
-                          <li class="panel-item">CLINIC・BEAUTY</li>
-                          <li class="panel-item">SHOP</li>
-                          <li class="panel-item">OFFICE・SCHOOL</li>
-                          <li class="panel-item">BAR・RESTAURAN</li>
-                          <li class="panel-item">HOUSE</li>
-                          <li class="panel-item">APARTMENT</li>
-                          <li class="panel-item">SEARCH</li>
-                          </ul>
-                   </li>
-                   <li><a>USERS</a>
-                          <ul class="inner">
-                          <li class="panel-item"><%= link_to "ALL", users_path %></li>
-                          <li class="panel-item">NEW</li>
-                          <li class="panel-item">SEARCH</li>
-                          </ul>
-                   </li>
-                   <li><a>RANKING</a></li>
-                   <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></li>
-                   <li><a>ABOUT</a></li>
-                   </ul>
-                   </nav>
-                   <% end %>
+
+                     <ul class="inner">
+                        <li class="panel-item"><%= link_to "ALL", products_path %></li>
+                        <li class="panel-item"><a>FOOD・CAFE</a></li>
+                        <li class="panel-item"><a>CLINIC・BEAUTY</a></li>
+                        <li class="panel-item"><a>SHOP</a></li>
+                        <li class="panel-item"><a>OFFICE・SCHOOL</a></li>
+                        <li class="panel-item"><a>BAR・RESTAURAN</a></li>
+                        <li class="panel-item"><a>HOUSE</a></li>
+                        <li class="panel-item"><a>APARTMENT</a></li>
+                        <li class="panel-item"><a>SEARCH</a></li>
+                      </ul>
+                    </li>
+
+                    <li><a>USERS</a>
+
+                      <ul class="inner">
+                        <li class="panel-item"><%= link_to "ALL", users_path %></li>
+                        <li class="panel-item"><a>NEW</a></li>
+                        <li class="panel-item"><a>SEARCH</a></li>
+                      </ul>
+                    </li>
+
+                    <li><a>RANKING</a></li>
+
+                    <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></li>
+
+                    <li><a>ABOUT</a></li>
+
+                    </ul>
+                    </nav>
+               <% end %>
             </div>
 </header>
 
@@ -54,7 +63,7 @@ $(function(){
     //.accordion1の中のp要素がクリックされたら
   $('.headB a').click(function(){
     //クリックされた.accordion1の中のp要素に隣接するul要素が開いたり閉じたりする。
-    $(this).next('ul').slideToggle();
+    $(this).next('.inner').slideToggle();
   });
 });
 </script>
