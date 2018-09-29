@@ -5,7 +5,7 @@
 // トップページ
 
 .boxtypeA{
-  margin-top: 80px;
+  margin-top: 70px;
   display: block;
   text-align: center;
 
@@ -19,7 +19,6 @@
  }
 
   .button1{
-
     display: block;
     padding: 2px 10px;
     width: 240px;
@@ -27,6 +26,10 @@
     margin: 5px;
     border-radius: 30px;
     background-color: #ec576b;
+
+      p {
+        margin: 5px 0;
+      }
   }
   .button2 a{
    letter-spacing: 1.2em;

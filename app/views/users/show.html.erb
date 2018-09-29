@@ -1,8 +1,8 @@
 <%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'products', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 <div class="user_page">
-
 
    <div class="container">
 
@@ -35,6 +35,15 @@
            </nav>
 
    </div>
+
+   <% if @user.products.exists? %>
+   <div class="index-container">
+   <%= render partial: 'products/product', collection: @products %>
+   </div>
+   <% else %>
+   <a>まだ投稿がありません。</a>
+   <% end %>
+
 
 
   </div>

@@ -1,8 +1,8 @@
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
 <header>
+  <% if user_signed_in? %>
           <div class="container">
             <div class="container-small">
             <%= link_to "Archinect", root_path , :class =>"headA" %>
@@ -10,7 +10,6 @@
             <button type="button" class="headC"><%= fa_icon("bars") %></button>
             <% end %>
             </div>
-                   <% if user_signed_in? %>
                    <nav class="headB" id="js-accordion">
                    <ul>
 

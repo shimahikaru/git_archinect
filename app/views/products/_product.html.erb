@@ -9,6 +9,6 @@
     <div class="text">
         <p><%= product.title %></p>
         <p><%= product.location %>／<%= product.category %></p>
-        <p><%= product.completion %></p>
+        <p><%= product.completion.strftime("%Y年%m月") %></p>
      </div>
 </article>
