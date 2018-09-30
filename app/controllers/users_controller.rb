@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+
   end
 
   def show
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
-    @user.avatar.cache! unless @user.avatar.blank?
+    # @user.avatar.cache! unless @user.avatar.blank?
   end
 
   def update

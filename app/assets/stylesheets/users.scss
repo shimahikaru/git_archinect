@@ -6,27 +6,31 @@
 .user_page{
 display: block;
 margin-top: 70px;
-width: 98%;
 margin-left: auto;
+width: 100%;
 margin-right: auto;
 
        .container{
                  display: block;
-                 border: solid 1px #A9A9A9;
                  border-radius: 8px;
                  padding: 8px;
+                 width: 100%;
 
        .userA {
-        padding-bottom: 20px;
         margin-bottom: 20px;
-        border-bottom: solid 1px #A9A9A9;
+        border: solid 1px #A9A9A9;
+        border-radius: 5px;
+        width: 96%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5px;
 
            .image{
                  width: 100%;
+                 max-width: 600px;
                  background-color: #696969;
-                 border-radius: 8px;
-                 margin-right: auto;
-                 margin-left: auto;
+                 height: 100%;
+                 max-height: 450px;
                  }
 
             .profile {

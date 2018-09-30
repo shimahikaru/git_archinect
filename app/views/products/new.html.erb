@@ -9,7 +9,6 @@
 
 <% if @product.errors.any? %>
     <h3>入力した内容にエラーが<%= @product.errors.count %>件あります</h3>
-
       <% @product.errors.full_messages.each do |message| %>
         <p><%= message %></p>
       <% end %>

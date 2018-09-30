@@ -1,13 +1,16 @@
 <%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag    'products', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
 <div class="user_page">
 
    <div class="container">
 
       <div class="userA">
-     <%= image_tag @user.avatar.url, :class => "image" %>
+     <% if @user.avatar? %>
+     <%= image_tag @user.avatar.url(:thumb), :class => "image" %>
+     <% else %>
+     <div class="image"></div>
+     <% end %>
 
            <nav class="profile">
                  <ul>
@@ -16,7 +19,11 @@
                  <li><% @tags.each do | t | %>
                  <p><%= link_to t.work.tag, search_users_path(key_word: t.work_id) %></p>
                  <% end %></li>
-                 <li><a><%= fa_icon("map-pin") %></a><a><%= @user.location + @user.local %></a></li>
+                 <% if @user.local? %>
+                 <li><a><%= fa_icon("map-pin") %></a><a><%= @user.location + @user.local%></a></li>
+                 <% else %>
+                 <li><a><%= fa_icon("map-pin") %></a><a><%= @user.location %></a></li>
+                 <% end %>
                  <% if @user.url? %>
                  <li><a><%= fa_icon("link") %></a><a><%= @user.url %></a></li>
                  <% end %>
@@ -28,8 +35,8 @@
                  <% end %>
                  </ul>
                  <text><%= simple_format(@user.text) %></text>
-             <% if user_signed_in? && current_user %>
-             <div class="edituser" ><%= link_to "プロフィール編集", edit_user_path(current_user) %></div>
+             <% if user_signed_in? && @user.id == current_user.id %>
+             <div class="edituser" ><%= link_to "編集", edit_user_path(current_user) %></div>
              <div class ="edituser"><%= link_to "作品を投稿", new_product_path %></div>
              <% end %>
            </nav>

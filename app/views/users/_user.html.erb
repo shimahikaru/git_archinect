@@ -1,1 +1,10 @@
-<%= user.name %>
+<article>
+  <%= link_to image_tag(user.avatar_url(:gallery)), user_path(user.id), :class => "img" %>
+<p><%= user.name %></p>
+<p><%= fa_icon("edit") %><%= user.products.count %>件</p>
+<p><%= fa_icon("tag") %>
+<% user.works.each do |work|%>
+<a><%= work.tag %></a>
+<% end %></p>
+</article>
+
