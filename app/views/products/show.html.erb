@@ -43,7 +43,7 @@
 <div class="proC">
 <%= render partial: 'products/detail', collection: @details %>
 </div>
-                    <% if  @product.user_id == current_user.id %>
+                    <% if user_signed_in? && @product.user_id == current_user.id %>
                     <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %></div>
                     <% end %>
 

@@ -1,10 +1,38 @@
 <article>
-  <%= link_to image_tag(user.avatar_url(:gallery)), user_path(user.id), :class => "img" %>
-<p><%= user.name %></p>
-<p><%= fa_icon("edit") %><%= user.products.count %>件</p>
-<p><%= fa_icon("tag") %>
-<% user.works.each do |work|%>
-<a><%= work.tag %></a>
-<% end %></p>
+  <div class="contentA">
+
+    <div class="imgA">
+    <%= image_tag user.avatar_url(:gallery), :class => "img" %>
+    </div>
+
+    <div class="conA">
+
+      <div class="con1">
+      <p><%= link_to user.name, user_path(user.id) %></p>
+      <p><%= fa_icon("edit") %>
+        <% if user.products.exists?%>
+        <%= link_to user.products.count, search_products_path(user_id: user.id) %>件
+        <% else %>
+          0件
+        <% end %>
+        </p>
+      </div>
+
+      <div class="con2">
+      <p><%= fa_icon("tag") %>
+      <% user.works.each do |work|%>
+      <a><%= work.tag %></a>
+      <% end %></p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="contentB">
+    <% if user.text? %>
+    <p><%= user.text.truncate(50) %></p>
+    <% end %>
+  </div>
 </article>
 

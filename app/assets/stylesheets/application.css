@@ -70,11 +70,11 @@ letter-spacing: 0.3em
 }
 
 .headB li {
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.9);
 }
 
 .headB li:hover{
-  background-color: rgba(255,255,255,0.4);
+  background-color: #ec576b;
 }
 
 .headB .inner{
@@ -123,6 +123,9 @@ li .panel-item a{
 .headB ul {
   display: flex;
   background-color: none;
+}
+li .panel-item {
+  background-color: rgba(255,255,255,0.9);
 }
 
 .headB a {

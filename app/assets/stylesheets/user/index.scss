@@ -13,4 +13,75 @@ margin-right: auto;
 max-width: 1200px;
 display: flex;
 flex-wrap: wrap;
+
+    article {
+    border: solid 1px #A9A9A9;
+    border-radius: 5px;
+    padding: 3px;
+    min-width: 300px;
+    flex: 1 1 300px;
+    margin: 1.5px;
+
+       .contentA {
+        width: 100%;
+        height: 100px;
+        display: flex;
+
+            .imgA {
+              height: 100%;
+                .img {
+                   height: 100%;
+                 }
+             }
+
+             .conA {
+             height: 100%;
+             width: 100%;
+
+               .con1 {
+                display: flex;
+                height: 30%;
+                min-height: 35px;
+
+                  p {
+                   font-size: 14px;
+                   letter-spacing: 0.3em;
+                   margin: 10px;
+                    a {
+                      color: #000;
+                    }
+                  }
+               }
+
+               .con2 {
+                width: 100%;
+                text-align: left;
+                height: 70%;
+                p {
+                  margin: 10px;
+                }
+                  a {
+                    background-color: #c5c1c0;
+                    color: #000000;
+                    font-size: 12px;
+                    padding: 2px 3.5px;
+                    border-radius: 3px;
+                    margin: 0;
+                  }
+               }
+           }
+       }
+
+       .contentB {
+        width: 100%;
+        height: 60px;
+           p {
+            font-size: 12px;
+            letter-spacing: 0.3em;
+           }
+       }
+
+
+
+    }
 }

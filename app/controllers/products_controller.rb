@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
 
  def index
   @products = Product.select(:id, :title, :location, :category, :completion)
@@ -15,7 +16,7 @@ class ProductsController < ApplicationController
 
  def search
   productgenre = GenreProduct.where(genre_id: params[:key_word]).select(:product_id)
-  @products = Product.where(location: params[:key_word]).or( Product.where(category: params[:key_word]) ).or( Product.where(id: productgenre) )
+  @products = Product.where(location: params[:key_word]).or( Product.where(category: params[:key_word]) ).or( Product.where(id: productgenre) ).or( Product.where(user_id: params[:user_id]) )
   @photos = WholePhoto.group(:product_id)
  end
 

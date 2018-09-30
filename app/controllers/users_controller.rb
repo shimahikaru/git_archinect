@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_action :authenticate_user!, only: [:edit, :update]
   def index
     @users = User.all
 
@@ -10,6 +10,9 @@ class UsersController < ApplicationController
     @tags = @user.user_works
     @products = Product.where(user_id: @user.id).select(:id, :title, :location, :category, :completion)
     @photos = WholePhoto.group(:product_id)
+  end
+
+  def search
   end
 
   def edit
