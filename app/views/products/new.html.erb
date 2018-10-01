@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag    'product/new', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 
 <div class="product_new">
 
@@ -7,111 +7,13 @@
 
 <h3>建築事例を投稿</h3>
 
-<% if @product.errors.any? %>
-    <h3>入力した内容にエラーが<%= @product.errors.count %>件あります</h3>
-      <% @product.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
-      <% end %>
-
-<% end %>
-
-   <%= form_with model:  @product, local: true  do |f| %>
+<%= render 'form', product:@product %>
 
 
-     <div class="field">
-     <%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "タイトル・物件名" , class: 'product form' %>
-     </div>
-
-     <div class="field">
-     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle",  placeholder: "サブタイトル", class: 'product form' %>
-     </div>
-
-     <p><%= f.label :全体画像 %></p>
-     <%= f.nested_fields_for :whole_photos, wrapper_tag: :div do |f| %>
-     <div class="field">
-     <%= f.file_field :photo, autofocus: true, autocomplete: "photo" %>
-     <%= f.hidden_field :photo_cache %>
-     <%= f.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %>
-     </div>
-     <% end %>
-     <%= f.add_nested_fields_link :whole_photos, 'Add new', class: 'btn btn-primary', role: 'button' %>
-
-
-
-     <div class="field">
-     <p><%= f.label :完成年月 %></p>
-     <%= f.date_select(:completion, {:discard_day => true}, start_year: 2010, end_year:(Time.now.year), :class => " form", default: Date.new(2018, 1 ))  %>
-     </div>
-
-     <div class="field">
-     <p><%= f.label :工期 %></p>
-     <%= f.number_field :whet, autofocus: true, autocomplete: "whet",  class: ' form' %>ヶ月
-     </div>
-
-     <div class="field">
-     <p><%= f.label :場所 %></p>
-     <%= f.select :location, Product.locations.keys, {prompt: '選択してください'}, class: 'product form' %><br />
-     </div>
-
-      <div class="field">
-     <p><%= f.label :床面積 %></p>
-     <%= f.number_field :area, autofocus: true, autocomplete: "area", class: 'form' %>㎡
-     </div>
-
-
-     <div class="field">
-     <p><%= f.label :説明（１５０文字以内） %></p>
-     <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "", class: ' form text' %>
-     </div>
-
-     <div class="field">
-     <p><%= f.label :カテゴリー %></p>
-     <%= f.select :category, Product.categories.keys, {prompt: '選択してください'}, class: 'product form' %><br />
-     </div>
-
-     <div class="field">
-     <p><%= f.label :関連キーワード（複数選択可） %></p>
-     <label><%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :tag) do |b| %>
-      <%= b.label { b.check_box + b.text } %>
-     </label>
-     <% end %>
-     </div>
-
-            <p><%= f.label :部分詳細 %></p>
-            <%= f.nested_fields_for :details, wrapper_tag: :div do |f| %>
-
-                 <div class="field">
-                 <%= f.file_field :image, :class => "img_create", autofocus: true, autocomplete: "image" %>
-                      <%= f.hidden_field :image_cache %>
-                 </div>
-
-                 <div class="field">
-                 <%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "場所・部分・部屋名など" , class: 'user form' %>
-                 </div>
-
-                 <div class="field">
-                 <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "設備や素材や寸法など詳細を入力して下さい。", class: ' form text' %>
-                 </div>
-
-                 <div class="field">
-                 <%= f.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %>
-                 </div>
-            <% end %>
-            <%= f.add_nested_fields_link :details, 'Add new', class: 'btn btn-primary', role: 'button' %>
-
-
-
-        <div class="field">
-        <%= f.submit "投稿", class: 'product button' %>
-        </div>
-
-
-
-   <% end %>
-
+　</div>
 </div>
 
-</div>
+
 
 
 

@@ -1,0 +1,87 @@
+
+<% if @product.errors.any? %>
+    <h3>入力した内容にエラーが<%= @product.errors.count %>件あります</h3>
+      <% @product.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+
+<% end %>
+
+   <%= form_with model:  @product, local: true  do |f| %>
+
+
+     <div class="field">
+     <%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "タイトル・物件名" , class: 'product form' %>
+     </div>
+
+     <div class="field">
+     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle",  placeholder: "サブタイトル", class: 'product form' %>
+     </div>
+
+
+     <p><%= f.label :全体画像 %></p>
+     <div class="field">
+      <%= f.fields_for :whole_photos do |whole_photo| %>
+        <%= render 'whole_photo_fields', f: whole_photo %>
+      <% end %>
+      <div class="links">
+      <%= link_to_add_association '追加',f, :whole_photos %>
+     </div>
+     </div>
+
+
+     <div class="field">
+     <p><%= f.label :完成年月 %></p>
+     <%= f.date_select(:completion, {:discard_day => true}, start_year: 2010, end_year:(Time.now.year), :class => " form", default: Date.new(2018, 1 ))  %>
+     </div>
+
+     <div class="field">
+     <p><%= f.label :工期 %></p>
+     <%= f.number_field :whet, autofocus: true, autocomplete: "whet",  class: ' form' %>ヶ月
+     </div>
+
+     <div class="field">
+     <p><%= f.label :場所 %></p>
+     <%= f.select :location, Product.locations.keys, {prompt: '選択してください'}, class: 'product form' %><br />
+     </div>
+
+      <div class="field">
+     <p><%= f.label :床面積 %></p>
+     <%= f.number_field :area, autofocus: true, autocomplete: "area", class: 'form' %>㎡
+     </div>
+
+
+     <div class="field">
+     <p><%= f.label :説明（１５０文字以内） %></p>
+     <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "", class: ' form text' %>
+     </div>
+
+     <div class="field">
+     <p><%= f.label :カテゴリー %></p>
+     <%= f.select :category, Product.categories.keys, {prompt: '選択してください'}, class: 'product form' %><br />
+     </div>
+
+     <div class="field">
+     <p><%= f.label :関連キーワード（複数選択可） %></p>
+     <label><%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :tag) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+     </label>
+     <% end %>
+     </div>
+
+     <p><%= f.label :部分詳細 %></p>
+     <div class="field">
+     <%= f.fields_for :details do |detail| %>
+     <%= render 'detail_fields', f: detail %>
+     <% end %>
+     <div class="links">
+     <%= link_to_add_association '追加',f, :details %>
+     </div>
+     </div>
+
+
+        <div class="field">
+        <%= f.submit "投稿", class: 'product button' %>
+        </div>
+
+    <% end %>

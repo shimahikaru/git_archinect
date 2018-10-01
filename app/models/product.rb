@@ -3,10 +3,10 @@ class Product < ApplicationRecord
   belongs_to :user
 
   has_many :whole_photos, inverse_of: :product
-  accepts_nested_attributes_for :whole_photos, allow_destroy: true
+  accepts_nested_attributes_for :whole_photos, reject_if: :all_blank, allow_destroy: true
 
   has_many :details, inverse_of: :product
-  accepts_nested_attributes_for :details, allow_destroy: true
+  accepts_nested_attributes_for :details, reject_if: :all_blank, allow_destroy: true
 
   has_many :genre_products
   has_many :genres, through: :genre_products

@@ -1,0 +1,8 @@
+
+<div class="nested-fields">
+<%= f.file_field :image, :class => "img_create", autofocus: true, autocomplete: "image" %>
+<%= f.hidden_field :image_cache %>
+<%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "場所・部分・部屋名など" , class: 'user form' %>
+<%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "設備や素材や寸法など詳細を入力して下さい。", class: ' form text' %>
+<%= link_to_remove_association "行削除", f %>
+</div>
