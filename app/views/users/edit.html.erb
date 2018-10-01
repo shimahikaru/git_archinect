@@ -1,4 +1,4 @@
-2<%= stylesheet_link_tag    'devise/user', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'devise/user', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 <div class="usernew">
@@ -32,7 +32,7 @@
      </div>
 
      <div class="field">
-     <p><%= f.label :仕事内容（複数選択可） %></p>
+     <p><%= f.label :仕事内容（4つまで選択可） %></p>
      <label><%= f.collection_check_boxes(:work_ids, Work.all, :id, :tag) do |b| %>
       <%= b.label { b.check_box + b.text } %>
      </label>
@@ -76,4 +76,14 @@
      <% end %>
 
 </div>
+
+<script>
+  jQuery('input[type=checkbox]').click(function(){
+    var checked = jQuery('input[type=checkbox]:checked').length;
+    if (checked > 5) {
+      jQuery(this).prop("checked",false);
+      alert('選択は4つまでです。');
+    }
+  });
+</script>
 

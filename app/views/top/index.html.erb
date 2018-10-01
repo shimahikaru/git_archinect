@@ -1,19 +1,21 @@
 <%= stylesheet_link_tag    'top', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag    'products', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-<% unless user_signed_in? %>
+
 <div class="boxtypeA">
     <h1>Archinect</h1>
+  <p>建築家・建築好きな人のためのウェブサイト</p>
+    <% unless user_signed_in? %>
     <div class="container">
           <div class="button1">
-              <p><%= link_to "新規ユーザー登録", new_user_registration_path %></p>
+              <p><%= link_to "アカウント作成", new_user_registration_path %></p>
           </div>
           <div class="button1 button2">
               <p><%= link_to "ログイン",  new_user_session_path %></p>
           </div>
     </div>
+    <% end %>
 </div>
-<% end %>
 
 <div class="index-container">
 <%= render partial: 'products/product', collection: @products %>

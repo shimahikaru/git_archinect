@@ -12,7 +12,10 @@ class Product < ApplicationRecord
   has_many :genres, through: :genre_products
   accepts_nested_attributes_for :genre_products, allow_destroy: true
 
-  validates :user_id, :title, :subtitle, :whet, :completion, :location, :area, :text, :category, presence: true
+  validates :user_id, :title, :subtitle, :whet, :completion, :location, :area, :category, presence: true
+
+  validates :text, length: { in: 50..300 }
+  validates :title, :subtitle, length: { maximum: 20 }
 
   enum category: {
     "ホテル・ラウンジ":1, ショップ:2, "オフィス・スクール":3, "バー・クラブ":4, "カフェ・レストラン":5, 居酒屋:6, "クリニック・ビューティー":7, "戸建て新築・リノベーション":8, マンションリノベーション:9, イベント会場:10, その他:11
@@ -28,6 +31,16 @@ class Product < ApplicationRecord
     徳島県:36,香川県:37,愛媛県:38,高知県:39,
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47,海外:48
   }
+
+
+
+def self.search(search)
+    if search
+      where(['title LIKE ?', "%#{search}%"]) || where(['subtitle LIKE ?', "%#{search}%"]) || where(['text LIKE ?', "%#{search}%"]) || where(['location LIKE ?', "%#{search}%"]) || where(['completion LIKE ?', "%#{search}%"]) || where(['category LIKE ?', "%#{search}%"])  #検索とnameの部分一致を表示。User.は省略
+    else
+      all #全て表示。User.は省略
+    end
+  end
 
 
 

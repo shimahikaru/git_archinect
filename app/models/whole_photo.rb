@@ -5,4 +5,6 @@ class WholePhoto < ApplicationRecord
     validates :photo, presence: true
 
 
+
+
 end

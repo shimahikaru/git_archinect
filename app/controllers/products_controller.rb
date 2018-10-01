@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
  def index
-  @products = Product.select(:id, :title, :location, :category, :completion)
+  @products = Product.search(params[:search]).select(:id, :title, :location, :category, :completion)
   @photos = WholePhoto.group(:product_id)
  end
 

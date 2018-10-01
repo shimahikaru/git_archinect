@@ -23,11 +23,32 @@
                            letter-spacing: 0.2em;
                            }
 
+                    .field.photo{
+                      min-width: 250px;
+                        .nested-fields {
+                            a {
+                            margin-left: -35px;
+                             }
+                         }
+                     }
+
                          .field {
                                  margin: 25px auto;
                                  width: 90%;
                                  max-width: 300px;
                                  text-align: center;
+                                    .links {
+                                         a  {
+                                         color: #ec576b;
+                                         font-size: 25px;
+                                          }
+                                    }
+                                    .nested-fields {
+                                           a {
+                                            font-size: 25px;
+                                            color: #A9A9A9;
+                                           }
+                                    }
 
                                     .form {
                                           height: 25px;
