@@ -11,11 +11,11 @@
 
 
      <div class="field">
-     <%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "タイトル・物件名(20文字以下)" , class: 'product form' %>
+     <%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "タイトル・物件名(15文字以下)" , class: 'product form' %>
      </div>
 
      <div class="field">
-     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle",  placeholder: "サブタイトル(20文字以下)", class: 'product form' %>
+     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle",  placeholder: "サブタイトル(30文字以下)", class: 'product form' %>
      </div>
 
 
@@ -25,7 +25,7 @@
         <%= render 'whole_photo_fields', f: whole_photo %>
       <% end %>
       <div class="links">
-      <%= link_to_add_association fa_icon("plus-circle"),f, :whole_photos %>
+      <%= link_to_add_association fa_icon("plus-circle"),f, :whole_photos, id: 'add-link' %>
      </div>
      </div>
 

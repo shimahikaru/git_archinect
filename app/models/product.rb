@@ -17,7 +17,8 @@ class Product < ApplicationRecord
   validates :user_id, :title, :subtitle, :whet, :completion, :location, :area, :category, presence: true
 
   validates :text, length: { in: 50..300 }
-  validates :title, :subtitle, length: { maximum: 20 }
+  validates :title, length: { maximum: 15 }
+  validates :subtitle, length: { maximum: 30 }
 
   enum category: {
     "ホテル・ラウンジ":1, ショップ:2, "オフィス・スクール":3, "バー・クラブ":4, "カフェ・レストラン":5, 居酒屋:6, "クリニック・ビューティー":7, "戸建て新築・リノベーション":8, マンションリノベーション:9, イベント会場:10, その他:11

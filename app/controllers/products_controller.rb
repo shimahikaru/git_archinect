@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
   @photos = WholePhoto.group(:product_id)
  end
 
+
   def new
   @product = Product.new
   @user = User.find(current_user.id)
@@ -41,7 +42,7 @@ class ProductsController < ApplicationController
 
   def edit
   @product = Product.find(params[:id])
-   @user = current_user
+  @user = current_user
      # @product.whole_photos.photo.cache! unless @product.whole_photos.photo.blank?
      #   @product.details.image.cache! unless @product.details.image.blank?
   end
@@ -64,7 +65,7 @@ class ProductsController < ApplicationController
   end
 
   def update_params
-    params.require(:product).permit(:title, :subtitle, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache, :_destroy] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:title, :subtitle, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache,:_destroy] ).merge(user_id: current_user.id)
   end
 
 
