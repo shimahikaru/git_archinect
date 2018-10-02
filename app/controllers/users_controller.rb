@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 before_action :authenticate_user!, only: [:edit, :update]
   def index
     @users = User.all
-
   end
 
   def show
@@ -33,7 +32,7 @@ before_action :authenticate_user!, only: [:edit, :update]
 private
 
 def update_params
-  params.require(:user).permit(:familyname, :firstname, :email, :location, :office, :phone, :address, :local, :url, :avatar, :offer, :text, :avatar_cache, { :work_ids=> [] })
+  params.require(:user).permit(:familyname, :firstname, :email, :location, :office, :phone, :address, :local, :url, :avatar, :offer, :text, :avatar_cache,:remove_avatar, { :work_ids=> [] })
 end
 
 

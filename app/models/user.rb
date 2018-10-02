@@ -8,9 +8,12 @@ has_many :user_works
 has_many :works, through: :user_works
 accepts_nested_attributes_for :user_works, allow_destroy: true
 # accepts_nested_attributes_for :tag_works, allow_destroy: true
-has_many :products
+has_many :products, ->{ order("created_at DESC")}
 
-validates :familyname, :firstname, :office, :location, presence: true
+has_many :comments, ->{ order("updated_at DESC") }
+has_many :commented_products, through: :comments, source: :product
+
+validates :familyname, :firstname, :location, presence: true
 validates :text, length: { maximum: 150 }
 
 mount_uploader :avatar, AvatarsUploader

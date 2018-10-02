@@ -12,6 +12,8 @@ class Product < ApplicationRecord
   has_many :genres, through: :genre_products
   accepts_nested_attributes_for :genre_products, allow_destroy: true
 
+  has_many :comments
+
   validates :user_id, :title, :subtitle, :whet, :completion, :location, :area, :category, presence: true
 
   validates :text, length: { in: 50..300 }

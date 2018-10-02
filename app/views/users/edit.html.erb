@@ -56,7 +56,11 @@
 
      <div class="field">
      <p><%= f.label :プロフィール画像 %></p>
-     <%= f.file_field :avatar, autofocus: true %>
+     <% if @user.avatar? %>
+     <%= image_tag @user.avatar_url(:gallery), id: :avatar_prev, :class => "img" %>
+     <p><%= f.check_box :remove_avatar %>画像を削除する</p>
+     <% end %>
+     <%= f.file_field :avatar, autofocus: true , id: :user_avatar %>
      <%= f.hidden_field :avatar_cache %>
      </div>
 
@@ -85,5 +89,22 @@
       alert('選択は4つまでです。');
     }
   });
+</script>
+
+<script>
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#avatar_prev').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#user_avatar").change(function(){
+   readURL(this);
+ });
+});
 </script>
 

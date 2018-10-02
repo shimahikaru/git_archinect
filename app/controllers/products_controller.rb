@@ -11,6 +11,8 @@ class ProductsController < ApplicationController
     @photos = @product.whole_photos.select(:id, :photo)
     @tags = @product.genre_products
     @details = @product.details
+    @comment = Comment.new
+    @comment.product_id = @product.id
   end
 
  def search

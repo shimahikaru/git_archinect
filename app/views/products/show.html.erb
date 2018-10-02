@@ -37,17 +37,33 @@
                       <li><text><%= simple_format(@product.text) %></text></li>
                     </ul>
                    </nav>
-
            </div>
-<div class="proC">
-<%= render partial: 'products/detail', collection: @details %>
-</div>
+   <div class="proC">
+   <%= render partial: 'products/detail', collection: @details %>
+   </div>
                     <% if user_signed_in? && @product.user_id == current_user.id %>
                     <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %></div>
                     <% end %>
 
-     </div>
+  <% if user_signed_in? %>
+   <%= form_with model:  @comment, local: true  do |f| %>
 
+    <div class="field">
+    <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "コメント（１５０文字以内）" , class: 'product form' %>
+    </div>
+
+    <div class="field">
+    <%= f.hidden_field :product_id %>
+    <%= f.submit "投稿", class: 'product button' %>
+    </div>
+    <% end %>
+  <% else %>
+  <p>コメントを投稿するには<%= link_to "ログイン", new_user_session_path %>して下さい。</p>
+  <% end %>
+
+   <%= render partial: 'comments/comment', collection: @product.comments %>
+
+     </div>
 </div>
 
  <script>

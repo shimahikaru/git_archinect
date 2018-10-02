@@ -36,8 +36,8 @@
                  </ul>
                  <text><%= simple_format(@user.text) %></text>
              <% if user_signed_in? && @user.id == current_user.id %>
+             <div class ="edituser post"><%= link_to "プロジェクトを投稿", new_product_path %></div>
              <div class="edituser" ><%= link_to "編集", edit_user_path(current_user) %></div>
-             <div class ="edituser"><%= link_to "作品を投稿", new_product_path %></div>
              <% end %>
            </nav>
 
@@ -47,10 +47,17 @@
    <div class="index-container">
    <%= render partial: 'products/product', collection: @products %>
    </div>
+   <%= link_to "もっと見る", search_products_path(user_id: @user.id) %>
    <% else %>
    <a>まだ投稿がありません。</a>
    <% end %>
 
+   <% if @user.commented_products.exists? %>
+    <div class="index-container">
+   <%= render partial: 'products/product', collection: @user.commented_products %>
+   </div>
+   <%= link_to "もっと見る", search_comments_path(id: @user.id) %>
+   <% end %>
 
 
   </div>

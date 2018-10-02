@@ -20,11 +20,6 @@
   </div>
 
     <div class="field">
-  <p><%= f.label :所属 %></p>
-    <%= f.text_field :office, autofocus: true, autocomplete: "office",  placeholder: "会社名・学校名", class: 'user form' %>
-    </div>
-
-    <div class="field">
   <p><%= f.label :"主な勤務地・居住地" %></p>
   <%= f.select :location, User.locations.keys, {prompt: '選択してください'}, class: 'user btn-info' %>
    </div>
