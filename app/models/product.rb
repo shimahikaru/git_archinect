@@ -12,7 +12,7 @@ class Product < ApplicationRecord
   has_many :genres, through: :genre_products
   accepts_nested_attributes_for :genre_products, allow_destroy: true
 
-  has_many :comments
+  has_many :comments, ->{ order("updated_at DESC")}
 
   validates :user_id, :title, :subtitle, :whet, :completion, :location, :area, :category, presence: true
 

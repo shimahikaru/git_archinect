@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag    'product/show', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+<%= stylesheet_link_tag    'product/comment', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="product_page">
   <div class="container">
@@ -29,11 +29,11 @@
                       <li><a><%= fa_icon("tag") %></a><% @tags.each do | t | %>
                       <p><%= link_to t.genre.tag, search_products_path(key_word: t.genre_id), :class => "tags" %></p>
                       <% end %></li>
-                      <li><a>完成日：<%= @product.completion.strftime("%Y年%m月") %></a></li>
-                      <li><a><%= fa_icon("user") %></a>     <%= link_to @product.user.name, user_path(@product.user.id) %></li>
+                      <li><a>完成：<%= @product.completion.strftime("%Y年%m月") %></a></li>
                       <li><a>場所：<%= link_to @product.location, search_products_path(key_word: @product.location) %></a></li>
                       <li><a>面積：<%= @product.area %>㎡</a></li>
                       <li><a>工期：<%= @product.whet %>ヶ月</a></li>
+                      <li><a><%= fa_icon("user") %></a>     <%= link_to @product.user.name, user_path(@product.user.id) %></li>
                       <li><text><%= simple_format(@product.text) %></text></li>
                     </ul>
                    </nav>
@@ -50,20 +50,21 @@
    <%= form_with model:  @comment, local: true  do |f| %>
 
     <div class="field">
-    <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "コメント（１５０文字以内）" , class: 'product form' %>
+    <%= f.text_area :text, autofocus: true, autocomplete: "text",  placeholder: "コメント（１５０文字以内）" , class: ' form' %>
     </div>
 
     <div class="field">
     <%= f.hidden_field :product_id %>
-    <%= f.submit "投稿", class: 'product button' %>
+    <%= f.submit "投稿", class: 'post btn' %>
     </div>
     <% end %>
   <% else %>
   <p>コメントを投稿するには<%= link_to "ログイン", new_user_session_path %>して下さい。</p>
   <% end %>
 
+　　<div class="count"><p>コメント数：（<%= @product.comments.count %>）</p></div>
    <%= render partial: 'comments/comment', collection: @product.comments %>
- </div>
+   </div>
 
      </div>
 </div>

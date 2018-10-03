@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <%= stylesheet_link_tag    'products', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="user_page">
@@ -44,7 +45,7 @@
 
    <% if @user.products.exists? %>
    <div class="userB">
-   <p>プロジェクト</p>
+   <p>プロジェクト：（<%= @user.products.count %>）</p>
    <div class="index-container">
    <%= render partial: 'products/product', collection: @products %>
    </div>
@@ -58,7 +59,7 @@
    <div class="userB">
     <p>コメント済み</p>
     <div class="index-container">
-   <%= render partial: 'products/product', collection: @user.commented_products %>
+   <%= render partial: 'products/product', collection: @user.commented_products.distinct %>
    </div>
    <button class="btn"><%= link_to "コメント済みプロジェクトをもっと見る", search_comments_path(id: @user.id) %><a><%= fa_icon("angle-double-right icon") %></a></button>
    </div>

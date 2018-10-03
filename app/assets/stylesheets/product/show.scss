@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //product詳細ページ
-
 .product_page{
 display: block;
 margin-top: 70px;
@@ -11,7 +10,6 @@ width: 99%;
 min-width: 330px;
 margin-left: auto;
 margin-right: auto;
-
 
       .container{
                  display: block;
@@ -51,7 +49,7 @@ margin-right: auto;
 
                 .proB {
                        margin-top: 30px;
-                       border-bottom: solid 0.7px #A9A9A9;
+                       border-bottom: solid 0.7px #DDDDDD;
                        padding-bottom: 25px;
 
                       .profile {
@@ -61,7 +59,7 @@ margin-right: auto;
                             li{
                               list-style: none;
                               margin-left: -30px;
-                              margin-bottom: 2px;
+                              margin-bottom: 5px;
 
                                      p {
                                        font-size: 10px;
@@ -88,7 +86,7 @@ margin-right: auto;
 
                                   text {
                                              p {
-                                               margin-top: 15px;
+                                               margin: 20px auto;
                                                background: none;
                                                font-size: 12px;
                                                letter-spacing: 0.2em;
@@ -102,7 +100,7 @@ margin-right: auto;
                    .proC {
                      margin-top: 40px;
                      text-align: center;
-                     border-bottom: solid 0.7px #A9A9A9;
+                     border-bottom: solid 0.7px #DDDDDD;
                      article {
                       margin-bottom: 35px;
 
@@ -117,7 +115,7 @@ margin-right: auto;
                         margin: auto;
                        }
                        h5 {
-                        margin: 5px auto;
+                        margin: 15px auto;
                        }
                       p {
                         font-size: 12px;
@@ -130,9 +128,9 @@ margin-right: auto;
                    .proD{
                      margin-top: 40px;
 
-                       p {
-                        font-size: 14px;
-                       }
+                      .count {
+                        border-bottom: solid 0.7px #DDDDDD;
+                      }
                    }
                  }
           // ここまでが.container

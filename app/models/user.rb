@@ -11,7 +11,7 @@ accepts_nested_attributes_for :user_works, allow_destroy: true
 has_many :products, ->{ order("created_at DESC")}
 
 has_many :comments, ->{ order("updated_at DESC") }
-has_many :commented_products, through: :comments, source: :product
+has_many :commented_products, ->{ order("updated_at DESC") }, through: :comments, source: :product
 
 validates :familyname, :firstname, :location, presence: true
 validates :text, length: { maximum: 150 }
