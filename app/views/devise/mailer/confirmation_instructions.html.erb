@@ -1,5 +1,9 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome<%= @name %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Archinectをご利用いただきありがとうございます。</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>仮登録が完了しました。<br/>下記URLにアクセスし、会員登録手続きを完了してください。</p>
+
+<p><%= link_to 'アカウント本登録', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+※会員登録後、マイページからプロフィールの編集が出来ます。

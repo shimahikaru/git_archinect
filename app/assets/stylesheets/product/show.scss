@@ -102,10 +102,9 @@ margin-right: auto;
                    .proC {
                      margin-top: 40px;
                      text-align: center;
+                     border-bottom: solid 0.7px #A9A9A9;
                      article {
                       margin-bottom: 35px;
-
-
 
                        .photos {
                         height: 70vw;
@@ -127,6 +126,14 @@ margin-right: auto;
                     }
                    }
 // ここまでがproC
+
+                   .proD{
+                     margin-top: 40px;
+
+                       p {
+                        font-size: 14px;
+                       }
+                   }
                  }
           // ここまでが.container
 }

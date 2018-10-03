@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag    'product/show', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 
 <div class="product_page">
   <div class="container">
@@ -45,6 +45,7 @@
                     <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %></div>
                     <% end %>
 
+  <div class="proD">
   <% if user_signed_in? %>
    <%= form_with model:  @comment, local: true  do |f| %>
 
@@ -62,6 +63,7 @@
   <% end %>
 
    <%= render partial: 'comments/comment', collection: @product.comments %>
+ </div>
 
      </div>
 </div>
