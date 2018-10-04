@@ -1,4 +1,4 @@
-
+<div class="swiper-slide">
 <article>
      <% @photos.each do | top | %>
         <% if product.id == top.product_id %>
@@ -12,4 +12,5 @@
         <p><%= product.completion.strftime("%Y-%m") %>  <%= fa_icon("comments") %>（<%= product.comments.count %>）</p>
      </div>
 </article>
+</div>
 

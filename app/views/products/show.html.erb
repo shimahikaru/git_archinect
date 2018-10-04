@@ -25,12 +25,12 @@
                     <ul>
                       <li><h4><%= @product.title %></h4></li>
                       <li><a><%= @product.subtitle %></a></li>
-                      <li><a>カテゴリー：</a><%= link_to @product.category, search_products_path(key_word: @product.category) %></li>
+                      <li><%= link_to @product.category, search_products_path(key_word: @product.category) %></li>
                       <li><a><%= fa_icon("tag") %></a><% @tags.each do | t | %>
                       <p><%= link_to t.genre.tag, search_products_path(key_word: t.genre_id), :class => "tags" %></p>
                       <% end %></li>
                       <li><a>完成：<%= @product.completion.strftime("%Y年%m月") %></a></li>
-                      <li><a>場所：<%= link_to @product.location, search_products_path(key_word: @product.location) %></a></li>
+                      <li><a><%= fa_icon("map-marker") %>：<%= link_to @product.location, search_products_path(key_word: @product.location) %></a></li>
                       <li><a>面積：<%= @product.area %>㎡</a></li>
                       <li><a>工期：<%= @product.whet %>ヶ月</a></li>
                       <li><a><%= fa_icon("user") %></a>     <%= link_to @product.user.name, user_path(@product.user.id) %></li>
@@ -40,17 +40,18 @@
            </div>
    <div class="proC">
    <%= render partial: 'products/detail', collection: @details %>
+     <% if user_signed_in? && @product.user_id == current_user.id %>
+       <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %></div>
+     <% end %>
    </div>
-                    <% if user_signed_in? && @product.user_id == current_user.id %>
-                    <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %></div>
-                    <% end %>
+
 
   <div class="proD">
   <% if user_signed_in? %>
    <%= form_with model:  @comment, local: true  do |f| %>
 
     <div class="field">
-    <%= f.text_area :text, autocomplete: "text",  placeholder: "コメント（１５０文字以内）" , class: ' form' %>
+    <%= f.text_area :text, autocomplete: "text",  placeholder: "コメント（１００文字以内）" , :maxlength => "100", class: ' form' %>
     </div>
 
     <div class="field">
@@ -77,6 +78,7 @@ var swiper = new Swiper('.swiper-container', {
   speed: 600,
   loop: true,
   speed: 200,
+  centerMode: true,
   slidesPerView: 1,
     navigation: {
     nextEl: '.swiper-button-next',

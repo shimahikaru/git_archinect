@@ -5,9 +5,8 @@ def create
 end
 
 def search
-  @comments = Comment.where(user_id: params[:id])
   @user = User.find(params[:id])
-  @products = @user.commented_products
+  @products = @user.commented_products.distinct
   @photos = WholePhoto.group(:product_id)
 end
 

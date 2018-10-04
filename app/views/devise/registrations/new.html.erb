@@ -2,17 +2,16 @@
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 <div class="usernew">
-
 <h2>アカウント登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
       <div class="field">
-    <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname",  placeholder: "苗字" , class: 'user form' %>
+    <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname", :maxlength => "10", placeholder: "苗字" , class: 'user form' %>
   </div>
       <div class="field">
-     <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname",  placeholder: "名前", class: 'user form' %>
+     <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", :maxlength => "10", placeholder: "名前", class: 'user form' %>
     </div>
 
   <div class="field">

@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
  def index
-  @products = Product.search(params[:search]).select(:id, :title, :location, :category, :completion)
+  @products = Product.search(params[:search]).select(:id, :title, :location, :category, :completion).order(id: "DESC")
   @photos = WholePhoto.group(:product_id)
  end
 
@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
 
  def search
   productgenre = GenreProduct.where(genre_id: params[:key_word]).select(:product_id)
-  @products = Product.where(location: params[:key_word]).or( Product.where(category: params[:key_word]) ).or( Product.where(id: productgenre) ).or( Product.where(user_id: params[:user_id]) )
+  @products = Product.where(location: params[:key_word]).or( Product.where(category: params[:key_word]) ).or( Product.where(id: productgenre) ).or( Product.where(user_id: params[:user_id]) ).order(id: "DESC")
   @photos = WholePhoto.group(:product_id)
  end
 
