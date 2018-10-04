@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-before_action :authenticate_user!, only: [:edit, :update]
+before_action :authenticate_user!, only: [:edit, :update, :followings, :followers]
+
   def index
     @users = User.all
   end
@@ -27,6 +28,18 @@ before_action :authenticate_user!, only: [:edit, :update]
       @user = User.find(current_user.id)
       render action: :edit
     end
+  end
+
+  def followings
+    user = User.find(params[:id])
+    @users = user.followings
+
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
+
   end
 
 private

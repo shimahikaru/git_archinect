@@ -35,8 +35,14 @@
         <% end %>
       </ul>
       <text><%= simple_format(@user.text) %></text>
+        <%= render partial: 'relationships/follow_button', user: @user %>
+    <ul class="nav nav-tabs nav-justified">
+      <li><%= link_to "フォロー", followings_user_path(@user) %></li>
+      <li><%= link_to "フォロワー", followers_user_path(@user) %></li>
+    </ul>
         <% if user_signed_in? && @user.id == current_user.id %>
         <div class ="edituser post"><%= link_to "プロジェクトを投稿", new_product_path %></div>
+
         <div class="edituser" ><%= link_to "編集", edit_user_path(current_user) %></div>
         <% end %>
     </nav>
