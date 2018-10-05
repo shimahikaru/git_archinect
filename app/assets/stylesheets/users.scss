@@ -39,22 +39,22 @@ margin-right: auto;
                       height: 100%;
                       margin: auto auto;
 
-                    .edituser {
-                                 a{
-                                  font-size: 12px;
-                                  color: #000000;
-                                  }
-                              }
 
                      .edituser.post {
                       display: inline-block;
                       background-color: #0375b4;
-                      padding: 3px 10px;
+                      padding: 2px 10px;
                       border-radius: 3px;
+                      margin-bottom: 10px;
 
                             a{
+                              font-size: 13px;
                               color: #fff;
                               text-decoration: none;
+                              letter-spacing: 0.3em;
+                               &:hover {
+                                text-decoration: underline;
+                               }
                             }
                      }
 
@@ -95,6 +95,26 @@ margin-right: auto;
                                   letter-spacing: 0.2em;
                                   }
                              }
+                      .follow {
+                        display: flex;
+                        width: 220px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-bottom: 20px;
+
+                          .follow_btn {
+                            display: block;
+                            width: 100px;
+                            a {
+                              color: #000000;
+                            }
+                            p{
+                              color: #c5c1c0;
+                              font-size: 11px;
+                              margin: 0;
+                            }
+                          }
+                      }
 
                       }
               // ここまでが.profile
@@ -113,31 +133,36 @@ margin-right: auto;
         .userB{
           border-bottom: solid 1px #DDDDDD;
           padding-bottom: 10px;
+          width: 96%;
+          margin-left: auto;
+          margin-right: auto;
 
              .btn {
               background-color: #fba100;
-              margin: 25px;
-              padding: 3px 5px;
+              margin: 5px 10px 10px 10px;
+              padding: 4px 20px;
               border-radius: 3px;
+              border: none;
 
-                   a {
+                   a  {
                     color:  #fff;
                     font-size: 13px;
                     text-decoration: none;
-                     .fa-icon {
-                      font-size: 20px;
-                      margin-left: 10px;
-                      margin-top: 2.5px;
+                    letter-spacing: 0.3em;
+                     &:hover {
+                      text-decoration: underline;
                      }
-
                    }
              }
+          .swiper-wrapper {
+            width: 100%;
+            height: 100%;
+            padding-bottom: 20px;
+          }
         }
       }
 // ここまでが .container
-  .index-container {
-    margin-top: 0;
-  }
+
 }
 // ここまでが.user_page
 

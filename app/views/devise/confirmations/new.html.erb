@@ -1,16 +1,21 @@
-<h2>Resend confirmation instructions</h2>
+<%= stylesheet_link_tag    'devise/user', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="usernew">
+
+<h2>確認メールの再送信</h2>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    <%= f.email_field :email, autofocus: true, class: 'user form', autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
+  <div class="field">
+    <%= f.submit "確認メール送信", class: 'user button' %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

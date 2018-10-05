@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  default_scope { order(created_at: :desc)}
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
@@ -13,12 +15,12 @@ has_many :products, ->{ order("created_at DESC")}
 has_many :comments, ->{ order("updated_at DESC") }
 has_many :commented_products, ->{ order("updated_at DESC") }, through: :comments, source: :product
 
-validates :familyname, :firstname, :location, presence: true
+
 validates :text, length: { maximum: 150 }
 
 has_many :relationships
 has_many :followings, through: :relationships, source: :follow
-# user.followingsでuserがフォローしているuser達を取得できる
+# user.followingsでuserがフォローしているuser達を取得
 has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
 has_many :followers, through: :reverses_of_relationship, source: :user
 
@@ -34,6 +36,15 @@ mount_uploader :avatar, AvatarsUploader
     徳島県:36,香川県:37,愛媛県:38,高知県:39,
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47,海外:48
   }
+
+  validate :add_error
+
+  def add_error
+    errors[:base] << "苗字は必須です。" if familyname.blank?
+    errors[:base] << "名前は必須です。" if firstname.blank?
+    errors[:base] << "勤務地は必須です。" if location.blank?
+    errors[:base] << "登録メールアドレスは必須です。" if email.blank?
+  end
 
 def name
    self.familyname + self.firstname

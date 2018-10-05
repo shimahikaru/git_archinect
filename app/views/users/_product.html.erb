@@ -1,5 +1,4 @@
 <div class="swiper-slide">
-<article>
      <% @photos.each do | top | %>
         <% if product.id == top.product_id %>
         <%= link_to image_tag(top.photo_url(:gallery)), product_path(product.id), :class => "img" %>
@@ -11,6 +10,5 @@
         <p><%= link_to product.category, search_products_path(key_word: product.category) %></p>
         <p><%= product.completion.strftime("%Y-%m") %>  <%= fa_icon("comments") %>（<%= product.comments.count %>）</p>
      </div>
-</article>
 </div>
 

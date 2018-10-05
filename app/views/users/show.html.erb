@@ -14,13 +14,17 @@
      <% end %>
     <nav class="profile">
       <ul>
-        <li><h4><%= @user.name %></h4></li>
+        <li><h4><%= @user.name %></h4>
+          <% if user_signed_in? %>
+          <%= render partial: 'relationships/follow_button', user: @user %>
+          <% end %>
+        </li>
         <li><a><%= @user.office %></a></li>
         <li><% @tags.each do | t | %>
         <p><%= link_to t.work.tag, search_users_path(key_word: t.work_id) %></p>
         <% end %></li>
         <% if @user.local? %>
-        <li><a><%= fa_icon("map-pin") %></a><a><%= @user.location + @user.local%></a></li>
+        <li><a><%= fa_icon("map-marker") %></a><a><%= @user.location + @user.local%></a></li>
         <% else %>
         <li><a><%= fa_icon("map-marker") %></a><a><%= @user.location %></a></li>
         <% end %>
@@ -35,15 +39,21 @@
         <% end %>
       </ul>
       <text><%= simple_format(@user.text) %></text>
-        <%= render partial: 'relationships/follow_button', user: @user %>
+
     <div class="follow">
-      <%= link_to "フォロー", followings_user_path(@user) %>
-      <%= link_to "フォロワー", followers_user_path(@user) %>
+      <div class="follow_btn" >
+      <%= link_to @user.followings.count, followings_user_path(@user) %><p>フォロー</p></div>
+      <div class="follow_btn">
+      <%= link_to @user.followers.count, followers_user_path(@user) %><p>フォロワー</p>
+      </div>
+      <div class="follow_btn">
+      <%= link_to @user.products.count, search_products_path(user_id: @user.id) %><p>プロジェクト</p>
+      </div>
     </div>
         <% if user_signed_in? && @user.id == current_user.id %>
-        <div class ="edituser post"><%= link_to "プロジェクトを投稿", new_product_path %></div>
+        <div class ="edituser post"><%= link_to fa_icon("edit")+"投稿", new_product_path %></div>
 
-        <div class="edituser" ><%= link_to "編集", edit_user_path(current_user) %></div>
+        <div class="edituser post" ><%= link_to fa_icon("cog")+"編集", edit_user_path(current_user) %></div>
         <% end %>
     </nav>
 
@@ -51,7 +61,7 @@
 
    <% if @user.products.exists? %>
    <div class="userB">
-   <p>プロジェクト：（<%= @user.products.count %>）</p>
+   <p>最新のプロジェクト</p>
      <div class=" swiper-container">
        <div class="swiper-wrapper">
          <div class="index-container">
@@ -59,7 +69,7 @@
          </div>
        </div>
      </div>
-   <button class="btn"><%= link_to "プロジェクトをもっと見る", search_products_path(user_id: @user.id) %><a><%= fa_icon("angle-double-right icon") %></a></button>
+   <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_products_path(user_id: @user.id) %></button>
    </div>
 
    <% else %>
@@ -76,28 +86,24 @@
    </div>
      </div>
      </div>
-   <button class="btn"><%= link_to "コメント済みをもっと見る", search_comments_path(id: @user.id) %><a><%= fa_icon("angle-double-right icon") %></a></button>
+   <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_comments_path(id: @user.id) %></button>
    </div>
    <% end %>
-
-
   </div>
 </div>
 
  <script>
-var swiper = new Swiper('.swiper-container', {
-  draggable: true,
+var mySwiper = new Swiper('.swiper-container', {
   infinite: true,
-  pagination: '.swiper-pagination',
-  paginationClickable: true,
-  parallax: true,
-  speed: 600,
   loop: true,
-  speed: 200,
-  slidesPerView: 2,
-    navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+  autoplay: true,
+
+  pagination: '.swiper-pagination',
+
+  // slidesPerView: 2,
+  //   navigation: {
+  //   nextEl: '.swiper-button-next',
+  //   prevEl: '.swiper-button-prev',
+  // },
 });
 </script>

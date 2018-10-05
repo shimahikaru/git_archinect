@@ -18,7 +18,7 @@ flex-wrap: wrap;
         display: block;
         border: solid 1px #A9A9A9;
         border-radius: 5px;
-        padding: 3px;
+        padding: 0;
         width: 48%;
         max-width: 380px;
         min-width: 150px;
@@ -28,6 +28,7 @@ flex-wrap: wrap;
 
                 img {
                    width: 100%;
+                   border-radius: 5px 5px 0 0;
 
                    &:hover {
                      opacity: 0.6;

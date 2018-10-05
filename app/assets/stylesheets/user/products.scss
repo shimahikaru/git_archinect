@@ -2,25 +2,27 @@
 
 .index-container {
 display: block;
-margin-top: 70px;
-max-width: 1200px;
+margin-top: 0;
+width: 100%;
+height: 100%;
 display: flex;
 // flex: 1 1 200px;
 
-    article {
+    .swiper-slide {
         display: block;
         border: solid 1px #A9A9A9;
         border-radius: 5px;
-        padding: 3px;
-        width: 48%;
-        max-width: 380px;
-        min-width: 150px;
-        flex: 1 1 150px;
+        padding: 0;
+        width: 25%;
+        height: 100%;
+        max-width: 350px;
+        min-width: 140px;
         margin: 1.5px;
 
 
                 img {
                    width: 100%;
+                   border-radius: 5px 5px 0 0;
 
                    &:hover {
                      opacity: 0.6;
@@ -33,7 +35,7 @@ display: flex;
                  color: #565656;
                  // padding: 0;
                  font-size: 11px;
-                 letter-spacing: 0.3em;
+                 letter-spacing: 0.2em;
                 }
                 .title p {
                     color: #000;
@@ -63,7 +65,6 @@ display: flex;
             }
     }
   }
-
 
 
 }

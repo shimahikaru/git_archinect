@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 before_action :authenticate_user!, only: [:edit, :update, :followings, :followers]
 
   def index
-    @users = User.order(id: "DESC")
+    @users = User.all
   end
 
   def show

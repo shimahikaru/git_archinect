@@ -26,16 +26,21 @@
 
   .button1{
     display: block;
-    padding: 2px 7px;
-    width: 240px;
+    padding: 2px 3px;
+    width: 200px;
     text-align: center;
     margin: 5px;
-    border-radius: 30px;
-    background-color: #ec576b;
+    border-radius: 5px;
+    background-color: #0b3c5d;
 
       p {
         margin: 5px 0;
+        width: 100%;
       }
+  }
+
+  .button2 {
+    background-color: #e9b000;
   }
 
   .button2 a{

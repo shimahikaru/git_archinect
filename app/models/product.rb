@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 
+  default_scope { order(created_at: :desc)}
+
   belongs_to :user
 
   has_many :whole_photos, inverse_of: :product
@@ -14,9 +16,19 @@ class Product < ApplicationRecord
 
   has_many :comments, ->{ order("updated_at DESC")}
 
-  validates :user_id, :title, :subtitle, :whet, :completion, :location, :area, :category, presence: true
+  validate :add_error
 
-  validates :text, length: { in: 50..300 }
+  def add_error
+    errors[:base] << "タイトルを入力して下さい。" if title.blank?
+    errors[:base] << "サブタイトルを入力して下さい。" if subtitle.blank?
+    errors[:base] << "工期を入力して下さい。" if whet.blank?
+    errors[:base] << "場所を選択して下さい。" if location.blank?
+    errors[:base] << "床面積を入力して下さい。" if area.blank?
+    errors[:base] << "説明を入力して下さい。" if text.blank?
+    errors[:base] << "カテゴリーを選択して下さい。" if category.blank?
+  end
+
+  validates :text, length: { maximum: 300 }
   validates :title, length: { maximum: 15 }
   validates :subtitle, length: { maximum: 30 }
 
