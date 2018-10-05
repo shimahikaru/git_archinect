@@ -4,7 +4,6 @@
 
 <div class="user_page">
 
-
    <div class="container">
     <div class="userA">
      <% if @user.avatar? %>
@@ -64,9 +63,9 @@
    <p>最新のプロジェクト</p>
      <div class=" swiper-container">
        <div class="swiper-wrapper">
-         <div class="index-container">
+
          <%= render partial: 'users/product', collection: @products %>
-         </div>
+
        </div>
      </div>
    <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_products_path(user_id: @user.id) %></button>
@@ -81,9 +80,9 @@
     <p>コメント済み</p>
          <div class=" swiper-container">
        <div class="swiper-wrapper">
-    <div class="index-container">
+
    <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
-   </div>
+
      </div>
      </div>
    <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_comments_path(id: @user.id) %></button>
@@ -96,7 +95,8 @@
 var mySwiper = new Swiper('.swiper-container', {
   infinite: true,
   loop: true,
-  autoplay: true,
+  spaceBetween: 10,
+  slidesPerView: 2.2,
 
   pagination: '.swiper-pagination',
 
