@@ -66,7 +66,7 @@ header {
 .headB a{
 display: block;
 padding: 10px;
-color: #000000;
+color: #262228;
 font-size: 14px;
 text-decoration: none;
 letter-spacing: 0.3em
@@ -77,7 +77,8 @@ letter-spacing: 0.3em
 }
 
 .headB li:hover{
-  background-color: #ec576b;
+  background-color: #0375b4;
+
 }
 
 .headB .inner{
@@ -96,13 +97,17 @@ letter-spacing: 0.3em
 }
 
 .headC:hover {
-  opacity: 0.3;
+  color: #ec576b;
+  opacity: 1;
 }
 
+
+
 li .panel-item a{
-  padding: 10px;
-  font-size: 11px;
-  letter-spacing: 0.3em
+  padding: 8px;
+  font-size: 10px;
+  letter-spacing: 0.2em
+
 }
 
 .footer {

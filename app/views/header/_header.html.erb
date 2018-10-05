@@ -32,7 +32,6 @@
                     </li>
 
                     <li><a>USERS</a>
-
                       <ul class="inner">
                         <li class="panel-item"><%= link_to "ALL", users_path %></li>
                         <li class="panel-item"><a>NEW</a></li>
@@ -44,7 +43,12 @@
 <% if user_signed_in? %>
                     <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></li>
 <% end %>
-                    <li><a>ABOUT</a></li>
+                    <li><a>ABOUT</a>
+                      <ul class="inner">
+                        <li class="panel-item"><a>サイトコンセプト</a></li>
+                        <li class="panel-item"><a>お問い合わせ</a></li>
+                      </ul>
+                    </li>
 
                     </ul>
                     </nav>
