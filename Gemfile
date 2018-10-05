@@ -76,4 +76,4 @@ gem 'rails-i18n'
 gem 'mini_magick'
 gem 'swiper-rails'
 gem "cocoon"
-
+gem 'social-share-button'

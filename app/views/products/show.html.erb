@@ -43,6 +43,8 @@
      <% if user_signed_in? && @product.user_id == current_user.id %>
        <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %></div>
      <% end %>
+
+<%= social_share_button_tag(@product.title, :allow_sites => %w(twitter facebook google_plus weibo qq douban google_bookmark )) %>
    </div>
 
 

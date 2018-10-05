@@ -13,6 +13,7 @@
 *= require_self
 *= require font-awesome
 *= require swiper
+*= require social-share-button
  */
 body {
   width: 100%;
