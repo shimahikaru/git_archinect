@@ -31,7 +31,8 @@
     text-align: center;
     margin: 5px;
     border-radius: 5px;
-    background-color: #0b3c5d;
+    background-color: #fff;
+    border: solid 1px #0375b4;
 
       p {
         margin: 5px 0;
@@ -40,17 +41,18 @@
   }
 
   .button2 {
-    background-color: #e9b000;
+    background-color: #0375b4;
   }
 
   .button2 a{
    letter-spacing: 1.2em;
+   color: #fff;
   }
 
 
   a{
   text-decoration: none;
-    color: #fff;
+    color: #0375b4;
       font-size: 14px;
   letter-spacing: 0.5em;
   }
