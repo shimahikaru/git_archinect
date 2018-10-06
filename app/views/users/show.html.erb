@@ -90,19 +90,48 @@
   </div>
 </div>
 
+
  <script>
 var mySwiper = new Swiper('.swiper-container', {
   infinite: true,
   loop: true,
-  spaceBetween: 10,
-  slidesPerView: 2.2,
+  spaceBetween: 5,
 
-  pagination: '.swiper-pagination',
+    if(@user.products.count>=4){
+    slidesPerView: 4,
+    breakpoints: {
+    // 767px以下になったら
+      767: {
+      slidesPerView: 2,
+      }
+    }
 
-  // slidesPerView: 2,
-  //   navigation: {
-  //   nextEl: '.swiper-button-next',
-  //   prevEl: '.swiper-button-prev',
-  // },
+    else if(@user.products.count>=3){
+    slidesPerView: 3,
+    breakpoints: {
+    // 767px以下になったら
+      767: {
+      slidesPerView: 2,
+      }
+    }
+    }
+
+    else if(@user.products.count>=2){
+    slidesPerView: 2,
+    loop: false,
+    }
+
+    else if(@user.products.count>=1){
+    slidesPerView: 1,
+    loop: false,
+    }
+
+  },
 });
 </script>
+
+
+
+
+
+
