@@ -1,10 +1,9 @@
 class UserMailer < ApplicationMailer
   default from: 'from@example.com'
 
-  def welcome_email_user(user)
+  def email_user(user)
     @user = user
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site') do |format|
-      format.text
+    mail(to: @user.email, subject: 'お問い合わせ')
     end
   end
 

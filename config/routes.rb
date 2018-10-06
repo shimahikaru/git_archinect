@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'relationships/create'
   get 'relationships/destroy'
 
+  get 'inquiries', to: 'inquiries#index'
+  post 'inquiries/confirm', to: 'inquiries#confirm'
+  post 'inquiries/complete', to: 'inquiries#complete'
+
   devise_for :users
 
   resources :users, only: [:index, :show, :edit, :update] do
