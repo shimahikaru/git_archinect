@@ -27,7 +27,6 @@
                         <li class="panel-item"><%= link_to "マンションリノベーション", search_products_path(key_word: "マンションリノベーション") %></li>
                         <li class="panel-item"><%= link_to "イベント会場", search_products_path(key_word: "イベント会場") %></li>
                         <li class="panel-item"><%= link_to "その他", search_products_path(key_word: "その他") %></li>
-                        <li class="panel-item"><a>SEARCH</a></li>
                       </ul>
                     </li>
 
@@ -35,17 +34,16 @@
                       <ul class="inner">
                         <li class="panel-item"><%= link_to "ALL", users_path %></li>
                         <li class="panel-item"><a>NEW</a></li>
-                        <li class="panel-item"><a>SEARCH</a></li>
                       </ul>
                     </li>
 
-                    <li><a>RANKING</a></li>
+                    <li><%= link_to "SEARCH", top_search_path %></li>
 <% if user_signed_in? %>
                     <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></li>
 <% end %>
                     <li><a>ABOUT</a>
                       <ul class="inner">
-                        <li class="panel-item"><a>サイトコンセプト</a></li>
+                        <li class="panel-item"><%= link_to "ABOUT", top_about_path %></li>
                         <li class="panel-item"><%= link_to "お問い合わせ", inquiries_path %></li>
                       </ul>
                     </li>

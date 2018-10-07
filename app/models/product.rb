@@ -49,13 +49,11 @@ class Product < ApplicationRecord
 
 
 
-def self.search(search)
-    if search
-      where(['title LIKE ?', "%#{search}%"]) || where(['subtitle LIKE ?', "%#{search}%"]) || where(['text LIKE ?', "%#{search}%"]) || where(['location LIKE ?', "%#{search}%"]) || where(['completion LIKE ?', "%#{search}%"]) || where(['category LIKE ?', "%#{search}%"])  #検索とnameの部分一致を表示。User.は省略
-    else
-      all #全て表示。User.は省略
-    end
-  end
+ # def self.search(search_location,search_category)
+
+ #    where(['content LIKE ?', "%#{search}%"]).where(['content LIKE ?', "%#{search}%"])
+
+ #  end
 
 
 

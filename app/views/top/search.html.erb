@@ -1,5 +1,15 @@
-<%= stylesheet_link_tag    'top', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= stylesheet_link_tag    'products', media: 'all', 'data-turbolinks-track': 'reload' %>
+<p>Product search</p>
+<%= form_tag(top_search_path,:method => 'get', :action =>'search') do %>
+     <div class="field">
+     <p><%= label_tag :場所 %></p>
+     <%= select_tag :search_location, options_for_select([["東京都", "東京都"],["算数","算数"],["理科","理科"],["社会","社会"]]), class: 'product form' %><br />
+     </div>
+     <div class="field">
+     <p><%= label_tag :カテゴリー %></p>
+     <%= select_tag :search_category, {prompt: '選択してください'}, class: 'product form' %><br />
+     </div>
+  <%= submit_tag 'Search' %>
+<% end %>
 
 <div class="index-container">
 <%= render partial: 'products/product', collection: @products %>

@@ -2,27 +2,28 @@
 <div class="page-header">
   <h3>お問い合わせ</h3>
 </div>
-<%= form_with model: @inquiry, :url => inquiries_complete_path, local: true do |f| %>
+<%= form_with(model: @email, :url => user_emails_complete_path, local: true) do |f| %>
   <table class="table">
     <tr>
       <th>名前</th>
       <td>
         <%= f.hidden_field :name %>
-        <%= @inquiry.name %>
+        <%= @email.name %>
       </td>
     </tr>
     <tr>
       <th>メールアドレス</th>
       <td>
-        <%= f.hidden_field :email %>
-        <%= @inquiry.email %>
+        <%= f.hidden_field :addr %>
+        <%= @email.addr %>
       </td>
     </tr>
+
     <tr>
       <th>お問い合わせ内容</th>
       <td>
         <%= f.hidden_field :message %>
-        <%= simple_format(@inquiry.message) %>
+        <%= simple_format(@email.message) %>
       </td>
     </tr>
   </table>
