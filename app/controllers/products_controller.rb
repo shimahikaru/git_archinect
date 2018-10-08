@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
  def index
-  @products = Product.search(params[:search]).select(:id, :title, :location, :category, :completion)
+  @products = Product.select(:id, :title, :location, :category, :completion)
   @photos = WholePhoto.group(:product_id)
  end
 
@@ -15,12 +15,18 @@ class ProductsController < ApplicationController
     @comment.product_id = @product.id
   end
 
- def search
-  productgenre = GenreProduct.where(genre_id: params[:key_word]).select(:product_id)
-  @products = Product.where(location: params[:key_word]).or( Product.where(category: params[:key_word]) ).or( Product.where(id: productgenre) ).or( Product.where(user_id: params[:user_id]) )
-  @photos = WholePhoto.group(:product_id)
- end
+  def search
+   @products = Product.select(:id, :title, :location, :category, :completion)
+   productgenre = GenreProduct.where(genre_id: params[:genre_id]).select(:product_id) if params[:genre_id].present?
+   @products = Product.where(location: params[:location]) if params[:location].present?
+   @products = @products.where(category: params[:category])  if params[:category].present?
+   @products = @products.where(id: productgenre) if productgenre.present?
+   @products = @products.where(user_id: params[:user_id]) if params[:user_id].present?
+   @photos = WholePhoto.group(:product_id)
+  end
 
+  def about
+  end
 
   def new
   @product = Product.new

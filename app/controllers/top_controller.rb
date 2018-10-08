@@ -8,7 +8,8 @@ class TopController < ApplicationController
   end
 
   def search
-    @products = Product.where(location: params[:search_location])
+    @products = Product.all
+    @products = @products.where(location: params[:search_location]) if params[:search_location]
     @photos = WholePhoto.group(:product_id)
   end
 

@@ -25,12 +25,12 @@
                     <ul>
                       <li><h4><%= @product.title %></h4></li>
                       <li><a><%= @product.subtitle %></a></li>
-                      <li><%= link_to @product.category, search_products_path(key_word: @product.category) %></li>
+                      <li><%= link_to @product.category, search_products_path(category: @product.category) %></li>
                       <li><a><%= fa_icon("tag") %></a><% @tags.each do | t | %>
-                      <p><%= link_to t.genre.tag, search_products_path(key_word: t.genre_id), :class => "tags" %></p>
+                      <p><%= link_to t.genre.tag, search_products_path(genre_id: t.genre_id), :class => "tags" %></p>
                       <% end %></li>
                       <li><a>完成：<%= @product.completion.strftime("%Y年%m月") %></a></li>
-                      <li><a><%= fa_icon("map-marker") %>：<%= link_to @product.location, search_products_path(key_word: @product.location) %></a></li>
+                      <li><a><%= fa_icon("map-marker") %>：<%= link_to @product.location, search_products_path(location: @product.location) %></a></li>
                       <li><a>面積：<%= @product.area %>㎡</a></li>
                       <li><a>工期：<%= @product.whet %>ヶ月</a></li>
                       <li><a><%= fa_icon("user") %></a>     <%= link_to @product.user.name, user_path(@product.user.id) %></li>

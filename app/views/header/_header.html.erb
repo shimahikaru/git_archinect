@@ -16,23 +16,25 @@
 <% end %>
                    <li><a>PHOTOS</a>
                      <ul class="inner">
-                        <li class="panel-item"><%= link_to "ホテル・ラウンジ", search_products_path(key_word: "ホテル・ラウンジ") %></li>
-                        <li class="panel-item"><%= link_to "クリニック・ビューティー", search_products_path(key_word: "クリニック・ビューティー") %></li>
-                        <li class="panel-item"><%= link_to "オフィス・スクール", search_products_path(key_word: "オフィス・スクール") %></li>
-                        <li class="panel-item"><%= link_to "ショップ", search_products_path(key_word: "ショップ") %></li>
-                        <li class="panel-item"><%= link_to "バー・クラブ", search_products_path(key_word: "バー・クラブ") %></li>
-                        <li class="panel-item"><%= link_to "カフェ・レストラン", search_products_path(key_word: "カフェ・レストラン") %></li>
-                        <li class="panel-item"><%= link_to "居酒屋", search_products_path(key_word: "居酒屋") %></li>
-                        <li class="panel-item"><%= link_to "戸建て新築・リノベーション", search_products_path(key_word: "戸建て新築・リノベーション") %></li>
-                        <li class="panel-item"><%= link_to "マンションリノベーション", search_products_path(key_word: "マンションリノベーション") %></li>
-                        <li class="panel-item"><%= link_to "イベント会場", search_products_path(key_word: "イベント会場") %></li>
-                        <li class="panel-item"><%= link_to "その他", search_products_path(key_word: "その他") %></li>
+                        <li class="panel-item"><%= link_to "全て表示", products_path %></li>
+                        <li class="panel-item"><%= link_to "ホテル・ラウンジ", search_products_path(category: "ホテル・ラウンジ") %></li>
+                        <li class="panel-item"><%= link_to "クリニック・ビューティー", search_products_path(category: "クリニック・ビューティー") %></li>
+                        <li class="panel-item"><%= link_to "オフィス・スクール", search_products_path(category: "オフィス・スクール") %></li>
+                        <li class="panel-item"><%= link_to "ショップ", search_products_path(category: "ショップ") %></li>
+                        <li class="panel-item"><%= link_to "バー・クラブ", search_products_path(category: "バー・クラブ") %></li>
+                        <li class="panel-item"><%= link_to "カフェ・レストラン", search_products_path(category: "カフェ・レストラン") %></li>
+                        <li class="panel-item"><%= link_to "居酒屋", search_products_path(category: "居酒屋") %></li>
+                        <li class="panel-item"><%= link_to "戸建て新築・リノベーション", search_products_path(category: "戸建て新築・リノベーション") %></li>
+                        <li class="panel-item"><%= link_to "マンションリノベーション", search_products_path(category: "マンションリノベーション") %></li>
+                        <li class="panel-item"><%= link_to "イベント会場", search_products_path(category: "イベント会場") %></li>
+                        <li class="panel-item"><%= link_to "その他", search_products_path(category: "その他") %></li>
+                        <li class="panel-item"><%= link_to "詳細検索", about_products_path %></li>
                       </ul>
                     </li>
 
                     <li><a>USERS</a>
                       <ul class="inner">
-                        <li class="panel-item"><%= link_to "ALL", users_path %></li>
+                        <li class="panel-item"><%= link_to "全て表示", users_path %></li>
                         <li class="panel-item"><a>NEW</a></li>
                       </ul>
                     </li>
