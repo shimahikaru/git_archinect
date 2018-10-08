@@ -9,6 +9,10 @@
 
    <%= form_with model:  @product, local: true  do |f| %>
 
+     <div class="field charge">
+     <p><%= current_user.name %>さんの担当</p>
+     <%= f.select :charge, Product.charges.keys, {prompt: '選択してください'}, class: 'form charge' %>
+     </div>
 
      <div class="field">
      <%= f.text_field :title, autofocus: true, autocomplete: "title", :maxlength => "15", placeholder: "タイトル・物件名(15文字以下)" , class: 'product form' %>
@@ -37,7 +41,7 @@
 
      <div class="field">
      <p><%= f.label :工期 %></p>
-     <%= f.number_field :whet, autofocus: true, autocomplete: "whet",  class: ' form' %>ヶ月
+     <%= f.number_field :whet, autofocus: true, step: "0.1", autocomplete: "whet",  class: ' form' %>ヶ月
      </div>
 
      <div class="field">
@@ -46,8 +50,8 @@
      </div>
 
       <div class="field">
-     <p><%= f.label :床面積 %></p>
-     <%= f.number_field :area, autofocus: true, autocomplete: "area", class: 'form' %>㎡
+     <p><%= f.label :施工床面積 %></p>
+     <%= f.number_field :area, autofocus: true, step: "0.1", autocomplete: "area", class: 'form' %>㎡
      </div>
 
 
@@ -63,9 +67,9 @@
 
      <div class="field">
      <p><%= f.label :関連キーワード（３つまで選択可） %></p>
-     <label><%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :tag) do |b| %>
+     <label><div class= "tag"><%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :tag) do |b| %>
       <%= b.label { b.check_box + b.text } %>
-      <% end %>
+      <% end %></div>
      </label>
      </div>
 

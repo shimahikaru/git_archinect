@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 
+   is_impressionable counter_cache: true
+
   default_scope { order(created_at: :desc)}
 
   belongs_to :user
@@ -18,6 +20,18 @@ class Product < ApplicationRecord
 
   validate :add_error
 
+  def self.count_order(count)
+    if count == "1"
+      comments = Comment.group(:product_id).order('count(product_id) DESC')
+      # products = self.where( 'comments.count == 0' )
+      comments.map(&:product)
+      # comments << products
+    elsif count == "2"
+    self.reorder('impressions_count DESC')
+    end
+  end
+
+
   def add_error
     errors[:base] << "タイトルを入力して下さい。" if title.blank?
     errors[:base] << "サブタイトルを入力して下さい。" if subtitle.blank?
@@ -34,6 +48,10 @@ class Product < ApplicationRecord
 
   enum category: {
     "ホテル・ラウンジ":1, ショップ:2, "オフィス・スクール":3, "バー・クラブ":4, "カフェ・レストラン":5, 居酒屋:6, "クリニック・ビューティー":7, "戸建て新築・リノベーション":8, マンションリノベーション:9, イベント会場:10, その他:11
+  }
+
+  enum charge: {
+    "設計・デザイン":1, アシスタント:2
   }
 
   enum location: {

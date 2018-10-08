@@ -21,7 +21,7 @@ flex-wrap: wrap;
         padding: 0;
         width: 48%;
         max-width: 380px;
-        min-width: 150px;
+        min-width: 140px;
         flex: 1 1 150px;
         margin: 1.5px;
 
@@ -61,6 +61,7 @@ flex-wrap: wrap;
    .index-container {
     width: 97%;
    article {
+    min-width: 150px;
       .text {
              p {
                  margin: 5px;

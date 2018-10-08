@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
+  impressionist :actions=> [:show]
 
  def index
   @products = Product.select(:id, :title, :location, :category, :completion)
@@ -13,12 +14,14 @@ class ProductsController < ApplicationController
     @details = @product.details
     @comment = Comment.new
     @comment.product_id = @product.id
+    impressionist(@product, nil)
   end
 
   def search
    @products = Product.select(:id, :title, :location, :category, :completion)
+   @products = @products.count_order(params[:count]) if params[:count].present?
    productgenre = GenreProduct.where(genre_id: params[:genre_id]).select(:product_id) if params[:genre_id].present?
-   @products = Product.where(location: params[:location]) if params[:location].present?
+   @products = @products.where(location: params[:location]) if params[:location].present?
    @products = @products.where(category: params[:category])  if params[:category].present?
    @products = @products.where(id: productgenre) if productgenre.present?
    @products = @products.where(user_id: params[:user_id]) if params[:user_id].present?
@@ -67,11 +70,11 @@ class ProductsController < ApplicationController
   private
 
   def create_params
-    params.require(:product).permit(:title, :subtitle, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache, :_destroy] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:title, :subtitle, :charge, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache, :_destroy] ).merge(user_id: current_user.id)
   end
 
   def update_params
-    params.require(:product).permit(:title, :subtitle, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache,:_destroy] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:title, :subtitle, :charge, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache,:_destroy] ).merge(user_id: current_user.id)
   end
 
 

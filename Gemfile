@@ -77,3 +77,4 @@ gem 'mini_magick'
 gem 'swiper-rails'
 gem "cocoon"
 gem 'social-share-button'
+gem 'impressionist'

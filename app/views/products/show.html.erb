@@ -33,7 +33,7 @@
                       <li><a><%= fa_icon("map-marker") %>：<%= link_to @product.location, search_products_path(location: @product.location) %></a></li>
                       <li><a>面積：<%= @product.area %>㎡</a></li>
                       <li><a>工期：<%= @product.whet %>ヶ月</a></li>
-                      <li><a><%= fa_icon("user") %></a>     <%= link_to @product.user.name, user_path(@product.user.id) %></li>
+                      <li><a><%= @product.charge %> </a><a><%= fa_icon("user") %>：</a>   <%= link_to @product.user.name, user_path(@product.user.id) %></li>
                       <li><text><%= simple_format(@product.text) %></text></li>
                     </ul>
                    </nav>
