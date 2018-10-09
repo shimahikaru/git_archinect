@@ -13,6 +13,12 @@ before_action :authenticate_user!, only: [:edit, :update, ]
   end
 
   def search
+    @users = User.all
+    if params[:work_id].present?
+    userworks = UserWork.where(work_id: params[:work_id]).select(:user_id)
+    @users = @users.where(id: userworks)
+    end
+
   end
 
   def edit

@@ -8,8 +8,8 @@
     <div class="text">
         <div class="title"><p><%= product.title %></p></div>
         <p><%= fa_icon("map-marker") %><%= product.location %></p>
-        <p><%= link_to product.category, search_products_path(key_word: product.category) %></p>
-        <p><%= product.completion.strftime("%Y-%m") %>  <%= fa_icon("comments") %>（<%= product.comments.count %>）</p>
+        <p><%= link_to product.category, search_products_path(category: product.category) %></p>
+        <p><%= product.completion.strftime("%Y-%m") %>  <%= fa_icon("comments") %><%= product.comments.count %></p>
      </div>
      </article>
 </div>
