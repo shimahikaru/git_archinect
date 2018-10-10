@@ -1,10 +1,11 @@
 class Product < ApplicationRecord
 
-   is_impressionable counter_cache: true
+  is_impressionable counter_cache: true
 
   default_scope { order(created_at: :desc)}
 
   belongs_to :user
+  counter_culture :user
 
   has_many :whole_photos, inverse_of: :product
   accepts_nested_attributes_for :whole_photos, reject_if: :all_blank, allow_destroy: true
@@ -22,14 +23,17 @@ class Product < ApplicationRecord
 
   def self.count_order(count)
     if count == "1"
-      comments = Comment.group(:product_id).order('count(product_id) DESC')
+      self.reorder('comments_count DESC')
+      # comments = Comment.group(:product_id).order('count(product_id) DESC')
+      # products.joins(:comments).group(:product_id).order('count(product_id) DESC')
       # products = self.where( 'comments.count == 0' )
-      comments.map(&:product)
+      # comments.map(&:product)
       # comments << products
     elsif count == "2"
     self.reorder('impressions_count DESC')
     end
   end
+
 
   def add_error
     errors[:base] << "タイトルを入力して下さい。" if title.blank?

@@ -25,6 +25,8 @@ has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'fo
 has_many :followers, through: :reverses_of_relationship, source: :user
 has_many :emails
 
+
+
 mount_uploader :avatar, AvatarsUploader
 
   enum location: {
@@ -39,6 +41,19 @@ mount_uploader :avatar, AvatarsUploader
   }
 
   validate :add_error
+
+  def self.count_order(count)
+    if count == "1"
+      self.reorder('products_count DESC')
+      # comments = Comment.group(:product_id).order('count(product_id) DESC')
+      # products.joins(:comments).group(:product_id).order('count(product_id) DESC')
+      # products = self.where( 'comments.count == 0' )
+      # comments.map(&:product)
+      # comments << products
+    elsif count == "2"
+    self.reorder('followers_count DESC')
+    end
+  end
 
   def add_error
     errors[:base] << "苗字は必須です。" if familyname.blank?

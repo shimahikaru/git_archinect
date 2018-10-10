@@ -75,7 +75,6 @@
  <script>
   window.onload = function () {
     //initialize swiper when document ready
-
     var swiper = new Swiper('.swiper-container', {
           navigation: {
         nextEl: '.swiper-button-next',
@@ -94,5 +93,17 @@
       centeredSlides : true,
     });
   };
+
+  var swiper = new Swiper('.swiper-container', {
+  pagination: '.swiper-pagination',
+
+    navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+});
+
 </script>
 

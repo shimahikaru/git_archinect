@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_124756) do
+ActiveRecord::Schema.define(version: 2018_10_10_124118) do
 
   create_table "Products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2018_10_08_124756) do
     t.integer "category"
     t.integer "charge"
     t.integer "impressions_count", default: 0
+    t.integer "comments_count", default: 0, null: false
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -131,6 +132,7 @@ ActiveRecord::Schema.define(version: 2018_10_08_124756) do
     t.string "url"
     t.string "avatar"
     t.string "text"
+    t.integer "products_count", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

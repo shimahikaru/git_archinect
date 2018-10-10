@@ -78,3 +78,4 @@ gem 'swiper-rails'
 gem "cocoon"
 gem 'social-share-button'
 gem 'impressionist'
+gem 'counter_culture'

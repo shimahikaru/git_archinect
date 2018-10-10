@@ -10,7 +10,11 @@ def search
   @photos = WholePhoto.group(:product_id)
 end
 
-
+def destroy
+  comment = Comment.find(params[:id])
+  comment.destroy if comment.user_id == current_user.id
+  redirect_to product_path(comment.product_id)
+end
 
 private
 

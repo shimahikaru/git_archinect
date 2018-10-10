@@ -4,8 +4,8 @@
 <div class="boxtypeA">
     <h1>Archinect</h1>
   <p>建築・建物が好きな人をつなぐコミュニティ</p>
-  <p>誰でも無料で会員登録・ご利用できます。</p>
     <% unless user_signed_in? %>
+      <p>誰でも無料で会員登録・ご利用できます。</p>
     <div class="container">
           <div class="button1">
               <p><%= link_to "アカウント作成", new_user_registration_path %></p>

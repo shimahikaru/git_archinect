@@ -18,7 +18,11 @@ before_action :authenticate_user!, only: [:edit, :update, ]
     userworks = UserWork.where(work_id: params[:work_id]).select(:user_id)
     @users = @users.where(id: userworks)
     end
+    @users = @users.where(location: params[:location]) if params[:location].present?
+    @users = @users.count_order(params[:count]) if params[:count].present?
+  end
 
+  def about
   end
 
   def edit

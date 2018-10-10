@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
     @comment.product_id = @product.id
   end
 
+
   def search
    @products = Product.select(:id, :title, :location, :category, :completion)
    @photos = WholePhoto.group(:product_id)
