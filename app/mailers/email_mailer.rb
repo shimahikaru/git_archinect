@@ -9,7 +9,7 @@ class EmailMailer < ApplicationMailer
   def email_user(usermail, email)
     @email = email
     @usermail = usermail
-    mail to: 'usermail', subject: 'メッセージを受信しました。'
+    mail to: usermail, subject: 'メッセージを受信しました。'
   end
 
 end

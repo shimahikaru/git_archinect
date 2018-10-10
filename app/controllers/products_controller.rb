@@ -14,18 +14,17 @@ class ProductsController < ApplicationController
     @details = @product.details
     @comment = Comment.new
     @comment.product_id = @product.id
-    impressionist(@product, nil)
   end
 
   def search
    @products = Product.select(:id, :title, :location, :category, :completion)
+   @photos = WholePhoto.group(:product_id)
+   @products = @products.count_order(params[:count]) if params[:count].present?
    @products = @products.where(location: params[:location]) if params[:location].present?
    @products = @products.where(category: params[:category]) if params[:category].present?
    productgenre = GenreProduct.where(genre_id: params[:genre_id]).select(:product_id) if params[:genre_id].present?
    @products = @products.where(id: productgenre) if productgenre.present?
    @products = @products.where(user_id: params[:user_id]) if params[:user_id].present?
-   @products = @products.count_order(params[:count]) if params[:count].present?
-   @photos = WholePhoto.group(:product_id)
   end
 
   def about

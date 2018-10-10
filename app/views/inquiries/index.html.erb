@@ -9,7 +9,7 @@
       <strong>入力内容にエラーがあります</strong>
       <ul>
         <% @inquiry.errors.each do |attr, msg| %>
-          <li><%= msg %></li>
+          <p><%= msg %></p>
         <% end %>
       </ul>
     </div>

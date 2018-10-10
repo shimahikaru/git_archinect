@@ -2,7 +2,6 @@
 <%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="user_page">
-
    <div class="container">
     <div class="userA">
      <% if @user.avatar? %>
@@ -12,7 +11,7 @@
      <% end %>
     <nav class="profile">
       <ul>
-        <li><h4><%= @user.name %></h4>
+        <li><h4><%= @user.name %><% if current_user.following?(@user) %><%= fa_icon("check") %><% end %></h4>
           <% if user_signed_in? %>
           <%= render partial: 'relationships/follow_button', user: @user %>
           <% end %>
@@ -27,10 +26,10 @@
         <li><a><%= fa_icon("map-marker") %></a><a><%= @user.location %></a></li>
         <% end %>
         <% if @user.url? %>
-        <li><a><%= fa_icon("link") %></a><a><%= @user.url %></a></li>
+        <li><a><%= fa_icon("link") %></a><%= link_to @user.url, @user.url %></li>
         <% end %>
         <% if @user.address? %>
-        <li><a><%= fa_icon("envelope") %></a><a><%= mail_to @user.address, 'メール' %></a></li>
+        <li><a><%= fa_icon("envelope") %></a><a><%= link_to 'メール', user_emails_path(@user) %></a></li>
         <% end %>
         <% if @user.phone? %>
         <li><a><%= fa_icon("phone") %></a><a><%= @user.phone %></a></li>
@@ -45,7 +44,7 @@
       <%= link_to @user.followers.count, followers_user_path(@user) %><p>フォロワー</p>
       </div>
       <div class="follow_btn">
-      <%= link_to @user.products.count, search_products_path(user_id: @user.id) %><p>プロジェクト</p>
+      <%= link_to @user.products.count, search_products_path(user_id: @user.id) %><p>投稿数</p>
       </div>
     </div>
         <% if user_signed_in? && @user.id == current_user.id %>
@@ -60,16 +59,21 @@
    <% if @user.products.exists? %>
    <div class="userB">
    <p>最新のプロジェクト</p>
-     <div class=" swiper-container">
-       <div class="swiper-wrapper">
-
+      <% if @user.products.count > 3 %>
+       <div class=" swiper-container">
+         <div class="swiper-wrapper">
          <%= render partial: 'users/product', collection: @products %>
-
+         </div>
        </div>
+     <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_products_path(user_id: @user.id) %></button>
      </div>
-   <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_products_path(user_id: @user.id) %></button>
-   </div>
+     <% else %>
 
+      <div class="swiper-wrapper">
+     <%= render partial: 'users/product', collection: @products %>
+     </div>
+
+     <% end %>
    <% else %>
    <a>まだ投稿がありません。</a>
    <% end %>
@@ -77,16 +81,20 @@
    <% if @user.commented_products.exists? %>
    <div class="userB">
     <p>コメント済み</p>
-         <div class=" swiper-container">
+    <% if @user.commented_products.count > 3 %>
+     <div class=" swiper-container">
        <div class="swiper-wrapper">
-
-   <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
-
-     </div>
+       <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
+       </div>
      </div>
    <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_comments_path(id: @user.id) %></button>
-   </div>
+     <% else %>
+      <div class="swiper-wrapper">
+     <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
+     </div>
+    <% end %>
    <% end %>
+  </div>
   </div>
 </div>
 

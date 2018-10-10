@@ -33,7 +33,7 @@
                       <li><a><%= fa_icon("map-marker") %>：<%= link_to @product.location, search_products_path(location: @product.location) %></a></li>
                       <li><a>面積：<%= @product.area %>㎡</a></li>
                       <li><a>工期：<%= @product.whet %>ヶ月</a></li>
-                      <li><a><%= @product.charge %> </a><a><%= fa_icon("user") %>：</a>   <%= link_to @product.user.name, user_path(@product.user.id) %></li>
+                      <li><a><%= @product.charge %>：</a><%= link_to @product.user.name, user_path(@product.user.id) %></li>
                       <li><text><%= simple_format(@product.text) %></text></li>
                     </ul>
                    </nav>
@@ -61,7 +61,7 @@
     <%= f.submit "投稿", class: 'post btn' %>
     </div>
     <% end %>
-  <% else %>
+  <% else %>p
   <p>コメントを投稿するには<%= link_to "ログイン", new_user_session_path %>して下さい。</p>
   <% end %>
 
@@ -73,20 +73,26 @@
 </div>
 
  <script>
-var swiper = new Swiper('.swiper-container', {
-  pagination: '.swiper-pagination',
-  paginationClickable: true,
-  parallax: true,
-  speed: 600,
-  loop: true,
-  speed: 200,
-  centerMode: true,
-  slidesPerView: 1,
-  centeredSlides : true,
-    navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
+  window.onload = function () {
+    //initialize swiper when document ready
+
+    var swiper = new Swiper('.swiper-container', {
+          navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      parallax: true,
+      speed: 600,
+      loop: true,
+      speed: 200,
+      centerMode: true,
+      slidesPerView: 1,
+      centeredSlides : true,
+    });
+  };
 </script>
 

@@ -31,7 +31,6 @@ class Product < ApplicationRecord
     end
   end
 
-
   def add_error
     errors[:base] << "タイトルを入力して下さい。" if title.blank?
     errors[:base] << "サブタイトルを入力して下さい。" if subtitle.blank?

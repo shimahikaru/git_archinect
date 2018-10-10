@@ -2,7 +2,9 @@
   <% if current_user.following?(@user) %>
     <%= form_for(current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete }) do |f| %>
       <%= hidden_field_tag :follow_id, @user.id %>
-      <%= fa_icon("user-alt-slash") %><%= f.submit 'アンフォロー', class: 'btn btn-danger btn-block' %>
+      <%= f.button type: 'submit', class: 'btn-block' do %>
+      <a>アンフォロー</a>
+      <% end %>
     <% end %>
   <% else %>
     <%= form_for(current_user.relationships.build) do |f| %>

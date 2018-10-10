@@ -91,6 +91,18 @@
     <% end %>
 
 <script>
+  jQuery('#add-link').click(function(){
+    console.log(jQuery('.field.photo .nested-fields').length);
+
+    if(jQuery('.field.photo .nested-fields').length > 4) {
+      jQuery('#add-link').hide();
+    }
+  });
+
+  jQuery('.remove_fields.dynamic').click(function(){
+      jQuery('#add-link').show();
+  })
+
   jQuery('input[type=checkbox]').click(function(){
     var checked = jQuery('input[type=checkbox]:checked').length;
     if (checked > 3) {
