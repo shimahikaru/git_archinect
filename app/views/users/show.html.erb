@@ -21,7 +21,7 @@
         <p><%= link_to t.work.tag, search_users_path(work_id: t.work_id) %></p>
         <% end %></li>
         <% if @user.local? %>
-        <li><a><%= fa_icon("map-marker") %></a><a><%= @user.location + @user.local%></a></li>
+        <li><a><%= fa_icon("map-marker") %></a><%= link_to @user.location, search_users_path(location: @user.location) %><a><%= @user.local%></a></li>
         <% else %>
         <li><a><%= fa_icon("map-marker") %></a><a><%= @user.location %></a></li>
         <% end %>

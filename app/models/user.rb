@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  default_scope { order(created_at: :desc)}
+  # default_scope { order(created_at: :desc)}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
@@ -44,14 +44,14 @@ mount_uploader :avatar, AvatarsUploader
 
   def self.count_order(count)
     if count == "1"
-      self.reorder('products_count DESC')
+      reorder("products_count DESC")
       # comments = Comment.group(:product_id).order('count(product_id) DESC')
       # products.joins(:comments).group(:product_id).order('count(product_id) DESC')
       # products = self.where( 'comments.count == 0' )
       # comments.map(&:product)
       # comments << products
     elsif count == "2"
-    self.reorder('followers_count DESC')
+    self.reorder("followers_count DESC")
     end
   end
 

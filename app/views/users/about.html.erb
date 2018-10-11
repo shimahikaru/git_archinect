@@ -4,11 +4,11 @@
 
 <h2>ユーザー検索</h2>
 
-   <%= form_with url: search_users_path, method: :get, local: true do |f| %>
+<%= form_with url: search_users_path, method: :get, local: true do |f| %>
 
      <div class="field">
      <p><%= f.label :主な勤務地 %></p>
-     <%= f.select :location, User.locations.keys,  class: 'localform' %><br />
+     <%= f.select :location, User.locations.keys,{prompt: '選択してください'},  class: 'localform' %><br />
      </div>
 
      <div class="field">
