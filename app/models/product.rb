@@ -36,13 +36,14 @@ class Product < ApplicationRecord
 
 
   def add_error
-    errors[:base] << "タイトルを入力して下さい。" if title.blank?
-    errors[:base] << "サブタイトルを入力して下さい。" if subtitle.blank?
-    errors[:base] << "工期を入力して下さい。" if whet.blank?
-    errors[:base] << "場所を選択して下さい。" if location.blank?
-    errors[:base] << "床面積を入力して下さい。" if area.blank?
-    errors[:base] << "説明を入力して下さい。" if text.blank?
-    errors[:base] << "カテゴリーを選択して下さい。" if category.blank?
+    errors[:base] << "タイトル" if title.blank?
+    errors[:base] << "工期" if whet.blank?
+    errors[:base] << "場所" if location.blank?
+    errors[:base] << "床面積" if area.blank?
+    errors[:base] << "コンセプト" if text.blank?
+    errors[:base] << "カテゴリー" if category.blank?
+    errors[:base] << "写真" if whole_photos.blank?
+    errors[:base] << "詳細" if details.blank?
   end
 
   validates :text, length: { maximum: 300 }

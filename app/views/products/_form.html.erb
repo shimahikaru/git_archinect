@@ -1,29 +1,31 @@
 
 <% if @product.errors.any? %>
     <h3>入力した内容にエラーが<%= @product.errors.count %>件あります</h3>
-      <% @product.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
-      <% end %>
+      <p><% @product.errors.full_messages.each do |message| %>
+        <%= message %>・
+      <% end %>を入力してください。</p>
 
 <% end %>
 
-   <%= form_with model:  @product do |f| %>
+   <%= form_with model:  @product, local: true  do |f| %>
 
      <div class="field charge">
-     <p><%= current_user.name %>さんの担当</p>
+      <p><%= f.label current_user.name+"さんの担当" %><a>※</a></p>
      <%= f.select :charge, Product.charges.keys, {prompt: '選択してください'}, class: 'form charge' %>
      </div>
 
      <div class="field">
+      <p><%= f.label :タイトル %><a>※</a></p>
      <%= f.text_field :title, autofocus: true, autocomplete: "title", :maxlength => "15", placeholder: "タイトル・物件名(15文字以下)" , class: 'product form' %>
      </div>
 
      <div class="field">
+      <p><%= f.label :サブタイトル %></p>
      <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle", :maxlength => "30", placeholder: "サブタイトル(30文字以下)", class: 'product form' %>
      </div>
 
-
-      <p><%= f.label :全体画像 %></p>
+      <div class="field">
+      <p><%= f.label :全体画像 %><a>※</a></p>
       <div id="fieldphoto">
       <%= f.fields_for :whole_photos do |whole_photo| %>
       <%= render 'whole_photo_fields', f: whole_photo %>
@@ -32,49 +34,51 @@
       <%= link_to_add_association fa_icon("plus-circle"),f, :whole_photos, id: 'add-link' %>
      </div>
     </div>
+  </div>
+
 
 
      <div class="field">
-     <p><%= f.label :完成年月 %></p>
+     <p><%= f.label :完成年月 %><a>※</a></p>
      <%= f.date_select(:completion, {:discard_day => true}, start_year: 2010, end_year:(Time.now.year), :class => " form", default: Date.new(2018, 1 ))  %>
      </div>
 
      <div class="field">
-     <p><%= f.label :工期 %></p>
+     <p><%= f.label :工期 %><a>※</a></p>
      <%= f.number_field :whet, autofocus: true, step: "0.1", autocomplete: "whet",  class: ' form' %>ヶ月
      </div>
 
      <div class="field">
-     <p><%= f.label :場所 %></p>
+     <p><%= f.label :場所 %><a>※</a></p>
      <%= f.select :location, Product.locations.keys, {prompt: '選択してください'}, class: 'product form' %><br />
      </div>
 
       <div class="field">
-     <p><%= f.label :施工床面積 %></p>
+     <p><%= f.label :施工床面積 %><a>※</a></p>
      <%= f.number_field :area, autofocus: true, step: "0.1", autocomplete: "area", class: 'form' %>㎡
      </div>
 
 
      <div class="field">
-     <p><%= f.label :"説明(３００文字まで)" %></p>
+     <p><%= f.label :"コンセプト(３００文字まで)" %><a>※</a></p>
      <%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "300",  placeholder: "概要・説明・解説など", class: ' form text' %>
      </div>
 
      <div class="field">
-     <p><%= f.label :カテゴリー %></p>
+     <p><%= f.label :カテゴリー %><a>※</a></p>
      <%= f.select :category, Product.categories.keys, {prompt: '選択してください'}, class: 'product form' %><br />
      </div>
 
      <div class="field">
-     <p><%= f.label :関連キーワード（３つまで選択可） %></p>
+     <p><%= f.label :関連するキーワード%><a>※</a></p>
      <label><div class= "tag"><%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :tag) do |b| %>
       <%= b.label { b.check_box + b.text } %>
       <% end %></div>
      </label>
      </div>
-
-     <p><%= f.label :"詳細画像・図面" %></p>
-     <div class="field">
+<div class="field">
+     <p><%= f.label :"詳細画像（または図面等）" %><a>※</a></p>
+     <div id="fielddetail">
      <%= f.fields_for :details do |detail| %>
      <%= render 'detail_fields', f: detail %>
      <% end %>
@@ -82,6 +86,7 @@
      <%= link_to_add_association fa_icon("plus-circle"),f, :details %>
      </div>
      </div>
+    </div>
 
         <div class="field">
         <%= f.submit "投稿", class: 'product button' %>
@@ -92,7 +97,6 @@
 
 
 <script>
-
 
     $(function() {
       $('#fieldphoto a.remove_fields').hide();
@@ -110,6 +114,26 @@
           $('#fieldphoto a.add_fields').hide();
         } else {
           $('#fieldphoto a.add_fields').show();
+        }
+      }
+    });
+
+    $(function() {
+      $('#fielddetail a.remove_fields').hide();
+
+      $('#fielddetail').on('cocoon:after-insert', function() {
+        check_content();
+      });
+
+      $('#fielddetail').on('cocoon:after-remove', function() {
+        check_content();
+      });
+
+      function check_content() {
+        if($('#fielddetail .nested-fields').length == 5) {
+          $('#fielddetail a.add_fields').hide();
+        } else {
+          $('#fielddetail a.add_fields').show();
         }
       }
     });

@@ -52,6 +52,7 @@ class ProductsController < ApplicationController
   def edit
   @product = Product.find(params[:id])
   @user = current_user
+  @photos = @product.whole_photos.select(:id, :photo)
      # @product.whole_photos.photo.cache! unless @product.whole_photos.photo.blank?
      #   @product.details.image.cache! unless @product.details.image.blank?
   end

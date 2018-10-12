@@ -19,8 +19,9 @@
                             letter-spacing: 0.4em;
                              }
                          p {
-                           font-size: 14px;
+                           font-size: 10px;
                            letter-spacing: 0.2em;
+                           color: #A9A9A9;
                            }
 
                     .field.photo{
@@ -31,19 +32,16 @@
                              }
                          }
                      }
-                      .field.charge {
-                        max-width: 400px;
-                        width: 90%;
-                        text-align: center;
-                         p {
-                          font-size: 12px;
-                         }
-                      }
+
                          .field {
                                  margin: 25px auto;
                                  width: 90%;
                                  max-width: 300px;
                                  text-align: center;
+                                  p a {
+                                    font-size: 10px;
+                                    color: #ff3b3f;
+                                  }
                                     .links {
                                          a  {
                                          color: #ec576b;
@@ -70,6 +68,9 @@
                                     .user.form {
                                        margin: 15px auto;
                                     }
+                                    .form.photos {
+                                      border: none;
+                                    }
 
                                 .product {
                                           width: 100%;
@@ -83,6 +84,7 @@
                                         p {
                                           font-size: 14px;
                                           letter-spacing: 0.2em;
+                                          color: #000000;
                                           }
 
                                    select {
