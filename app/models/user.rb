@@ -45,11 +45,6 @@ mount_uploader :avatar, AvatarsUploader
   def self.count_order(count)
     if count == "1"
       reorder("products_count DESC")
-      # comments = Comment.group(:product_id).order('count(product_id) DESC')
-      # products.joins(:comments).group(:product_id).order('count(product_id) DESC')
-      # products = self.where( 'comments.count == 0' )
-      # comments.map(&:product)
-      # comments << products
     elsif count == "2"
     self.reorder("followers_count DESC")
     end
