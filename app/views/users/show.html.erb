@@ -11,7 +11,7 @@
      <% end %>
     <nav class="profile">
       <ul>
-        <li><h4><%= @user.name %><% if current_user.following?(@user) %><%= fa_icon("check") %><% end %></h4>
+        <li><h4><%= @user.name %><% if user_signed_in? && current_user.following?(@user)  %><%= fa_icon("check") %><% end %></h4>
           <% if user_signed_in? %>
           <%= render partial: 'relationships/follow_button', user: @user %>
           <% end %>
@@ -56,45 +56,47 @@
 
    </div>
 
+   <div class="userB">
    <% if @user.products.exists? %>
-   <div class="userB">
-   <p>最新のプロジェクト</p>
-      <% if @user.products.count > 3 %>
+     <p>最新のプロジェクト</p>
+
+       <% if @user.products.count > 3 %>
        <div class=" swiper-container">
-         <div class="swiper-wrapper">
-         <%= render partial: 'users/product', collection: @products %>
-         </div>
+       <div class="swiper-wrapper">
+       <%= render partial: 'users/product', collection: @products %>
        </div>
-     <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_products_path(user_id: @user.id) %></button>
-     </div>
-     <% else %>
+       </div>
+       <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_products_path(user_id: @user.id) %></button>
+       <% else %>
+       <div class="swiper-wrapper">
+       <%= render partial: 'users/product', collection: @products %>
+       </div>
+       <% end %>
 
-      <div class="swiper-wrapper">
-     <%= render partial: 'users/product', collection: @products %>
-     </div>
-
-     <% end %>
-   <% else %>
-   <a>まだ投稿がありません。</a>
+    <% else %>
+    <a>まだ投稿がありません。</a>
    <% end %>
+  </div>
 
-   <% if @user.commented_products.exists? %>
    <div class="userB">
+   <% if @user.commented_products.exists? %>
     <p>コメント済み</p>
-    <% if @user.commented_products.count > 3 %>
-     <div class=" swiper-container">
+
+       <% if @user.commented_products.count > 3 %>
+       <div class=" swiper-container">
        <div class="swiper-wrapper">
        <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
        </div>
-     </div>
-   <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_comments_path(id: @user.id) %></button>
-     <% else %>
-      <div class="swiper-wrapper">
-     <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
-     </div>
-    <% end %>
+       </div>
+       <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_comments_path(id: @user.id) %></button>
+       <% else %>
+       <div class="swiper-wrapper">
+       <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
+       </div>
+      <% end %>
    <% end %>
-  </div>
+   </div>
+
   </div>
 </div>
 

@@ -50,6 +50,10 @@ mount_uploader :avatar, AvatarsUploader
     end
   end
 
+  # def followers
+  #   self.followers.count
+  # end
+
   def add_error
     errors[:base] << "苗字は必須です。" if familyname.blank?
     errors[:base] << "名前は必須です。" if firstname.blank?

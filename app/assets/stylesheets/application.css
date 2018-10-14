@@ -11,12 +11,23 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-*= require_self
+
 *= require font-awesome
 *= require swiper
 *= require social-share-button
+*= require_self
  */
+
+/* @font-face{
+   src: font-url('OpebSans-Regular.ttf') format('truetype');
+ }
+  @font-face{
+   font-family: 'hoge';
+   src: font-url('OpebSans-Regular.ttf') format('truetype');
+ }
+*/
 body {
+  font-family: 'hoge';
   width: 100%;
   margin: 0;
   text-align: center;
@@ -35,6 +46,25 @@ body {
   padding-right: 15px;
   color: #000000;
   letter-spacing: 0.1em
+}
+.container-small .btn-user {
+  display: flex;
+  margin-right: 5px;
+}
+.container-small .btn-user a {
+  text-decoration: none;
+  margin-right: 5px;
+}
+.container-small .btn-user i {
+  color: #000000;
+  opacity: 0.7;
+  font-size: 17px;
+}
+.container-small .btn-user p {
+  color: #000000;
+  opacity: 0.5;
+  margin: 0;
+  font-size: 8px;
 }
 
 header {
@@ -87,7 +117,6 @@ letter-spacing: 0.3em
 }
 
  .headC {
-  margin-right: 15px;
   padding: none;
   border: none;
   outline: none;
@@ -98,8 +127,7 @@ letter-spacing: 0.3em
 }
 
 .headC:hover {
-  color: #ec576b;
-  opacity: 1;
+  opacity: 0.4;
 }
 
 
@@ -159,6 +187,9 @@ li .panel-item {
   width:
 }
 .headC {
+  display: none;
+}
+.container-small .btn-user {
   display: none;
 }
 }

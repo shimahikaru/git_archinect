@@ -3,10 +3,19 @@
 <header>
           <div class="container">
             <div class="container-small">
-            <%= link_to "Archinect", root_path , :class =>"headA" %>
-
             <button type="button" class="headC"><%= fa_icon("bars") %></button>
-
+            <%= link_to "Archinect", root_path , :class =>"headA" %>
+            <% if user_signed_in? %>
+            <div class="btn-user">
+            <%= link_to  user_path(current_user) do %><%= fa_icon("user") %><p>マイページ</p><% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %><%= fa_icon("sign-out") %><p>ログアウト</p><% end %>
+            </div>
+            <% else %>
+            <div class="btn-user">
+            <%= link_to  new_user_registration_path do %><%= fa_icon("user") %><p>会員登録</p><% end %>
+            <%= link_to new_user_session_path do %><%= fa_icon("sign-in") %><p>ログイン</p><% end %>
+            </div>
+            <% end %>
             </div>
                    <nav class="headB" id="js-accordion">
                    <ul>
@@ -56,6 +65,8 @@
 
                     </ul>
                     </nav>
+            </div>
+
             </div>
 </header>
 

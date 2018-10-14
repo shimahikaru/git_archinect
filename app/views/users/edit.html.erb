@@ -6,16 +6,18 @@
 
    <%= form_with model: @user, local: true do |f| %>
 
-
      <div class="field">
+        <p><%= f.label :苗字 %><a>※</a></p>
      <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname",   class: 'user form' %>
      </div>
 
      <div class="field">
+    <p><%= f.label :名前 %><a>※</a></p>
      <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname",   class: 'user form' %>
      </div>
 
      <div class="field">
+     <p><%= f.label :登録メールアドレス %><a>※</a></p>
      <%= f.email_field :email, autofocus: true, autocomplete: "email",   class: 'user form' %>
      </div>
 
@@ -40,7 +42,7 @@
 
      <div class="field">
       <p><%= f.label :メールアドレス %></p>
-      <%= f.email_field :address, autofocus: true, autocomplete: "address",  placeholder: "マイページに掲載可能なメールアドレス", class: 'user form' %>
+      <%= f.email_field :address, autofocus: true, autocomplete: "address",  placeholder: "", class: 'user form' %>
      </div>
 
      <div class="field">
