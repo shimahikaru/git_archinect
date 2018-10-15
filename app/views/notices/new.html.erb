@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag    'product/new', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+<div class="product_new">
+
+<div class="container">
+   <%= form_with model:  @notice, local: true  do |f| %>
+
+     <div class="field charge">
+      <p><%= f.label "お知らせ内容" %><a>※</a></p>
+     <%= f.select :type, Notice.types.keys, {prompt: '選んでください'}, class: 'form charge' %>
+     </div>
+
+     <div class="field">
+      <p><%= f.label :タイトル %><a>※</a></p>
+     <%= f.text_field :title, autofocus: true, autocomplete: "title", :maxlength => "15", placeholder: "タイトル(15文字以下)" , class: 'product form' %>
+     </div>
+
+
+     <div class="field">
+     <p><%= f.label :"内容(３００文字まで)" %><a>※</a></p>
+     <%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "300",  placeholder: "", class: ' form text' %>
+     </div>
+
+
+
+        <div class="field">
+               <%= link_to "プロフィールを保存", method: :post, class: 'user button' %>
+        <%= f.submit "この内容で保存", class: 'product button' %>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>

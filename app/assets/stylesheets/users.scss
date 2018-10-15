@@ -17,12 +17,11 @@ margin-right: auto;
 
        .userA {
         margin-bottom: 2.5px;
-        border: solid 1px #A9A9A9;
         border-radius: 5px;
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        padding: 5px;
+        background-color: #fff;
 
            .image{
                  width: 100%;
@@ -30,6 +29,7 @@ margin-right: auto;
                  background-color: #696969;
                  height: 100%;
                  max-height: 450px;
+                 border-radius: 5px;
                  }
 
             .profile {
@@ -65,6 +65,7 @@ margin-right: auto;
                           li{
                             list-style: none;
                             margin-left: -30px;
+                            margin-bottom: 2px;
 
                                .btn-block {
                                 border-radius: 3px;
@@ -81,17 +82,19 @@ margin-right: auto;
                                        display: inline-block;
                                        margin: 0;
                                        padding: 1px 5px;
-                                       background-color: #c5c1c0;
+                                       background-color: #808080;
                                        border-radius: 3px;
+                                        margin-bottom: 3px;
 
                                       a {
                                           text-decoration: none;
                                           font-size: 10px;
+                                          color: #fff;
                                          }
                                    }
                                  a {
                                    letter-spacing: 0.2em;
-                                   font-size: 12px;
+                                   font-size: 11px;
                                    letter-spacing: 0.2em;
                                    color: #262228;
                                    }
@@ -115,6 +118,7 @@ margin-right: auto;
                             width: 100px;
                             a {
                               color: #000000;
+                              font-size: 11px;
                             }
                             p{
                               color: #c5c1c0;

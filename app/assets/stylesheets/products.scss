@@ -20,7 +20,6 @@ flex-wrap: wrap;
 
     article {
         display: block;
-        border: solid 1px #A9A9A9;
         border-radius: 5px;
         padding: 0;
         width: 48%;
@@ -28,6 +27,7 @@ flex-wrap: wrap;
         min-width: 140px;
         flex: 1 1 150px;
         margin: 1.5px;
+        background-color: #fff;
 
 
                 img {

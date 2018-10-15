@@ -13,7 +13,7 @@
       <p><%= link_to user.name, user_path(user.id) %></p>
       <p><%= fa_icon("edit") %>
         <% if user.products.exists?%>
-        <%= link_to user.products.count, search_products_path(user_id: user.id) %>件
+        <%= link_to "#{user.products.count}件", search_products_path(user_id: user.id) %>
         <% else %>
           0件
         <% end %>
