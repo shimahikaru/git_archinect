@@ -5,6 +5,11 @@ class NoticesController < ApplicationController
     @notice = Notice.all
   end
 
+  def search
+    @notices = Notice.order('updated_at DESC')
+    @notices = @notices.where(category: params[:category]) if params[:category].present?
+  end
+
   def show
     @notice = Notice.find(params[:id])
   end

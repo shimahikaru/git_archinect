@@ -45,14 +45,20 @@
                         <li class="panel-item"><%= link_to "その他", search_products_path(category: "その他") %></li>
                       </ul>
                     </li>
-
                     <li><a>USERS</a>
                       <ul class="inner">
                         <li class="panel-item"><%= link_to "全て表示", users_path %></li>
                         <li class="panel-item"><%= link_to "詳細検索", about_users_path %></li>
                       </ul>
                     </li>
-
+                    <li><a>NEWS</a>
+                      <ul class="inner">
+                        <li class="panel-item"><%= link_to "求人", search_notices_path(category: "求人") %></li>
+                        <li class="panel-item"><%= link_to "イベント", search_notices_path(category: "イベント") %></li>
+                        <li class="panel-item"><%= link_to "オープンデスク", search_notices_path(category: "オープンデスク") %></li>
+                        <li class="panel-item"><%= link_to "その他", search_notices_path(category: "その他") %></li>
+                      </ul>
+                    </li>
 <% if user_signed_in? %>
                     <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></li>
 <% end %>

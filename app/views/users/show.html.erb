@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag    'user/products', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= stylesheet_link_tag 'notices', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'user/notices', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="user_page">
    <div class="container">
@@ -61,7 +61,7 @@
   <% if @notice %>
    <div class="userB">
     <div class="notice">
-    <%= render partial: 'notices/notice', locals: {notice: @notice} %>
+    <%= render partial: 'users/notice', locals: {notice: @notice} %>
        </div>
       </div>
     <% else %>

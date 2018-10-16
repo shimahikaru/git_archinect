@@ -90,7 +90,8 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   color: #000000;
-  letter-spacing: 0.2em
+  letter-spacing: 0.2em;
+  font-weight: 900;
 }
 
 .headA:hover{
@@ -206,7 +207,7 @@ li .panel-item a{
 
 
 
-@media (min-width: 768px) {
+@media (min-width: 1180px) {
   header .container {
   display: flex;
 /*  justify-content: space-between;*/
@@ -223,7 +224,7 @@ li .panel-item a{
 .headB li {
   background-color: transparent;
   padding: 0;
-  width: 140px;
+  width: 155px;
   text-align: center;
 }
 .headB ul {
@@ -238,7 +239,7 @@ li .panel-item a {
 }
 
 .headB a {
-  width: 140px;
+  width: 150px;
   font-size: 12px;
   text-align: center;
 }
