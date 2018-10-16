@@ -24,10 +24,11 @@ flex-wrap: wrap;
         padding: 0;
         width: 48%;
         max-width: 400px;
-        min-width: 140px;
+        min-width: 150px;
         flex: 1 1 150px;
         margin: 1.5px;
         background-color: #fff;
+
 
 
                 img {
@@ -40,12 +41,25 @@ flex-wrap: wrap;
                  }
 
             .text {
-                p, a {
-                 margin: 0;
+                h6 {
+                font-size: 10px;
+                font-weight: bold;
+                 margin: 3px;
+                 letter-spacing: 0.2em;
+                }
+                p {
+                 margin: 4px;
                  color: #565656;
                  // padding: 0;
-                 font-size: 11px;
-                 letter-spacing: 0.3em;
+                 font-size: 9px;
+                 letter-spacing: 0.2em;
+                }
+                p a {
+                    text-decoration: none;
+                    color: #565656;
+                    padding: 3px 6px;
+                    font-size: 9px;
+                    border-radius: 3px;
                 }
                 .title p {
                     color: #000;
@@ -67,10 +81,13 @@ flex-wrap: wrap;
    article {
     min-width: 150px;
       .text {
+        h6 {
+          font-size: 12px;
+        }
              p {
                  margin: 5px;
                  // padding: 0;
-                 font-size: 13px;
+                 font-size: 12px;
                  letter-spacing: 0.3em;
                 }
             }

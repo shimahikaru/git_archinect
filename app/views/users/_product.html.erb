@@ -6,9 +6,9 @@
         <% end %>
      <% end %>
     <div class="text">
-        <div class="title"><p><%= product.title %></p></div>
+        <div class="title"><h5><%= product.title %></h5></div>
         <p><%= fa_icon("map-marker") %><%= product.location %></p>
-        <p><%= link_to product.category, search_products_path(category: product.category) %></p>
+        <%= link_to product.category, search_products_path(category: product.category) %>
         <p><%= product.completion.strftime("%Y-%m") %>  <%= fa_icon("comments") %><%= product.comments.count %></p>
      </div>
      </article>

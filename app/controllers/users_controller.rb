@@ -10,6 +10,7 @@ before_action :authenticate_user!, only: [:edit, :update, ]
     @tags = @user.user_works
     @products = Product.where(user_id: @user.id).select(:id, :title, :location, :category, :completion)
     @photos = WholePhoto.group(:product_id)
+    @notice = @user.notice
   end
 
   def search

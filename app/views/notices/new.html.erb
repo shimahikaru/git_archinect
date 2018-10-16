@@ -8,7 +8,7 @@
 
      <div class="field charge">
       <p><%= f.label "お知らせ内容" %><a>※</a></p>
-     <%= f.select :type, Notice.types.keys, {prompt: '選んでください'}, class: 'form charge' %>
+     <%= f.select :category, Notice.categories.keys, {prompt: '選んでください'}, class: 'form charge' %>
      </div>
 
      <div class="field">
@@ -25,7 +25,6 @@
 
 
         <div class="field">
-               <%= link_to "プロフィールを保存", method: :post, class: 'user button' %>
         <%= f.submit "この内容で保存", class: 'product button' %>
         </div>
 

@@ -10,7 +10,7 @@
     <div class="conA">
 
       <div class="con1">
-      <p><%= link_to user.name, user_path(user.id) %></p>
+      <h5><%= link_to user.name, user_path(user.id) %></h5>
       <p><%= fa_icon("edit") %>
         <% if user.products.exists?%>
         <%= link_to "#{user.products.count}件", search_products_path(user_id: user.id) %>
@@ -23,7 +23,7 @@
       <div class="con2">
       <p>
       <% user.works.each do |work|%>
-      <a><%= work.tag %></a>
+      <%= link_to work.tag, search_users_path(work_id: work.id) %>
       <% end %></p>
       </div>
 

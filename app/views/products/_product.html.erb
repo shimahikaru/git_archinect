@@ -6,10 +6,10 @@
         <% end %>
      <% end %>
     <div class="text">
-        <div class="title"><p><%= product.title %></p></div>
+        <div class="title"><h6><%= product.title %></h6></div>
         <p><%= fa_icon("map-marker") %><%= product.location %></p>
         <p><%= link_to product.category, search_products_path(category: product.category) %></p>
-        <p><%= product.completion.strftime("%Y-%m") %>  <%= fa_icon("comments") %><%= product.comments.count %></p>
+        <p><%= product.completion.strftime("%Y-%m") %>  <%= fa_icon("comments") %><%= product.comments.count %><%= fa_icon("eye") %><%= product.impressions.count %></p>
      </div>
 </article>
 

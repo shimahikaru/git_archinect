@@ -17,21 +17,12 @@
 *= require social-share-button
 *= require_self
  */
-
-/* @font-face{
-   src: font-url('OpebSans-Regular.ttf') format('truetype');
- }
-  @font-face{
-   font-family: 'hoge';
-   src: font-url('OpebSans-Regular.ttf') format('truetype');
- }
-*/
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
 
-/*html, body, div, span, applet, object, iframe,
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -52,7 +43,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-/*article, aside, details, figcaption, figure,
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -73,14 +64,15 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}*/
+}
 
 .button {
   -webkit-appearance: none;
+  background-color: #25b9d7;
 }
 
 body {
-  font-family: 'hoge';
+  font-family: arial, sans-serif;
   width: 100%;
   margin: 0;
   text-align: center;
@@ -93,7 +85,7 @@ body {
 }
 .headA {
   display: inline-block;
-  line-height: 65px;
+  line-height: 55px;
   font-size: 20px;
   text-decoration: none;
   padding-left: 15px;
@@ -101,6 +93,11 @@ body {
   color: #000000;
   letter-spacing: 0.2em
 }
+
+.headA:hover{
+  color: #df0067;
+}
+
 .container-small .btn-user {
   display: flex;
   margin-right: 5px;
@@ -110,13 +107,13 @@ body {
   margin-right: 5px;
 }
 .container-small .btn-user i {
-  color: #000000;
-  opacity: 0.7;
+  color: #68737f;
+  opacity: 0.9;
   font-size: 17px;
 }
 .container-small .btn-user p {
-  color: #000000;
-  opacity: 0.5;
+  color: #68737f;
+  opacity: 0.9;
   margin: 0;
   font-size: 8px;
 }
@@ -127,15 +124,15 @@ header {
   top: 0;
   left: 0;
   z-index: 100;
-  width: 100%;
-  height: 65px;
+  width: 100vw;
+  height: 55px;
   background-color: rgba(255,255,255,0.7);
 }
 
   header .container-small {
     display: flex;
     align-items: center;
-    height: 65px;
+    height: 55px;
     justify-content: space-between;
   }
 
@@ -151,19 +148,19 @@ header {
 }
 .headB a{
 display: block;
-padding: 5px;
 color: #262228;
-font-size: 14px;
+font-size: 13px;
 text-decoration: none;
-letter-spacing: 0.3em
+letter-spacing: 0.5em;
 }
 
 .headB li {
   background-color: rgba(255,255,255,0.9);
+  padding: 15px;
 }
 
-.headB li:hover{
-  background-color: #0375b4;
+.headB li a:hover{
+  color: #25b9d7;
 
 }
 
@@ -177,7 +174,7 @@ letter-spacing: 0.3em
   outline: none;
   background: none;
   font-size: 25px;
-  opacity: 0.7;
+  color: #68737f;
   cursor: pointer;
 }
 
@@ -213,18 +210,20 @@ li .panel-item a{
 @media (min-width: 768px) {
   header .container {
   display: flex;
-  justify-content: space-between;
+/*  justify-content: space-between;*/
   max-width: 1200px;
+  width: 100vw;
   margin-left: auto;
   margin-right: auto;
 }
 .headB {
   display: block !important;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 .headB li {
   background-color: transparent;
+  padding: 0;
 }
 .headB ul {
   display: flex;
@@ -236,6 +235,7 @@ li .panel-item {
 
 .headB a {
   width: 140px;
+  font-size: 12px;
   text-align: center;
 }
 

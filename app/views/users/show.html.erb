@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag    'user/products', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'notices', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="user_page">
    <div class="container">
@@ -54,6 +55,18 @@
         <% end %>
     </nav>
 
+   </div>
+
+   <div class="userB">
+    <p>お知らせ</p><p><%= @notice.created_at.strftime('%Y/%m/%d %H時%M分　更新') if @notice %></p>
+    <div class="notice">
+    <% if @notice %>
+    <%= render partial: 'notices/notice', locals: {notice: @notice} %>
+    <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_products_path(user_id: @user.id) %></button>
+    <% else %>
+    <p>まだありません</p>
+    <% end %>
+  </div>
    </div>
 
    <div class="userB">

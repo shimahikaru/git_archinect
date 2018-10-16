@@ -34,16 +34,19 @@
   }
 
   article {
-
-    margin-top: 35px;
+    border-bottom: solid 0.7px #DDDDDD;
+    padding: 30px;
+    max-width: 700px;
+    margin: auto;
 
     .title {
       display: flex;
       width: 220px;
-      margin: 0 auto;
+      margin: 10px auto;
+      color: #000;
       justify-content: space-between;
 
-      h5 {
+      p, a {
         margin: 0;
         a {
           color: #000;
@@ -52,13 +55,7 @@
         }
       }
 
-      p {
-        margin: 0;
-        padding-top: 2px;
-        font-size: 11px;
-      }
     }
-
   }
 
 }

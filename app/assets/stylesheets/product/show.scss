@@ -13,9 +13,9 @@ margin-right: auto;
 
       .container{
                  display: block;
-                 border: solid 1px #A9A9A9;
                  border-radius: 8px;
                  padding: 8px;
+                 background-color: #fff;
 
 
                  .proA{
@@ -59,39 +59,40 @@ margin-right: auto;
                       }
                             li{
                               list-style: none;
-                              margin-left: -30px;
-                              margin-bottom: 5px;
+                              margin-bottom: 13px;
+
+                              h4 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                letter-spacing: 0.2em;
+                              }
 
                                      p {
-                                       font-size: 10px;
                                        display: inline-block;
-                                       margin: 0;
-                                       padding: 1px 3px;
-                                       margin-right: 3px;
                                        background-color: #c5c1c0;
                                        border-radius: 3px;
-
                                          a {
                                           text-decoration: none;
                                           font-size: 11px;
+                                          letter-spacing: 0.2em;
+                                          margin: 0 5px;
                                          }
                                        }
 
                                      a {
-                                      font-size: 13px;
-                                      letter-spacing: 0.3em;
-                                      color: #000000;
+                                      font-size: 12px;
+                                      letter-spacing: 0.2em;
                                       text_decoration: none;
+                                      color: #000;
 
                                        }
 
-                                  text {
-                                             p {
-                                               margin: 20px auto;
-                                               background: none;
-                                               font-size: 12px;
-                                               letter-spacing: 0.2em;
-                                               }
+                                  text p {
+                                      margin-top: 10px;
+                                      background: none;
+                                      font-size: 12px;
+                                      letter-spacing: 0.2em;
+                                      line-height: 18px;
                                        }
 
                                }
@@ -101,6 +102,7 @@ margin-right: auto;
                    .proC {
                      margin-top: 40px;
                      text-align: center;
+                     padding-bottom: 30px;
                      border-bottom: solid 0.7px #DDDDDD;
                      article {
                       margin-bottom: 35px;
@@ -111,17 +113,22 @@ margin-right: auto;
                         min-height: 250px;
                         max-height: 450px;
                        }
-                       .text {
-                        width: 95%;
-                        margin: auto;
-                       }
                        h5 {
-                        margin: 15px auto;
+                          font-size: 13px;
+                          font-weight: bold;
+                          letter-spacing: 0.2em;
+                          margin: 15px auto;
                        }
                       p {
                         font-size: 12px;
+                        line-height: 18px;
                         margin: 0 auto;
+                        letter-spacing: 0.2em;
                       }
+                    }
+                    .edituser, a {
+                      color: #000;
+                      font-size: 13px;
                     }
                    }
 // ここまでがproC
@@ -131,6 +138,10 @@ margin-right: auto;
 
                       .count {
                         border-bottom: solid 0.7px #DDDDDD;
+                        p {
+                          font-size: 12px;
+                          margin-bottom: 10px;
+                        }
                       }
                    }
                  }
