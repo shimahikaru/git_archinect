@@ -1,5 +1,7 @@
 <article>
-<p>ジャンル：<%= notice.category %></p>
-<p><%= notice.title %></p>
-<%= simple_format(notice.text) %>
+<%= link_to(notice_path(@user.notice.id), class: 'list-content') do %>
+<h5><%= notice.title %></h5>
+<h6><%= notice.created_at.strftime('更新 ： %Y/%m/%d') %></h6>
+<h6><%= notice.text.truncate(150) %></h6>
+<% end %>
 </article>

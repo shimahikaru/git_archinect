@@ -16,7 +16,7 @@ has_many :comments, ->{ order("updated_at DESC") }
 has_many :commented_products, ->{ order("updated_at DESC") }, through: :comments, source: :product
 
 
-validates :text, length: { maximum: 150 }
+validates :text, length: { maximum: 80 }
 
 has_many :relationships
 has_many :followings, through: :relationships, source: :follow

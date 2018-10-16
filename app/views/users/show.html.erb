@@ -17,7 +17,12 @@
           <%= render partial: 'relationships/follow_button', user: @user %>
           <% end %>
         </li>
+        <% if @user.office? %>
         <li><a><%= @user.office %></a></li>
+        <% end %>
+          <% if @user.address? %>
+        <li><%= link_to fa_icon("envelope")+'メール', user_emails_path(@user), class: "mail" %></li>
+        <% end %>
         <li><% @tags.each do | t | %>
         <p><%= link_to t.work.tag, search_users_path(work_id: t.work_id) %></p>
         <% end %></li>
@@ -28,9 +33,6 @@
         <% end %>
         <% if @user.url? %>
         <li><a><%= fa_icon("link") %></a><%= link_to @user.url, @user.url %></li>
-        <% end %>
-        <% if @user.address? %>
-        <li><a><%= fa_icon("envelope") %></a><a><%= link_to 'メール', user_emails_path(@user) %></a></li>
         <% end %>
         <% if @user.phone? %>
         <li><a><%= fa_icon("phone") %></a><a><%= @user.phone %></a></li>
@@ -54,36 +56,34 @@
         <div class="edituser post" ><%= link_to fa_icon("cog")+"編集", edit_user_path(current_user) %></div>
         <% end %>
     </nav>
-
    </div>
 
+  <% if @notice %>
    <div class="userB">
-    <p>お知らせ</p><p><%= @notice.created_at.strftime('%Y/%m/%d %H時%M分　更新') if @notice %></p>
     <div class="notice">
-    <% if @notice %>
     <%= render partial: 'notices/notice', locals: {notice: @notice} %>
-    <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_products_path(user_id: @user.id) %></button>
+       </div>
+      </div>
     <% else %>
-    <p>まだありません</p>
-    <% end %>
-  </div>
-   </div>
+      <% if user_signed_in? && @user.id == current_user.id %>
+      <%= link_to link_to fa_icon("cog")+"編集",  new_notice_path %>
+      <% end %>
+  <% end %>
 
    <div class="userB">
    <% if @user.products.exists? %>
-     <p>最新のプロジェクト</p>
+     <p>最新のプロジェクト<button class="btn"><%= link_to @user.products.count, search_products_path(user_id: @user.id) %></button></p>
 
-       <% if @user.products.count > 3 %>
+      <% if @user.products.count > 3 %>
        <div class=" swiper-container">
-       <div class="swiper-wrapper">
-       <%= render partial: 'users/product', collection: @products %>
+         <div class="swiper-wrapper">
+         <%= render partial: 'users/product', collection: @products %>
+         </div>
        </div>
-       </div>
-       <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_products_path(user_id: @user.id) %></button>
        <% else %>
-       <div class="swiper-wrapper">
-       <%= render partial: 'users/product', collection: @products %>
-       </div>
+         <div class="swiper-wrapper">
+         <%= render partial: 'users/product', collection: @products %>
+         </div>
        <% end %>
 
     <% else %>
@@ -93,7 +93,7 @@
 
    <div class="userB">
    <% if @user.commented_products.exists? %>
-    <p>コメント済み</p>
+    <p>コメント済み<button class="btn"><%= link_to @user.commented_products.count, search_comments_path(id: @user.id) %></button></p>
 
        <% if @user.commented_products.count > 3 %>
        <div class=" swiper-container">
@@ -101,7 +101,6 @@
        <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
        </div>
        </div>
-       <button class="btn"><%= link_to fa_icon("")+"MORE"+fa_icon("angle-double-right"), search_comments_path(id: @user.id) %></button>
        <% else %>
        <div class="swiper-wrapper">
        <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
@@ -118,12 +117,15 @@ var mySwiper = new Swiper('.swiper-container', {
   infinite: true,
   loop: true,
   spaceBetween: 5,
-  slidesPerView: 4,
 
   breakpoints: {
     // 767px以下になったら
     767: {
-      slidesPerView: 3,
+      slidesPerView: 2,
+    },
+
+    300: {
+      slidesPerView: 1,
     }
   },
 });

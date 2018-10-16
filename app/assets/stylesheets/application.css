@@ -66,9 +66,8 @@ table {
   border-spacing: 0;
 }
 
-.button {
+.button, .btn {
   -webkit-appearance: none;
-  background-color: #25b9d7;
 }
 
 body {
@@ -161,6 +160,7 @@ letter-spacing: 0.5em;
 
 .headB li a:hover{
   color: #25b9d7;
+  cursor: pointer;
 
 }
 
@@ -185,7 +185,6 @@ letter-spacing: 0.5em;
 
 
 li .panel-item a{
-  padding: 8px;
   font-size: 10px;
   letter-spacing: 0.2em
 
@@ -224,6 +223,8 @@ li .panel-item a{
 .headB li {
   background-color: transparent;
   padding: 0;
+  width: 140px;
+  text-align: center;
 }
 .headB ul {
   display: flex;
@@ -231,6 +232,9 @@ li .panel-item a{
 }
 li .panel-item {
   background-color: rgba(255,255,255,0.9);
+}
+li .panel-item a {
+  padding: 10px 0;
 }
 
 .headB a {
