@@ -5,11 +5,9 @@
 <div class="user_page">
    <div class="container">
     <div class="userA">
-     <% if @user.avatar? %>
+
       <%= image_tag @user.avatar.url(:thumb), :class => "image" %>
-     <% else %>
-     <div class="image"></div>
-     <% end %>
+
     <nav class="profile">
       <ul>
         <li><h4><%= @user.name %><% if user_signed_in? && current_user.following?(@user)  %><%= fa_icon("check") %><% end %></h4>
@@ -66,7 +64,12 @@
       </div>
     <% else %>
       <% if user_signed_in? && @user.id == current_user.id %>
-      <%= link_to link_to fa_icon("cog")+"編集",  new_notice_path %>
+      <div class="userB">
+      <div class="notice">
+        <h6>求人やイベントなどの情報を投稿したり共有することができます。</h6>
+      <%= link_to link_to "お知らせを掲載する",  new_notice_path %>
+    </div>
+      </div>
       <% end %>
   <% end %>
 
@@ -74,7 +77,7 @@
    <% if @user.products.exists? %>
      <p>最新のプロジェクト<button class="btn"><%= link_to @user.products.count, search_products_path(user_id: @user.id) %></button></p>
 
-      <% if @user.products.count > 3 %>
+      <% if @user.products.count > 2 %>
        <div class=" swiper-container">
          <div class="swiper-wrapper">
          <%= render partial: 'users/product', collection: @products %>
@@ -85,17 +88,27 @@
          <%= render partial: 'users/product', collection: @products %>
          </div>
        <% end %>
-
     <% else %>
-    <a>まだ投稿がありません。</a>
+    <% if user_signed_in? && @user.id == current_user.id %>
+    <div class="product_post">
+    <h5>まだ投稿がありません。</h5>
+    <h6>プロジェクトを投稿し公開することで、沢山の人達と共有したりコメントをもらうことが出来ます。</h6>
+    <%= link_to fa_icon("edit")+"投稿する", new_product_path %>
+    </div>
+    <% else %>
+    <div class="product_post">
+    <h5>まだ投稿がありません。</h5>
+     </div>
+    <% end %>
    <% end %>
   </div>
 
-   <div class="userB">
+
    <% if @user.commented_products.exists? %>
+   <div class="userB">
     <p>コメント済み<button class="btn"><%= link_to @user.commented_products.count, search_comments_path(id: @user.id) %></button></p>
 
-       <% if @user.commented_products.count > 3 %>
+       <% if @user.commented_products.count > 2 %>
        <div class=" swiper-container">
        <div class="swiper-wrapper">
        <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
@@ -105,10 +118,9 @@
        <div class="swiper-wrapper">
        <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
        </div>
+     </div>
       <% end %>
    <% end %>
-   </div>
-
   </div>
 </div>
 

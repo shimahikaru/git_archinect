@@ -1,5 +1,4 @@
 //search ページ
-//showページ
 .notice {
          margin-top: 75px;
         width: 98%;
@@ -33,7 +32,38 @@
         line-height: 18px;
         color: #565656;
       }
-
-
   }
+}
+
+//showページ
+.notice_page{
+ display: block;
+ width: 98%;
+ max-width: 1200px;
+ margin-top: 70px;
+ margin-left: auto;
+ margin-right: auto;
+ border-radius: 5px;
+ background-color: #fff;
+ padding-bottom: 25px;
+    .container{
+      padding: 15px 30px;
+      h5 {
+        font-weight: bold;
+        margin: 15px auto;
+      }
+      p {
+        font-size: 12px;
+        line-height: 18px;
+        margin: 15px auto;
+      }
+      a {
+        font-size: 11px;
+        color: #000;
+      }
+    }
+}
+
+.notice_user {
+  margin-top: -60px;
 }

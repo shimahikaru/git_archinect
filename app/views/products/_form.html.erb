@@ -4,7 +4,6 @@
       <p><% @product.errors.full_messages.each do |message| %>
         <%= message %>・
       <% end %>を入力してください。</p>
-
 <% end %>
 
    <%= form_with model:  @product, local: true  do |f| %>

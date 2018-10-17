@@ -4,6 +4,6 @@
 <h5><%= notice.title %></h5>
 <h6><%= notice.created_at.strftime('更新 ： %Y/%m/%d') %></h6>
 <h6><%= notice.text.truncate(150) %></h6>
-<h5><%= notice.user.name %>：<%= notice.user.office %></h5>
+<h5><%= fa_icon("user") %><%= notice.user.name %><%= notice.user.office %></h5>
 <% end %>
 </article>

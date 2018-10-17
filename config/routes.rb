@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     end
   end
 
-resources :notices, only: [:index, :show, :new, :create, :edit, :update ] do
+resources :notices do
       collection do
       get :search
       get :about

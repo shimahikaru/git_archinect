@@ -10,10 +10,9 @@ has_many :user_works
 has_many :works, through: :user_works
 accepts_nested_attributes_for :user_works, allow_destroy: true
 # accepts_nested_attributes_for :tag_works, allow_destroy: true
-has_many :products, ->{ order("created_at DESC")}
-
-has_many :comments, ->{ order("updated_at DESC") }
-has_many :commented_products, ->{ order("updated_at DESC") }, through: :comments, source: :product
+has_many :products, ->{ order("created_at DESC")}, dependent: :delete_all
+has_many :comments, ->{ order("updated_at DESC") }, dependent: :delete_all
+has_many :commented_products, ->{ order("updated_at DESC") }, through: :comments, source: :product, dependent: :delete_all
 
 
 validates :text, length: { maximum: 80 }
@@ -24,7 +23,7 @@ has_many :followings, through: :relationships, source: :follow
 has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
 has_many :followers, through: :reverses_of_relationship, source: :user
 has_many :emails
-has_one :notice
+has_one :notice, dependent: :destroy
 
 
 

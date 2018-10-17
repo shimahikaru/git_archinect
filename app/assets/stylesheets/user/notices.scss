@@ -4,6 +4,18 @@
         height: 100%;
         margin-left: auto;
         margin-right: auto;
+        a{
+          font-size: 12px;
+          text-decoration: none;
+          color: #25b9d7;
+          font-weight: bold;
+          letter-spacing: 0.1em;
+        }
+        h6 {
+          color: #565656;
+          font-size: 10px;
+          margin: 10px;
+        }
   article {
         padding: 15px;
         border-radius: 5px;

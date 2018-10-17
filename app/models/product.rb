@@ -7,17 +7,17 @@ class Product < ApplicationRecord
   belongs_to :user
   counter_culture :user
 
-  has_many :whole_photos, inverse_of: :product
+  has_many :whole_photos, inverse_of: :product, dependent: :delete_all
   accepts_nested_attributes_for :whole_photos, reject_if: :all_blank, allow_destroy: true
 
-  has_many :details, inverse_of: :product
+  has_many :details, inverse_of: :product, dependent: :delete_all
   accepts_nested_attributes_for :details, reject_if: :all_blank, allow_destroy: true
 
-  has_many :genre_products
-  has_many :genres, through: :genre_products
+  has_many :genre_products, dependent: :delete_all
+  has_many :genres, through: :genre_products, dependent: :delete_all
   accepts_nested_attributes_for :genre_products, allow_destroy: true
 
-  has_many :comments, ->{ order("updated_at DESC")}
+  has_many :comments, ->{ order("updated_at DESC")}, dependent: :delete_all
 
   validate :add_error
 

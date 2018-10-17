@@ -19,7 +19,7 @@ end
 private
 
 def create_params
-  params.require(:comment).permit(:text, :product_id).merge(user_id: current_user.id)
+  params.require(:comment).permit(:text, :product_id, :notice_id).merge(user_id: current_user.id)
 end
 
 end

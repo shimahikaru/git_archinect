@@ -8,7 +8,7 @@
             <% if user_signed_in? %>
             <div class="btn-user">
             <%= link_to  user_path(current_user) do %><%= fa_icon("user") %><p>マイページ</p><% end %>
-            <%= link_to destroy_user_session_path, method: :delete do %><%= fa_icon("sign-out") %><p>ログアウト</p><% end %>
+            <%= link_to destroy_user_session_path, method: :delete,data:{confirm: 'ログアウトしますか？'} do %><%= fa_icon("sign-out") %><p>ログアウト</p><% end %>
             </div>
             <% else %>
             <div class="btn-user">
@@ -60,7 +60,7 @@
                       </ul>
                     </li>
 <% if user_signed_in? %>
-                    <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete,data:{confirm: 'ログアウトしますか？'} %></li>
 <% end %>
                     <li><a>ABOUT</a>
                       <ul class="inner">

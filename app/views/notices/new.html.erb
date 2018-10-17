@@ -4,6 +4,16 @@
 <div class="product_new">
 
 <div class="container">
+
+<h3>お知らせを投稿</h3>
+<p>（ ※は必須 ）</p>
+
+<% if @notice.errors.any? %>
+    <h3>入力した内容にエラーが<%= @notice.errors.count %>件あります</h3>
+      <p><% @notice.errors.full_messages.each do |message| %>
+        <%= message %>・
+      <% end %>を入力してください。</p>
+<% end %>
    <%= form_with model:  @notice, local: true  do |f| %>
 
      <div class="field charge">
@@ -13,13 +23,13 @@
 
      <div class="field">
       <p><%= f.label :タイトル %><a>※</a></p>
-     <%= f.text_field :title, autofocus: true, autocomplete: "title", :maxlength => "15", placeholder: "タイトル(15文字以下)" , class: 'product form' %>
+     <%= f.text_field :title, autofocus: true, autocomplete: "title", :maxlength => "20", placeholder: "タイトル(20文字以下)" , class: 'product form' %>
      </div>
 
 
      <div class="field">
-     <p><%= f.label :"内容(３００文字まで)" %><a>※</a></p>
-     <%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "300",  placeholder: "", class: ' form text' %>
+     <p><%= f.label :"内容(５００文字まで)" %><a>※</a></p>
+     <%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "500",  placeholder: "", class: ' form text' %>
      </div>
 
 

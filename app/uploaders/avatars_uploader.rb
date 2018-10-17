@@ -27,6 +27,9 @@ class AvatarsUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  def default_url
+       ActionController::Base.helpers.asset_url("default.png", type: :image)
+   end
 
       version :thumb do
     process resize_to_fill: [900, 750, "Center" ]

@@ -17,6 +17,8 @@
 
                h2 {
                   letter-spacing: 0.4em;
+                  font-weight: bold;
+                  font-size: 17px;
                   }
 
                 p {
@@ -46,6 +48,10 @@
                       width: 60%;
                       max-width: 350px;
                      }
+                  a {
+                    font-size: 13px;
+                    color: #000000;
+                  }
                 }
 
           label {
@@ -61,6 +67,8 @@
                 background-color: #25b9d7;
                 border: none;
                 color: #fff;
+                font-weight: bold;
+                font-size: 13px;
                 }
 
   .button:hover {

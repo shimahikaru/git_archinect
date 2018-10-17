@@ -49,6 +49,12 @@ class ProductsController < ApplicationController
     end
   end
 
+def destroy
+  product = Product.find(params[:id])
+  product.destroy if product.user_id == current_user.id
+  redirect_to user_path(current_user)
+end
+
   def edit
   @product = Product.find(params[:id])
   @user = current_user

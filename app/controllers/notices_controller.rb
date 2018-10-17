@@ -12,6 +12,8 @@ class NoticesController < ApplicationController
 
   def show
     @notice = Notice.find(params[:id])
+    @comment = Comment.new
+    @comment.notice_id = @notice.id
   end
 
   def new
@@ -30,6 +32,12 @@ class NoticesController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
+  notice = Notice.find(params[:id])
+  notice.destroy if notice.user_id == current_user.id
+  redirect_to user_path(current_user)
   end
 
   private
