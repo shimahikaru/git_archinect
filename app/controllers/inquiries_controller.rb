@@ -20,7 +20,6 @@ class InquiriesController < ApplicationController
     # メール送信
     @inquiry = Inquiry.new(inquiry_params)
     InquiryMailer.inquiry_email(@inquiry).deliver_now
-
     # 完了画面を表示
     render :action => 'complete'
   end
