@@ -18,7 +18,7 @@ class EmailsController < ApplicationController
   def complete
     @email = Email.new(email_params)
     @user = User.find(params[:user_id])
-    @usermail = @user.address
+    @usermail = @user.email
     EmailMailer.email_user(@usermail, @email).deliver_now
   end
 
