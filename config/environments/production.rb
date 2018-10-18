@@ -95,7 +95,7 @@ Rails.application.configure do
       :domain         => 'unityroom.com',
       :enable_starttls_auto => true,
       :tls => true
-      :authentication => 'login',
+      :authentication => 'login'
   }
 
 
