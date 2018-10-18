@@ -18,7 +18,7 @@
         <% if @user.office? %>
         <li><a><%= @user.office %></a></li>
         <% end %>
-          <% if @user.email? %>
+          <% if @user.address? %>
         <li><%= link_to fa_icon("envelope")+'メール', user_emails_path(@user), class: "mail" %></li>
         <% end %>
         <li><% @tags.each do | t | %>
