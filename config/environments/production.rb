@@ -94,7 +94,7 @@ Rails.application.configure do
       :password       => ENV['MUUMUUMAIL_PASSWORD'],
       :domain         => 'unityroom.com',
       :enable_starttls_auto => true,
-      :tls => true
+      :tls => true,
       :authentication => 'login'
   }
 
