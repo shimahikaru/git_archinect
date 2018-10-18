@@ -15,7 +15,7 @@
   border-radius: 10px;
   background-color: #fff;
 
-               h2 {
+               h2, h3 {
                   letter-spacing: 0.4em;
                   font-weight: bold;
                   font-size: 17px;
@@ -43,7 +43,21 @@
          .field {
                 margin: 25px auto;
                 max-width: 70%;
-
+                  p {
+                  font-size: 13px;
+                  margin-bottom: 8px;
+                  label {
+                    font-size: 13px;
+                    font-weight: bold;
+                  }
+                     a {
+                      font-size: 10px;
+                      color: #ff3b3f;
+                        }
+                      }
+                 label {
+                    font-size: 11px;
+                      }
                      .img {
                       width: 60%;
                       max-width: 350px;
@@ -54,21 +68,15 @@
                   }
                 }
 
-          label {
-                font-size: 12px;
-                margin-left: 6px;
-                margin-right: 6px;
-                }
-
         .button {
                 letter-spacing: 0.3em;
                 border-radius: 5px;
                 height: 35px;
-                background-color: #25b9d7;
+                background-color: #251b5b;
                 border: none;
                 color: #fff;
                 font-weight: bold;
-                font-size: 13px;
+                font-size: 15px;
                 }
 
   .button:hover {

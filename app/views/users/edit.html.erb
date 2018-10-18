@@ -3,6 +3,7 @@
 <div class="usernew">
 
 <h2>プロフィール編集</h2>
+<p>（ ※は必須 ）</p>
 
    <%= form_with model: @user, local: true do |f| %>
 
@@ -41,7 +42,7 @@
      </div>
 
      <div class="field">
-      <p><%= f.label :メールアドレス %></p>
+      <p><%= f.label :メールアドレス %><br ><a>※メッセージ受信用</a></p>
       <%= f.email_field :address, autofocus: true, autocomplete: "address",  placeholder: "", class: 'user form' %>
      </div>
 
