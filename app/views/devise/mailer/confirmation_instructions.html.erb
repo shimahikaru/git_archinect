@@ -1,11 +1,11 @@
-<p>ようこそ、【<%= @user.name %>】様!</p>
+<p>ようこそ、【<%= @user.name %>】様</p>
 <hr >
 
 <p>Archinectをご利用いただきありがとうございます。</p>
 
 <p>仮登録が完了しました。<br/>下記URLにアクセスし、会員登録手続きを完了してください。</p>
 
-<p><%= link_to 'アカウント本登録', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'アカウント本登録はこちら', confirmation_url(@resource, confirmation_token: @token) %></p>
 <br/>
 <p>◎アーキネクトのご利用方法</p><br/>
 
@@ -20,5 +20,5 @@
 
 <hr >
 
-
+<p>建物を通して人との繋がりを作る</p>
 <p>Archinect-Japan</p>
