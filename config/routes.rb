@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'relationships/destroy'
   resources :relationships, only: [:create, :destroy]
 
-
   get 'inquiries', to: 'inquiries#index'
   post 'inquiries/confirm', to: 'inquiries#confirm'
   post 'inquiries/complete', to: 'inquiries#complete'
@@ -48,4 +47,5 @@ resources :notices do
       get :about
     end
   end
+
 end
