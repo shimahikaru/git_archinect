@@ -85,8 +85,7 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'unityroom.com'
-  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   ActionMailer::Base.smtp_settings = {
       :address        => 'smtp.muumuu-mail.com',
       :port           => '465',
@@ -96,6 +95,7 @@ Rails.application.configure do
       :domain         => 'unityroom.com',
       :enable_starttls_auto => true,
       :tls => true
+      :authentication => 'login',
   }
 
 
