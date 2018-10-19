@@ -65,8 +65,8 @@
   <p>コメントを投稿するには<%= link_to "ログイン", new_user_session_path %>して下さい。</p>
   <% end %>
 
-　　<div class="count"><p>コメント数：（<%= @product.comments.count %>）</p></div>
-   <%= render partial: 'comments/comment', collection: @product.comments %>
+　　<div class="count"><p>コメント数：（<%= @comments.count %>）</p></div>
+   <%= render partial: 'comments/comment', collection: @comments %>
    </div>
 
      </div>

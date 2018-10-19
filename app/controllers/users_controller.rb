@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 before_action :authenticate_user!, only: [:edit, :update, ]
 
   def index
-    @users = User.order("id DESC")
+    @users = User.where(offer: "0").order("id DESC")
   end
 
   def show
@@ -15,6 +15,7 @@ before_action :authenticate_user!, only: [:edit, :update, ]
 
   def search
     @users = User.select(:id, :familyname, :firstname, :location, :avatar, :text,).order("id DESC")
+    @users = @users.where(offer: "0")
     @users = @users.count_order(params[:count]) if params[:count].present?
     # if params[:work_id].present?
     userworks = UserWork.where(work_id: params[:work_id]).select(:user_id) if params[:work_id].present?
