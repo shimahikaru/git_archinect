@@ -117,6 +117,19 @@
       }
     });
 
+  $('#add-link').click(function(){
+    // 後から追加されたボタンには効かないイベント
+    var i = ""
+     $('.photos input[type=file]').each(function(i){
+         $(this).attr('id','photos' + (i+1));
+       });
+          $('.photos input[type=hidden]').each(function(i){
+         $(this).attr('id','photos_hidden' + (i+1));
+       });
+    });
+
+
+
     $(function() {
       $('#fielddetail a.remove_fields').hide();
 
@@ -136,6 +149,8 @@
         }
       }
     });
+
+
 
     // var i = "";
     // $('button').click(function(){
