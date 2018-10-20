@@ -9,15 +9,13 @@
 
       <div class="con1">
       <h5><%= link_to user.name, user_path(user.id) %></h5>
-      <p><%= fa_icon("edit") %>
         <% if user.products.exists?%>
-        <%= link_to "#{user.products.count}件", search_products_path(user_id: user.id) %>
-        <% else %>
-          0件
+        <p><%= fa_icon("edit") %><%= link_to "#{user.products.count}件", search_products_path(user_id: user.id) %></p>
         <% end %>
-        </p>
       </div>
-
+      <div class="con3">
+      <p><%= fa_icon("map-marker") %>  <%= user.location %></p>
+      </div>
       <div class="con2">
       <p>
       <% user.works.each do |work|%>
@@ -29,10 +27,6 @@
 
   </div>
 
-  <div class="contentB">
-    <% if user.text? %>
-    <p><%= user.text.truncate(50) %></p>
-    <% end %>
-  </div>
+
 </article>
 
