@@ -33,7 +33,7 @@
      <%= f.text_field :local, autofocus: true, autocomplete: "local", placeholder: "都道府県以降の住所", class: 'user form' %>
      </div>
 
-     <div class="field">
+     <div class="field check">
      <p><%= f.label :仕事内容（4つまで選択可） %></p>
      <label><%= f.collection_check_boxes(:work_ids, Work.all, :id, :tag) do |b| %>
       <%= b.label { b.check_box + b.text } %>
@@ -84,7 +84,7 @@
 </div>
 
 <script>
-  jQuery('input[type=checkbox]').click(function(){
+  jQuery('.check input[type=checkbox]').click(function(){
     var checked = jQuery('input[type=checkbox]:checked').length;
     if (checked > 5) {
       jQuery(this).prop("checked",false);
