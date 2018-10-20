@@ -2,7 +2,10 @@
 <div class="nested-fields">
 <%= f.file_field :image, :class => "img_create", autofocus: true, autocomplete: "image" %>
 <%= f.hidden_field :image_cache %>
-<%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "場所・部分・部屋名.." , class: 'user form' %>
-<%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "200", placeholder: "設備や素材や寸法など詳細を入力して下さい。(200文字以内)", class: ' form text' %>
+<p>場所・部分の名称</p>
+<%= f.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "(例)１F  ＬＤＫ" , class: 'user form' %>
+<p>使用している設備や素材、寸法など詳細の説明</p>
+<%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "200", placeholder: "(例)「リビングで子供が勉強できるように」と、キッチンから見える位置に大きなデスクをつくりました。
+横には、帰ってきたらスグに着替えもできるようにとクロゼットも造作で作りました。ご主人が大好きなお酒を飲みながら....", class: ' form text' %>
 <%= link_to_remove_association fa_icon("minus-circle"), f %>
 </div>

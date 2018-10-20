@@ -10,7 +10,7 @@
 
      <div class="field charge">
       <p><%= f.label current_user.name+"さんの担当" %><a>※</a></p>
-     <%= f.select :charge, Product.charges.keys, {prompt: '選択してください'}, class: 'form charge' %>
+     <%= f.select :charge, Product.charges.keys, {:selected => 1}, class: 'form charge' %>
      </div>
 
      <div class="field">
@@ -34,9 +34,6 @@
      </div>
     </div>
   </div>
-
-
-
      <div class="field">
      <p><%= f.label :完成年月 %><a>※</a></p>
      <%= f.date_select(:completion, {:discard_day => true}, start_year: 2010, end_year:(Time.now.year), :class => " form", default: Date.new(2018, 1 ))  %>
