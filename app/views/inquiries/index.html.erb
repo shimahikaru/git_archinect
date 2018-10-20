@@ -3,6 +3,7 @@
 <%= form_with model: @inquiry, :url => inquiries_confirm_path, local: true do |f| %>
   <div class="usernew">
     <h3>お問い合わせ</h3>
+    <p>（ ※は必須です。 ）</p>
 
   <% if @inquiry.errors.any? %>
     <div class="alert alert-danger" role="alert">
@@ -17,17 +18,17 @@
 
 
   <div class="field">
-  <p><%= f.label :"名前" %></p>
+  <p><%= f.label :"名前" %><a>※</a></p>
   <%= f.text_field :name, class: 'user form' %>
   </div>
 
   <div class="field">
-  <p><%= f.label :"メールアドレス" %></p>
+  <p><%= f.label :"メールアドレス" %><a>※</a></p>
   <%= f.email_field :email, class: 'user form' %>
   </div>
 
   <div class="field">
-  <p><%= f.label :"お問い合わせ内容" %></p>
+  <p><%= f.label :"お問い合わせ内容" %><a>※</a></p>
   <%= f.text_area :message, class: 'user form text' %>
   </div>
 

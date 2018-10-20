@@ -1,6 +1,5 @@
 <%= stylesheet_link_tag    'product/show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag    'product/comment', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 <div class="product_page">
   <div class="container">
     <div class="proA">
@@ -24,15 +23,15 @@
                    <nav class="profile">
                     <ul>
                       <li><h4><%= @product.title %></h4></li>
-                      <li><a><%= @product.subtitle %></a></li>
+                      <li><%= @product.subtitle %></li>
                       <li><%= link_to @product.category, search_products_path(category: @product.category) %></li>
                       <li><a><%= fa_icon("tag") %></a><% @tags.each do | t | %>
                       <p><%= link_to t.genre.tag, search_products_path(genre_id: t.genre_id), :class => "tags" %></p>
                       <% end %></li>
-                      <li><a>完成：<%= @product.completion.strftime("%Y年%m月") %></a></li>
+                      <li>完成：<%= @product.completion.strftime("%Y年%m月") %></li>
                       <li><a>場所：<%= link_to @product.location, search_products_path(location: @product.location) %></a></li>
-                      <li><a>面積：<%= @product.area %>㎡</a></li>
-                      <li><a>工期：<%= @product.whet %>ヶ月</a></li>
+                      <li>面積：<%= @product.area %>㎡</li>
+                      <li>工期：<%= @product.whet %>ヶ月</li>
                       <li><a>投稿者：</a><%= link_to @product.user.name, user_path(@product.user.id) %><a> (<%= @product.charge %>)</a></li>
                       <li><text><%= simple_format(@product.text) %></text></li>
                     </ul>

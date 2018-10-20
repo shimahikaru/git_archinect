@@ -6,12 +6,15 @@
 
 <% if @user.errors.any? %>
     <h3>入力内容にエラーがあります</h3>
+      <% @user.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
 <% end %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
       <div class="field">
-      <p><%= f.label :"苗字" %><a>※</a></p>
+      <div class="field_with_errors"><p><%= f.label :"苗字" %><a>※</a></p></div>
     <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname", :maxlength => "10", placeholder: "(例)ヤマダ" , class: 'user form' %>
   </div>
       <div class="field">

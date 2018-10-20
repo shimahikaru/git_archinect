@@ -60,6 +60,8 @@ margin-right: auto;
                             li{
                               list-style: none;
                               margin-bottom: 13px;
+                              font-size: 12px;
+                              letter-spacing: 0.2em;
 
                               h4 {
                                 font-size: 15px;
@@ -69,13 +71,16 @@ margin-right: auto;
 
                                      p {
                                        display: inline-block;
-                                       background-color: #c5c1c0;
+                                       background-color: #68737f;
                                        border-radius: 3px;
-                                         a {
+                                       padding: 3px;
+
+                                         a.tags {
                                           text-decoration: none;
                                           font-size: 11px;
                                           letter-spacing: 0.2em;
-                                          margin: 0 5px;
+                                          color: #fff;
+                                          font-weight: bold;
                                          }
                                        }
 
@@ -84,7 +89,7 @@ margin-right: auto;
                                       letter-spacing: 0.2em;
                                       text_decoration: none;
                                       color: #000;
-
+                                      font-weight: bold;
                                        }
 
                                   text p {
