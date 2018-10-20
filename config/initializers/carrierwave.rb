@@ -14,9 +14,9 @@ CarrierWave.configure do |config|
     case Rails.env
     when 'development'
         config.fog_directory  = 'archinectshima'
-        config.asset_host = 'https://s3.amazonaws.com/archinectshima'
+        config.asset_host = 'https://archinectshima.s3.amazonaws.com'
     when 'production'
         config.fog_directory  = 'archinectshima'
-        config.asset_host = 'https://s3.amazonaws.com/archinectshima'
+        config.asset_host = 'https://archinectshima.s3.amazonaws.com'
     end
 end

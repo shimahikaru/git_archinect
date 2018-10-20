@@ -32,7 +32,7 @@ class AvatarsUploader < CarrierWave::Uploader::Base
    end
 
       version :thumb do
-    process resize_to_fill: [900, 750, "Center" ]
+    process resize_to_fill: [900, 700, "Center" ]
   end
 
     version :gallery do
