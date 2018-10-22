@@ -23,11 +23,11 @@
         margin: 5px;
       }
       h5 {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: bold;
       }
       h6 {
-        font-size: 11px;
+        font-size: 13px;
         letter-spacing: 0.2em;
         line-height: 18px;
         color: #565656;
@@ -40,6 +40,7 @@
  display: block;
  width: 98%;
  max-width: 1200px;
+ min-width: 320px;
  margin-top: 70px;
  margin-left: auto;
  margin-right: auto;
@@ -48,6 +49,8 @@
  padding-bottom: 25px;
     .container{
       padding: 15px 30px;
+      border-bottom: solid 0.7px #DDDDDD;
+
       h5 {
         font-weight: bold;
         margin: 15px auto;
@@ -62,6 +65,15 @@
         color: #000;
       }
     }
+}
+.userA{
+  margin-top: 15px;
+  h5 {
+    font-weight: bold;
+    font-size: 14px;
+    color: #565656;
+    letter-spacing: 0.3em;
+  }
 }
 
 .notice_user {

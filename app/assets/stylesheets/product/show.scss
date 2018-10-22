@@ -20,9 +20,8 @@ margin-right: auto;
 
                  .proA{
 
-
                            .photos {
-                                    height: 70vw;
+                                    height: 55vh;
                                     max-width: 100%;
                                     max-height: 630px;
                                     min-height: 250px;
@@ -131,9 +130,16 @@ margin-right: auto;
                         letter-spacing: 0.2em;
                       }
                     }
-                    .edituser, a {
-                      color: #000;
+                    .edituser {
+                      margin-bottom: 15px;
+                      a{
+                      color: #fff;
                       font-size: 13px;
+                      margin: 10px;
+                      padding: 5px 7px;
+                      border-radius: 3px;
+                      background-color: #68737f;
+                      }
                     }
                    }
 // ここまでがproC

@@ -20,7 +20,7 @@
 
     <div class="field">
     <%= f.hidden_field :notice_id %>
-    <%= f.submit "投稿", class: 'post btn' %>
+    <%= f.submit "コメントを投稿", class: 'post btn' %>
     </div>
     <% end %>
   <% else %>
@@ -28,9 +28,8 @@
   <% end %>
   <%= render partial: 'comments/comment', collection: @notice.comments %>
   </div>
-
 </div>
-
+  <div class="userA"><h5>投稿者情報</h5></div>
 <div class="notice_user">
 <div class="user_index">
 <%= render partial: 'users/user', locals: {user: @notice.user} %>
