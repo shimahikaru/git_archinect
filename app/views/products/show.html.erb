@@ -31,7 +31,7 @@
                       <li>工期：<%= @product.whet %>ヶ月</li>
                       <li><a>投稿者：</a><%= link_to @product.user.name, user_path(@product.user.id) %><a> (<%= @product.charge %>)</a></li>
                       <li><text><%= simple_format(@product.text) %></text></li>
-                      <li>タグ一覧</li>
+                      <li>関連キーワード</li>
                       <li><% @tags.each do | t | %>
                       <div class="tagA"><p><%= link_to t.genre.tag, search_products_path(genre_id: t.genre_id), :class => "tags" %></p></div>
                       <% end %></li>
