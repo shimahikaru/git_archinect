@@ -69,6 +69,9 @@ table {
 .button, .btn {
   -webkit-appearance: none;
 }
+select {
+  -webkit-appearance: none;
+}
 
 body {
   font-family: arial, sans-serif;
