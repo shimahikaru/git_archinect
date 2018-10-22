@@ -7,6 +7,6 @@
 <p>使用している設備や素材、寸法など(250文字)</p>
 <%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "250", placeholder: "(例)「リビングで子供が勉強できるように」と、キッチンから見える位置に大きなデスクをつくりました。
 横には、帰ってきたらスグに着替えもできるようにとクロゼットも造作で作りました。ご主人が大好きなお酒を飲みながら....", class: ' form text' %>
-<%= link_to_remove_association fa_icon("minus-circle"), f %>
+<%= link_to_remove_association fa_icon("minus-circle"), f , data:{confirm: '削除しますか？'} %>
 </div>
 

@@ -58,8 +58,8 @@
 
      <div class="field">
      <p><%= f.label :"コンセプト" %><a>※</a></p>
-     <p><label>残り：<span class="count">0</span>文字</label></p>
-     <%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "350",  placeholder: "概要・説明・解説など", class: 'form text limited' %>
+     <p><label>残り：<span class="count"></span>文字</label></p>
+     <%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "350",  placeholder: "概要・説明・解説など", class: 'form text limited area' %>
      </div>
 
      <div class="field">
@@ -76,7 +76,7 @@
      </div>
 
      <div class="field">
-     <p><%= f.label :"詳細画像（または図面等）" %><a>※</a></p>
+     <p><%= f.label :"詳細画像や図面など(最大５箇所)" %><a>※</a></p>
      <div id="fielddetail">
      <%= f.fields_for :details do |detail| %>
      <%= render 'detail_fields', f: detail %>

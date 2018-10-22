@@ -63,12 +63,13 @@
                                     .links {
                                          a  {
                                          color: #ec576b;
-                                         font-size: 18px;
+                                         font-size: 22px;
                                           }
                                     }
                                     .nested-fields {
+                                      margin-top: 20px;
                                            a {
-                                            font-size: 16px;
+                                            font-size: 18px;
                                             color: #A9A9A9;
                                            }
                                         p {
@@ -91,16 +92,25 @@
                                     }
                                     .form.photos {
                                       border: none;
+                                      display: flex;
+                                      justify-content: center;
                                     }
 
                                 .product {
                                           width: 100%;
                                           }
+                                  .form.photo {
+                                    border: none;
+                                    width: 100%;
+                                  }
 
                                    .text {
-                                          height: 100px;
+                                          height: 150px;
                                           width: 100%;
                                           }
+                                        .area {
+                                          height: 250px;
+                                        }
 
                                         p {
                                           font-size: 14px;
