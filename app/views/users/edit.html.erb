@@ -29,7 +29,9 @@
 
      <div class="field">
      <p><%= f.label :主な勤務地 %></p>
-     <%= f.select :location, User.locations.keys,  class: 'localform' %><br />
+     <div class="selectbox">
+     <label><%= f.select :location, User.locations.keys,  class: 'localform' %></label><br />
+     </div>
      <%= f.text_field :local, autofocus: true, autocomplete: "local", placeholder: "都道府県以降の住所", class: 'user form' %>
      </div>
 
