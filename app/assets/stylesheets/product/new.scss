@@ -37,7 +37,7 @@
                          .field {
                                  margin: 25px auto;
                                  width: 90%;
-                                 max-width: 300px;
+                                 max-width: 400px;
                                  text-align: center;
                                  p {
                                   margin-bottom: 8px;
@@ -122,11 +122,31 @@
                         // ここまでが.field
 
                          label {
-                               font-size: 12px;
-                               margin-left: 6px;
-                               margin-right: 6px;
+                                 input{
+                                   display: none;
+                                    }
                                  .tag {
                                   color: #535353;
+                                  label {
+                                    border: 1px solid #68737f;
+                                    color: #68737f;
+                                    border-radius: 4px;
+                                    line-height: 25px;
+                                    margin-right: 3px;
+                                    padding: 4px;
+                                    font-size: 11px;
+                                    &:hover {
+                                      background-color: #25b9d7;
+                                      color: #fff;
+                                      border: 1px solid #25b9d7;
+                                    }
+                                  }
+                                 input[type=checkbox]:checked + label {
+                                      background-color: #25b9d7;
+                                      color: #fff;
+                                      border: 1px solid #25b9d7;
+                                      }
+
                                  }
                                }
 

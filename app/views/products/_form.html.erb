@@ -68,7 +68,7 @@
      <div class="field">
      <p><%= f.label :関連するキーワード%><a>※</a></p>
      <label><div class= "tag"><%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :tag) do |b| %>
-      <%= b.label { b.check_box + b.text } %>
+      <%=  b.check_box %><%= b.label { b.text } %>
       <% end %></div>
      </label>
      </div>
