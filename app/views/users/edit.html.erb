@@ -29,7 +29,7 @@
 
      <div class="field">
      <p><%= f.label :主な勤務地 %></p>
-     <%= f.select :location, User.locations.keys,  class: 'localform' %><br />
+     <%= f.select :location, User.locations.keys,  class: 'user form' %><br />
      <%= f.text_field :local, autofocus: true, autocomplete: "local", placeholder: "都道府県以降の住所", class: 'user form' %>
      </div>
 
@@ -68,7 +68,8 @@
 
      <div class="field">
      <p><%= f.label :コメント %></p>
-     <%= f.text_area :text, autofocus: true, :maxlength => "79", autocomplete: "text",  placeholder: "", class: 'user form text' %>
+     <p><label>残り：<span class="count">0</span>文字</label></p>
+     <%= f.text_area :text, autofocus: true, :maxlength => "100", autocomplete: "text",  placeholder: "", class: 'user form text' %>
      </div>
 
      <div class="field">
@@ -84,6 +85,25 @@
 </div>
 
 <script>
+
+$(function(){
+    var countMax = 100;
+    $('textarea').bind('keydown keyup keypress change',function(){
+        var thisValueLength = $(this).val().length;
+        var countDown = (countMax)-(thisValueLength);
+        $('.count').html(countDown);
+
+        if(countDown < 0){
+            $('.count').css({color:'#ff0000',fontWeight:'bold'});
+        } else {
+            $('.count').css({color:'#000000',fontWeight:'normal'});
+        }
+    });
+    $(window).load(function(){
+        $('.count').html(countMax);
+    });
+});
+
   jQuery('.check input[type=checkbox]').click(function(){
     var checked = jQuery('input[type=checkbox]:checked').length;
     if (checked > 4) {

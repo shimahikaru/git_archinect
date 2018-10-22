@@ -1,10 +1,11 @@
-
+<div class="field">
 <% if @product.errors.any? %>
     <h3>入力した内容にエラーが<%= @product.errors.count %>件あります</h3>
-      <p><% @product.errors.full_messages.each do |message| %>
-        <%= message %>・
-      <% end %>を入力してください。</p>
+      <h5><% @product.errors.full_messages.each do |message| %>
+        <%= message %>、
+      <% end %>を入力してください。</h5>
 <% end %>
+</div>
 
    <%= form_with model:  @product, local: true  do |f| %>
 
@@ -24,13 +25,13 @@
      </div>
 
       <div class="field">
-      <p><%= f.label :全体画像 %><a>※</a></p>
+      <p><%= f.label :"全体画像(最大５枚)" %><a>※</a></p>
       <div id="fieldphoto">
       <%= f.fields_for :whole_photos do |whole_photo| %>
       <%= render 'whole_photo_fields', f: whole_photo %>
        <% end %>
       <div class="links">
-      <%= link_to_add_association fa_icon("plus-circle"),f, :whole_photos, id: 'add-link' %>
+      <%= link_to_add_association  fa_icon("plus-circle"),f, :whole_photos, id: 'add-link' %>
      </div>
     </div>
   </div>
@@ -56,8 +57,9 @@
 
 
      <div class="field">
-     <p><%= f.label :"コンセプト(３００文字まで)" %><a>※</a></p>
-     <%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "300",  placeholder: "概要・説明・解説など", class: ' form text' %>
+     <p><%= f.label :"コンセプト" %><a>※</a></p>
+     <p><label>残り：<span class="count">0</span>文字</label></p>
+     <%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "350",  placeholder: "概要・説明・解説など", class: 'form text limited' %>
      </div>
 
      <div class="field">
@@ -86,7 +88,7 @@
     </div>
 
         <div class="field">
-        <%= f.submit "投稿", class: 'product button' %>
+        <%= f.submit "投稿", class: 'product button', data:{confirm: 'この内容で投稿しますか？'} %>
         </div>
 
     <% end %>
@@ -94,6 +96,25 @@
 
 
 <script>
+
+$(function(){
+    var countMax = 350;
+    $('textarea').bind('keydown keyup keypress change',function(){
+        var thisValueLength = $(this).val().length;
+        var countDown = (countMax)-(thisValueLength);
+        $('.count').html(countDown);
+
+        if(countDown < 0){
+            $('.count').css({color:'#ff0000',fontWeight:'bold'});
+        } else {
+            $('.count').css({color:'#000000',fontWeight:'normal'});
+        }
+    });
+    $(window).load(function(){
+        $('.count').html(countMax);
+    });
+});
+
 
     $(function() {
       $('#fieldphoto a.remove_fields').hide();
@@ -161,9 +182,9 @@
 
   $('input[type=checkbox]').click(function(){
     var checked = $('input[type=checkbox]:checked').length;
-    if (checked > 8) {
+    if (checked > 6) {
       $(this).prop("checked",false);
-      alert('選択は5つまでです。');
+      alert('それ以上選択できません。');
     }
   });
 

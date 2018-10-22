@@ -19,6 +19,16 @@
                             letter-spacing: 0.4em;
                             font-weight: bold;
                              }
+                          h4 {
+                            margin-top: 15px;
+                            color: #68737f;
+                            font-size: 15px;
+                          }
+                          h5{
+                            line-height: 25px;
+                            font-size: 15px;
+                            margin-top: 15px;
+                          }
                          p {
                            font-size: 10px;
                            letter-spacing: 0.2em;
@@ -121,6 +131,7 @@
                                     }
                                  .tag {
                                   color: #535353;
+                                  text-align: left;
                                   label {
                                     border: 1px solid #68737f;
                                     color: #68737f;

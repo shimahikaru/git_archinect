@@ -46,7 +46,7 @@ class Product < ApplicationRecord
     errors[:base] << "詳細" if details.blank?
   end
 
-  validates :text, length: { maximum: 300 }
+  validates :text, length: { maximum: 350 }
   validates :title, length: { maximum: 15 }
   validates :subtitle, length: { maximum: 30 }
 

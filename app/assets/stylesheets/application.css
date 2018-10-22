@@ -73,6 +73,7 @@ select {
   background: transparent;
   padding: 0 5px;
   border: 1px solid #68737f;
+  background-color: #fff;
 }
 
 body {
