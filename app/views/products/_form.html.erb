@@ -150,9 +150,18 @@
 
 
 
+    // var i = "";
+    // $('button').click(function(){
+    // var clicked = $('#photo_file'+ i);
+    // var hiddenclicked = $('#photo_hidden_file');
+    // $('.field.photo').eq(0).append(clicked,hiddenclicked);
+    // $(clicked).attr('id','id + i ' );
+    //   });
+
+
   $('input[type=checkbox]').click(function(){
     var checked = $('input[type=checkbox]:checked').length;
-    if (checked > 5) {
+    if (checked > 8) {
       $(this).prop("checked",false);
       alert('選択は5つまでです。');
     }
