@@ -18,11 +18,11 @@
 
   <div class="field">
   <p><%= f.label :関連キーワード %></p>
-    <label><%= f.collection_check_boxes(:genre_id, Genre.all, :id, :tag) do |b| %>
-    <%= b.label { b.check_box + b.text } %>
-    <% end %>
-    </label>
-  </div>
+    <label><div class= "tag"><%= f.collection_check_boxes(:genre_id, Genre.all, :id, :tag) do |b| %>
+      <%=  b.check_box %><%= b.label { b.text } %>
+      <% end %></div>
+     </label>
+     </div>
 
   <div class="field">
   <p><%= f.label :表示の順番 %></p>

@@ -29,7 +29,7 @@
             .user,select {
                   height: 28px;
                   width: 100%;
-                  border: solid 0.5px #000000;
+                  border: solid 0.5px #A9A9A9;
                   border-radius: 5px;
                   margin-bottom: 10px;
                   padding: 0;
@@ -56,9 +56,6 @@
                       color: #ff3b3f;
                         }
                       }
-                 label {
-                    font-size: 11px;
-                      }
                      .img {
                       width: 60%;
                       max-width: 350px;
@@ -68,6 +65,31 @@
                     color: #000000;
                   }
                 }
+           .field.check {
+                     input{
+                     display: none;
+                      }
+                     .tag {
+                     color: #535353;
+                     label {
+                     border: 1px solid #68737f;
+                     color: #68737f;
+                     border-radius: 4px;
+                     line-height: 28px;
+                     margin-right: 3px;
+                     padding: 4px;
+                     font-size: 11px;
+                       &:hover {
+                       text-decoration: underline;
+                       }
+                     }
+                    input[type=checkbox]:checked + label {
+                      background-color: #25b9d7;
+                      color: #fff;
+                      border: 1px solid #25b9d7;
+                      }
+                    }
+             }
 
         .button {
                 letter-spacing: 0.3em;

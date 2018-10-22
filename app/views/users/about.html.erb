@@ -11,12 +11,12 @@
      <%= f.select :location, User.locations.keys,{prompt: '選択してください'},  class: 'localform' %><br />
      </div>
 
-     <div class="field">
+     <div class="field check">
      <p><%= f.label :仕事内容 %></p>
-     <label><%= f.collection_check_boxes(:work_id, Work.all, :id, :tag) do |b| %>
-      <%= b.label { b.check_box + b.text } %>
+     <label><div class= "tag"><%= f.collection_check_boxes(:work_id, Work.all, :id, :tag) do |b| %>
+      <%=  b.check_box %><%= b.label { b.text } %>
+     <% end %></div>
      </label>
-     <% end %>
      </div>
 
   <div class="field">
