@@ -67,21 +67,32 @@ margin-right: auto;
                                 font-weight: bold;
                                 letter-spacing: 0.2em;
                               }
-
+                                    .tagA {
+                                      display: inline-block;
                                      p {
                                        display: inline-block;
-                                       background-color: #68737f;
-                                       border-radius: 3px;
-                                       padding: 3px;
-
+                                       border: solid 1px #68737f;
+                                       border-radius: 4px;
+                                       padding: 6px 8px;
+                                       margin-bottom: 5px;
                                          a.tags {
                                           text-decoration: none;
                                           font-size: 11px;
                                           letter-spacing: 0.2em;
-                                          color: #fff;
+                                          color: #68737f;
                                           font-weight: bold;
                                          }
                                        }
+                                       &:hover {
+                                        p {
+                                          background-color: #25b9d7;
+                                          border: solid 1px #25b9d7;
+                                        }
+                                        a.tags {
+                                          color: #fff;
+                                        }
+                                       }
+                                      }
 
                                      a {
                                       font-size: 12px;
