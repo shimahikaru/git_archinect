@@ -17,10 +17,19 @@
       <p><%= fa_icon("map-marker") %>  <%= user.location %></p>
       </div>
       <div class="con2">
-      <p>
-      <% user.works.each do |work|%>
-      <%= link_to work.tag, search_users_path(work_id: work.id) %>
-      <% end %></p>
+      <% if user.works && user.works.count >= 4 %>
+      <div class="tagA">
+        <% user.works.each_with_index do |work, i|%>
+        <p><%= link_to work.tag, search_users_path(work_id: work.id) %></p>
+        <% break if i== 3 %>
+        <% end %>...</div>
+      <% elsif user.works %>
+      <div class="tagA">
+        <% user.works.each do |work|%>
+        <p><%= link_to work.tag, search_users_path(work_id: work.id) %></p>
+        <% end %></div>
+      <% else %>
+      <% end %>
       </div>
 
     </div>
