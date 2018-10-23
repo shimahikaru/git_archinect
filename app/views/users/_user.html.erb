@@ -8,7 +8,7 @@
     <div class="conA">
 
       <div class="con1">
-      <h5><%= link_to user.name, user_path(user.id) %></h5>
+      <h5><%= link_to user.name.truncate(10), user_path(user.id) %></h5>
         <% if user.products.exists?%>
         <p><%= fa_icon("edit") %><%= link_to "#{user.products.count}件", search_products_path(user_id: user.id) %></p>
         <% end %>

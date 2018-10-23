@@ -21,9 +21,6 @@
           <% if @user.address? %>
         <li><%= link_to fa_icon("envelope")+'メール', user_emails_path(@user), class: "mail" %></li>
         <% end %>
-        <li><% @tags.each do | t | %>
-        <p><%= link_to t.work.tag, search_users_path(work_id: t.work_id) %></p>
-        <% end %></li>
         <% if @user.local? %>
         <li><a><%= fa_icon("map-marker") %></a><%= link_to @user.location, search_users_path(location: @user.location) %><a><%= @user.local%></a></li>
         <% else %>
@@ -48,6 +45,13 @@
       <%= link_to @user.products.count, search_products_path(user_id: @user.id) %><p>投稿数</p>
       </div>
     </div>
+     <nav class="profile">
+        <ul>
+          <li><% @tags.each do | t | %>
+          <p><%= link_to t.work.tag, search_users_path(work_id: t.work_id) %></p>
+          <% end %></li>
+        </ul>
+      </nav>
         <% if user_signed_in? && @user.id == current_user.id %>
         <div class ="edituser post"><%= link_to fa_icon("edit")+"投稿", new_product_path %></div>
 
