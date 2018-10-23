@@ -63,32 +63,7 @@ margin-right: auto;
                                 font-weight: bold;
                                 letter-spacing: 0.2em;
                               }
-                                    .tagA {
-                                      display: inline-block;
-                                     p {
-                                       display: inline-block;
-                                       border: solid 1px #68737f;
-                                       border-radius: 4px;
-                                       padding: 6px 8px;
-                                       margin-bottom: 5px;
-                                         a.tags {
-                                          text-decoration: none;
-                                          font-size: 11px;
-                                          letter-spacing: 0.2em;
-                                          color: #68737f;
-                                          font-weight: bold;
-                                         }
-                                       }
-                                       &:hover {
-                                        p {
-                                          background-color: #25b9d7;
-                                          border: solid 1px #25b9d7;
-                                        }
-                                        a.tags {
-                                          color: #fff;
-                                        }
-                                       }
-                                      }
+
 
                                      a {
                                       font-size: 12px;
@@ -115,6 +90,39 @@ margin-right: auto;
                      text-align: center;
                      padding-bottom: 30px;
                      border-bottom: solid 0.7px #DDDDDD;
+                           .profile {
+                              li {
+                                font-size: 13px;
+                                margin: 20px;
+                                font-weight: bold;
+                              }
+                                    .tagA {
+                                      display: inline-block;
+                                     p {
+                                       display: inline-block;
+                                       border: solid 1px #68737f;
+                                       border-radius: 4px;
+                                       padding: 6px 8px;
+                                       margin-bottom: 5px;
+                                         a.tags {
+                                          text-decoration: none;
+                                          font-size: 11px;
+                                          letter-spacing: 0.2em;
+                                          color: #68737f;
+                                          font-weight: bold;
+                                         }
+                                       }
+                                       &:hover {
+                                        p {
+                                          background-color: #25b9d7;
+                                          border: solid 1px #25b9d7;
+                                        }
+                                        a.tags {
+                                          color: #fff;
+                                        }
+                                       }
+                                      }
+                                    }
                      article {
                       margin-bottom: 35px;
 
@@ -136,14 +144,12 @@ margin-right: auto;
                       }
                     }
                     .edituser {
-                      margin-bottom: 15px;
+                      margin-top: 10px;
                       a{
-                      color: #fff;
+                      color: #68737f;
                       font-size: 13px;
+                      letter-spacing: 0.2em;
                       margin: 10px;
-                      padding: 5px 7px;
-                      border-radius: 3px;
-                      background-color: #68737f;
                       }
                     }
                    }

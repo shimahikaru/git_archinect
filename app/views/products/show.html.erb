@@ -31,20 +31,22 @@
                       <li>工期：<%= @product.whet %>ヶ月</li>
                       <li><a>投稿者：</a><%= link_to @product.user.name, user_path(@product.user.id) %><a> (<%= @product.charge %>)</a></li>
                       <li><text><%= simple_format(@product.text) %></text></li>
-                      <li>関連キーワード</li>
-                      <li><% @tags.each do | t | %>
-                      <div class="tagA"><p><%= link_to t.genre.tag, search_products_path(genre_id: t.genre_id), :class => "tags" %></p></div>
-                      <% end %></li>
-                    </ul>
                    </nav>
            </div>
    <div class="proC">
    <%= render partial: 'products/detail', collection: @details %>
+     <nav class="profile">
+     <ul>
+      <li>関連キーワード</li>
+      <li><% @tags.each do | t | %>
+      <div class="tagA"><p><%= link_to t.genre.tag, search_products_path(genre_id: t.genre_id), :class => "tags" %></p></div>
+      <% end %></li>
+       </ul>
+     </nav>
+<%= social_share_button_tag(@product.title, :allow_sites => %w(twitter facebook google_plus  )) %>
      <% if user_signed_in? && @product.user_id == current_user.id %>
        <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %><%= link_to '削除', "/products/#{@product.id}", method: :delete, data:{confirm: '削除しますか？'} %></div>
      <% end %>
-
-<%= social_share_button_tag(@product.title, :allow_sites => %w(twitter facebook google_plus  )) %>
    </div>
 
 
