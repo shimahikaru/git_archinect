@@ -45,7 +45,6 @@ class ProductsController < ApplicationController
      @product = Product.new(create_params)
 
     if @product.save
-    redirect_to user_path(current_user)
     else
       render action: :new
     end

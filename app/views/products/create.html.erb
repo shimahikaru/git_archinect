@@ -1,0 +1,7 @@
+<%= stylesheet_link_tag    'product/show', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="product_page">
+
+  <p>投稿が完了しました。</p>
+  <%= link_to "ページを確認する", product_path(@product) %>
+  <%= link_to "マイページへ移動する", user_path(current_user) %>
+</div>
