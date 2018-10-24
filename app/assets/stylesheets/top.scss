@@ -38,6 +38,7 @@
  .container {
     display: block;
     max-width: 1200px;
+    margin-top: 60px;
  }
 
   .button1{
@@ -50,34 +51,26 @@
     background-color: #F7F7F7;
     border: solid 1px #251b5b;
 
-      p {
-        margin: 5px 0;
-        width: 100%;
-        padding: 5px;
-
          a{
+          display: inline-block;
           font-weight: bold;
-          font-size: 18px;
+          font-size: 16px;
+          letter-spacing: 0.5em;
+          text-decoration: none;
+          color: #251b5b;
+          padding: 10px;
+          margin-left: 5px;
          }
-
-      }
   }
 
   .button2 {
     background-color: #251b5b;
-  }
-
-  .button2 a{
-   letter-spacing: 1.2em;
-   color: #F7F7F7;
-  }
-
-
-  a{
-  text-decoration: none;
-    color: #251b5b;
-      font-size: 25px;
-  letter-spacing: 0.5em;
+     a{
+     letter-spacing: 1.2em;
+     color: #F7F7F7;
+     text-decoration: none;
+     margin-left: 1.2em;
+    }
   }
 
 .button1:hover {
@@ -256,10 +249,9 @@
  .container{
   .button1{
     margin: 20px auto;
-    padding: 1px 3px;
         width: 210px;
  a{
-        font-size: 12px;
+        font-size: 16px;
  }
 
 
@@ -276,7 +268,6 @@
 
        p {
     margin-bottom: 65px;
-    font-size: 13px;
     }
 
 
