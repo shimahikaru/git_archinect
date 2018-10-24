@@ -7,7 +7,7 @@
 <% end %>
 </div>
 
-   <%= form_with model:  @product, local: true  do |f| %>
+   <%= form_with model:  @product do |f| %>
 
      <div class="field charge">
       <p><%= f.label current_user.name+"さんの担当" %><a>※</a></p>
@@ -147,6 +147,15 @@ $(function(){
        });
     });
 
+// $(function(){
+//   $(".product.button").click(function(){ //送信ボタンを押すとイベントが発火します
+//       // 通信に成功した場合の処理です
+//     .fail(function(){
+//       // 通信に失敗した場合の処理です
+//       alert('検索に失敗しました') // alertで検索失敗の旨を表示します
+//     })
+//   })
+// });
 
 
     $(function() {
