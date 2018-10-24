@@ -2,7 +2,7 @@
 <%= stylesheet_link_tag    'products', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="boxtypeA">
-    <h1>Archinect</h1>
+    <h1 class="colorful">Archinect</h1>
   <p>建築・建物が好きな人をつなぐコミュニティ</p>
     <% unless user_signed_in? %>
       <p>誰でも無料で会員登録・ご利用できます。</p>
@@ -21,5 +21,13 @@
 <%= render partial: 'products/product', collection: @products %>
 </div>
 
+<script>
+   $(".colorful").children().addBack().contents().each(function(){
+      if (this.nodeType == 3) {
+         var $this = $(this);
+         $this.replaceWith($this.text().replace(/(\S)/g, "<span>$&</span>"));
+      }
+   });
+</script>
 
 
