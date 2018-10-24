@@ -95,13 +95,20 @@ body {
   text-decoration: none;
   padding-left: 15px;
   padding-right: 15px;
-  color: #000000;
   letter-spacing: 0.2em;
   font-weight: 900;
+  opacity: 0.7;
+
 }
+  .headA  span:nth-child(1) { color: #df0067; }
+  .headA  span:nth-child(2) { color: #251b5b; }
+  .headA  span:nth-child(5) { color: #251b5b; }
+  .headA  span:nth-child(4) { color: #fbbb22; }
+  .headA  span:nth-child(7) { color: #251b5b; }
+  .headA  span:nth-child(8) { color: #25b9d7; }
 
 .headA:hover{
-  color: #df0067;
+  opacity: 0.4;
 }
 
 .container-small .btn-user {
