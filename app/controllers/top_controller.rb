@@ -1,7 +1,7 @@
 class TopController < ApplicationController
   def index
-    @products = Product.select(:id, :title, :location, :category, :completion)
-    @photos = WholePhoto.group(:product_id)
+  @photos = WholePhoto.where('created_at > ?', 1.month.ago).group(:product_id)
+  @products = Product.where('created_at > ?', 1.month.ago).select(:id, :title, :location, :category, :completion)
   end
 
   def about
