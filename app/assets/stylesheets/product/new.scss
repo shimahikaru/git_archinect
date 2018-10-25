@@ -94,6 +94,9 @@
                                       border: none;
                                       display: flex;
                                       justify-content: center;
+                                      #preview img{
+                                          width: 100px;
+                                        }
                                     }
 
                                 .product {
@@ -102,6 +105,7 @@
                                   .form.photo {
                                     border: none;
                                     width: 100%;
+
                                   }
 
                                    .text {
@@ -140,24 +144,30 @@
                                    display: none;
                                     }
                                  .tag {
-                                  color: #535353;
-                                  text-align: left;
-                                  label {
-                                    border: 1px solid #68737f;
-                                    color: #68737f;
+                                  a {
+                                    display: inline-block;
+                                    border: 1px solid #cccccc;
                                     border-radius: 4px;
-                                    line-height: 28px;
                                     margin-right: 3px;
-                                    padding: 4px;
-                                    font-size: 11px;
+                                    padding: 0 6px;
+                                    margin-bottom: 4px;
+                                    label {
+                                      text-decoration: none;
+                                      font-size: 10px;
+                                      letter-spacing: 0.1em;
+                                      color: #000;
+                                     line-height: 20px;
+                                    }
                                     &:hover {
                                       text-decoration: underline;
                                     }
                                   }
-                                 input[type=checkbox]:checked + label {
+                                 input[type=checkbox]:checked + a {
                                       background-color: #25b9d7;
-                                      color: #fff;
                                       border: 1px solid #25b9d7;
+                                        label {
+                                          color: #fff;
+                                        }
                                       }
 
                                  }

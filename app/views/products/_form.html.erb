@@ -70,7 +70,7 @@
      <div class="field">
      <p><%= f.label :関連するキーワード%><a>※</a></p>
      <label><div class= "tag"><%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :tag) do |b| %>
-      <%=  b.check_box %><%= b.label { b.text } %>
+      <%=  b.check_box %><a><%= b.label { b.text } %></a>
       <% end %></div>
      </label>
      </div>
@@ -142,6 +142,9 @@ $(function(){
      $('.photos input[type=file]').each(function(i){
          $(this).attr('id','photos' + (i+1));
        });
+          $('.photo-fields').each(function(i){
+         $(this).attr('id','preview' + (i+1));
+       });
           $('.photos input[type=hidden]').each(function(i){
          $(this).attr('id','photos_hidden' + (i+1));
        });
@@ -156,6 +159,16 @@ $(function(){
 //     })
 //   })
 // });
+$('#photos').change(function() {
+  var fr = new FileReader();
+  fr.onload = function() {
+    var img = $('<img>').attr('src', fr.result);
+    $('#preview').append(img);
+  };
+  fr.readAsDataURL(this.files[0]);
+});
+
+
 
 
     $(function() {

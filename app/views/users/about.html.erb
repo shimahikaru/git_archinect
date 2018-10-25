@@ -14,7 +14,7 @@
      <div class="field check">
      <p><%= f.label :仕事内容 %></p>
      <label><div class= "tag"><%= f.collection_check_boxes(:work_id, Work.all, :id, :tag) do |b| %>
-      <%=  b.check_box %><%= b.label { b.text } %>
+      <%=  b.check_box %><a><%= b.label { b.text } %></a>
      <% end %></div>
      </label>
      </div>
