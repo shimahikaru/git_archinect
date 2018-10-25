@@ -10,6 +10,20 @@ width: 98%;
 min-width: 330px;
 margin-left: auto;
 margin-right: auto;
+   .createpage {
+    p {
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+    a {
+      font-size: 13px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #251b5b;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+   }
 
       .container{
                  display: block;
