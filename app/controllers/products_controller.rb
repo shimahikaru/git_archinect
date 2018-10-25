@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
  def index
   products = Product.select(:id, :title, :location, :category, :completion)
   @photos = WholePhoto.where('created_at > ?', 1.month.ago).group(:product_id)
-  @products = product.where('created_at > ?', 1.month.ago)
+  @products = products.where('created_at > ?', 1.month.ago)
  end
 
    def show
