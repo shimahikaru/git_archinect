@@ -24,13 +24,12 @@ class Product < ApplicationRecord
   def self.count_order(count)
     if count == "1"
       self.reorder('comments_count DESC')
-      # comments = Comment.group(:product_id).order('count(product_id) DESC')
-      # products.joins(:comments).group(:product_id).order('count(product_id) DESC')
-      # products = self.where( 'comments.count == 0' )
-      # comments.map(&:product)
-      # comments << products
     elsif count == "2"
     self.reorder('impressions_count DESC')
+    elsif count == "3"
+      self.reorder('created_at DESC')
+    elsif count == "4"
+    self.reorder('created_at ASC')
     end
   end
 

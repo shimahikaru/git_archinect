@@ -44,15 +44,16 @@ mount_uploader :avatar, AvatarsUploader
 
   def self.count_order(count)
     if count == "1"
-      reorder("products_count DESC")
+      self.reorder("products_count DESC")
     elsif count == "2"
-    self.reorder("followers_count DESC")
+    self.joins(:followers).includes(:followers).group(:user_id).reorder("count(user_id) DESC")
+    elsif count == "3"
+    self.reorder("created_at DESC")
+    elsif count == "4"
+    self.reorder("created_at ASC")
     end
   end
 
-  # def followers
-  #   self.followers.count
-  # end
 
   def add_error
     errors[:base] << "苗字は必須です。" if familyname.blank?

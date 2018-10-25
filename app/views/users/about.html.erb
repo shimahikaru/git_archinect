@@ -21,9 +21,8 @@
 
   <div class="field">
   <p><%= f.label :表示の順番 %></p>
-  <%= f.select :count, [["投稿が多い順", "1"], ["フォロワーが多い順", "2"]], {prompt: '選択してください'}, class: 'user form' %><br />
+  <%= f.select :count, [["投稿が多い順", "1"], ["フォロワーが多い順", "2"], ["登録が新しい順", "3"], ["登録が古い順", "4"]], {prompt: '選択してください'}, class: 'user form' %><br />
   </div>
-
 
      <div class="field">
      <%= f.submit "検索", class: ' user button', name: nil %>
