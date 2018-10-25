@@ -148,26 +148,20 @@ $(function(){
           $('.photos input[type=hidden]').each(function(i){
          $(this).attr('id','photos_hidden' + (i+1));
        });
+
     });
 
-// $(function(){
-//   $(".product.button").click(function(){ //送信ボタンを押すとイベントが発火します
-//       // 通信に成功した場合の処理です
-//     .fail(function(){
-//       // 通信に失敗した場合の処理です
-//       alert('検索に失敗しました') // alertで検索失敗の旨を表示します
-//     })
-//   })
-// });
-$('#photos').change(function() {
-  var fr = new FileReader();
-  fr.onload = function() {
-    var img = $('<img>').attr('src', fr.result);
-    $('#preview').append(img);
-  };
-  fr.readAsDataURL(this.files[0]);
-});
 
+
+// $('#photos').change(function() {
+//   $('#preview').empty();
+//   var fr = new FileReader();
+//   fr.onload = function() {
+//     var img = $('<img>').attr('src', fr.result);
+//     $('#preview').append(img);
+//   };
+//   fr.readAsDataURL(this.files[0]);
+// });
 
 
 

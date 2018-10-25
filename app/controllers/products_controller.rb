@@ -3,8 +3,9 @@ class ProductsController < ApplicationController
   impressionist :actions=> [:show]
 
  def index
-  @products = Product.select(:id, :title, :location, :category, :completion)
-  @photos = WholePhoto.group(:product_id)
+  products = Product.select(:id, :title, :location, :category, :completion)
+  @photos = WholePhoto.where('created_at > ?', 1.month.ago).group(:product_id)
+  @products = product.where('created_at > ?', 1.month.ago)
  end
 
    def show
