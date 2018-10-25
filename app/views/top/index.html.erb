@@ -20,7 +20,9 @@
 <div class="index-container">
 <%= render partial: 'products/product', collection: @products %>
 </div>
-
+<div class="paginate">
+<%= paginate @products %>
+</div>
 <!-- <script>
    $(".colorful").children().addBack().contents().each(function(){
       if (this.nodeType == 3) {

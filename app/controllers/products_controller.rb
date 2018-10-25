@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
  def index
   @photos = WholePhoto.group(:product_id)
-  @products = Product.select(:id, :title, :location, :category, :completion)
+  @products = Product.select(:id, :title, :location, :category, :completion).page(params[:page]).per(20)
  end
 
    def show
@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
    productgenre = GenreProduct.where(genre_id: params[:genre_id]).select(:product_id) if params[:genre_id].present?
    @products = @products.where(id: productgenre) if productgenre.present?
    @products = @products.where(user_id: params[:user_id]) if params[:user_id].present?
+   @products = @products.page(params[:page]).per(20)
   end
 
   def about

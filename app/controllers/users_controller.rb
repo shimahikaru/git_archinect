@@ -2,15 +2,16 @@ class UsersController < ApplicationController
 before_action :authenticate_user!, only: [:edit, :update, ]
 
   def index
-    @users = User.where(offer: "0").order("id DESC")
+    @users = User.where(offer: "0").order("id DESC").page(params[:page]).per(25)
   end
 
   def show
     @user = User.find(params[:id])
     @tags = @user.user_works
-    @products = Product.where(user_id: @user.id).select(:id, :title, :location, :category, :completion)
+    @products = Product.where(user_id: @user.id).select(:id, :title, :location, :category, :completion).limit(10)
     @photos = WholePhoto.group(:product_id)
     @notice = @user.notice
+    @commented = @user.commented_products.distinct.limit(10)
   end
 
   def search
@@ -21,6 +22,7 @@ before_action :authenticate_user!, only: [:edit, :update, ]
     @users = @users.where(id: userworks) if userworks.present?
     # end
     @users = @users.where(location: params[:location]) if params[:location].present?
+    @users = @users.page(params[:page]).per(25)
   end
 
   def about

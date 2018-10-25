@@ -82,7 +82,7 @@
    <% if @user.products.exists? %>
      <p>最新のプロジェクト<button class="btn"><%= link_to @user.products.count, search_products_path(user_id: @user.id) %></button></p>
 
-      <% if @user.products.count > 2 %>
+      <% if @products.count > 2 %>
        <div class=" swiper-container">
          <div class="swiper-wrapper">
          <%= render partial: 'users/product', collection: @products %>
@@ -109,25 +109,26 @@
   </div>
 
 
-   <% if @user.commented_products.exists? %>
+   <% if @commented.count > 0 %>
    <div class="userB">
-    <p>コメント済み<button class="btn"><%= link_to @user.commented_products.count, search_comments_path(id: @user.id) %></button></p>
+    <p>コメント済み<button class="btn"><%= link_to @commented.count, search_comments_path(id: @user.id) %></button></p>
 
-       <% if @user.commented_products.count > 2 %>
+       <% if @commented.count > 2 %>
        <div class=" swiper-container">
        <div class="swiper-wrapper">
-       <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
+       <%= render partial: 'users/product', collection: @commented %>
        </div>
        </div>
        <% else %>
        <div class="swiper-wrapper">
-       <%= render partial: 'users/product', collection: @user.commented_products.distinct %>
+       <%= render partial: 'users/product', collection: @commented %>
        </div>
      </div>
       <% end %>
    <% end %>
   </div>
 </div>
+
 
  <script>
 var mySwiper = new Swiper('.swiper-container', {
