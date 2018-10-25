@@ -40,11 +40,17 @@ margin-right: auto;
               }
 
             .profile {
-                      width: 90%;
+                      width: 100%;
                       max-width: 650px;
                       height: 100%;
                       margin: auto auto;
 
+                      h5 {
+                        font-size: 12px;
+                        letter-spacing: 0.2em;
+                        font-weight: bold;
+                        opacity: 0.8;
+                      }
 
                      .edituser.post {
                       display: inline-block;
@@ -92,14 +98,14 @@ margin-right: auto;
                               }
                                      p {
                                        display: inline-block;
-                                       border: solid 1px #68737f;
+                                       border: solid 1px  #cccccc;
                                        border-radius: 4px;
-                                       padding: 6px 8px;
+                                       padding: 4px 7px;
                                        margin-bottom: 5px;
                                          a {
                                           text-decoration: none;
-                                          font-size: 11px;
-                                          letter-spacing: 0.2em;
+                                          font-size: 10px;
+                                          letter-spacing: 0.1em;
                                           color: #68737f;
                                           font-weight: bold;
                                          }
@@ -124,6 +130,7 @@ margin-right: auto;
                                   font-size: 11px;
                                   letter-spacing: 0.2em;
                                   line-height: 18px;
+                                  padding: 0 10px;
                                   }
                              }
                       .follow {
@@ -140,10 +147,11 @@ margin-right: auto;
                             a {
                               color: #fff;;
                               font-size: 12px;
-                              background-color: #fbbb22;
-                              padding: 2px 5px;
+                              background-color: #251b5b;
+                              padding: 3px 6px;
                               border-radius: 10px;
                               font-weight: bold;
+                              text-decoration: none;
                             }
                             p{
                               color: #262228;

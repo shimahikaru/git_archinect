@@ -106,9 +106,9 @@ $(function(){
 
   jQuery('.check input[type=checkbox]').click(function(){
     var checked = jQuery('input[type=checkbox]:checked').length;
-    if (checked > 4) {
+    if (checked > 7) {
       jQuery(this).prop("checked",false);
-      alert('選択は4つまでです。');
+      alert('それ以上は選択できません。。');
     }
   });
 </script>
