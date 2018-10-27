@@ -4,6 +4,16 @@ class Product < ApplicationRecord
 
   default_scope { order(created_at: :desc)}
 
+  # scope :has_genre_id_all, -> genre_ids {
+  #   product = arel_table
+  #   genre_product = GenreProduct.arel_table
+  #   subquery = genre_product.project(genre_product[:product_id])
+  #   .where(genre_product[:genre_id].in(genre_ids))
+  #   .group(genre_product[:product_id])
+  #   .having(genre_product[:genre_id].count('distinct').eq(genre_ids.size))
+  #   where(product[:id].in(subquery))
+  # }
+
   belongs_to :user
   counter_culture :user
 
@@ -32,6 +42,7 @@ class Product < ApplicationRecord
     self.reorder('created_at ASC')
     end
   end
+
 
 
   def add_error

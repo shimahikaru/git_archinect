@@ -43,6 +43,7 @@
       <% end %></li>
        </ul>
      </nav>
+
 <%= social_share_button_tag(@product.title, :allow_sites => %w(twitter facebook google_plus  )) %>
      <% if user_signed_in? && @product.user_id == current_user.id %>
        <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %><%= link_to '削除', "/products/#{@product.id}", method: :delete, data:{confirm: '削除しますか？'} %></div>
