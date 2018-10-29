@@ -136,33 +136,45 @@ $(function(){
       }
     });
 
-  $('#add-link').click(function(){
-    // 後から追加されたボタンには効かないイベント
-    var i = ""
-     $('.photos input[type=file]').each(function(i){
-         $(this).attr('id','photos' + (i+1));
-       });
-          $('.photo-fields').each(function(i){
-         $(this).attr('id','preview' + (i+1));
-       });
-          $('.photos input[type=hidden]').each(function(i){
-         $(this).attr('id','photos_hidden' + (i+1));
-       });
+//   $('#add-link').click(function(){
+//     // 後から追加されたボタンには効かないイベント
+//     var i = ""
+//      $('.photos input[type=file]').each(function(i){
+//          $(this).attr('id','photos' + (i+1));
+//          $(this).attr('data-id', i+1);
+//        });
+//           $('.photo-fields').each(function(i){
+//          $(this).attr('id','preview' + (i+1));
+//          $(this).attr('data-preview-id', i+1);
+//        });
+//           $('.photos input[type=hidden]').each(function(i){
+//          $(this).attr('id','photos_hidden' + (i+1));
+//        });
 
-    });
+//     });
 
 
 
-// $('#photos').change(function() {
-//   $('#preview').empty();
-//   var fr = new FileReader();
+// $(document).on("change", ".photos", function() {
+//   var dataId = $(this).data("id")
+//     $('#preview'+ dataId).empty();
+//   var fr = new FileReader()
+//   fr.onload = function() {
+//     var img = $('<img>').attr('src', fr.result);
+//     $('#preview' + dataId).append(img);
+//   };
+//   fr.readAsDataURL(this.files[0]);
+// });
+
+// $(document).on("change", ".photos", function() {
+//     $('#preview').empty();
+//   var fr = new FileReader()
 //   fr.onload = function() {
 //     var img = $('<img>').attr('src', fr.result);
 //     $('#preview').append(img);
 //   };
 //   fr.readAsDataURL(this.files[0]);
 // });
-
 
 
     $(function() {
