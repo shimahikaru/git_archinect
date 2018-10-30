@@ -1,28 +1,17 @@
 <%= stylesheet_link_tag    'notices', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'user/index', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'product/comment', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% provide :title, " : #{@notice.title}" %>
 <div class="notice_page">
   <div class="container">
   <h5><%= @notice.title %></h5>
   <%= simple_format(@notice.text) %>
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.2';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-share-button" data-layout="button_count" data-size="large" data-mobile-iframe="false"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
 
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://archinect.herokuapp.com/notices/<%= @notice.id %>">Facebook</a>
 
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-
-<div class="line-it-button" data-lang="ja" data-type="share-a" data-url="https://social-plugins.line.me/lineit/share?url={URL}" style="display: none;"></div>
-<script type="text/javascript">LineIt.loadButton();</script>
- <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+<a href="http://line.me/R/msg/text/?https://archinect.herokuapp.com/notices/<%= @notice.id %>">LINE</a>
 
     <% if user_signed_in? && @notice.user_id == current_user.id %>
     <%= link_to '削除', "/notices/#{@notice.id}", method: :delete, data:{confirm: '削除しますか？'} %>
