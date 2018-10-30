@@ -46,11 +46,11 @@
        </ul>
      </nav>
 
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://archinect.herokuapp.com/products/<%= @product.id %>" title="<%= @product.title %>">Facebook</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://archinect.herokuapp.com/products/<%= @product.id %>" title="<%= @product.title %>"><%= fa_icon("facebook-square") %>シェア</a>
 
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<a href="http://line.me/R/msg/text/?https://archinect.herokuapp.com/products/<%= @product.id %>">LINE</a>
+<a href="http://line.me/R/msg/text/?https://archinect.herokuapp.com/products/<%= @product.id %>">line</a>
 
      <% if user_signed_in? && @product.user_id == current_user.id %>
        <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %><%= link_to '削除', "/products/#{@product.id}", method: :delete, data:{confirm: '削除しますか？'} %></div>
