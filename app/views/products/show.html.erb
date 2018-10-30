@@ -1,5 +1,7 @@
+
 <%= stylesheet_link_tag    'product/show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag    'product/comment', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <div class="product_page">
   <div class="container">
     <div class="proA">
@@ -125,6 +127,14 @@
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
 });
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 </script>
 
