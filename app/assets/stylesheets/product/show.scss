@@ -107,6 +107,48 @@ margin-right: auto;
                      text-align: center;
                      padding-bottom: 30px;
                      border-bottom: solid 0.7px #DDDDDD;
+                       .sns-text,p{
+                        font-size: 13px;
+                        font-weight: bold;
+                        color: #000;
+                        margin-bottom: 20px;
+                       }
+                       .shere-btn {
+                        display: flex;
+                        width: 85%;
+                        max-width: 400px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        justify-content: space-between;
+                          .btn {
+                            display: block;
+                            // width: 85px;
+                            height: 40px;
+                            a {
+                              letter-spacing: 0.1em;
+                              color: #fff;
+                              text-decoration: none;
+                              padding: 5px 8px;
+                              border-radius: 5px;
+                              font-size: 11px;
+                              font-weight: bold;
+                            }
+                            i {
+                              margin-right: 3px;
+                            }
+                            }
+                          .facebook a {
+                             background-color: #073590;
+                            }
+                          .twitter a {
+                            background-color: #1da1f2;
+                            letter-spacing: 0.2em;
+                          }
+                          .line a{
+                            background-color: #00c300;
+                            letter-spacing: 0.3em;
+                          }
+                       }
                            .profile {
                               li {
                                 font-size: 13px;

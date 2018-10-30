@@ -45,12 +45,17 @@
       <% end %></li>
        </ul>
      </nav>
+<p class="sns-text">SNSでシェア</p>
+<div class="shere-btn">
+  <div class="facebook btn">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://archinect.herokuapp.com/products/<%= @product.id %>" title="<%= @product.title %>"><%= fa_icon("facebook-square") %>facebook</a></div>
 
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://archinect.herokuapp.com/products/<%= @product.id %>" title="<%= @product.title %>"><%= fa_icon("facebook-square") %>シェア</a>
+  <div class="twitter btn">
+  <a href="http://twitter.com/share?url=https://archinect.herokuapp.com/products/<%= @product.id %>" title="<%= @product.title %>"><%= fa_icon("twitter") %>Twitter</a></div>
 
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<a href="http://line.me/R/msg/text/?https://archinect.herokuapp.com/products/<%= @product.id %>">line</a>
+  <div class="line btn">
+  <a href="http://line.me/R/msg/text/?https://archinect.herokuapp.com/products/<%= @product.id %>"><%= fa_icon("comment") %>LINE</a></div>
+</div>
 
      <% if user_signed_in? && @product.user_id == current_user.id %>
        <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %><%= link_to '削除', "/products/#{@product.id}", method: :delete, data:{confirm: '削除しますか？'} %></div>
