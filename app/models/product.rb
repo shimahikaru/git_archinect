@@ -31,6 +31,11 @@ class Product < ApplicationRecord
 
   validate :add_error
 
+  def self.search_genre(genres)
+      productgenre = GenreProduct.searchgenres(genres)
+      self.where(id: productgenre)
+  end
+
   def self.count_order(count)
     if count == "1"
       self.reorder('comments_count DESC')

@@ -42,6 +42,11 @@ mount_uploader :avatar, AvatarsUploader
 
   validate :add_error
 
+  def search_work(works)
+      workgenre = UserWork.searchworks(works)
+      self.where(id: workgenre)
+  end
+
   def self.count_order(count)
     if count == "1"
       self.reorder("products_count DESC")

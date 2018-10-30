@@ -18,6 +18,8 @@
 //= require jquery-ui
 //= require activestorage
 //= require social-share-button
+//= require spin
+//= require jquery.spin
 //= require_tree .
 
 

@@ -25,8 +25,9 @@ class ProductsController < ApplicationController
    @products = @products.count_order(params[:count]) if params[:count].present?
    @products = @products.where(location: params[:location]) if params[:location].present?
    @products = @products.where(category: params[:category]) if params[:category].present?
-   productgenre = GenreProduct.where(genre_id: params[:genre_id]).select(:product_id) if params[:genre_id].present?
-   @products = @products.where(id: productgenre)
+   # productgenre = GenreProduct.where(genre_id: params[:genre_id]).select(:product_id) if params[:genre_id].present?
+   # @products = @products.where(id: productgenre)
+   @products = @products.search_genre(params[:genre_id]) if params[:genre_id].empty?
    @products = @products.where(user_id: params[:user_id]) if params[:user_id].present?
    @products = @products.page(params[:page]).per(20)
   end
@@ -44,7 +45,6 @@ class ProductsController < ApplicationController
 
   def create
      @product = Product.new(create_params)
-
     if @product.save
     else
       render action: :new
