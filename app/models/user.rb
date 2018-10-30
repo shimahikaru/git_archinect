@@ -42,7 +42,7 @@ mount_uploader :avatar, AvatarsUploader
 
   validate :add_error
 
-  def search_work(works)
+  def self.search_work(works)
       workgenre = UserWork.searchworks(works)
       self.where(id: workgenre)
   end

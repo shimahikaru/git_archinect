@@ -18,7 +18,8 @@ before_action :authenticate_user!, only: [:edit, :update, ]
     @users = User.select(:id, :familyname, :firstname, :location, :avatar, :text,).order("id DESC")
     @users = @users.where(offer: "0")
     @users = @users.count_order(params[:count]) if params[:count].present?
-    @users = @users.search_work(params[:work_id]) if params[:work_id].compact.reject(&:empty?).present?
+    @users = @users.search_work(params[:work_user]) if params[:work_user] && params[:work_user].compact.reject(&:empty?).present?
+    @users = @users.search_work(params[:work_id]) if params[:work_id].present?
     @users = @users.where(location: params[:location]) if params[:location].present?
     @users = @users.page(params[:page]).per(25)
   end
