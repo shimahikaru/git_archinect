@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
    @products = @products.where(category: params[:category]) if params[:category].present?
    # productgenre = GenreProduct.where(genre_id: params[:genre_id]).select(:product_id) if params[:genre_id].present?
    # @products = @products.where(id: productgenre)
-   @products = @products.search_genre(params[:genre_id]) if params[:genre_id].empty?
+   @products = @products.search_genre(params[:genre_id]) if params[:genre_id].compact.reject(&:empty?).present?
    @products = @products.where(user_id: params[:user_id]) if params[:user_id].present?
    @products = @products.page(params[:page]).per(20)
   end
