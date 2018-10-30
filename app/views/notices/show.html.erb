@@ -23,6 +23,7 @@
 <div class="line-it-button" data-lang="ja" data-type="share-a" data-url="https://social-plugins.line.me/lineit/share?url={URL}" style="display: none;"></div>
 <script type="text/javascript">LineIt.loadButton();</script>
  <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
     <% if user_signed_in? && @notice.user_id == current_user.id %>
     <%= link_to '削除', "/notices/#{@notice.id}", method: :delete, data:{confirm: '削除しますか？'} %>
     <% end %>
