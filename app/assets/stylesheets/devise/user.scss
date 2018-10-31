@@ -74,7 +74,7 @@
                      .tag {
                                   a {
                                     display: inline-block;
-                                    border: 1px solid #cccccc;
+                                    background-color: #e9ebec;
                                     border-radius: 4px;
                                     margin-right: 3px;
                                     padding: 0 6px;
@@ -83,16 +83,12 @@
                                       text-decoration: none;
                                       font-size: 10px;
                                       letter-spacing: 0.1em;
-                                      color: #000;
+                                      color: #313335;
                                      line-height: 20px;
-                                    }
-                       &:hover {
-                       text-decoration: underline;
-                       }
-                     }
+                                      }
+                                   }
                                  input[type=checkbox]:checked + a {
                                       background-color: #25b9d7;
-                                      border: 1px solid #25b9d7;
                                         label {
                                           color: #fff;
                                         }

@@ -98,21 +98,21 @@ margin-right: auto;
                               }
                                      p {
                                        display: inline-block;
-                                       border: solid 1px  #cccccc;
+                                       background-color: #e9ebec;
                                        border-radius: 4px;
                                        padding: 4px 7px;
                                        margin-bottom: 5px;
                                          a {
                                           text-decoration: none;
-                                          font-size: 10px;
+                                          font-size: 11px;
                                           letter-spacing: 0.1em;
-                                          color: #68737f;
-                                          font-weight: bold;
+                                          color: #313335;
+                                          font-weight: 450;
                                          }
                                           &:hover {
+                                            background-color: #25b9d7;
                                            a{
-                                           color: #25b9d7;
-                                           text-decoration: underline;
+                                           color: #fff;
                                            }
                                           }
                                        }

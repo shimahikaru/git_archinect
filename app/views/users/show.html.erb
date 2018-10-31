@@ -47,9 +47,8 @@
     </div>
      <nav class="profile">
         <ul>
-          <h5>関連キーワード</h5>
           <li><% @tags.each do | t | %>
-          <p><%= link_to t.work.tag, search_users_path(work_id: t.work_id) %></p>
+          <p><%= link_to "##{t.work.tag}", search_users_path(work_id: t.work_id) %></p>
           <% end %></li>
         </ul>
       </nav>
