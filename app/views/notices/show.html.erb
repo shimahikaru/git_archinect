@@ -7,11 +7,17 @@
   <h5><%= @notice.title %></h5>
   <%= simple_format(@notice.text) %>
 
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://archinect.herokuapp.com/notices/<%= @notice.id %>">Facebook</a>
+<div class="shere-btn">
+  <div class="facebook btn">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://archinect.herokuapp.com/notices/<%= @notice.id %>" title="<%= @notice.title %>"><%= fa_icon("facebook-square") %>シェア</a></div>
 
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <div class="twitter btn">
+  <a href="http://twitter.com/share?url=https://archinect.herokuapp.com/notices/<%= @notice.id %>" title="<%= @notice.title %>"><%= fa_icon("twitter") %>ツイート</a></div>
 
-<a href="http://line.me/R/msg/text/?https://archinect.herokuapp.com/notices/<%= @notice.id %>">LINE</a>
+  <div class="line btn">
+  <a href="http://line.me/R/msg/text/?https://archinect.herokuapp.com/notices/<%= @notice.id %>"><%= fa_icon("comment") %>LINEで送る</a></div>
+</div>
+
 
     <% if user_signed_in? && @notice.user_id == current_user.id %>
     <%= link_to '削除', "/notices/#{@notice.id}", method: :delete, data:{confirm: '削除しますか？'} %>
