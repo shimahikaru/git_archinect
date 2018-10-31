@@ -1,4 +1,15 @@
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="footer">
-  <p>Copyright © 2018 Archinect. All Rights Reserved.</p>
+  <div class="footA">
+  <%= link_to "ABOUT", top_about_path %>
+  <%= link_to "お問い合わせ", inquiries_path %>
+  </div>
+  <div class="footB">
+  <p>\ follow me <%= fa_icon("music") %> /</p>
+    <div class="icon">
+    <%= fa_icon("facebook-square") %>
+    <%= fa_icon("twitter") %>
+    </div>
+  </div>
+   <div class="footC"><p>Copyright © 2018 Archinect. All Rights Reserved.</p></div>
 </div>
