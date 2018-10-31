@@ -25,7 +25,7 @@
      </div>
 
       <div class="field">
-      <p><%= f.label :"全体画像(最大５枚)" %><a>※</a></p>
+      <p><%= f.label :"全体画像" %><a>※(１〜最大５枚)</a></p>
       <div id="fieldphoto">
       <%= f.fields_for :whole_photos do |whole_photo| %>
       <%= render 'whole_photo_fields', f: whole_photo %>
@@ -68,7 +68,7 @@
      </div>
 
      <div class="field">
-     <p><%= f.label :関連するキーワード%><a>※</a></p>
+     <p><%= f.label :関連するキーワード%></p>
      <label><div class= "tag"><%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :tag) do |b| %>
       <%=  b.check_box %><a><%= b.label { b.text } %></a>
       <% end %></div>
@@ -76,7 +76,7 @@
      </div>
 
      <div class="field">
-     <p><%= f.label :"詳細画像や図面など(最大５箇所)" %><a>※</a></p>
+     <p><%= f.label :"詳細画像や図面など" %><a>(０〜最大５箇所)</a></p>
      <div id="fielddetail">
      <%= f.fields_for :details do |detail| %>
      <%= render 'detail_fields', f: detail %>
@@ -88,7 +88,7 @@
     </div>
 
         <div class="field">
-        <%= f.submit "投稿", class: 'product button', data:{confirm: 'この内容で投稿しますか？'} %>
+        <%= f.submit "投稿する", class: 'product button', data:{confirm: '画像が多い場合、処理に時間がかかることがありますが、そのままお待ちください。'} %>
         </div>
 
     <% end %>
@@ -136,22 +136,22 @@ $(function(){
       }
     });
 
-//   $('#add-link').click(function(){
-//     // 後から追加されたボタンには効かないイベント
-//     var i = ""
-//      $('.photos input[type=file]').each(function(i){
-//          $(this).attr('id','photos' + (i+1));
-//          $(this).attr('data-id', i+1);
-//        });
-//           $('.photo-fields').each(function(i){
-//          $(this).attr('id','preview' + (i+1));
-//          $(this).attr('data-preview-id', i+1);
-//        });
-//           $('.photos input[type=hidden]').each(function(i){
-//          $(this).attr('id','photos_hidden' + (i+1));
-//        });
+  // $('#add-link').click(function(){
+  //   // 後から追加されたボタンには効かないイベント
+  //   var i = ""
+  //    $('.photos input[type=file]').each(function(i){
+  //        $(this).attr('id','photos' + (i+1));
+  //        $(this).attr('data-id', i+1);
+  //      });
+  //         $('.photo-fields').each(function(i){
+  //        $(this).attr('id','preview' + (i+1));
+  //        $(this).attr('data-preview-id', i+1);
+  //      });
+  //         $('.photos input[type=hidden]').each(function(i){
+  //        $(this).attr('id','photos_hidden' + (i+1));
+  //      });
 
-//     });
+  //   });
 
 
 

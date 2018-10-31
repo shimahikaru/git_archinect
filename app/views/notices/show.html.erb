@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag    'notices', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'user/index', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'product/comment', media: 'all', 'data-turbolinks-track': 'reload' %>
-<% provide :title, " : #{@notice.title}" %>
+<% provide :title, "#{@notice.title} | " %>
 <div class="notice_page">
   <div class="container">
   <h5><%= @notice.title %></h5>

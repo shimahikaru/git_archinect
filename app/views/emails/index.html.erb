@@ -1,8 +1,9 @@
 <%= stylesheet_link_tag    'devise/user', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% provide :title, "#{@user.name} | " %>
 
 <%= form_with(model: @email, :url => user_emails_confirm_path, local: true) do |f| %>
   <div class="usernew">
-    <h3>お問い合わせ</h3>
+    <h3><%= @user.name %>さんへ<br >メッセージを送る</h3>
 
   <% if @email.errors.any? %>
     <div class="alert alert-danger" role="alert">

@@ -52,18 +52,19 @@ class Product < ApplicationRecord
 
   def add_error
     errors[:base] << "タイトル" if title.blank?
+    errors[:base] << "写真" if whole_photos.blank?
     errors[:base] << "工期" if whet.blank?
     errors[:base] << "場所" if location.blank?
     errors[:base] << "床面積" if area.blank?
     errors[:base] << "コンセプト" if text.blank?
     errors[:base] << "カテゴリー" if category.blank?
-    errors[:base] << "写真" if whole_photos.blank?
-    errors[:base] << "詳細" if details.blank?
   end
 
   validates :text, length: { maximum: 350 }
   validates :title, length: { maximum: 15 }
   validates :subtitle, length: { maximum: 30 }
+  validates :whole_photos, length: { maximum: 5 }
+  validates :details, length: { maximum: 5 }
 
   enum category: {
     "ホテル・ラウンジ":1, ショップ:2, "オフィス・スクール":3, "バー・クラブ":4, "カフェ・レストラン":5, 居酒屋:6, "クリニック・ビューティー":7, "戸建て新築・リノベーション":8, マンションリノベーション:9, イベント会場:10, その他:11

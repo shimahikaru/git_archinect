@@ -23,18 +23,18 @@
      </div>
 
      <div class="field">
-     <p><%= f.label :所属 %></p>
+     <p><%= f.label :所属 %><br ><a>(学生の方は学校名)</a></p>
      <%= f.text_field :office, autofocus: true, autocomplete: "office",  class: 'user form' %>
      </div>
 
      <div class="field">
-     <p><%= f.label :主な勤務地 %></p>
+     <p><%= f.label :勤務地または居住地 %></p>
      <%= f.select :location, User.locations.keys,  class: 'user form' %><br />
      <%= f.text_field :local, autofocus: true, autocomplete: "local", placeholder: "都道府県以降の住所", class: 'user form' %>
      </div>
 
      <div class="field check">
-     <p><%= f.label :"仕事・興味のあるもの" %></p>
+     <p><%= f.label :"仕事または興味のある分野" %></p>
      <label><div class= "tag"><%= f.collection_check_boxes(:work_ids, Work.all, :id, :tag) do |b| %>
       <%=  b.check_box %><a><%= b.label { b.text } %></a>
      <% end %></div>
@@ -42,7 +42,7 @@
      </div>
 
      <div class="field">
-      <p><%= f.label :メールアドレス %><br ><a>※メッセージ受信用</a></p>
+      <p><%= f.label :メールアドレス %><br ><a>！メッセージ受信用<br >(メールアドレスは表示されません)</a></p>
       <%= f.email_field :address, autofocus: true, autocomplete: "address",  placeholder: "", class: 'user form' %>
      </div>
 
