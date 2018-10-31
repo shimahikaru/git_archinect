@@ -105,48 +105,42 @@ margin-right: auto;
                    .proC {
                      margin-top: 40px;
                      text-align: center;
-                     padding-bottom: 30px;
+                     padding-bottom: 20px;
                      border-bottom: solid 0.7px #DDDDDD;
-                       .sns-text p{
-                        font-size: 13px;
-                        font-weight: bold;
-                        color: #000;
-                        margin-bottom: 20px;
-                       }
                        .shere-btn {
                         display: flex;
-                        width: 85%;
-                        max-width: 400px;
+                        width: 97%;
+                        max-width: 330px;
+                        margin-top: 30px;
+                        margin-bottom: 25px;
                         margin-left: auto;
                         margin-right: auto;
                         justify-content: space-between;
                           .btn {
-                            display: block;
-                            // width: 85px;
-                            height: 40px;
                             a {
                               letter-spacing: 0.1em;
                               color: #fff;
                               text-decoration: none;
-                              padding: 5px 8px;
+                              padding: 8px 10px;
                               border-radius: 5px;
-                              font-size: 11px;
+                              font-size: 12px;
                               font-weight: bold;
                             }
                             i {
                               margin-right: 3px;
+                              font-size: 13px;
                             }
                             }
                           .facebook a {
                              background-color: #073590;
+                             padding: 8px 16px;
                             }
                           .twitter a {
                             background-color: #1da1f2;
-                            letter-spacing: 0.2em;
+                            padding: 8px 13px;
                           }
                           .line a{
                             background-color: #00c300;
-                            letter-spacing: 0.3em;
                           }
                        }
                            .profile {
@@ -159,22 +153,22 @@ margin-right: auto;
                                       display: inline-block;
                                      p {
                                        display: inline-block;
-                                       border: solid 1px #68737f;
                                        border-radius: 4px;
-                                       padding: 6px 8px;
+                                       background-color: #cccccc;
+                                       padding: 5px 8px;
                                        margin-bottom: 5px;
+                                       margin: 3px;
                                          a.tags {
                                           text-decoration: none;
                                           font-size: 11px;
-                                          letter-spacing: 0.2em;
-                                          color: #68737f;
-                                          font-weight: bold;
+                                          letter-spacing: 0.15em;
+                                          color: #313335;
+                                          font-weight: 450;
                                          }
                                        }
                                        &:hover {
                                         p {
                                           background-color: #25b9d7;
-                                          border: solid 1px #25b9d7;
                                         }
                                         a.tags {
                                           color: #fff;
