@@ -37,23 +37,32 @@
   }
 
   article {
-    padding: 30px;
-    max-width: 700px;
+    padding: 20px 25px;
+    width: 100%;
+    max-width: 900px;
     margin: auto;
+    text-align: left;
+    border-bottom: solid 0.5px #e8e9ea;
 
     .title {
       display: flex;
       width: 220px;
       margin: 10px auto;
+      margin-right: 0;
       color: #000;
-      justify-content: space-between;
+      justify-content: right;
 
       p, a {
         margin: 0;
         a {
           color: #000;
           font-size: 11px;
+          text-decoration: none;
+          font-weight: bold;
           letter-spacing: 0.15em;
+          &:hover {
+            color: #df0067;
+          }
         }
       }
 
