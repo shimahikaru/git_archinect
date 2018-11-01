@@ -1,7 +1,9 @@
 <%= stylesheet_link_tag 'user/index', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-
 <div class="user_index">
+<% if @users.length == 0 %>
+<p class="user_search">検索結果が見つかりませんでした。</p>
+<% end %>
 <%= render partial: 'users/user', collection: @users %>
 </div>
 <div class="paginate">

@@ -1,6 +1,9 @@
 <%= stylesheet_link_tag    'products', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="index-container">
+<% if @products.length == 0 %>
+<p class="product_search">検索結果が見つかりませんでした。</p>
+<% end %>
 <%= render partial: 'products/product', collection: @products %>
 </div>
 <div class="paginate">

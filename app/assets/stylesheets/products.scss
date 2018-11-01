@@ -12,7 +12,11 @@ margin-right: auto;
 max-width: 1200px;
 display: flex;
 flex-wrap: wrap;
-// flex: 1 1 200px;
+
+  .product_search {
+    font-size: 12px;
+    margin: 20px;
+  }
 
 .swiper-container.swiper-container-horizontal {
     width: 100%;
