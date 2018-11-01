@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_030709) do
+ActiveRecord::Schema.define(version: 2018_11_01_034409) do
 
   create_table "Products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -169,7 +169,7 @@ ActiveRecord::Schema.define(version: 2018_11_01_030709) do
     t.integer "location", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "work"
-    t.boolean "offer"
+    t.boolean "offer", default: true
     t.string "url"
     t.string "avatar"
     t.string "text"
