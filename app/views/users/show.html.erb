@@ -38,17 +38,16 @@
       <text><%= simple_format(@user.text) %></text>
 
     <div class="follow">
-      <%= link_to(followings_user_path(@user), class: 'follow_btn') do %><p><%= @user.followings.count %>フォロー</p><% end %>
-      <%= link_to(followers_user_path(@user), class: 'follow_btn') do %><p><%= @user.followers.count %>フォロワー</p><% end %>
-      <%= link_to(search_products_path(user_id: @user.id), class: 'follow_btn') do %><p><%= @user.products.count %>投稿数</p><% end %>
+      <%= link_to(followings_user_path(@user), class: 'follow_btn') do %><p><%= @user.followings.count %> フォロー</p><% end %>
+      <%= link_to(followers_user_path(@user), class: 'follow_btn') do %><p><%= @user.followers.count %> フォロワー</p><% end %>
+      <%= link_to(search_products_path(user_id: @user.id), class: 'follow_btn') do %><p><%= @user.products.count %> ポスト</p><% end %>
     </div>
           <li><% @tags.each do | t | %>
           <p><%= link_to "##{t.work.tag}", search_users_path(work_id: t.work_id) %></p>
           <% end %></li>
         <% if user_signed_in? && @user.id == current_user.id %>
-        <div class ="edituser post"><%= link_to fa_icon("edit")+"投稿", new_product_path %></div>
-
-        <div class="edituser post" ><%= link_to fa_icon("cog")+"編集", edit_user_path(current_user) %></div>
+        <div class ="edituser post"><%= link_to fa_icon("edit")+"投稿", new_product_path %>
+        <%= link_to fa_icon("cog")+"編集", edit_user_path(current_user) %></div>
         <% end %>
     </nav>
    </div>
