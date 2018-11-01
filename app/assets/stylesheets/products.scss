@@ -41,6 +41,8 @@ flex-wrap: wrap;
                  }
 
             .text {
+                text-align: left;
+                padding: 0 5px;
                 h6 {
                 font-size: 13px;
                 font-weight: bold;
@@ -57,9 +59,11 @@ flex-wrap: wrap;
                 p a {
                     text-decoration: none;
                     color: #565656;
-                    padding: 3px 6px;
                     font-size: 12px;
                     border-radius: 3px;
+                    &:hover {
+                        color: #df0067;
+                    }
                 }
                 .title p {
                     color: #000;
