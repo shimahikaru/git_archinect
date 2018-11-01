@@ -69,6 +69,9 @@ table {
 input {
   font-size: 16px;
 }
+textarea {
+  font-size: 16px;
+}
 .button, .btn {
   -webkit-appearance: none;
 }
