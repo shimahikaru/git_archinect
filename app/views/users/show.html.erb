@@ -16,7 +16,7 @@
           <% end %>
         </li>
         <% if @user.office? %>
-        <li><a><%= @user.office %></a></li>
+        <li><a><%= fa_icon("paperclip") %><%= @user.office %></a></li>
         <% end %>
         <li>
           <% if @user.address? %>
@@ -38,22 +38,13 @@
       <text><%= simple_format(@user.text) %></text>
 
     <div class="follow">
-      <div class="follow_btn" >
-      <%= link_to @user.followings.count, followings_user_path(@user) %><p>フォロー</p></div>
-      <div class="follow_btn">
-      <%= link_to @user.followers.count, followers_user_path(@user) %><p>フォロワー</p>
-      </div>
-      <div class="follow_btn">
-      <%= link_to @user.products.count, search_products_path(user_id: @user.id) %><p>投稿数</p>
-      </div>
+      <%= link_to(followings_user_path(@user), class: 'follow_btn') do %><p><%= @user.followings.count %>フォロー</p><% end %>
+      <%= link_to(followers_user_path(@user), class: 'follow_btn') do %><p><%= @user.followers.count %>フォロワー</p><% end %>
+      <%= link_to(search_products_path(user_id: @user.id), class: 'follow_btn') do %><p><%= @user.products.count %>投稿数</p><% end %>
     </div>
-     <nav class="profile">
-        <ul>
           <li><% @tags.each do | t | %>
           <p><%= link_to "##{t.work.tag}", search_users_path(work_id: t.work_id) %></p>
           <% end %></li>
-        </ul>
-      </nav>
         <% if user_signed_in? && @user.id == current_user.id %>
         <div class ="edituser post"><%= link_to fa_icon("edit")+"投稿", new_product_path %></div>
 

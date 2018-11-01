@@ -40,8 +40,9 @@ margin-right: auto;
               }
 
             .profile {
-                      width: 100%;
-                      max-width: 650px;
+                      width: 90%;
+
+                      max-width: 500px;
                       height: 100%;
                       margin: auto auto;
 
@@ -74,8 +75,10 @@ margin-right: auto;
                           li{
                             list-style: none;
                             margin: 10px;
+                           text-align: left;
+
                           h4 {
-                             letter-spacing: 0.4em;
+                             letter-spacing: 0.2em;
                              margin-top: 20px;
                              margin-bottom: 10px;
                              font-weight: bold;
@@ -92,19 +95,21 @@ margin-right: auto;
 
                               .mail {
                                 text-decoration: none;
-                                border-radius: 3px;
-                                padding: 6px 11px;
+                                border-radius: 17px;
+                                padding: 3px 11px;
                                 display: inline-block;
-                                background-color: #251b5b;
+                                background-color: #a1a1a4;
                                 color: #fff;
-                                font-size: 12px;
+                                font-size: 11px;
                                 margin: auto 2px;
                                 i.fa {
                                   color: #fff;
                                   margin-right: 3px;
                                 }
                               }
+
                                      p {
+                                      text-align: left;
                                        display: inline-block;
                                        background-color: #e9ebec;
                                        border-radius: 4px;
@@ -116,19 +121,19 @@ margin-right: auto;
                                           letter-spacing: 0.1em;
                                           color: #313335;
                                           font-weight: 450;
-                                         }
-                                          &:hover {
-                                            background-color: #25b9d7;
-                                           a{
-                                           color: #fff;
-                                           }
                                           }
-                                       }
+                                            &:hover {
+                                              background-color: #25b9d7;
+                                             a{
+                                             color: #fff;
+                                              }
+                                            }
+                                        }
 
                                  a, i {
                                    letter-spacing: 0.2em;
-                                   font-size: 12px;
-                                   color: #262228;
+                                   font-size: 11px;
+                                   color: #666666;
                                    font-weight: 530;
                                    }
                               }
@@ -139,33 +144,29 @@ margin-right: auto;
                                   letter-spacing: 0.2em;
                                   line-height: 18px;
                                   padding: 0 10px;
+                                  text-align: left;
+                                  color:  #666666;
                                   }
                              }
                       .follow {
                         display: flex;
-                        width: 220px;
-                        margin-left: auto;
-                        margin-right: auto;
+                        padding: 0 10px;
                         margin-bottom: 20px;
 
                           .follow_btn {
                             display: block;
-                            width: 100px;
+                            width: 32%;
+                            margin-right: 3px;
                             margin-top: 10px;
-                            a {
-                              color: #fff;;
-                              font-size: 12px;
-                              background-color: #251b5b;
-                              padding: 3px 6px;
-                              border-radius: 10px;
-                              font-weight: bold;
-                              text-decoration: none;
-                            }
+                            border: solid 1px #666666;
+                            border-radius: 17px;
+                            text-decoration: none;
+                            background-color: #251b5b;
                             p{
-                              color: #262228;
+                              color: #fff;
                               font-size: 11px;
                               margin: 0;
-                              margin-top: 5px;
+                              line-height: 18px;
                             }
                           }
                       }
