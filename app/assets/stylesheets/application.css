@@ -220,7 +220,6 @@ li .panel-item a{
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;
 }
 .footA {
   display: flex;
@@ -228,7 +227,7 @@ li .panel-item a{
   justify-content: center;
 }
 .footA a{
-  margin: 5px;
+  margin: 0 10px;
   text-decoration: none;
   color: #A9A9A9;
   font-size: 12px;
@@ -238,12 +237,13 @@ li .panel-item a{
 }
 .footB p{
   margin-bottom: 10px;
-  font-size: 15px;
+  font-size: 14px;
   color: #A9A9A9;
 }
-.footB.icon.fa {
-  font-size: 16px;
-  margin-left: 8px;
+.footB a {
+  margin: 10px;
+  font-size: 20px;
+  color: #696969;
 }
 
 .footC p {
