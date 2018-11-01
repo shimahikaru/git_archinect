@@ -36,7 +36,7 @@ class AvatarsUploader < CarrierWave::Uploader::Base
   end
 
     version :gallery do
-    process resize_to_fill: [600, 600, "Center" ]
+    process resize_to_fill: [700, 600, "Center" ]
   end
 
   # Create different versions of your uploaded files:
