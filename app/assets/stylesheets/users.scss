@@ -89,12 +89,19 @@ margin-right: auto;
                                     font-size: 11px;
                                   }
                                }
+
                               .mail {
-                                border: solid 1px #565656;
                                 text-decoration: none;
                                 border-radius: 3px;
-                                padding: 3px 10px;
+                                padding: 6px 11px;
                                 display: inline-block;
+                                background-color: #251b5b;
+                                color: #fff;
+                                font-size: 12px;
+                                i.fa {
+                                  color: #fff;
+                                  margin-right: 3px;
+                                }
                               }
                                      p {
                                        display: inline-block;

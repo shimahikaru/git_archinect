@@ -18,16 +18,18 @@
         <% if @user.office? %>
         <li><a><%= @user.office %></a></li>
         <% end %>
+        <li>
           <% if @user.address? %>
-        <li><%= link_to fa_icon("envelope")+'メール', user_emails_path(@user), class: "mail" %></li>
+        <%= link_to fa_icon("envelope")+'メール', user_emails_path(@user), class: "mail" %>
         <% end %>
+          <% if @user.url? %>
+        <%= link_to fa_icon("home")+'リンク', @user.url, class: "mail" %>
+        <% end %>
+      </li>
         <% if @user.local? %>
         <li><a><%= fa_icon("map-marker") %></a><%= link_to @user.location, search_users_path(location: @user.location) %><a><%= @user.local%></a></li>
         <% else %>
         <li><a><%= fa_icon("map-marker") %></a><a><%= @user.location %></a></li>
-        <% end %>
-        <% if @user.url? %>
-        <li><a><%= fa_icon("link") %></a><%= link_to @user.url, @user.url %></li>
         <% end %>
         <% if @user.phone? %>
         <li><a><%= fa_icon("phone") %></a><a><%= @user.phone %></a></li>
