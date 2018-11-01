@@ -68,7 +68,7 @@ margin-right: auto;
                               text-decoration: none;
                               letter-spacing: 0.3em;
                                &:hover {
-                                text-decoration: underline;
+                                background-color: #251b5b;
                                }
                             }
                      }
@@ -99,7 +99,7 @@ margin-right: auto;
                               .mail {
                                 text-decoration: none;
                                 border-radius: 17px;
-                                padding: 3px 23px;
+                                padding: 4px 23px;
                                 display: inline-block;
                                 background-color: #a1a1a4;
                                 color: #fff;
@@ -108,6 +108,9 @@ margin-right: auto;
                                 i.fa {
                                   color: #fff;
                                   margin-right: 3px;
+                                }
+                                &:hover {
+                                  background-color: #df0067;
                                 }
                               }
 
@@ -165,6 +168,9 @@ margin-right: auto;
                             border-radius: 17px;
                             text-decoration: none;
                             background-color: #251b5b;
+                              &:hover {
+                                background-color: #fbbb22;
+                              }
                             p{
                               color: #fff;
                               font-size: 11px;

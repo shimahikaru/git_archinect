@@ -37,9 +37,10 @@ flex-wrap: wrap;
              }
 
              .conA {
-             height: 100%;
+             height: 120px;
              width: 100%;
              padding: 10px;
+             text-align: left;
 
                .con1 {
                 margin-bottom: 15px;
@@ -53,7 +54,7 @@ flex-wrap: wrap;
                   letter-spacing: 0.2em;
                   background-color: #251b5b;
                   padding: 4px 9px;
-                  border-radius: 7px;
+                  border-radius: 18px;
                   &:hover {
                     text-decoration: underline;
                   }
