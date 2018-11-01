@@ -2,6 +2,6 @@
 <%= image_tag detail.image_url(:thumb), :class => "photos" %>
 <div class="text">
 <h5><%= detail.title %></h5>
-<p><%= detail.text %></p>
+<p><%= simple_format(detail.text) %></p>
 </div>
 </article>
