@@ -5,20 +5,27 @@
 <div class="user_page">
    <div class="container">
     <div class="userA">
-
+      <div class="proA">
       <%= image_tag @user.avatar.url(:thumb), :class => "image" %>
-
+    <div class="proA-text">
+      <h4><%= @user.name %><% if user_signed_in? && current_user.following?(@user)  %><%= fa_icon("check") %><% end %></h4>
+          <% if @user.local? %>
+        <a><%= fa_icon("map-marker") %></a><%= link_to @user.location, search_users_path(location: @user.location) %><a><%= @user.local%></a>
+        <% else %>
+        <a><%= fa_icon("map-marker") %></a><a><%= @user.location %></a>
+        <% end %>
+        <% if user_signed_in? && @user.id == current_user.id %>
+        <div class ="edituser post"><%= link_to fa_icon("edit")+"投稿", new_product_path %>
+        <%= link_to fa_icon("cog")+"編集", edit_user_path(current_user) %></div>
+        <% end %>
+      </div>
+      </div>
     <nav class="profile">
       <ul>
-        <li><h4><%= @user.name %><% if user_signed_in? && current_user.following?(@user)  %><%= fa_icon("check") %><% end %></h4>
+        <li class="btn3">
           <% if user_signed_in? %>
           <%= render partial: 'relationships/follow_button', user: @user %>
           <% end %>
-        </li>
-        <% if @user.office? %>
-        <li><a><%= fa_icon("paperclip") %><%= @user.office %></a></li>
-        <% end %>
-        <li>
           <% if @user.address? %>
         <%= link_to fa_icon("envelope")+'メール', user_emails_path(@user), class: "mail" %>
         <% end %>
@@ -26,10 +33,8 @@
         <%= link_to fa_icon("home")+'リンク', @user.url, class: "mail" %>
         <% end %>
       </li>
-        <% if @user.local? %>
-        <li><a><%= fa_icon("map-marker") %></a><%= link_to @user.location, search_users_path(location: @user.location) %><a><%= @user.local%></a></li>
-        <% else %>
-        <li><a><%= fa_icon("map-marker") %></a><a><%= @user.location %></a></li>
+          <% if @user.office? %>
+        <li><a><%= fa_icon("paperclip") %><%= @user.office %></a></li>
         <% end %>
         <% if @user.phone? %>
         <li><a><%= fa_icon("phone") %></a><a><%= @user.phone %></a></li>
@@ -45,11 +50,8 @@
           <li><% @tags.each do | t | %>
           <p><%= link_to "##{t.work.tag}", search_users_path(work_id: t.work_id) %></p>
           <% end %></li>
-        <% if user_signed_in? && @user.id == current_user.id %>
-        <div class ="edituser post"><%= link_to fa_icon("edit")+"投稿", new_product_path %>
-        <%= link_to fa_icon("cog")+"編集", edit_user_path(current_user) %></div>
-        <% end %>
     </nav>
+    <div class="proB"><P><%= fa_icon("chevron-down") %>MoreProfile...</P></div>
    </div>
 
   <% if @notice %>
@@ -122,6 +124,11 @@
 
 
  <script>
+
+$(".proB").click(function(){
+  $(".profile").slideToggle();
+});
+
 var mySwiper = new Swiper('.swiper-container', {
   infinite: true,
   loop: true,

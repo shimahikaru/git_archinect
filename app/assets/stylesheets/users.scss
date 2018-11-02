@@ -9,182 +9,186 @@ margin-left: auto;
 width: 100%;
 margin-right: auto;
 
-       .container{
-                 display: block;
-                 border-radius: 8px;
-                 padding: 8px;
-                 width: 100%;
+  .container{
+       display: block;
+       border-radius: 8px;
+       padding: 8px;
+       width: 100%;
 
-       .userA {
-        margin-bottom: 2.5px;
-        border-radius: 5px;
-        width: 97%;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: #fff;
-
+   .userA {
+      margin-bottom: 2.5px;
+      border-radius: 5px;
+      width: 97%;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #fff;
+      padding: 10px;
+        .proA{
+          display: flex;
            .image{
-                 width: 100%;
-                 max-width: 500px;
-                 background-color: #696969;
+                 width: 90px;
                  height: 100%;
-                 max-height: 450px;
-                 border-radius: 5px;
+                 border-radius: 50px;
                  }
-              .noimage{
-                border-radius: 5px;
-                background-color: #696969;
-                max-width: 500px;
-                width: 100%;
-                height: 250px;
+            .proA-text {
+              text-align: left;
+              padding-top: 10px;
+              padding-left: 10px;
+              h4 {
+                font-size: 15px;
+                letter-spacing: 0.1em;
+                font-weight: bold;
+                margin-bottom: 6px;
+                width: 240px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-text-overflow: ellipsis;
+                -o-text-overflow: ellipsis;
+              }
+              a {
+               color: #666666;
+               font-size: 11px;
+              }
+            .edituser.post {
+              margin-top: 5px;
+            display: flex;
+                  a{
+                    width: 60px;
+                    margin-right: 2px;
+                    font-size: 11px;
+                    text-align: center;
+                    border-radius: 10px;
+                    background-color: #25b9d7;
+                    color: #fff;
+                    padding: 3px 5px;
+                    text-decoration: none;
+                    letter-spacing: 0.3em;
+                     &:hover {
+                      background-color: #251b5b;
+                     }
+                  }
+            }
+         }
+       }
+
+  .profile {
+        width: 100%;
+        height: 100%;
+        margin: auto auto;
+        display: none;
+
+  li.btn3 {
+    display: flex;
+  }
+      li{
+          list-style: none;
+           margin: 10px 0;
+           text-align: left;
+             .btn-block {
+              border-radius: 17px;
+              background-color: #fff;
+              border: solid 1px #25b9d7;
+              padding: 2px 12px;
+              margin-right: 2px;
+                a, i {
+                  color: #25b9d7;
+                  font-size: 11px;
+                }
+                &:hover {
+                  background-color: #25b9d7;
+                    a, i {
+                    color: #fff;
+                   }
+                  }
+             }
+              .mail {
+                text-decoration: none;
+                border-radius: 17px;
+                padding: 5px 13px;
+                border: solid 1px #25b9d7;
+                color: #25b9d7;
+                font-size: 11px;
+                margin: auto 2px;
+                i.fa {
+                  color: #25b9d7;
+                  margin-right: 3px;
+                }
+                &:hover {
+                  background-color: #25b9d7;
+                  color: #fff;
+                i.fa {
+                  color: #fff;
+                }
+                }
               }
 
-            .profile {
-                      width: 96%;
-                      max-width: 500px;
-                      height: 100%;
-                      margin: auto auto;
-
-                      h5 {
-                        font-size: 12px;
-                        letter-spacing: 0.2em;
-                        font-weight: bold;
-                        opacity: 0.8;
+                 p {
+                  text-align: left;
+                   display: inline-block;
+                   background-color: #e9ebec;
+                   border-radius: 10px;
+                   padding: 2px 6px;
+                   margin-bottom: 5px;
+                     a {
+                      text-decoration: none;
+                      font-size: 10px;
+                      color: #313335;
+                      font-weight: 450;
                       }
-
-                     .edituser.post {
-                      width: 96%;
-                      display: flex;
-                      margin-bottom: 15px;
-                      padding: 0 10px;
-                      justify-content: space-between;
-                            a{
-                              width: 49%;
-                              font-size: 11px;
-                              border-radius: 10px;
-                              background-color: #25b9d7;
-                              color: #fff;
-                              padding: 5px 0;
-                              text-decoration: none;
-                              letter-spacing: 0.3em;
-                               &:hover {
-                                background-color: #251b5b;
-                               }
-                            }
-                     }
-
-
-                          li{
-                            list-style: none;
-                            margin: 10px;
-                           text-align: left;
-
-                          h4 {
-                             letter-spacing: 0.2em;
-                             margin-top: 20px;
-                             margin-bottom: 10px;
-                             font-weight: bold;
-                             }
-                               .btn-block {
-                                border-radius: 15px;
-                                background-color: #fff;
-                                border: solid 1px #25b9d7;
-                                padding: 2px 12px;
-                                  a, i {
-                                    color: #25b9d7;
-                                    font-size: 11px;
-                                  }
-                               }
-
-                              .mail {
-                                text-decoration: none;
-                                border-radius: 17px;
-                                padding: 4px 23px;
-                                display: inline-block;
-                                background-color: #a1a1a4;
-                                color: #fff;
-                                font-size: 11px;
-                                margin: auto 2px;
-                                i.fa {
-                                  color: #fff;
-                                  margin-right: 3px;
-                                }
-                                &:hover {
-                                  background-color: #df0067;
-                                }
-                              }
-
-                                     p {
-                                      text-align: left;
-                                       display: inline-block;
-                                       background-color: #e9ebec;
-                                       border-radius: 4px;
-                                       padding: 2px 6px;
-                                       margin-bottom: 5px;
-                                         a {
-                                          text-decoration: none;
-                                          font-size: 11px;
-                                          letter-spacing: 0em;
-                                          color: #313335;
-                                          font-weight: 450;
-                                          }
-                                            &:hover {
-                                              background-color: #25b9d7;
-                                             a{
-                                             color: #fff;
-                                              }
-                                            }
-                                        }
-
-                                 a, i {
-                                   letter-spacing: 0.2em;
-                                   font-size: 11px;
-                                   color: #666666;
-                                   font-weight: 530;
-                                   }
-                              }
-
-                         text{
-                                p {
-                                  font-size: 11px;
-                                  letter-spacing: 0.2em;
-                                  line-height: 18px;
-                                  padding: 0 10px;
-                                  text-align: left;
-                                  color:  #666666;
-                                  }
-                             }
-                      .follow {
-                        display: flex;
-                        padding: 0 10px;
-                        margin-bottom: 20px;
-                        justify-content: space-between;
-
-                          .follow_btn {
-                            display: block;
-                            width: 32%;
-                            max-width: 145px;
-                            margin-top: 10px;
-                            border-radius: 17px;
-                            text-decoration: none;
-                            background-color: #251b5b;
-                              &:hover {
-                                background-color: #fbbb22;
-                              }
-                            p{
-                              color: #fff;
-                              font-size: 11px;
-                              margin: 0;
-                              font-weight: bold;
-                              line-height: 18px;
-                              margin: 2px 0;
-                            }
+                        &:hover {
+                          background-color: #25b9d7;
+                         a{
+                         color: #fff;
                           }
-                      }
+                        }
+                    }
 
-                      }
+                     a, i {
+                       letter-spacing: 0.1em;
+                       font-size: 11px;
+                       color: #666666;
+                       font-weight: 530;
+                       }
+          }
+
+       text{
+              p {
+                font-size: 11px;
+                letter-spacing: 0.1em;
+                line-height: 18px;
+                text-align: left;
+                color:  #666666;
+                }
+           }
+              .follow {
+                display: flex;
+                margin-bottom: 20px;
+
+                .follow_btn {
+                  display: block;
+                  width: 90px;
+                  max-width: 145px;
+                  margin-top: 10px;
+                  border-radius: 17px;
+                  text-decoration: none;
+                  background-color: #251b5b;
+                  margin-right: 2px;
+                    &:hover {
+                      background-color: #25b9d7;
+                    }
+                  p{
+                    color: #fff;
+                    font-size: 11px;
+                    margin: 0;
+                    font-weight: bold;
+                    line-height: 18px;
+                    margin: 2px 0;
+                  }
+                }
+        }
+   }
               // ここまでが.profile
-
         .textarea{
                      p {
                        letter-spacing: 0.3em;
@@ -194,8 +198,31 @@ margin-right: auto;
                        margin-right: auto;
                        }
                   }
+      .proB {
+        border: solid 2px #e1e8ed;
+        width: 90%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        border-radius: 17px;
+          p {
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            line-height: 18px;
+            color: #25b9d7;
+            font-weight: bold;
+          }
+        &:hover {
+          background-color: #25b9d7;
+          border: solid 2px #25b9d7;
+           p {
+            color: #fff;
            }
-
+        }
+      }
+}
+   // ここまでがuserA
         .userB{
           border-bottom: solid 1px #DDDDDD;
           padding-bottom: 10px;
@@ -266,8 +293,9 @@ margin-right: auto;
             max-width: 1200px;
 
    .userA{
-         display: flex;
+         // display: flex;
          max-width: 1200px;
+         padding: 100px;
              .image{
                    max-width: 450px;
                    position: center;

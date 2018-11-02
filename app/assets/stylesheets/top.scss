@@ -24,10 +24,10 @@
   // .colorful span:nth-child(6) { color: #df0067; }
   .colorful span:nth-child(7) { color: #251b5b; }
   .colorful span:nth-child(8) { color: #25b9d7; }
-  // .colorful span:nth-child(9) { color: #fbbb22; }
+  .colorful span:nth-child(9) { color: #fbbb22; }
 
  h1 {
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     font-weight: bold;
     font-size: 40px;
     color: #262228;
@@ -249,9 +249,6 @@
  .boxtypeA{
   max-width: 1200px;
   margin: 0 auto;
-  h1 {
-    font-size: 43px;
-  }
 
        p {
     margin-bottom: 30px;
@@ -262,7 +259,7 @@
 
 
   h1{
-    font-size: 75px;
+    font-size: 60px;
     margin-top: 80px;
   }
  .container {

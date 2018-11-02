@@ -20,31 +20,27 @@ flex-wrap: wrap;
   }
 
     article {
-    height: 120px;
+    height: 110px;
     border-radius: 5px;
     min-width: 320px;
     flex: 1 1 300px;
     margin: 2.5px;
+    padding: 10px 5px;
     background-color: #fff;
 
        .contentA {
         width: 100%;
-        height: 120px;
         display: flex;
 
-            .imgA {
-              height: 100%;
                 .img {
-                   height: 100%;
+                   height: 85px;
                    max-width: 143px;
-                   border-radius: 5px;
+                   border-radius: 50px;
+                   margin-right: 5px;
                  }
-             }
-
              .conA {
              height: 120px;
              width: 100%;
-             padding: 10px;
              text-align: left;
 
                .con1 {

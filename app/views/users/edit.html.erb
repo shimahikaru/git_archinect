@@ -59,7 +59,7 @@
      <div class="field">
      <p><%= f.label :プロフィール画像 %></p>
      <% if @user.avatar? %>
-     <%= image_tag @user.avatar_url(:gallery), id: :avatar_prev, :class => "img" %>
+     <%= image_tag @user.avatar_url(:thumb), id: :avatar_prev, :class => "img" %>
      <p><%= f.check_box :remove_avatar %>画像を削除する</p>
      <% end %>
      <%= f.file_field :avatar, autofocus: true , id: :user_avatar %>

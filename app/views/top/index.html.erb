@@ -23,7 +23,9 @@
 <div class="paginate">
 <%= paginate @products %>
 </div>
+
 <script>
+
    $(".colorful").children().addBack().contents().each(function(){
       if (this.nodeType == 3) {
          var $this = $(this);

@@ -106,10 +106,9 @@ body {
   text-decoration: none;
   padding-left: 15px;
   padding-right: 15px;
-  letter-spacing: 0.2em;
-  font-weight: 900;
+  letter-spacing: 0.1em;
+  font-weight: bold;
   opacity: 0.7;
-
 }
   .headA  span:nth-child(1) { color: #df0067; }
   .headA  span:nth-child(2) { color: #251b5b; }
