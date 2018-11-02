@@ -9,31 +9,53 @@
   width: 100vw;
   justify-content: center;
 
-    p {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    margin-bottom: 18px;
-    margin-top: 18px;
-    font-weight: 550;
-    }
-  .colorful span:nth-child(1) { color: #df0067; }
-  .colorful span:nth-child(2) { color: #251b5b; }
-  .colorful span:nth-child(5) { color: #251b5b; }
-  // .colorful span:nth-child(3) { color: #25b9d7; }
-  .colorful span:nth-child(4) { color: #fbbb22; }
-  // .colorful span:nth-child(6) { color: #df0067; }
-  .colorful span:nth-child(7) { color: #251b5b; }
-  .colorful span:nth-child(8) { color: #25b9d7; }
-  .colorful span:nth-child(9) { color: #fbbb22; }
+.concept {
+  margin-top: 70px;
+  width: 95%;
+  background-color:  #fff;
+  padding: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
 
- h1 {
-    letter-spacing: 0.1em;
+  .colorful span:nth-child(1) { color: #df0067; font-size: 20px; }
+  .colorful span:nth-child(2) { color: #251b5b; font-size: 20px; }
+  .colorful span:nth-child(5) { color: #251b5b; font-size: 20px; }
+  .colorful span:nth-child(3) { font-size: 20px; }
+  .colorful span:nth-child(4) { color: #fbbb22; font-size: 20px; }
+  .colorful span:nth-child(6) { font-size: 20px; }
+  .colorful span:nth-child(7) { color: #251b5b; font-size: 20px; }
+  .colorful span:nth-child(8) { color: #25b9d7; font-size: 20px; }
+  .colorful span:nth-child(9) { color: #fbbb22; font-size: 20px; }
+
+  h4 {
+    margin-top: 10px;
     font-weight: bold;
-    font-size: 40px;
-    color: #262228;
-    margin-bottom: 10px;
+    color: #251b5b;
+    margin-bottom: 18px;
+    letter-spacing: 0.2em;
+  }
+ .text {
+  text-align: left;
+  padding-left: 15px;
+  p {
+    color: #251b5b;
+    font-size: 13px;
+    margin-bottom: 15px;
+    letter-spacing: 0.1em;
+    line-height: 19px;
+    font-weight: bold;
+     i.fa {
+      margin-right: 5px;
+      font-size: 18px;
+     }
+     a {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0em;
+     }
+  }
  }
-
  .container {
     display: block;
     max-width: 1200px;
@@ -48,13 +70,12 @@
     text-align: center;
     margin: 20px auto;
     border-radius: 25px;
-    background-color: #F7F7F7;
     border: solid 1px #251b5b;
          a{
           display: inline-block;
           font-weight: bold;
-          font-size: 16px;
-          letter-spacing: 0.3em;
+          font-size: 15px;
+          letter-spacing: 0.2em;
           text-decoration: none;
           color: #251b5b;
           padding: 10px;
@@ -64,19 +85,18 @@
 
   .button2 {
     background-color: #251b5b;
+    border: solid 1px #F7F7F7;
      a{
-     letter-spacing: 0.3em;
      color: #F7F7F7;
      text-decoration: none;
-     margin-left: 1.2em;
     }
   }
 
-.button1:hover {
-  opacity: 0.7;
+    .button1:hover {
+      opacity: 0.7;
+    }
+  }
 }
-}
-
 
 // ABOUTペーじ
 
@@ -92,6 +112,7 @@
   max-width: 1200px;
   border-radius: 6px;
   padding: 20px 7px;
+  text-align: left;
    .title {
     display: flex;
     justify-content: center;
@@ -162,18 +183,21 @@
       }
     }
       .icon {
-        background-color: #251b5b;
         width: 70px;
         height: 70px;
         border-radius: 35px;
         margin-right: 10px;
+        padding-left: 15px;
+        text-align: center;
        i.fa {
+         background-color: #251b5b;
          color: #fff;
          font-size: 45px;
          display: table-cell;
          vertical-align: middle;
          width: inherit;
          height: inherit;
+         border-radius: 35px;
          }
        }
     }
@@ -213,6 +237,7 @@
   .contentC {
     background-color: #251b5b;
     padding: 25px 5px;
+    text-align: center;
      h3{
       font-weight: 500;
       margin-bottom: 30px;
@@ -250,18 +275,13 @@
   max-width: 1200px;
   margin: 0 auto;
 
-       p {
-    margin-bottom: 30px;
-    margin-top: 30px;
-    letter-spacing: 0.2em;
-    font-size: 15px;
-    }
-
-
-  h1{
-    font-size: 60px;
-    margin-top: 80px;
+.concept {
+  .text {
+    text-align: center;
   }
+}
+
+
  .container {
   display: flex;
     width: 800px;

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 before_action :authenticate_user!, only: [:edit, :update, ]
 
   def index
-    @users = User.where(offer: "1").order("id DESC").page(params[:page]).per(25)
+    @users = User.where(offer: "1").order("id DESC").page(params[:page]).per(20)
   end
 
   def show
@@ -21,7 +21,7 @@ before_action :authenticate_user!, only: [:edit, :update, ]
     @users = @users.search_work(params[:work_user]) if params[:work_user] && params[:work_user].compact.reject(&:empty?).present?
     @users = @users.search_work(params[:work_id]) if params[:work_id].present?
     @users = @users.where(location: params[:location]) if params[:location].present?
-    @users = @users.page(params[:page]).per(25)
+    @users = @users.page(params[:page]).per(20)
   end
 
   def about

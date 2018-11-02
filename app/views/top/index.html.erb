@@ -3,19 +3,26 @@
 
 <div class="boxtypeA">
   <% unless user_signed_in? %>
-    <h1 class="colorful">Archinect</h1>
-  <p>建築・建物が好きな人をつなぐコミュニティ</p>
-      <p>無料でスグに会員登録・利用いただけます。</p>
+    <div class="concept">
+    <h4 class="colorful">Archinectで出来ること</h4>
+    <div class="text">
+    <p><%= fa_icon("edit") %>手がけた物件の写真<a>(１物件最大10枚)</a>や場所・完成日・ジャンルetc..様々な情報をの投稿</p>
+    <p><%= fa_icon("share-square") %>投稿後、サイト内検索機能やコメント・SNSでのシェア</p>
+    <p><%= fa_icon("cog") %>手掛けた物件の情報をマイページで管理・編集</p>
+    <p><%= fa_icon("user-plus") %>他ユーザーのフォロー</p>
+  </div>
     <div class="container">
           <div class="button1">
-              <%= link_to "アカウント作成", new_user_registration_path %>
+              <%= link_to "無料で会員登録", new_user_registration_path %>
           </div>
           <div class="button1 button2">
               <%= link_to "ログイン",  new_user_session_path %>
           </div>
     </div>
     <% end %>
+  </div>
 </div>
+
 
 <div class="index-container">
 <%= render partial: 'products/product', collection: @products %>

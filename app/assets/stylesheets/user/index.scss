@@ -108,25 +108,21 @@ flex-wrap: wrap;
        }
     }
 }
+
  .paginate {
     margin-top: 15px;
     .page.current {
-        color: #fbbb22;
+        color: #df0067;
         font-weight: bold;
         font-size: 15px;
-        background-color: #fff;
-        padding: 3px 5px;
         margin-right: 3px;
-        border-radius: 5px;
+
     }
     a {
         font-size: 15px;
         font-weight: bold;
         text-decoration: none;
-        color: #fff;
-        background-color: #fbbb22;
-        padding: 3px 5px;
-        border-radius: 5px;
+        color: #68737f;
     }
  }
 
