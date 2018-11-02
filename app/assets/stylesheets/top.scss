@@ -18,22 +18,29 @@
   margin-left: auto;
   border-radius: 10px;
 
-  .colorful span:nth-child(1) { color: #df0067; font-size: 20px; }
-  .colorful span:nth-child(2) { color: #251b5b; font-size: 20px; }
-  .colorful span:nth-child(5) { color: #251b5b; font-size: 20px; }
-  .colorful span:nth-child(3) { font-size: 20px; }
-  .colorful span:nth-child(4) { color: #fbbb22; font-size: 20px; }
-  .colorful span:nth-child(6) { font-size: 20px; }
-  .colorful span:nth-child(7) { color: #251b5b; font-size: 20px; }
-  .colorful span:nth-child(8) { color: #25b9d7; font-size: 20px; }
-  .colorful span:nth-child(9) { color: #fbbb22; font-size: 20px; }
+  .colorful span:nth-child(1) { color: #df0067; font-size: 21px; }
+  .colorful span:nth-child(2) { color: #251b5b; font-size: 21px; }
+  .colorful span:nth-child(5) { color: #251b5b; font-size: 21px; }
+  .colorful span:nth-child(3) { font-size: 21px; }
+  .colorful span:nth-child(4) { color: #fbbb22; font-size: 21px; }
+  .colorful span:nth-child(6) { font-size: 21px; }
+  .colorful span:nth-child(7) { color: #251b5b; font-size: 21px; }
+  .colorful span:nth-child(8) { color: #25b9d7; font-size: 21px; }
+  .colorful span:nth-child(9) { color: #fbbb22; font-size: 21px; }
 
   h4 {
-    margin-top: 10px;
+
     font-weight: bold;
     color: #251b5b;
     margin-bottom: 18px;
     letter-spacing: 0.2em;
+  }
+  p {
+    font-size: 11px;
+    color: #251b5b;
+    line-height: 17px;
+    opacity: 0.9;
+    margin-bottom: 10px;
   }
  .text {
   text-align: left;
