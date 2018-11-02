@@ -3,14 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // トップページ
 .boxtypeA{
-  margin-top: 100px;
   display: block;
   text-align: center;
   width: 100vw;
   justify-content: center;
 
 .concept {
-  margin-top: 70px;
+  margin-top: 75px;
   width: 95%;
   background-color:  #fff;
   padding: 10px;
@@ -29,7 +28,6 @@
   .colorful span:nth-child(9) { color: #fbbb22; font-size: 21px; }
 
   h4 {
-
     font-weight: bold;
     color: #251b5b;
     margin-bottom: 18px;
@@ -41,6 +39,7 @@
     line-height: 17px;
     opacity: 0.9;
     margin-bottom: 10px;
+    margin-top: 10px;
   }
  .text {
   text-align: left;
@@ -280,7 +279,7 @@
 
  .boxtypeA{
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
 
 .concept {
   .text {
@@ -292,7 +291,7 @@
  .container {
   display: flex;
     width: 800px;
-    margin: 0 auto;
+    margin:  auto;
     justify-content: space-around;
  }
  }
