@@ -5,9 +5,7 @@
 .user_page{
 display: block;
 margin-top: 70px;
-margin-left: auto;
 width: 100%;
-margin-right: auto;
 
   .container{
        display: block;
@@ -18,7 +16,7 @@ margin-right: auto;
    .userA {
       margin-bottom: 2.5px;
       border-radius: 5px;
-      width: 97%;
+      width: 95%;
       margin-left: auto;
       margin-right: auto;
       background-color: #fff;
@@ -34,6 +32,7 @@ margin-right: auto;
               text-align: left;
               padding-top: 10px;
               padding-left: 10px;
+              width: 100%;
               h4 {
                 font-size: 15px;
                 letter-spacing: 0.1em;
@@ -200,7 +199,7 @@ margin-right: auto;
                   }
       .proB {
         border: solid 2px #e1e8ed;
-        width: 90%;
+        width: 95%;
         max-width: 400px;
         margin-left: auto;
         margin-right: auto;
