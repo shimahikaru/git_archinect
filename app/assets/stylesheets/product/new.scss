@@ -49,6 +49,18 @@
                                  width: 90%;
                                  max-width: 400px;
                                  text-align: center;
+                                   ul {
+                                    display: flex;
+                                      li {
+                                        margin: 5px;
+                                        .img {
+                                          width: 80px;
+                                        }
+                                        p {
+                                          font-size: 12px;
+                                        }
+                                      }
+                                   }
                                  p {
                                   margin-bottom: 8px;
                                   label {

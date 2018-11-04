@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
   @product = Product.new
   @user = User.find(current_user.id)
   @product.details.build
-  5.times { @product.whole_photos.build }
+  @product.whole_photos.build
   @product.user = @user
   end
 
@@ -84,7 +84,7 @@ end
   end
 
   def update_params
-    params.require(:product).permit(:title, :subtitle, :charge, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache,:_destroy] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:title, :subtitle, :charge, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache, :remove_photo] ).merge(user_id: current_user.id)
   end
 
 

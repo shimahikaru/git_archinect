@@ -26,13 +26,42 @@
 
       <div class="field">
       <p><%= f.label :"全体画像" %><a>※(１〜最大５枚)</a></p>
+      <ul>
+      <%= fields_for @product.whole_photos do |i| %>
+        <% if @product.whole_photos.group(:photo).empty? %>
+        <li><label><%= image_tag 'default.png', id: :prev1, :class => "img" %>
+        <%= i.file_field :photo, id: "photo1", autofocus: true  %></label>
+        <p id="remove1"><%= f.check_box :remove_photo %>削除</p></li>
 
-      <%= f.fields_for @product.whole_photos do |i| %>
+        <li><label><%= image_tag 'default.png', id: :prev2, :class => "img" %>
+        <%= i.file_field :photo, id: "photo2", autofocus: true  %></label>
+        <p id="remove2"><%= f.check_box :remove_photo %>削除</p></li>
 
-     <%= i.file_field :photo, id: "photos", autofocus: true  %>
+        <li><label><%= image_tag 'default.png', id: :prev3, :class => "img" %>
+        <%= i.file_field :photo, id: "photo3", autofocus: true  %></label>
+        <p id="remove3"><%= f.check_box :remove_photo %>削除</p></li>
 
-     <% end %>
-     <label><p class="user_remove"><%= f.check_box :remove_photo %>削除</p></label>
+        <li><label><%= image_tag 'default.png', id: :prev4, :class => "img" %>
+        <%= i.file_field :photo, id: "photo4", autofocus: true  %></label>
+        <p id="remove4"><%= f.check_box :remove_photo %>削除</p></li>
+
+        <li><label><%= image_tag 'default.png', id: :prev5, :class => "img" %>
+        <%= i.file_field :photo, id: "photo5", autofocus: true  %></label>
+        <p id="remove5"><%= f.check_box :remove_photo %>削除</p></li>
+        <% else %>
+          <% @product.whole_photos.each_with_index do |wholephoto, t| %>
+          <li><label>
+            <% unless wholephoto.photo.blank? %>
+            <%= image_tag wholephoto.photo_url(:thumb), :id => "prev#{t + 1}", :class => "img" %>
+            <% else %>
+            <%= image_tag 'default.png', :id => "prev#{t + 1}", :class => "img" %>
+            <% end %>
+          <%= i.file_field :photo, id: "photo#{t + 1}", autofocus: true  %></label>
+          <p id="remove#{t + 1}"><%= f.check_box :remove_photo %>削除</p></li>
+          <% end %>
+       <% end %>
+     </ul>
+      <% end %>
     </div>
 
      <div class="field">
@@ -115,7 +144,129 @@ $(function(){
     });
 });
 
+// 全体画像投稿
+// 削除
+  jQuery('#remove1 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev1').replaceWith('<%= image_tag 'default.png', id: :prev1, :class => "img default" %>');
+      $('#remove1').hide();
+  });
+  jQuery('#remove2 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev2').replaceWith('<%= image_tag 'default.png', id: :prev1, :class => "img default" %>');
+      $('#remove2').hide();
+  });
+  jQuery('#remove3 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev3').replaceWith('<%= image_tag 'default.png', id: :prev1, :class => "img default" %>');
+      $('#remove3').hide();
+  });
+  jQuery('#remove4 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev4').replaceWith('<%= image_tag 'default.png', id: :prev1, :class => "img default" %>');
+      $('#remove4').hide();
+  });
+  jQuery('#remove5 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev5').replaceWith('<%= image_tag 'default.png', id: :prev1, :class => "img default" %>');
+      $('#remove5').hide();
+  });
 
+// 画像チェンジ
+$(function() {
+    if ($('#prev1').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev1').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove1').show();
+      $('#remove1 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#photo1").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev2').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev2').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove2').show();
+      $('#remove2 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#photo2").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev3').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev3').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove3').show();
+      $('#remove3 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#photo3").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev4').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev4').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove4').show();
+      $('#remove4 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#photo4").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev5').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev5').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove5').show();
+      $('#remove5 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#photo5").change(function(){
+   readURL(this);
+ });
+});
     // $(function() {
     //   $('#fieldphoto a.remove_fields').hide();
 
