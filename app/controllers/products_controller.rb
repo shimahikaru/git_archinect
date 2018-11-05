@@ -40,13 +40,12 @@ class ProductsController < ApplicationController
   @product = Product.new
   @user = User.find(current_user.id)
   @product.details.build
-  @product.whole_photos.build
+  @photos = 5.times { @product.whole_photos.build }
   @product.user = @user
   end
 
   def create
      @product = Product.new(create_params)
-              binding.pry
     if @product.save
     else
       render action: :new

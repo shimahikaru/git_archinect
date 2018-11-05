@@ -24,43 +24,15 @@
      <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle", :maxlength => "30", placeholder: "サブタイトル(30文字以下)", class: 'product form' %>
      </div>
 
-      <div class="field">
-      <p><%= f.label :"全体画像" %><a>※(１〜最大５枚)</a></p>
+      <div class="field ">
       <ul>
+      <p><%= f.label :"全体画像" %><a>※(１〜最大５枚)</a></p>
       <%= f.fields_for :whole_photos do |i| %>
-        <% if @product.whole_photos.group(:photo).empty? %>
-        <li><label><%= image_tag 'default.png', id: :prev1, :class => "img" %>
-        <%= i.file_field :photo, id: "photo1", autofocus: true  %></label>
-        <p id="remove1"><%= i.check_box :_destroy %>削除</p></li>
 
-        <li><label><%= image_tag 'default.png', id: :prev2, :class => "img" %>
-        <%= i.file_field :photo, id: "photo2", autofocus: true  %></label>
-        <p id="remove2"><%= i.check_box :_destroy %>削除</p></li>
+        <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
+        <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
+        <p id="remove1" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
 
-        <li><label><%= image_tag 'default.png', id: :prev3, :class => "img" %>
-        <%= i.file_field :photo, id: "photo3", autofocus: true  %></label>
-        <p id="remove3"><%= i.check_box :_destroy %>削除</p></li>
-
-        <li><label><%= image_tag 'default.png', id: :prev4, :class => "img" %>
-        <%= i.file_field :photo, id: "photo4", autofocus: true  %></label>
-        <p id="remove4"><%= i.check_box :_destroy %>削除</p></li>
-
-        <li><label><%= image_tag 'default.png', id: :prev5, :class => "img" %>
-        <%= i.file_field :photo, id: "photo5", autofocus: true  %></label>
-        <p id="remove5"><%= i.check_box :_destroy %>削除</p></li>
-        <% else %>
-          <% @product.whole_photos.each_with_index do |wholephoto, t| %>
-          <li><label>
-            <% unless wholephoto.photo.blank? %>
-            <%= image_tag wholephoto.photo_url(:thumb), :id => "prev#{t + 1}", :class => "img" %>
-            <% else %>
-            <%= image_tag 'default.png', :id => "prev#{t + 1}", :class => "img" %>
-            <% end %>
-          <%= i.file_field :photo, id: "photo#{t + 1}", autofocus: true  %></label>
-          <p id="remove#{t + 1}"><%= i.check_box :_destroy %>削除</p></li>
-          <% end %>
-       <% end %>
-     </ul>
       <% end %>
     </div>
 
@@ -143,14 +115,24 @@ $(function(){
         $('.count').html(countMax);
     });
 });
-
+var i = 0;
+  $(".add_whole_photos").each(function(i) {
+    $(this).attr('id','photo' + (i+1));
+});
+  $(".add_photo").each(function(i) {
+    $(this).attr('id','prev' + (i+1));
+});
+  $(".remove_photo").each(function(i) {
+    $(this).attr('id','remove' + (i+1));
+});
 // 全体画像投稿
 // 削除
   jQuery('#remove1 input[type=checkbox]').click(function(){
       jQuery(this).prop("checked");
       $('#prev1').replaceWith('<%= image_tag 'default.png', id: :prev1, :class => "img default" %>');
-      $('#remove1').hide();
+      $('#remove1.remove_photo').hide();
   });
+
   jQuery('#remove2 input[type=checkbox]').click(function(){
       jQuery(this).prop("checked");
       $('#prev2').replaceWith('<%= image_tag 'default.png', id: :prev2, :class => "img default" %>');
@@ -183,7 +165,7 @@ $(function() {
        $('#prev1').attr('src', e.target.result);
      }
      reader.readAsDataURL(input.files[0]);
-      $('#remove1').show();
+      $('#remove1.remove_photo').show();
       $('#remove1 input[type=checkbox]').prop('checked',false);
    }
  }
@@ -267,6 +249,7 @@ $(function() {
    readURL(this);
  });
 });
+
     // $(function() {
     //   $('#fieldphoto a.remove_fields').hide();
 
