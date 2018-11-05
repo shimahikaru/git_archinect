@@ -25,7 +25,7 @@
      </div>
 
       <div class="field ">
-      <p><%= f.label :"全体画像" %><a>※(１〜最大５枚)</a></p>
+      <p><%= f.label :"全体画像" %><a>※(縦長にリサイズされます)</a></p>
         <ul>
         <%= f.fields_for :whole_photos do |i| %>
           <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
@@ -75,16 +75,23 @@
      </label>
      </div>
 
-     <div class="field">
-     <p><%= f.label :"詳細画像や図面など" %><a>(０〜最大５箇所)</a></p>
-     <div id="fielddetail">
-     <%= f.fields_for :details do |detail| %>
-     <%= render 'detail_fields', f: detail %>
-     <% end %>
-     <div class="links">
-     <%= link_to_add_association fa_icon("plus-circle"),f, :details %>
-     </div>
-     </div>
+     <div class="field img_field">
+     <p><%= f.label :"詳細画像や図面など" %><a>(リサイズされません。)</a></p>
+       <ul class="img_detail">
+         <%= f.fields_for :details do |img| %>
+            <li ><div class="detail">
+              <div class="detailA"><label><%= image_tag 'default.png', :class => "img add_img" %>
+              <%= img.file_field :image, id: "", :class => "img_create", autofocus: true  %></label>
+              <p id="remove_img" class="remove_img"><%= img.check_box :_destroy %>削除</p></div>
+              <div class="detailB">
+              <p>場所・部分の名称</p>
+              <%= img.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "(例)１F  ＬＤＫ" , class: 'user form' %></div>
+              </div>
+            <p>使用している設備や素材、寸法など(250文字)</p>
+            <%= img.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "250", placeholder: "(例)「リビングで子供が勉強できるように」と、キッチンから見える位置に大きなデスクをつくりました。
+            横には、帰ってきたらスグに着替えもできるようにとクロゼットも造作で作りました。ご主人が大好きなお酒を飲みながら....", class: ' form_detail' %></li>
+         <% end %>
+       </ul>
     </div>
 
         <div class="field">
@@ -116,6 +123,19 @@ $(function(){
 });
 
 
+  // 詳細のid
+var i = 0;
+  $(".img_create").each(function(i) {
+    $(this).attr('id','img' + (i+1));
+});
+  $(".add_img").each(function(i) {
+    $(this).attr('id','prev_img' + (i+1));
+});
+  $(".remove_img").each(function(i) {
+    $(this).attr('id','remove_img' + (i+1));
+    $('#remove_img' + (i+1)).hide();
+});
+ // 全体画像のid
 var i = 0;
   $(".add_whole_photos").each(function(i) {
     $(this).attr('id','photo' + (i+1));
@@ -253,7 +273,129 @@ $(function() {
  });
 });
 
+  // 詳細投稿
+  // 削除
+  jQuery('#remove_img1 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev_img1').replaceWith('<%= image_tag 'default.png', id: :prev_img1, :class => "img default" %>');
+      $('#remove_img1.remove_img').hide();
+  });
+  jQuery('#remove_img2 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev_img2').replaceWith('<%= image_tag 'default.png', id: :prev_img2, :class => "img default" %>');
+      $('#remove_img2.remove_img').hide();
+  });
+  jQuery('#remove_img3 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev_img3').replaceWith('<%= image_tag 'default.png', id: :prev_img3, :class => "img default" %>');
+      $('#remove_img3.remove_img').hide();
+  });
+  jQuery('#remove_img4 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev_img4').replaceWith('<%= image_tag 'default.png', id: :prev_img4, :class => "img default" %>');
+      $('#remove_img4.remove_img').hide();
+  });
+  jQuery('#remove_img5 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev_img5').replaceWith('<%= image_tag 'default.png', id: :prev_img5, :class => "img default" %>');
+      $('#remove_img5.remove_img').hide();
+  });
 
+// 画像チェンジ
+$(function() {
+    if ($('#prev_img1').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev_img1').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove_img1.remove_img').show();
+      $('#remove_img1 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#img1").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev_img2').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev_img2').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove_img2.remove_img').show();
+      $('#remove_img2 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#img2").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev_img3').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev_img3').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove_img3.remove_img').show();
+      $('#remove_img3 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#img3").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev_img4').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev_img4').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove_img4.remove_img').show();
+      $('#remove_img4 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#img4").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev_img5').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev_img5').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove_img5.remove_img').show();
+      $('#remove_img5 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#img5").change(function(){
+   readURL(this);
+ });
+});
     //initialize swiper when document ready
     var swiper = new Swiper('.swiper-container', {
       paginationClickable: true,
@@ -267,25 +409,7 @@ $(function() {
 
 
 
-    $(function() {
-      $('#fielddetail a.remove_fields').hide();
 
-      $('#fielddetail').on('cocoon:after-insert', function() {
-        check_content();
-      });
-
-      $('#fielddetail').on('cocoon:after-remove', function() {
-        check_content();
-      });
-
-      function check_content() {
-        if($('#fielddetail .nested-fields').length == 5) {
-          $('#fielddetail a.add_fields').hide();
-        } else {
-          $('#fielddetail a.add_fields').show();
-        }
-      }
-    });
 
 
 

@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
   def new
   @product = Product.new
   @user = User.find(current_user.id)
-  @product.details.build
+  @details = 5.times { @product.details.build }
   @photos = 5.times { @product.whole_photos.build }
   @product.user = @user
   end
