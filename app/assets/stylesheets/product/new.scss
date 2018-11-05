@@ -142,14 +142,7 @@
                              }
                       }
       }
-        .field.photo{
-          min-width: 250px;
-            .nested-fields {
-                a {
-                margin-left: -35px;
-                 }
-             }
-         }
+
        .img_field {
         width: 100%;
         display: none;
@@ -195,6 +188,9 @@
               background-color: #fff;
             }
        }
+      .field.submit {
+        margin-top: 15px;
+      }
                         // ここまでが.field
 
                          label {
@@ -238,6 +234,7 @@
                                font-size: 14px;
                                width: 95%;
                                max-width: 400px;
+                               margin-top: 5px;
 
                        &:hover {
                                opacity: 0.6;
