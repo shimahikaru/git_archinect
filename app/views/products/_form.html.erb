@@ -25,13 +25,13 @@
      </div>
 
       <div class="field ">
-      <ul>
       <p><%= f.label :"全体画像" %><a>※(１〜最大５枚)</a></p>
+      <ul>
       <%= f.fields_for :whole_photos do |i| %>
 
         <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
         <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
-        <p id="remove1" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
+        <p id="remove" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
 
       <% end %>
     </div>
@@ -115,6 +115,8 @@ $(function(){
         $('.count').html(countMax);
     });
 });
+
+
 var i = 0;
   $(".add_whole_photos").each(function(i) {
     $(this).attr('id','photo' + (i+1));
@@ -124,7 +126,9 @@ var i = 0;
 });
   $(".remove_photo").each(function(i) {
     $(this).attr('id','remove' + (i+1));
+    $('#remove' + (i+1)).hide();
 });
+
 // 全体画像投稿
 // 削除
   jQuery('#remove1 input[type=checkbox]').click(function(){

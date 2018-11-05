@@ -39,20 +39,18 @@
       <%= f.fields_for :@photos do |i| %>
         <% @photos.each_with_index do |wholephoto, t| %>
           <li><label>
-            <% unless wholephoto.photo.blank? %>
             <%= image_tag wholephoto.photo_url(:thumb), :id => "prev#{t + 1}", :class => "img" %>
-            <% else %>
-            <%= image_tag 'default.png', :id => "prev#{t + 1}", :class => "img" %>
-            <% end %>
           <%= i.file_field :photo, id: "photo#{t + 1}", autofocus: true  %></label>
-          <p id="remove#{t + 1}"><%= i.check_box :_destroy %>削除</p></li>
+          <p id="remove" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
           <% end %>
         <% if @photos.length < 5 %>
+        <%  photoid = @photos.length %>
           <% ( 5 - @photos.length ).times do | p | %>
+          <% photoid = photoid + 1 %>
           <li><label>
-          <%= image_tag 'default.png', :class => "img" %>
-          <%= i.file_field :photo, autofocus: true  %></label>
-          <p ><%= i.check_box :_destroy %>削除</p></li>
+          <%= image_tag 'default.png',:id => "prev#{photoid}", :class => "img" %>
+          <%= i.file_field :photo, id: "photo#{photoid}", autofocus: true  %></label>
+          <p id="remove" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
           <% end %>
         <% end %>
       <% end %>
@@ -142,6 +140,16 @@ $(function(){
     });
 });
 
+var i = 0;
+  $(".add_whole_photos").each(function(i) {
+    $(this).attr('id','photo' + (i+1));
+});
+  $(".add_photo").each(function(i) {
+    $(this).attr('id','prev' + (i+1));
+});
+  $(".remove_photo").each(function(i) {
+    $(this).attr('id','remove' + (i+1));
+});
 // 全体画像投稿
 // 削除
   jQuery('#remove1 input[type=checkbox]').click(function(){
@@ -266,16 +274,6 @@ $(function() {
  });
 });
 
-var i = 0;
-  $(".add_whole_photos").each(function(i) {
-    $(this).attr('id','photo' + (i+1));
-});
-  $(".add_photo").each(function(i) {
-    $(this).attr('id','prev' + (i+1));
-});
-  $(".remove_photo").each(function(i) {
-    $(this).attr('id','remove' + (i+1));
-});
 
 
 
