@@ -8,7 +8,7 @@
 </div>
 
    <%= form_with model:  @product, local: true  do |f| %>
-
+    <div class="products">
      <div class="field charge">
       <p><%= f.label current_user.name+"さんの担当" %><a>※</a></p>
      <%= f.select :charge, Product.charges.keys, {:selected => 1}, class: 'form charge' %>
@@ -74,7 +74,8 @@
       <% end %></div>
      </label>
      </div>
-
+       <div class="detail_btn">もっと詳しく</div>
+    </div>
      <div class="field img_field">
      <p><%= f.label :"詳細画像や図面など" %><a>(リサイズされません。)</a></p>
        <ul class="img_detail">
@@ -92,6 +93,7 @@
             横には、帰ってきたらスグに着替えもできるようにとクロゼットも造作で作りました。ご主人が大好きなお酒を飲みながら....", class: ' form_detail' %></li>
          <% end %>
        </ul>
+       <div class="detail_show_btn">このページを閉じる</div>
     </div>
 
         <div class="field">
@@ -408,9 +410,15 @@ $(function() {
     });
 
 
+  $('.detail_btn').click(function(){
+    $('.products').hide();
+    $('.img_field').show();
+  });
 
-
-
+  $('.detail_show_btn').click(function(){
+    $('.products').show();
+    $('.img_field').hide();
+  });
 
 
     // var i = "";
