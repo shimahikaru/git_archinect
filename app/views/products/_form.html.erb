@@ -47,7 +47,7 @@
 
      <div class="field">
      <p><%= f.label :場所 %><a>※</a></p>
-     <%= f.select :location, Product.locations.keys, {prompt: '選択してください'}, class: 'product form' %><br />
+     <%= f.select :location, Product.locations.keys, {prompt: '選択してください'}, class: 'form' %><br />
      </div>
 
       <div class="field">
@@ -85,7 +85,7 @@
               <p id="remove_img" class="remove_img"><%= img.check_box :_destroy %>削除</p></div>
               <div class="detailB">
               <p>場所・部分の名称</p>
-              <%= img.text_field :title, autofocus: true, autocomplete: "title",  placeholder: "(例)１F  ＬＤＫ" , class: 'user form' %></div>
+              <%= img.text_area :title, autofocus: true, autocomplete: "title",  placeholder: "(例)１F  ＬＤＫ" , class: 'title_detail' %></div>
               </div>
             <p>使用している設備や素材、寸法など(250文字)</p>
             <%= img.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "250", placeholder: "(例)「リビングで子供が勉強できるように」と、キッチンから見える位置に大きなデスクをつくりました。

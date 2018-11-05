@@ -82,6 +82,7 @@
                     border: none;
                     border-radius: 5px;
                     background-color: #fff;
+                    width: 100%;
                      }
               .user.form {
                  margin: 15px auto;
@@ -130,14 +131,36 @@
             ul.img_detail {
               display:block;
                 li {
-                  width: 100%;
+                  width: 95%;
+                  margin-bottom: 20px;
+                  margin-top: 20px;
+                   .detail {
+                    width: 100%;
+                     .add_img {
+                      margin-right: 15px;
+                     }
+                     .detailB {
+                      padding-top: 5px;
+                      width: 100%;
+                       .title_detail {
+                        border: none;
+                        width: 100%;
+                        height: 60px;
+                        border-radius: 5px;
+                       }
+                     }
+                     .user.form {
+                      width: 180px;
+                     }
+                   }
                 }
             }
             p {
-              width: 250px;
+              width: 100%;
             }
             .detail {
               display: flex;
+              margin-bottom: 5px;
             }
             .form_detail {
               width: 100%;
@@ -188,11 +211,13 @@
                                border: none;
                                font-weight: bold;
                                font-size: 14px;
+                               width: 95%;
+                               max-width: 400px;
 
                        &:hover {
                                opacity: 0.6;
                                }
-                               }
+                           }
 
                         }
 
