@@ -27,27 +27,27 @@
       <div class="field">
       <p><%= f.label :"全体画像" %><a>※(１〜最大５枚)</a></p>
       <ul>
-      <%= fields_for @product.whole_photos do |i| %>
+      <%= f.fields_for :whole_photos do |i| %>
         <% if @product.whole_photos.group(:photo).empty? %>
         <li><label><%= image_tag 'default.png', id: :prev1, :class => "img" %>
         <%= i.file_field :photo, id: "photo1", autofocus: true  %></label>
-        <p id="remove1"><%= f.check_box :remove_photo %>削除</p></li>
+        <p id="remove1"><%= i.check_box :_destroy %>削除</p></li>
 
         <li><label><%= image_tag 'default.png', id: :prev2, :class => "img" %>
         <%= i.file_field :photo, id: "photo2", autofocus: true  %></label>
-        <p id="remove2"><%= f.check_box :remove_photo %>削除</p></li>
+        <p id="remove2"><%= i.check_box :_destroy %>削除</p></li>
 
         <li><label><%= image_tag 'default.png', id: :prev3, :class => "img" %>
         <%= i.file_field :photo, id: "photo3", autofocus: true  %></label>
-        <p id="remove3"><%= f.check_box :remove_photo %>削除</p></li>
+        <p id="remove3"><%= i.check_box :_destroy %>削除</p></li>
 
         <li><label><%= image_tag 'default.png', id: :prev4, :class => "img" %>
         <%= i.file_field :photo, id: "photo4", autofocus: true  %></label>
-        <p id="remove4"><%= f.check_box :remove_photo %>削除</p></li>
+        <p id="remove4"><%= i.check_box :_destroy %>削除</p></li>
 
         <li><label><%= image_tag 'default.png', id: :prev5, :class => "img" %>
         <%= i.file_field :photo, id: "photo5", autofocus: true  %></label>
-        <p id="remove5"><%= f.check_box :remove_photo %>削除</p></li>
+        <p id="remove5"><%= i.check_box :_destroy %>削除</p></li>
         <% else %>
           <% @product.whole_photos.each_with_index do |wholephoto, t| %>
           <li><label>
@@ -57,7 +57,7 @@
             <%= image_tag 'default.png', :id => "prev#{t + 1}", :class => "img" %>
             <% end %>
           <%= i.file_field :photo, id: "photo#{t + 1}", autofocus: true  %></label>
-          <p id="remove#{t + 1}"><%= f.check_box :remove_photo %>削除</p></li>
+          <p id="remove#{t + 1}"><%= i.check_box :_destroy %>削除</p></li>
           <% end %>
        <% end %>
      </ul>

@@ -46,6 +46,7 @@ class ProductsController < ApplicationController
 
   def create
      @product = Product.new(create_params)
+              binding.pry
     if @product.save
     else
       render action: :new
@@ -84,7 +85,7 @@ end
   end
 
   def update_params
-    params.require(:product).permit(:title, :subtitle, :charge, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache, :remove_photo] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:title, :subtitle, :charge, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache, :_destroy ] ).merge(user_id: current_user.id)
   end
 
 
