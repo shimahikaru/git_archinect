@@ -42,7 +42,7 @@
 
      <div class="field">
      <p><%= f.label :工期 %><a>※</a></p>
-     <%= f.number_field :whet, autofocus: true, step: "0.1", autocomplete: "whet",  class: ' form' %>ヶ月
+     <%= f.number_field :whet, autofocus: true, step: "0.1", autocomplete: "whet",  class: 'small form' %>ヶ月
      </div>
 
      <div class="field">
@@ -52,7 +52,7 @@
 
       <div class="field">
      <p><%= f.label :施工床面積 %><a>※</a></p>
-     <%= f.number_field :area, autofocus: true, step: "0.1", autocomplete: "area", class: 'form' %>㎡
+     <%= f.number_field :area, autofocus: true, step: "0.1", autocomplete: "area", class: 'small form' %>㎡
      </div>
 
 
@@ -74,10 +74,10 @@
       <% end %></div>
      </label>
      </div>
-       <div class="detail_btn">もっと詳しく</div>
+       <div class="detail_btn">詳細を追加する</div>
     </div>
      <div class="field img_field">
-     <p><%= f.label :"詳細画像や図面など" %><a>(リサイズされません。)</a></p>
+     <p><%= f.label :"詳細画像や図面など" %><br ><a>(画像リサイズされません)</a></p>
        <ul class="img_detail">
          <%= f.fields_for :details do |img| %>
             <li ><div class="detail">
