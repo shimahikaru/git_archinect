@@ -26,14 +26,13 @@
 
       <div class="field ">
       <p><%= f.label :"全体画像" %><a>※(１〜最大５枚)</a></p>
-      <ul>
-      <%= f.fields_for :whole_photos do |i| %>
-
-        <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
-        <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
-        <p id="remove" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
-
-      <% end %>
+        <ul>
+        <%= f.fields_for :whole_photos do |i| %>
+          <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
+          <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
+          <p id="remove" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
+        <% end %>
+       </ul>
     </div>
 
      <div class="field">
@@ -254,65 +253,18 @@ $(function() {
  });
 });
 
-    // $(function() {
-    //   $('#fieldphoto a.remove_fields').hide();
 
-    //   $('#fieldphoto').on('cocoon:after-insert', function() {
-    //     check_content();
-    //   });
+    //initialize swiper when document ready
+    var swiper = new Swiper('.swiper-container', {
+      paginationClickable: true,
+      effect: 'coverflow',
+      parallax: true,
+      speed: 200,
+      centerMode: true,
+      centeredSlides : true,
+      loop: true
+    });
 
-    //   $('#fieldphoto').on('cocoon:after-remove', function() {
-    //     check_content();
-    //   });
-
-    //   function check_content() {
-    //     if($('#fieldphoto .nested-fields').length == 5) {
-    //       $('#fieldphoto a.add_fields').hide();
-    //     } else {
-    //       $('#fieldphoto a.add_fields').show();
-    //     }
-    //   }
-    // });
-
-  // $('#add-link').click(function(){
-  //   // 後から追加されたボタンには効かないイベント
-  //   var i = ""
-  //    $('.photos input[type=file]').each(function(i){
-  //        $(this).attr('id','photos' + (i+1));
-  //        $(this).attr('data-id', i+1);
-  //      });
-  //         $('.photo-fields').each(function(i){
-  //        $(this).attr('id','preview' + (i+1));
-  //        $(this).attr('data-preview-id', i+1);
-  //      });
-  //         $('.photos input[type=hidden]').each(function(i){
-  //        $(this).attr('id','photos_hidden' + (i+1));
-  //      });
-
-  //   });
-
-
-
-// $(document).on("change", ".photos", function() {
-//   var dataId = $(this).data("id")
-//     $('#preview'+ dataId).empty();
-//   var fr = new FileReader()
-//   fr.onload = function() {
-//     var img = $('<img>').attr('src', fr.result);
-//     $('#preview' + dataId).append(img);
-//   };
-//   fr.readAsDataURL(this.files[0]);
-// });
-
-// $(document).on("change", ".photos", function() {
-//     $('#preview').empty();
-//   var fr = new FileReader()
-//   fr.onload = function() {
-//     var img = $('<img>').attr('src', fr.result);
-//     $('#preview').append(img);
-//   };
-//   fr.readAsDataURL(this.files[0]);
-// });
 
 
     $(function() {
