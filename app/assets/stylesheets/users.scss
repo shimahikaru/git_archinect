@@ -23,6 +23,7 @@ width: 100%;
       padding: 10px;
         .proA{
           display: flex;
+          width: 100%;
            .image{
                  width: 90px;
                  height: 100%;
@@ -32,13 +33,13 @@ width: 100%;
               text-align: left;
               padding-top: 10px;
               padding-left: 10px;
-              width: 100%;
+              width: 98%;
               h4 {
                 font-size: 15px;
                 letter-spacing: 0.1em;
                 font-weight: bold;
                 margin-bottom: 6px;
-                width: 240px;
+                width: 200px;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -199,24 +200,23 @@ width: 100%;
                   }
       .proB {
         border: solid 2px #e1e8ed;
-        width: 95%;
+        width: 99%;
         max-width: 400px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
         border-radius: 17px;
+        background-color: #e1e8ed;
           p {
             font-size: 12px;
             letter-spacing: 0.1em;
             line-height: 18px;
-            color: #25b9d7;
+            color: #fff;
             font-weight: bold;
           }
         &:hover {
-          background-color: #25b9d7;
-          border: solid 2px #25b9d7;
            p {
-            color: #fff;
+            color: #25b9d7;
            }
         }
       }
