@@ -5,7 +5,7 @@
 
 <div class="container">
 
-<h3>編集</h3>
+<h3><%= @product.title %>編集画面</h3>
 
 <div class="field">
 <% if @product.errors.any? %>
@@ -17,7 +17,7 @@
 </div>
 
    <%= form_with model:  @product, local: true  do |f| %>
-
+　　　<div class="products">
      <div class="field charge">
       <p><%= f.label current_user.name+"さんの担当" %><a>※</a></p>
      <%= f.select :charge, Product.charges.keys, {:selected => 1}, class: 'form charge' %>
@@ -44,7 +44,11 @@
           <%= image_tag 'default.png', :class => "img add_photo" %>
           <% end %>
           <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
+          <% if i.object.id %>
           <p id="remove" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
+          <% else %>
+          <p id="remove" class="remove_photo" style="display:none;"><%= i.check_box :_destroy %>削除</p></li>
+          <% end %>
         <% end %>
        </ul>
     </div>
@@ -89,20 +93,41 @@
      </label>
      </div>
 
-     <div class="field">
-     <p><%= f.label :"詳細画像や図面など" %><a>(０〜最大５箇所)</a></p>
-     <div id="fielddetail">
-     <%= f.fields_for :details do |detail| %>
-     <%= render 'detail_fields', f: detail %>
-     <% end %>
-     <div class="links">
-     <%= link_to_add_association fa_icon("plus-circle"),f, :details %>
-     </div>
-     </div>
+       <div class="detail_btn">詳細を追加する</div>
+    </div>
+     <div class="field img_field">
+     <p><%= f.label :"詳細画像や図面など" %><br ><a>(画像リサイズされません)</a></p>
+       <ul class="img_detail">
+         <%= f.fields_for :details do |img| %>
+            <li ><div class="detail">
+              <div class="detailA"><label>
+                <% if img.object.id %>
+                <%= image_tag img.object.image_url(:thumb), :class => "img add_img" %>
+                <% else %>
+                <%= image_tag 'default.png', :class => "img add_img" %>
+                <% end %>
+                <%= img.file_field :image, id: "", :class => "img_create", autofocus: true  %>
+                </label>
+              <% if img.object.id %>
+              <p id="remove_img" class="remove_img"><%= img.check_box :_destroy %>削除</p></div>
+              <% else %>
+              <p id="remove_img" class="remove_img" style="display:none;"><%= img.check_box :_destroy %>削除</p></div>
+              <% end %>
+              <div class="detailB">
+              <p>場所・部分の名称</p>
+              <%= img.text_area :title, autofocus: true, autocomplete: "title",  placeholder: "(例)１F  ＬＤＫ" , class: 'title_detail' %></div>
+              </div>
+            <p>使用している設備や素材、寸法など(250文字)</p>
+            <%= img.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "250", placeholder: "(例)「リビングで子供が勉強できるように」と、キッチンから見える位置に大きなデスクをつくりました。
+            横には、帰ってきたらスグに着替えもできるようにとクロゼットも造作で作りました。ご主人が大好きなお酒を飲みながら....", class: ' form_detail' %></li>
+         <% end %>
+       </ul>
+       <div class="detail_show_btn">このページを閉じる</div>
     </div>
 
-        <div class="field">
-        <%= f.submit "投稿する", class: 'product button', data:{confirm: '画像が多い場合、処理に時間がかかることがありますが、そのままお待ちください。'} %>
+        <div class="field submit">
+          <p><%= f.label :"または" %></p>
+        <%= f.submit "変更内容を保存する", class: 'product button', data:{confirm: '画像が多い場合、処理に時間がかかることがありますが、そのままお待ちください。'} %>
         </div>
 
     <% end %>
@@ -130,6 +155,18 @@ $(function(){
     $(window).load(function(){
         $('.count').html(countMax);
     });
+});
+
+  // 詳細のid
+var i = 0;
+  $(".img_create").each(function(i) {
+    $(this).attr('id','img' + (i+1));
+});
+  $(".add_img").each(function(i) {
+    $(this).attr('id','prev_img' + (i+1));
+});
+  $(".remove_img").each(function(i) {
+    $(this).attr('id','remove_img' + (i+1));
 });
 
 var i = 0;
@@ -266,28 +303,137 @@ $(function() {
  });
 });
 
+  jQuery('#remove_img1 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev_img1').replaceWith('<%= image_tag 'default.png', id: :prev_img1, :class => "img default" %>');
+      $('#remove_img1.remove_img').hide();
+  });
+  jQuery('#remove_img2 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev_img2').replaceWith('<%= image_tag 'default.png', id: :prev_img2, :class => "img default" %>');
+      $('#remove_img2.remove_img').hide();
+  });
+  jQuery('#remove_img3 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev_img3').replaceWith('<%= image_tag 'default.png', id: :prev_img3, :class => "img default" %>');
+      $('#remove_img3.remove_img').hide();
+  });
+  jQuery('#remove_img4 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev_img4').replaceWith('<%= image_tag 'default.png', id: :prev_img4, :class => "img default" %>');
+      $('#remove_img4.remove_img').hide();
+  });
+  jQuery('#remove_img5 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev_img5').replaceWith('<%= image_tag 'default.png', id: :prev_img5, :class => "img default" %>');
+      $('#remove_img5.remove_img').hide();
+  });
+
+$(function() {
+    if ($('#prev_img1').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev_img1').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove_img1.remove_img').show();
+      $('#remove_img1 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#img1").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev_img2').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev_img2').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove_img2.remove_img').show();
+      $('#remove_img2 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#img2").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev_img3').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev_img3').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove_img3.remove_img').show();
+      $('#remove_img3 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#img3").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev_img4').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev_img4').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove_img4.remove_img').show();
+      $('#remove_img4 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#img4").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev_img5').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev_img5').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove_img5.remove_img').show();
+      $('#remove_img5 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#img5").change(function(){
+   readURL(this);
+ });
+});
 
 
+  $('.detail_btn').click(function(){
+    $('.products').hide();
+    $('.img_field').show();
+  });
 
-    $(function() {
-      $('#fielddetail a.remove_fields').hide();
-
-      $('#fielddetail').on('cocoon:after-insert', function() {
-        check_content();
-      });
-
-      $('#fielddetail').on('cocoon:after-remove', function() {
-        check_content();
-      });
-
-      function check_content() {
-        if($('#fielddetail .nested-fields').length == 5) {
-          $('#fielddetail a.add_fields').hide();
-        } else {
-          $('#fielddetail a.add_fields').show();
-        }
-      }
-    });
+  $('.detail_show_btn').click(function(){
+    $('.products').show();
+    $('.img_field').hide();
+  });
 
 
   $('input[type=checkbox]').click(function(){
