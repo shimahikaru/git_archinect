@@ -9,7 +9,7 @@
        <div class="swiper-wrapper">
         <% @photos.each do | img | %>
           <div class="swiper-slide">
-          <%= image_tag img.photo_url(:thumb), :class => "photos" %>    <!-- Slide-01　コンテンツを挿入する -->
+          <%= image_tag img.photo_url, :class => "photos" %>    <!-- Slide-01　コンテンツを挿入する -->
           </div>
         <% end %>
      </div>
