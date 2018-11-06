@@ -52,7 +52,7 @@ class Product < ApplicationRecord
 
   def add_error
     errors[:base] << "タイトル" if title.blank?
-    # errors[:base] << "写真" if whole_photos.blank?
+    errors[:base] << "写真" if whole_photos.length == 0
     errors[:base] << "工期" if whet.blank?
     errors[:base] << "場所" if location.blank?
     errors[:base] << "床面積" if area.blank?

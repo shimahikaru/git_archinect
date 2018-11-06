@@ -48,6 +48,8 @@ class ProductsController < ApplicationController
      @product = Product.new(create_params)
     if @product.save
     else
+      @photos = 5.times { @product.whole_photos.build }
+      @details = 5.times { @product.details.build }
       render action: :new
     end
   end
@@ -65,8 +67,6 @@ end
   ( 5 - @photos.length).times { @product.whole_photos.build }
   details = @product.details
   @details = ( 5 - details.length).times { @product.details.build }
-     # @product.whole_photos.photo.cache! unless @product.whole_photos.photo.blank?
-     #   @product.details.image.cache! unless @product.details.image.blank?
   end
 
   def update
