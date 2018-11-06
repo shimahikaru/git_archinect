@@ -34,27 +34,14 @@
      </div>
 
       <div class="field ">
-      <p><%= f.label :"全体画像" %><a>※(１〜最大５枚)</a></p>
-      <ul>
-      <%= f.fields_for :@photos do |i| %>
-        <% @photos.each_with_index do |wholephoto, t| %>
-          <li><label>
-            <%= image_tag wholephoto.photo_url(:thumb), :id => "prev#{t + 1}", :class => "img" %>
-          <%= i.file_field :photo, id: "photo#{t + 1}", autofocus: true  %></label>
+      <p><%= f.label :"全体画像" %><a>※(縦長にリサイズされます)</a></p>
+        <ul>
+        <%= f.fields_for :whole_photos do |i| %>
+          <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
+          <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
           <p id="remove" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
-          <% end %>
-        <% if @photos.length < 5 %>
-        <%  photoid = @photos.length %>
-          <% ( 5 - @photos.length ).times do | p | %>
-          <% photoid = photoid + 1 %>
-          <li><label>
-          <%= image_tag 'default.png',:id => "prev#{photoid}", :class => "img" %>
-          <%= i.file_field :photo, id: "photo#{photoid}", autofocus: true  %></label>
-          <p id="remove" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
-          <% end %>
         <% end %>
-      <% end %>
-    </ul>
+       </ul>
     </div>
 
      <div class="field">

@@ -2,7 +2,7 @@
 <% if @product.errors.any? %>
     <h3>入力した内容にエラーが<%= @product.errors.count %>件あります</h3>
       <h5><% @product.errors.full_messages.each do |message| %>
-        <%= message %>、
+        <%= message %>
       <% end %>を入力してください。</h5>
 <% end %>
 </div>
