@@ -66,8 +66,16 @@
                         .img {
                           width: 100px;
                         }
-                        p {
-                          font-size: 12px;
+                        p.remove_photo {
+                          font-size: 11px;
+                          background-color:  #68737f;
+                          color: #fff;
+                          display: inline-block;
+                          padding: 3px 4px;
+                          border-radius: 3px;
+                          &:hover {
+                            opacity: 0.7;
+                          }
                         }
                   }
                }
@@ -154,12 +162,10 @@
                   margin-top: 20px;
                    .detail {
                     width: 100%;
-                     .add_img {
-                      margin-right: 15px;
-                     }
                      .detailB {
                       padding-top: 5px;
                       width: 100%;
+                      padding-left: 5%;
                        .title_detail {
                         border: none;
                         width: 100%;
@@ -175,10 +181,26 @@
             }
             p {
               width: 100%;
+              font-weight: bold;
+              text-align: left;
+            }
+            p.detail_title {
+              text-align: center;
             }
             .detail {
               display: flex;
               margin-bottom: 5px;
+              p.remove_img {
+                  font-size: 11px;
+                  background-color:  #68737f;
+                  color: #fff;
+                  width: 40px;
+                  padding: 3px 4px;
+                  border-radius: 3px;
+                  &:hover {
+                    opacity: 0.7;
+                  }
+              }
             }
             .form_detail {
               width: 100%;

@@ -45,9 +45,9 @@
           <% end %>
           <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
           <% if i.object.id %>
-          <p id="remove" class="remove_photo"><%= i.check_box :_destroy %>削除</p></li>
+          <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
           <% else %>
-          <p id="remove" class="remove_photo" style="display:none;"><%= i.check_box :_destroy %>削除</p></li>
+          <label><p id="remove" class="remove_photo" style="display:none;"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
           <% end %>
         <% end %>
        </ul>
@@ -96,7 +96,7 @@
        <div class="detail_btn">詳細を追加する</div>
     </div>
      <div class="field img_field">
-     <p><%= f.label :"詳細画像や図面など" %><br ><a>(画像リサイズされません)</a></p>
+     <p class="detail_title"><%= f.label :"詳細画像や図面など" %><br ><a>(画像リサイズされません)</a></p>
        <ul class="img_detail">
          <%= f.fields_for :details do |img| %>
             <li ><div class="detail">
@@ -109,15 +109,15 @@
                 <%= img.file_field :image, id: "", :class => "img_create", autofocus: true  %>
                 </label>
               <% if img.object.id %>
-              <p id="remove_img" class="remove_img"><%= img.check_box :_destroy %>削除</p></div>
+              <label><p id="remove_img" class="remove_img"><%= img.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></div>
               <% else %>
-              <p id="remove_img" class="remove_img" style="display:none;"><%= img.check_box :_destroy %>削除</p></div>
+              <label><p id="remove_img" class="remove_img" style="display:none;"><%= img.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></div>
               <% end %>
               <div class="detailB">
-              <p>場所・部分の名称</p>
-              <%= img.text_area :title, autofocus: true, autocomplete: "title",  placeholder: "(例)１F  ＬＤＫ" , class: 'title_detail' %></div>
+              <p>場所名・部分名</p>
+              <%= img.text_area :title, autofocus: true, autocomplete: "title",  placeholder: "(例)１F リビングダイニング" , class: 'title_detail' %></div>
               </div>
-            <p>使用している設備や素材、寸法など(250文字)</p>
+            <p>詳細の説明・設備・素材・寸法etc.(250文字以内)</p>
             <%= img.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "250", placeholder: "(例)「リビングで子供が勉強できるように」と、キッチンから見える位置に大きなデスクをつくりました。
             横には、帰ってきたらスグに着替えもできるようにとクロゼットも造作で作りました。ご主人が大好きなお酒を飲みながら....", class: ' form_detail' %></li>
          <% end %>
@@ -428,6 +428,10 @@ $(function() {
   $('.detail_btn').click(function(){
     $('.products').hide();
     $('.img_field').show();
+    $('body,html').animate({
+        scrollTop: 0
+        }, 200);
+        return false;
   });
 
   $('.detail_show_btn').click(function(){
