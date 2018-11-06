@@ -6,7 +6,7 @@
    <div class="container">
     <div class="userA">
       <div class="proA">
-      <%= image_tag @user.avatar.url(:thumb), :class => "image" %>
+      <%= image_tag @user.avatar.url, :class => "image" %>
     <div class="proA-text">
       <h4><%= @user.name %><% if user_signed_in? && current_user.following?(@user)  %><%= fa_icon("check") %><% end %></h4>
           <% if @user.local? %>

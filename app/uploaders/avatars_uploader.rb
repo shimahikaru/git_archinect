@@ -31,9 +31,9 @@ class AvatarsUploader < CarrierWave::Uploader::Base
        ActionController::Base.helpers.asset_url("default.png", type: :image)
    end
 
-      version :thumb do
+
     process resize_to_fill: [800, 800, "Center" ]
-  end
+
 
 
   # Create different versions of your uploaded files:

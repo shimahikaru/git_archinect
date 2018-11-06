@@ -39,7 +39,7 @@
         <%= f.fields_for :whole_photos do |i| %>
          <li><label>
           <% if i.object.id %>
-         <%= image_tag i.object.photo_url(:thumb), :class => "img add_photo" %>
+         <%= image_tag i.object.photo_url, :class => "img add_photo" %>
          <% else %>
           <%= image_tag 'default.png', :class => "img add_photo" %>
           <% end %>
@@ -102,7 +102,7 @@
             <li ><div class="detail">
               <div class="detailA"><label>
                 <% if img.object.id %>
-                <%= image_tag img.object.image_url(:thumb), :class => "img add_img" %>
+                <%= image_tag img.object.image_url, :class => "img add_img" %>
                 <% else %>
                 <%= image_tag 'default.png', :class => "img add_img" %>
                 <% end %>
