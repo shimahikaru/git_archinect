@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+  binding.pry
   @product = Product.new
   @user = User.find(current_user.id)
   @details = 5.times { @product.details.build }
@@ -50,7 +51,23 @@ class ProductsController < ApplicationController
     else
       @photos = 5.times { @product.whole_photos.build }
       @details = 5.times { @product.details.build }
-      render action: :new
+      render action: :newz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     end
   end
 

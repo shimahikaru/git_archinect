@@ -17,22 +17,6 @@
   margin-left: auto;
   border-radius: 10px;
 
-  .colorful span:nth-child(1) { color: #df0067; font-size: 23px; }
-  .colorful span:nth-child(2) { color: #251b5b; font-size: 23px; }
-  .colorful span:nth-child(5) { color: #251b5b; font-size: 23px; }
-  .colorful span:nth-child(3) { font-size: 23px; }
-  .colorful span:nth-child(4) { color: #fbbb22; font-size: 23px; }
-  .colorful span:nth-child(6) { font-size: 23px; }
-  .colorful span:nth-child(7) { color: #251b5b; font-size: 23px; }
-  .colorful span:nth-child(8) { color: #25b9d7; font-size: 23px; }
-  .colorful span:nth-child(9) { color: #fbbb22; font-size: 23px; }
-
-  h4 {
-    font-weight: bold;
-    color: #251b5b;
-    margin-bottom: 25px;
-    letter-spacing: 0.2em;
-  }
   p {
     font-size: 11px;
     color: #251b5b;
@@ -44,21 +28,23 @@
  .text {
   text-align: left;
   padding-left: 15px;
-  p {
+  h4 {
+    font-weight: bold;
     color: #251b5b;
-    font-size: 13px;
+    margin-bottom: 25px;
+    letter-spacing: 0.2em;
+    font-size: 30px;
+    line-height: 40px;
+  }
+  p {
+    color: #68737f;
+    font-size: 15px;
     margin-bottom: 28px;
     letter-spacing: 0.1em;
     line-height: 19px;
-    font-weight: bold;
      i.fa {
       margin-right: 8px;
       font-size: 20px;
-     }
-     a {
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0em;
      }
   }
  }
