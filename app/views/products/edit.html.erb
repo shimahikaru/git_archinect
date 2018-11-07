@@ -25,12 +25,12 @@
 
      <div class="field">
       <p><%= f.label :タイトル %><a>※</a></p>
-     <%= f.text_field :title, autofocus: true, autocomplete: "title", :maxlength => "15", placeholder: "タイトル・物件名(15文字以下)" , class: 'product form' %>
+     <%= f.text_field :title, autofocus: true, autocomplete: "title", :maxlength => "15", placeholder: "タイトル・物件名(15文字以下)" , class: 'form' %>
      </div>
 
      <div class="field">
       <p><%= f.label :サブタイトル %></p>
-     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle", :maxlength => "30", placeholder: "サブタイトル(30文字以下)", class: 'product form' %>
+     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle", :maxlength => "30", placeholder: "サブタイトル(30文字以下)", class: 'form' %>
      </div>
 
       <div class="field ">
@@ -51,8 +51,8 @@
                         <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
                         <% else %>
                         <label><p id="remove" class="remove_photo" style="display:none;"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
-                       </div>
                   <% end %>
+                  </div>
                 <% end %>
               </div>
           </div>
@@ -88,7 +88,7 @@
 
      <div class="field">
      <p><%= f.label :カテゴリー %><a>※</a></p>
-     <%= f.select :category, Product.categories.keys, {prompt: '選択してください'}, class: 'product form' %><br />
+     <%= f.select :category, Product.categories.keys, {prompt: '選択してください'}, class: 'form' %><br />
      </div>
 
      <div class="field">
