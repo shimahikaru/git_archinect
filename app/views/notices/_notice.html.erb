@@ -6,6 +6,8 @@
 <h6><%= notice.text.truncate(150) %></h6>
 <div class="user">
   <h6><%= fa_icon("user") %>  <%= notice.user.name %></h6>
-  <h6><%= fa_icon("paperclip") %>  <%= notice.user.office %></h6></div>
+    <%if notice.user.office? %>
+    <h6><%= fa_icon("paperclip") %>  <%= notice.user.office %></h6></div>
+    <% end %>
 <% end %>
 </article>

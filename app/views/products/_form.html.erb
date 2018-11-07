@@ -17,16 +17,16 @@
 
      <div class="field">
       <p><%= f.label :タイトル %><a>※</a></p>
-     <%= f.text_field :title, autofocus: true, autocomplete: "title", :maxlength => "15", placeholder: "タイトル・物件名(15文字以下)" , class: 'product form' %>
+     <%= f.text_field :title, autofocus: true, autocomplete: "title", :maxlength => "15", placeholder: "タイトル・物件名(15文字以下)" , class: 'form' %>
      </div>
 
      <div class="field">
       <p><%= f.label :サブタイトル %></p>
-     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle", :maxlength => "30", placeholder: "サブタイトル(30文字以下)", class: 'product form' %>
+     <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle", :maxlength => "30", placeholder: "サブタイトル(30文字以下)", class: 'form' %>
      </div>
 
       <div class="field ">
-      <p><%= f.label :"全体画像" %><a>※(縦長にリサイズされます)</a></p>
+      <p><%= f.label :"全体画像" %><a>※(投稿後リサイズされます)</a></p>
         <ul>
         <%= f.fields_for :whole_photos do |i| %>
           <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
@@ -65,7 +65,7 @@
 
      <div class="field">
      <p><%= f.label :カテゴリー %><a>※</a></p>
-     <%= f.select :category, Product.categories.keys, {prompt: '選択してください'}, class: 'product form' %><br />
+     <%= f.select :category, Product.categories.keys, {prompt: '選択してください'}, class: 'form' %><br />
      </div>
 
      <div class="field">
@@ -91,7 +91,7 @@
               </div>
             <p>詳細の説明・設備・素材・寸法etc.(250文字以内)</p>
             <%= img.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "250", placeholder: "(例)「リビングで子供が勉強できるように」と、キッチンから見える位置に大きなデスクをつくりました。
-            横には、帰ってきたらスグに着替えもできるようにとクロゼットも造作で作りました。ご主人が大好きなお酒を飲みながら....", class: ' form_detail' %></li>
+            横には、帰ってきたらスグに着替えもできるようにとクロゼットを造作で作りました。ご主人が大好きなお酒を飲みながらキッチンで料理をする奥様との会話を楽しめるようetc.", class: ' form_detail' %></li>
          <% end %>
        </ul>
        <div class="detail_show_btn">このページを閉じる</div>

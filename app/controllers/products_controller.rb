@@ -37,7 +37,6 @@ class ProductsController < ApplicationController
   end
 
   def new
-  binding.pry
   @product = Product.new
   @user = User.find(current_user.id)
   @details = 5.times { @product.details.build }
