@@ -3,6 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "font-awesome";
 
+.devise_shere a {
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 25px;
+}
+
 .usernew{
   display: block;
   margin-top: 80px;
