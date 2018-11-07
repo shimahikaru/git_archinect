@@ -1,83 +1,86 @@
 
 <header>
-          <div class="container">
-            <div class="container-small">
-            <button type="button" class="headC"><%= fa_icon("bars") %></button>
-            <%= link_to((root_path), :class =>"headA") do %>
-            <%= image_tag 'iconA.png', :class=>"iconA" %>Archinet
-            <% end %>
-            <% if user_signed_in? %>
-            <div class="btn-user">
-            <%= link_to  user_path(current_user) do %><%= fa_icon("user") %><p>マイページ</p><% end %>
-            <%= link_to destroy_user_session_path, method: :delete,data:{confirm: 'ログアウトしますか？'} do %><%= fa_icon("sign-out") %><p>ログアウト</p><% end %>
-            </div>
-            <% else %>
-            <div class="btn-user">
-            <%= link_to  new_user_registration_path do %><%= fa_icon("user") %><p>会員登録</p><% end %>
-            <%= link_to new_user_session_path do %><%= fa_icon("sign-in") %><p>ログイン</p><% end %>
-            </div>
-            <% end %>
-            </div>
-                   <nav class="headB" id="js-accordion">
-                   <ul>
-<% if user_signed_in? %>
-                   <li><%= link_to "MY PAGE", user_path(current_user) %></li>
-<% else %>
-                   <li><%= link_to "ログイン/登録",  new_user_session_path %></li>
-<% end %>
-                     <li><a>PROJECTS</a>
-                      <ul class="inner">
-                        <li class="panel-item"><%= link_to "全て表示", products_path %></li>
-                        <li class="panel-item"><%= link_to "作品を詳細検索", about_products_path %></li>
-                      </ul>
-                    </li>
-                   <li><a>CATEGORY</a>
-                     <ul class="inner">
-                        <li class="panel-item"><%= link_to "ホテル・旅館", search_products_path(category: "ホテル・旅館") %></li>
-                        <li class="panel-item"><%= link_to "物販店・専門店", search_products_path(category: "物販店・専門店") %></li>
-                        <li class="panel-item"><%= link_to "オフィス・スクール", search_products_path(category: "オフィス・スクール") %></li>
-                        <li class="panel-item"><%= link_to "バー・クラブ", search_products_path(category: "バー・クラブ") %></li>
-                        <li class="panel-item"><%= link_to "カフェ・レストラン", search_products_path(category: "カフェ・レストラン") %></li>
-                        <li class="panel-item"><%= link_to "居酒屋", search_products_path(category: "居酒屋") %></li>
-                        <li class="panel-item"><%= link_to "各国料理・ダイニングレストラン", search_products_path(category: "各国料理・ダイニングレストラン") %></li>
-                        <li class="panel-item"><%= link_to "和洋菓子・フードストア", search_products_path(category: "和洋菓子・フードストア") %></li>
-                        <li class="panel-item"><%= link_to "ブティック・アパレル雑貨", search_products_path(category: "ブティック・アパレル雑貨") %></li>
-                        <li class="panel-item"><%= link_to "クリニック・ビューティー", search_products_path(category: "クリニック・ビューティー") %></li>
-                        <li class="panel-item"><%= link_to "戸建て新築・リノベーション", search_products_path(category: "戸建て新築・リノベーション") %></li>
-                        <li class="panel-item"><%= link_to "マンションリノベーション", search_products_path(category: "マンションリノベーション") %></li>
-                        <li class="panel-item"><%= link_to "イベント・大型商業施設", search_products_path(category: "イベント・大型商業施設") %></li>
-                        <li class="panel-item"><%= link_to "その他", search_products_path(category: "その他") %></li>
-                      </ul>
-                    </li>
-                    <li><a>USERS</a>
-                      <ul class="inner">
-                        <li class="panel-item"><%= link_to "全て表示", users_path %></li>
-                        <li class="panel-item"><%= link_to "詳細検索", about_users_path %></li>
-                      </ul>
-                    </li>
-                    <li><a>NEWS</a>
-                      <ul class="inner">
-                        <li class="panel-item"><%= link_to "求人", search_notices_path(category: "求人") %></li>
-                        <li class="panel-item"><%= link_to "イベント", search_notices_path(category: "イベント") %></li>
-                        <li class="panel-item"><%= link_to "オープンデスク", search_notices_path(category: "オープンデスク") %></li>
-                        <li class="panel-item"><%= link_to "その他", search_notices_path(category: "その他") %></li>
-                      </ul>
-                    </li>
-<% if user_signed_in? %>
-                    <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete,data:{confirm: 'ログアウトしますか？'} %></li>
-<% end %>
-                    <li><a>ABOUT</a>
-                      <ul class="inner">
-                        <li class="panel-item"><%= link_to "ABOUT", top_about_path %></li>
-                        <li class="panel-item"><%= link_to "お問い合わせ", inquiries_path %></li>
-                      </ul>
-                    </li>
-
-                    </ul>
-                    </nav>
-            </div>
-
-            </div>
+    <div class="container">
+      <div class="container-small">
+      <button type="button" class="headC"><%= fa_icon("bars") %></button>
+      <%= link_to((root_path), :class =>"headA") do %>
+      <%= image_tag 'iconA.png', :class=>"iconA" %>Archinect.
+      <% end %>
+      <% if user_signed_in? %>
+      <div class="btn-user">
+      <%= link_to  user_path(current_user) do %><%= fa_icon("user") %><p>マイページ</p><% end %>
+      <%= link_to destroy_user_session_path, method: :delete,data:{confirm: 'ログアウトしますか？'} do %><%= fa_icon("sign-out") %><p>ログアウト</p><% end %>
+      </div>
+      <% else %>
+      <div class="btn-user">
+      <%= link_to  new_user_registration_path do %><%= fa_icon("user") %><p>会員登録</p><% end %>
+      <%= link_to new_user_session_path do %><%= fa_icon("sign-in") %><p>ログイン</p><% end %>
+      </div>
+      <% end %>
+      </div>
+     <nav class="headB" id="js-accordion">
+     <ul>
+       <li><a>商業施設</a>
+         <ul class="inner">
+            <li class="panel-item"><%= link_to "ホテル・旅館", search_products_path(category: "ホテル・旅館") %></li>
+            <li class="panel-item"><%= link_to "物販店・専門店", search_products_path(category: "物販店・専門店") %></li>
+            <li class="panel-item"><%= link_to "オフィス・スクール", search_products_path(category: "オフィス・スクール") %></li>
+            <li class="panel-item"><%= link_to "バー・クラブ", search_products_path(category: "バー・クラブ") %></li>
+            <li class="panel-item"><%= link_to "カフェ・レストラン", search_products_path(category: "カフェ・レストラン") %></li>
+            <li class="panel-item"><%= link_to "居酒屋", search_products_path(category: "居酒屋") %></li>
+            <li class="panel-item"><%= link_to "各国料理・ダイニングレストラン", search_products_path(category: "各国料理・ダイニングレストラン") %></li>
+            <li class="panel-item"><%= link_to "和洋菓子・フードストア", search_products_path(category: "和洋菓子・フードストア") %></li>
+            <li class="panel-item"><%= link_to "ブティック・アパレル雑貨", search_products_path(category: "ブティック・アパレル雑貨") %></li>
+            <li class="panel-item"><%= link_to "クリニック・ビューティー", search_products_path(category: "クリニック・ビューティー") %></li>
+            <li class="panel-item"><%= link_to "イベント・大型商業施設", search_products_path(category: "イベント・大型商業施設") %></li>
+            <li class="panel-item"><%= link_to "その他", search_products_path(category: "その他") %></li>
+          </ul>
+        </li>
+        <li><a>住宅</a>
+          <ul class="inner">
+            <li class="panel-item"><%= link_to "戸建て新築・リノベーション", search_products_path(category: "戸建て新築・リノベーション") %></li>
+            <li class="panel-item"><%= link_to "マンションリノベーション", search_products_path(category: "マンションリノベーション") %></li>
+            <li class="panel-item"><%= link_to "その他", search_products_path(category: "その他") %></li>
+          </ul>
+        </li>
+         <li><a>プロジェクト</a>
+          <ul class="inner">
+            <li class="panel-item"><%= link_to "全て表示", products_path %></li>
+            <li class="panel-item"><%= link_to "作品を詳細検索", about_products_path %></li>
+          </ul>
+        </li>
+        <li><a>ユーザー</a>
+          <ul class="inner">
+            <li class="panel-item"><%= link_to "全て表示", users_path %></li>
+            <li class="panel-item"><%= link_to "詳細検索", about_users_path %></li>
+          </ul>
+        </li>
+        <li><a>ニュース</a>
+          <ul class="inner">
+            <li class="panel-item"><%= link_to "求人", search_notices_path(category: "求人") %></li>
+            <li class="panel-item"><%= link_to "イベント", search_notices_path(category: "イベント") %></li>
+            <li class="panel-item"><%= link_to "オープンデスク", search_notices_path(category: "オープンデスク") %></li>
+            <li class="panel-item"><%= link_to "その他", search_notices_path(category: "その他") %></li>
+          </ul>
+        </li>
+     <% if user_signed_in? %>
+      <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete,data:{confirm: 'ログアウトしますか？'} %></li>
+     <% end %>
+       <% if user_signed_in? %>
+       <li><%= link_to "MY PAGE", user_path(current_user) %></li>
+       <% else %>
+       <li><%= link_to "ログイン/登録",  new_user_session_path %></li>
+       <% end %>
+      <li><a>アバウト</a>
+        <ul class="inner">
+          <li class="panel-item"><%= link_to "ABOUT", top_about_path %></li>
+          <li class="panel-item"><%= link_to "お問い合わせ", inquiries_path %></li>
+        </ul>
+      </li>
+      </ul>
+      </nav>
+    </div>
+   </div>
 </header>
 
 

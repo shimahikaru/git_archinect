@@ -108,17 +108,13 @@ body {
   padding-right: 15px;
   letter-spacing: 0.1em;
   font-weight: bold;
+  color: #251b5b;
 }
 .headA .iconA {
   width: 20px;
   margin-right: 3px;
 }
-  .headA  span:nth-child(1) { color: #df0067; }
-  .headA  span:nth-child(2) { color: #251b5b; }
-  .headA  span:nth-child(5) { color: #251b5b; }
-  .headA  span:nth-child(4) { color: #fbbb22; }
-  .headA  span:nth-child(7) { color: #251b5b; }
-  .headA  span:nth-child(8) { color: #25b9d7; }
+.headA  span:nth-child(2) { color: #25b9d7; }
 
 .headA:hover{
   opacity: 0.4;
@@ -133,12 +129,12 @@ body {
   margin-right: 5px;
 }
 .container-small .btn-user i {
-  color: #68737f;
+  color: #251b5b;
   opacity: 0.9;
   font-size: 17px;
 }
 .container-small .btn-user p {
-  color: #68737f;
+  color: #251b5b;
   opacity: 0.9;
   margin: 0;
   font-size: 8px;
@@ -160,6 +156,7 @@ header {
     align-items: center;
     height: 55px;
     justify-content: space-between;
+    margin: auto 2%;
   }
 
  .headB {
@@ -173,16 +170,16 @@ header {
   list-style: none;
 }
 .headB a{
-display: block;
-color: #262228;
+display: inline-block;
+color: #251b5b;
 font-size: 13px;
 text-decoration: none;
-letter-spacing: 0.5em;
+letter-spacing: 0.2em;
 }
 
 .headB li {
   background-color: rgba(255,255,255,0.9);
-  padding: 15px;
+  padding: 10px;
   font-weight: bold;
 }
 
@@ -202,7 +199,7 @@ letter-spacing: 0.5em;
   outline: none;
   background: none;
   font-size: 25px;
-  color: #68737f;
+  color: #251b5b;
   cursor: pointer;
 }
 
@@ -214,7 +211,7 @@ letter-spacing: 0.5em;
 
 li .panel-item a{
   font-size: 10px;
-  letter-spacing: 0.2em
+  letter-spacing: 0.1em
 
 }
 
@@ -261,7 +258,7 @@ li .panel-item a{
 }
 
 
-@media (max-width: 300px) {
+@media (max-width: 320px) {
   .btn-user a{
     display: none;
   }
@@ -276,6 +273,7 @@ li .panel-item a{
   width: 100vw;
   margin-left: auto;
   margin-right: auto;
+  height: 55px;
 }
 .headB {
   display: block !important;
@@ -285,7 +283,7 @@ li .panel-item a{
 .headB li {
   background-color: transparent;
   padding: 0;
-  width: 155px;
+  width: 140px;
   text-align: center;
 }
 .headB ul {
@@ -296,11 +294,11 @@ li .panel-item {
   background-color: rgba(255,255,255,0.9);
 }
 li .panel-item a {
-  padding: 10px 0;
+  padding: 15px 0;
 }
 
 .headB a {
-  width: 150px;
+  width: 140px;
   font-size: 12px;
   text-align: center;
 }
