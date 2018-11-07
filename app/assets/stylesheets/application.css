@@ -182,6 +182,7 @@ letter-spacing: 0.2em;
   padding: 10px;
   font-weight: bold;
   text-align: left;
+  padding-left: 15px;
 }
 
 .headB li a:hover{
