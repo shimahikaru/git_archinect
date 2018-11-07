@@ -108,7 +108,10 @@ body {
   padding-right: 15px;
   letter-spacing: 0.1em;
   font-weight: bold;
-  opacity: 0.7;
+}
+.headA .iconA {
+  width: 20px;
+  margin-right: 3px;
 }
   .headA  span:nth-child(1) { color: #df0067; }
   .headA  span:nth-child(2) { color: #251b5b; }
@@ -258,7 +261,11 @@ li .panel-item a{
 }
 
 
-
+@media (max-width: 300px) {
+  .btn-user a{
+    display: none;
+  }
+}
 
 
 @media (min-width: 1180px) {

@@ -77,7 +77,19 @@
                     display: none;
                   }
                 }
-
+           .field.avater_photo {
+                input {
+                  display: none;
+                }
+                 p.user_remove {
+                  background-color: #68737f;
+                  color: #fff;
+                  display: inline-block;
+                  padding: 2px 2px;
+                  border-radius: 5px;
+                  right: 0;
+                 }
+           }
            .field.check {
                      input{
                      display: none;

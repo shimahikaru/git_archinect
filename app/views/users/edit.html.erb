@@ -42,7 +42,7 @@
      </div>
 
      <div class="field">
-      <p><%= f.label :メールアドレス %><br ><a>！メッセージ受信用<br >(メールアドレスは表示されません)</a></p>
+      <p><%= f.label :メールアドレス %><br ><a>メッセージ受信用<br >(メールアドレスは表示されません)</a></p>
       <%= f.email_field :address, autofocus: true, autocomplete: "address",  placeholder: "", class: 'user form' %>
      </div>
 
@@ -66,12 +66,16 @@
      <% end %>
      <%= f.file_field :avatar, autofocus: true , id: :user_avatar %>
      <%= f.hidden_field :avatar_cache %>
-     </label>
-     <label><p class="user_remove"><%= f.check_box :remove_avatar %>削除</p></label>
+     </label><br >
+     <% if @user.avatar? %>
+     <label><p class="user_remove"><%= f.check_box :remove_avatar %><%= fa_icon("times") %>削除</p></label>
+     <% else %>
+     <label><p class="user_remove" style="display:none;"><%= f.check_box :remove_avatar %><%= fa_icon("times") %>削除</p></label>
+     <% end %>
      </div>
 
      <div class="field">
-     <p><%= f.label :コメント %></p>
+     <p><%= f.label :自己紹介コメント %></p>
      <p><label>残り：<span class="count">0</span>文字</label></p>
      <%= f.text_area :text, autofocus: true, :maxlength => "100", autocomplete: "text",  placeholder: "", class: 'user form text' %>
      </div>

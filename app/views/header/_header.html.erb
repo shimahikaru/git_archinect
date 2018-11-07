@@ -3,7 +3,9 @@
           <div class="container">
             <div class="container-small">
             <button type="button" class="headC"><%= fa_icon("bars") %></button>
-            <%= link_to "Archinect", root_path , :class =>"headA" %>
+            <%= link_to((root_path), :class =>"headA") do %>
+            <%= image_tag 'iconA.png', :class=>"iconA" %>Archinet
+            <% end %>
             <% if user_signed_in? %>
             <div class="btn-user">
             <%= link_to  user_path(current_user) do %><%= fa_icon("user") %><p>マイページ</p><% end %>

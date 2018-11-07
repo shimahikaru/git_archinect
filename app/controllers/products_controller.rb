@@ -37,36 +37,20 @@ class ProductsController < ApplicationController
   end
 
   def new
-  @product = Product.new
-  @user = User.find(current_user.id)
-  @details = 5.times { @product.details.build }
-  @photos = 5.times { @product.whole_photos.build }
-  @product.user = @user
+    @product = Product.new
+    @user = User.find(current_user.id)
+    @details = 5.times { @product.details.build }
+    @photos = 5.times { @product.whole_photos.build }
+    @product.user = @user
   end
 
   def create
      @product = Product.new(create_params)
     if @product.save
     else
-      @photos = 5.times { @product.whole_photos.build }
-      @details = 5.times { @product.details.build }
-      render action: :newz
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      ( 5 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
+      ( 5 - @product.details.to_a.count ).times { @product.details.build }
+      render action: :new
     end
   end
 
