@@ -36,22 +36,28 @@
       <div class="field ">
       <p><%= f.label :"全体画像" %><a>※(縦長にリサイズされます)</a></p>
         <ul>
-        <%= f.fields_for :whole_photos do |i| %>
-         <li><label>
-          <% if i.object.id %>
-         <%= image_tag i.object.photo_url, :class => "img add_photo" %>
-         <% else %>
-          <%= image_tag 'default.png', :class => "img add_photo" %>
-          <% end %>
-          <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
-          <% if i.object.id %>
-          <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
-          <% else %>
-          <label><p id="remove" class="remove_photo" style="display:none;"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
-          <% end %>
-        <% end %>
-       </ul>
-    </div>
+            <div class=" swiper-container">
+                <div class="swiper-wrapper">
+                 <%= f.fields_for :whole_photos do |i| %>
+                     <div class="swiper-slide">
+                     <li><label>
+                        <% if i.object.id %>
+                        <%= image_tag i.object.photo_url, :class => "img add_photo" %>
+                        <% else %>
+                        <%= image_tag 'default.png', :class => "img add_photo" %>
+                        <% end %>
+                      <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
+                        <% if i.object.id %>
+                        <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
+                        <% else %>
+                        <label><p id="remove" class="remove_photo" style="display:none;"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
+                       </div>
+                  <% end %>
+                <% end %>
+              </div>
+          </div>
+         </ul>
+      </div>
 
      <div class="field">
      <p><%= f.label :完成年月 %><a>※</a></p>
@@ -438,6 +444,27 @@ $(function() {
     $('.products').show();
     $('.img_field').hide();
   });
+
+    var swiper = new Swiper('.swiper-container', {
+      paginationClickable: true,
+      parallax: true,
+      speed: 200,
+      centerMode: true,
+      centeredSlides : true,
+      loop: false,
+      slidesPerView: 3.5,
+      initialSlide: 2,
+          breakpoints: {
+                400: {
+              slidesPerView: 2.5,
+              initialSlide: 1,
+              },
+                300: {
+              slidesPerView: 2,
+              initialSlide: 1,
+              }
+         }
+    });
 
 
   $('input[type=checkbox]').click(function(){

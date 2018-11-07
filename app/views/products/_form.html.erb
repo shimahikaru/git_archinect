@@ -28,11 +28,17 @@
       <div class="field ">
       <p><%= f.label :"全体画像" %><a>※(投稿後リサイズされます)</a></p>
         <ul>
+       <div class=" swiper-container">
+        <div class="swiper-wrapper">
         <%= f.fields_for :whole_photos do |i| %>
+          <div class="swiper-slide">
           <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
           <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
           <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
+        </div>
         <% end %>
+      </div>
+        </div>
        </ul>
     </div>
 
@@ -403,12 +409,23 @@ $(function() {
     //initialize swiper when document ready
     var swiper = new Swiper('.swiper-container', {
       paginationClickable: true,
-      effect: 'coverflow',
       parallax: true,
       speed: 200,
       centerMode: true,
       centeredSlides : true,
-      loop: true
+      loop: false,
+      slidesPerView: 3.5,
+      initialSlide: 2,
+          breakpoints: {
+                400: {
+              slidesPerView: 2.5,
+              initialSlide: 1,
+              },
+                300: {
+              slidesPerView: 2,
+              initialSlide: 1,
+              }
+         }
     });
 
 
