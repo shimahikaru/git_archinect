@@ -269,7 +269,14 @@
 }
 
 
-
+// @media (min-width: 475px) {
+//   .concept.container {
+//     display: flex;
+//     .button1 {
+//       width: 220px;
+//     }
+//   }
+// }
 @media (min-width: 768px){
 
  .boxtypeA{
@@ -288,6 +295,10 @@
     width: 800px;
     margin:  auto;
     justify-content: space-around;
+    .button1 {
+      margin-bottom: 35px;
+      margin-top: 35px;
+    }
  }
  }
 
