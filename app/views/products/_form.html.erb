@@ -33,7 +33,8 @@
         <%= f.fields_for :whole_photos do |i| %>
           <div class="swiper-slide">
           <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
-          <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %><%= i.hidden_field :photo_cache, id: "", :class => "hidden_photo" %></label>
+          <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %>
+          <%= i.hidden_field :photo_cache, id: "", :class => "hidden_photo" %></label>
           <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
         </div>
         <% end %>

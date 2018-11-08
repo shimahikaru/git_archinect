@@ -51,7 +51,6 @@ class ProductsController < ApplicationController
       @photos = ( 5 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
       ( 5 - @product.details.to_a.count ).times { @product.details.build }
       render action: :new
-      binding.pry
     end
   end
 
@@ -76,6 +75,10 @@ end
      if @product.update(update_params)
      redirect_to user_path(current_user)
      else
+      binding.pry
+     @photos = ( 5 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
+     ( 5 - @product.details.to_a.count ).times { @product.details.build }
+     binding.pry
      render action: :edit
      end
    end

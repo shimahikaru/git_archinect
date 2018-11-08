@@ -46,7 +46,9 @@
                         <% else %>
                         <%= image_tag 'default.png', :class => "img add_photo" %>
                         <% end %>
-                      <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
+                      <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %>
+                      <%= i.hidden_field :photo_cache, id: "", :class => "hidden_photo" %>
+                      </label>
                         <% if i.object.id %>
                         <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
                         <% else %>
@@ -184,6 +186,9 @@ var i = 0;
 });
   $(".remove_photo").each(function(i) {
     $(this).attr('id','remove' + (i+1));
+});
+  $(".hidden_photo").each(function(i) {
+    $(this).attr('id','hidden' + (i+1));
 });
 // 全体画像投稿
 // 削除
