@@ -64,10 +64,10 @@
           </ul>
         </li>
      <% if user_signed_in? %>
-      <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete,data:{confirm: 'ログアウトしますか？'} %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete,data:{confirm: 'ログアウトしますか？'} %></li>
      <% end %>
        <% if user_signed_in? %>
-       <li><%= link_to "MY PAGE", user_path(current_user) %></li>
+       <li><%= link_to "マイページ", user_path(current_user) %></li>
        <% else %>
        <li><%= link_to "ログイン/登録",  new_user_session_path %></li>
        <% end %>

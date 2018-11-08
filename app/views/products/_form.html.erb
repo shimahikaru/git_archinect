@@ -33,7 +33,7 @@
         <%= f.fields_for :whole_photos do |i| %>
           <div class="swiper-slide">
           <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
-          <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %></label>
+          <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %><%= i.hidden_field :photo_cache, id: "", :class => "hidden_photo" %></label>
           <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
         </div>
         <% end %>
@@ -152,6 +152,9 @@ var i = 0;
 });
   $(".add_photo").each(function(i) {
     $(this).attr('id','prev' + (i+1));
+});
+  $(".hidden_photo").each(function(i) {
+    $(this).attr('id','hidden' + (i+1));
 });
   $(".remove_photo").each(function(i) {
     $(this).attr('id','remove' + (i+1));
@@ -406,6 +409,16 @@ $(function() {
    readURL(this);
  });
 });
+
+$(function() {
+    if ($('#hidden1').get(0)) {
+           var val = $('#hidden1').val();
+     console.log(val);
+    }
+ $("#img5").change(function(){
+   readURL(this);
+ });
+});
     //initialize swiper when document ready
     var swiper = new Swiper('.swiper-container', {
       paginationClickable: true,
@@ -415,15 +428,15 @@ $(function() {
       centeredSlides : true,
       loop: false,
       slidesPerView: 3.5,
-      initialSlide: 2,
+      initialSlide: 1.5,
           breakpoints: {
                 400: {
               slidesPerView: 2.5,
-              initialSlide: 1,
+              initialSlide: 0.5,
               },
                 300: {
               slidesPerView: 2,
-              initialSlide: 1,
+              initialSlide: 0.5,
               }
          }
     });

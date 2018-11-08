@@ -48,9 +48,10 @@ class ProductsController < ApplicationController
      @product = Product.new(create_params)
     if @product.save
     else
-      ( 5 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
+      @photos = ( 5 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
       ( 5 - @product.details.to_a.count ).times { @product.details.build }
       render action: :new
+      binding.pry
     end
   end
 
