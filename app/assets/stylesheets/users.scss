@@ -45,9 +45,10 @@ width: 100%;
                 text-overflow: ellipsis;
                 -webkit-text-overflow: ellipsis;
                 -o-text-overflow: ellipsis;
+                color: #251b5b;
               }
               a {
-               color: #666666;
+               color: #251b5b;
                font-size: 11px;
               }
             .edituser.post {
@@ -134,7 +135,7 @@ width: 100%;
                      a {
                       text-decoration: none;
                       font-size: 10px;
-                      color: #313335;
+                      color: #251b5b;
                       font-weight: 450;
                       }
                         &:hover {
@@ -148,7 +149,7 @@ width: 100%;
                      a, i {
                        letter-spacing: 0.1em;
                        font-size: 11px;
-                       color: #666666;
+                       color: #251b5b;
                        font-weight: 530;
                        }
           }
@@ -159,7 +160,7 @@ width: 100%;
                 letter-spacing: 0.1em;
                 line-height: 18px;
                 text-align: left;
-                color:  #666666;
+                color:  #251b5b;
                 }
            }
               .follow {

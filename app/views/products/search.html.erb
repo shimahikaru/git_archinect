@@ -6,8 +6,9 @@
         <p class="product_search">まだ投稿されていません。<br >是非１番に投稿しましょう。</p>
             <%= link_to(new_product_path, :class=>"buttonA" ) do %>投稿する<% end %>
         <% else %>
-        <p class="product_search">まだ投稿されていません。<br >ログインまたは登録して是非１番に投稿しましょう。</p>
+        <p class="product_search">まだ投稿されていません。<br >是非１番に投稿しましょう。</p>
             <%= link_to(new_user_registration_path, :class=>"buttonA" ) do %>無料で会員登録<% end %><br >
+            <p>または</p><br >
             <%= link_to(new_user_session_path, :class=>"buttonA buttonB" ) do %>ログイン<% end %>
         <% end %>
       </div>
