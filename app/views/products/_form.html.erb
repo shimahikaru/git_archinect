@@ -8,7 +8,7 @@
   <% end %>
 </div>
 
-   <%= form_with model:  @product  do |f| %>
+   <%= form_with model: @product, local: true  do |f| %>
     <div class="products">
      <div class="field charge">
       <p><%= f.label current_user.name+"さんの担当" %><a>※</a></p>
@@ -26,7 +26,7 @@
      </div>
 
       <div class="field ">
-      <p><%= f.label :"全体画像" %><a>※(投稿後リサイズされます)</a></p>
+      <p><%= f.label :"全体画像" %><a><br >※投稿後リサイズ（W800 H950）</a></p>
         <ul>
        <div class=" swiper-container">
         <div class="swiper-wrapper">
@@ -421,6 +421,7 @@ $(function() {
  });
 });
     //initialize swiper when document ready
+
     var swiper = new Swiper('.swiper-container', {
       paginationClickable: true,
       parallax: true,
@@ -431,16 +432,25 @@ $(function() {
       slidesPerView: 3.5,
       initialSlide: 1.5,
           breakpoints: {
-                400: {
-              slidesPerView: 2.5,
-              initialSlide: 0.5,
+                430: {
+              slidesPerView: 3,
+              initialSlide: 1,
               },
-                300: {
+                370: {
+              slidesPerView: 2.5,
+              initialSlide: 1,
+              },
+                310: {
               slidesPerView: 2,
-              initialSlide: 0.5,
+              initialSlide: 1,
+              },
+                250: {
+              slidesPerView: 1,
+              initialSlide: 0,
               }
          }
     });
+
 
 
   $('.detail_btn').click(function(){
