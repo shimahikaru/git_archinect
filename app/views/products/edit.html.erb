@@ -34,7 +34,7 @@
      </div>
 
       <div class="field ">
-      <p><%= f.label :"全体画像" %><a>※(縦長にリサイズされます)</a></p>
+      <p><%= f.label :"全体画像" %><a><br >※最低1枚は選択してください(最大5枚)</a></p>
         <ul>
             <div class=" swiper-container">
                 <div class="swiper-wrapper">
@@ -146,6 +146,33 @@
 
 
 <script>
+
+$(".product.button").on('click', function(){
+  if ($('#product_title').val() == '') {
+    alert('タイトルを入力してください');
+    return false;
+  }
+  if ($('#product_whet').val() == '') {
+    alert('工期を入力してください');
+    return false;
+  }
+  if ($('#product_location').val() == '') {
+    alert('場所を選択してください');
+    return false;
+  }
+  if ($('#product_area').val() == '') {
+    alert('面積を入力してください');
+    return false;
+  }
+  if ($('#product_text').val() == '') {
+    alert('コンセプトを入力してください');
+    return false;
+  }
+  if ($('#product_category').val() == '') {
+    alert('カテゴリーを選択してください');
+    return false;
+  }
+});
 
 $(function(){
     var countMax = 350;
@@ -451,22 +478,30 @@ $(function() {
   });
 
     var swiper = new Swiper('.swiper-container', {
+      loop: true,
       paginationClickable: true,
       parallax: true,
       speed: 200,
       centerMode: true,
       centeredSlides : true,
-      loop: false,
       slidesPerView: 3.5,
-      initialSlide: 2,
+      initialSlide: 1.5,
           breakpoints: {
-                400: {
+                430: {
+              slidesPerView: 3,
+              initialSlide: 1,
+              },
+                370: {
               slidesPerView: 2.5,
               initialSlide: 1,
               },
-                300: {
+                310: {
               slidesPerView: 2,
               initialSlide: 1,
+              },
+                250: {
+              slidesPerView: 1,
+              initialSlide: 0,
               }
          }
     });
