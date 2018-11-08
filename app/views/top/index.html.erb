@@ -1,5 +1,6 @@
-<%= stylesheet_link_tag    'top', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag    'products', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'top', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 
 <div class="boxtypeA">
   <% unless user_signed_in? %>
@@ -19,8 +20,12 @@
        </div>
      </div>
     <% end %>
+  <% if @products %>
+  <div class="top_text">
+   <p>過去１ヶ月以内の投稿</p>
+  </div>
+  <% end %>
 </div>
-
 
 <div class="index-container">
 <%= render partial: 'products/product', collection: @products %>

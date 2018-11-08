@@ -52,4 +52,31 @@
 <%= render "devise/shared/links" %>
   </div>
 </div>
-
+<script>
+$(".user.button").on('click', function(){
+  if ($('#user_familyname').val() == '') {
+    alert('苗字を入力してください');
+    return false;
+  }
+  if ($('#user_firstname').val() == '') {
+    alert('名前を入力してください');
+    return false;
+  }
+  if ($('#user_email').val() == '') {
+    alert('メールアドレスを入力してください');
+    return false;
+  }
+  if ($('#user_location').val() == '') {
+    alert('場所を選択してください');
+    return false;
+  }
+  if ($('#user_password').val() == '') {
+    alert('パスワードを入力してください');
+    return false;
+  }
+  if ($('#user_password_confirmation').val() == '') {
+    alert('パスワード(再入力)を入力してください');
+    return false;
+  }
+});
+</script>
