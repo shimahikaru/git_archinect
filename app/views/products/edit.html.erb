@@ -234,23 +234,13 @@ $(document).on('turbolinks:load', function(){
       pagination: '.swiper-pagination',
       paginationClickable: true,
       parallax: true,
-      loop: true,
+      loop: false,
       centerMode: true,
       slidesPerView: 2,
       centeredSlides : true,
     });
   });
 
-  var swiper = new Swiper('.swiper-container', {
-  pagination: '.swiper-pagination',
-
-    navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-});
 
 // $(document).on('turbolinks:load', function() {
 //     var swiper = new Swiper('.swiper-container', {
