@@ -10,9 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 
-
-//= require swiper
 //= require turbolinks
+//= require swiper
 //= require jquery
 //= require jquery_ujs
 //= require cocoon
