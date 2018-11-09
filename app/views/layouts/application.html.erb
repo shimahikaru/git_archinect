@@ -9,10 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body
-    <% if content_for?(:body_attributes) %>
-      <%= yield(:body_attributes) %>
-    <% end %>>
+  <body>
     <%= render partial: 'header/header' %>
     <%= yield %>
     <%= render partial: 'footer/footer' %>
