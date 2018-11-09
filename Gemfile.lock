@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/lardawge/carrierwave_backgrounder.git
+  revision: 460394b0e2c0cf0c192be9c1a60bcf9dfb1f9e4d
+  specs:
+    carrierwave_backgrounder (0.4.2)
+      carrierwave (>= 0.5, < 2.0)
+      mime-types (~> 2.99)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -492,6 +500,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   carrierwave (~> 1.0)
+  carrierwave_backgrounder!
   chromedriver-helper
   coffee-rails (~> 4.2)
   compass-rails (~> 2.0)
