@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
     @product = Product.new
     @user = User.find(current_user.id)
     @details = 5.times { @product.details.build }
-    @photos = 5.times { @product.whole_photos.build }
+    @photos = 6.times { @product.whole_photos.build }
     @product.user = @user
   end
 
@@ -48,7 +48,7 @@ class ProductsController < ApplicationController
      @product = Product.new(create_params)
     if @product.save
     else
-      @photos = ( 5 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
+      @photos = ( 6 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
       ( 5 - @product.details.to_a.count ).times { @product.details.build }
       render action: :new
     end
@@ -64,7 +64,7 @@ end
   @product = Product.find(params[:id])
   @user = current_user
   @photos = @product.whole_photos.select(:id, :photo)
-  ( 5 - @photos.length).times { @product.whole_photos.build }
+  ( 6 - @photos.length).times { @product.whole_photos.build }
   details = @product.details
   @details = ( 5 - details.length).times { @product.details.build }
   end
@@ -76,7 +76,7 @@ end
      redirect_to user_path(current_user)
      else
       binding.pry
-     @photos = ( 5 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
+     @photos = ( 6 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
      ( 5 - @product.details.to_a.count ).times { @product.details.build }
      binding.pry
      render action: :edit
