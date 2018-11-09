@@ -217,6 +217,38 @@ var i = 0;
   $(".hidden_photo").each(function(i) {
     $(this).attr('id','hidden' + (i+1));
 });
+
+$(document).on('turbolinks:load', function() {
+    var swiper = new Swiper('.swiper-container', {
+      loop: false,
+      paginationClickable: true,
+      parallax: true,
+      speed: 200,
+      centerMode: true,
+      centeredSlides : true,
+      slidesPerView: 3.5,
+      initialSlide: 1,
+          breakpoints: {
+                430: {
+              slidesPerView: 3,
+              initialSlide: 0,
+              },
+                370: {
+              slidesPerView: 2.5,
+              initialSlide: 0,
+              },
+                310: {
+              slidesPerView: 2,
+              initialSlide: 0,
+              },
+                250: {
+              slidesPerView: 1,
+              initialSlide: 0,
+              }
+         }
+    });
+});
+
 // 全体画像投稿
 // 削除
   jQuery('#remove1 input[type=checkbox]').click(function(){
@@ -476,35 +508,6 @@ $(function() {
     $('.products').show();
     $('.img_field').hide();
   });
-
-    var swiper = new Swiper('.swiper-container', {
-      loop: false,
-      paginationClickable: true,
-      parallax: true,
-      speed: 200,
-      centerMode: true,
-      centeredSlides : true,
-      slidesPerView: 3.5,
-      initialSlide: 1,
-          breakpoints: {
-                430: {
-              slidesPerView: 3,
-              initialSlide: 0,
-              },
-                370: {
-              slidesPerView: 2.5,
-              initialSlide: 0,
-              },
-                310: {
-              slidesPerView: 2,
-              initialSlide: 0,
-              },
-                250: {
-              slidesPerView: 1,
-              initialSlide: 0,
-              }
-         }
-    });
 
 
   $('input[type=checkbox]').click(function(){
