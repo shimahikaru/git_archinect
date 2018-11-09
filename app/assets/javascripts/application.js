@@ -10,11 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 
-//= require turbolinks
-//= require swiper
+
+
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require turbolinks
 //= require activestorage
 //= require_tree .
 
