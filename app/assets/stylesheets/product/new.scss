@@ -59,7 +59,9 @@
               max-width: 350px;
             }
              ul {
+              text-align: left;
               display: flex;
+              flex-wrap: wrap;
                   li {
                     width: 115px;
                     margin-right: auto;

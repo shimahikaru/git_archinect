@@ -38,10 +38,7 @@
       <div class="field ">
       <p><%= f.label :"全体画像" %><a><br >※最低1枚は選択してください(最大5枚)</a></p>
         <ul>
-            <div class=" swiper-container">
-                <div class="swiper-wrapper">
                  <%= f.fields_for :whole_photos do |i| %>
-                     <div class="swiper-slide">
                      <li><label>
                         <% if i.object.id %>
                         <%= image_tag i.object.photo_url, :class => "img add_photo" %>
@@ -56,12 +53,7 @@
                         <% else %>
                         <label><p id="remove" class="remove_photo" style="display:none;"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
                   <% end %>
-                  </div>
                 <% end %>
-              </div>
-           <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-          </div>
          </ul>
       </div>
 
