@@ -320,7 +320,7 @@ $(function() {
  });
 });
 
-$(document).on('turbolinks:load', function() {
+  window.onload = function () {
     var swiper = new Swiper('.swiper-container', {
       loop: false,
       paginationClickable: true,
@@ -349,7 +349,7 @@ $(document).on('turbolinks:load', function() {
               }
          }
     });
-});
+  };
   // 詳細投稿
   // 削除
   jQuery('#remove_img1 input[type=checkbox]').click(function(){
