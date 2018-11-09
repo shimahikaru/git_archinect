@@ -86,7 +86,7 @@
 </div>
 
  <script>
-  window.onload = function () {
+$(document).on('turbolinks:load', function(){
     //initialize swiper when document ready
     var swiper = new Swiper('.swiper-container', {
           navigation: {
@@ -99,12 +99,11 @@
       paginationClickable: true,
       parallax: true,
       loop: true,
-      speed: 200,
       centerMode: true,
       slidesPerView: 1,
       centeredSlides : true,
     });
-  };
+  });
 
   var swiper = new Swiper('.swiper-container', {
   pagination: '.swiper-pagination',
