@@ -214,25 +214,6 @@ var i = 0;
     $(this).attr('id','hidden' + (i+1));
 });
 
-$(document).on('turbolinks:load', function(){
-    //initialize swiper when document ready
-    var swiper = new Swiper('.swiper-container', {
-          navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      pagination: '.swiper-pagination',
-      paginationClickable: true,
-      parallax: true,
-      loop: false,
-      centerMode: true,
-      slidesPerView: 2,
-      centeredSlides : true,
-    });
-  });
-
 
 // $(document).on('turbolinks:load', function() {
 //     var swiper = new Swiper('.swiper-container', {
@@ -288,7 +269,11 @@ $(document).on('turbolinks:load', function(){
       $('#prev5').replaceWith('<%= image_tag 'default.png', id: :prev5, :class => "img default" %>');
       $('#remove5').hide();
   });
-
+  jQuery('#remove6 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev6').replaceWith('<%= image_tag 'default.png', id: :prev5, :class => "img default" %>');
+      $('#remove6').hide();
+  });
 // 画像チェンジ
 $(function() {
     if ($('#prev1').get(0)) {
@@ -381,6 +366,25 @@ $(function() {
    }
  }
  $("#photo5").change(function(){
+   readURL(this);
+ });
+});
+
+$(function() {
+    if ($('#prev6').get(0)) {
+    }
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#prev6').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+      $('#remove6').show();
+      $('#remove6 input[type=checkbox]').prop('checked',false);
+   }
+ }
+ $("#photo6").change(function(){
    readURL(this);
  });
 });
