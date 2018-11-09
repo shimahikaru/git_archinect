@@ -11,13 +11,13 @@
 // about supported directives.
 
 
-
+//= require turbolinks
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require turbolinks
 //= require activestorage
 //= require_tree .
+
 
 
 

@@ -41,6 +41,8 @@
         </div>
         <% end %>
       </div>
+             <div class="swiper-button-prev"></div>
+       <div class="swiper-button-next"></div>
         </div>
        </ul>
     </div>
@@ -320,32 +322,62 @@ $(function() {
  });
 });
 
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function(){
+    //initialize swiper when document ready
     var swiper = new Swiper('.swiper-container', {
-      loop: false,
+          navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      pagination: '.swiper-pagination',
       paginationClickable: true,
       parallax: true,
-      speed: 200,
+      loop: true,
       centerMode: true,
-
-      slidesPerView: 3.5,
-      initialSlide: 0,
-          breakpoints: {
-                430: {
-              slidesPerView: 3,
-              },
-                370: {
-              slidesPerView: 2.5,
-              },
-                310: {
-              slidesPerView: 2,
-              },
-                250: {
-              slidesPerView: 1,
-              }
-         }
+      slidesPerView: 2,
+      centeredSlides : true,
     });
+  });
+
+  var swiper = new Swiper('.swiper-container', {
+  pagination: '.swiper-pagination',
+
+    navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
 });
+
+// $(document).on('turbolinks:load', function() {
+//     var swiper = new Swiper('.swiper-container', {
+//       loop: false,
+//       paginationClickable: true,
+//       parallax: true,
+//       speed: 200,
+//       centerMode: true,
+
+//       slidesPerView: 3.5,
+//       initialSlide: 0,
+//           breakpoints: {
+//                 430: {
+//               slidesPerView: 3,
+//               },
+//                 370: {
+//               slidesPerView: 2.5,
+//               },
+//                 310: {
+//               slidesPerView: 2,
+//               },
+//                 250: {
+//               slidesPerView: 1,
+//               }
+//          }
+//     });
+// });
 
   // 詳細投稿
   // 削除
