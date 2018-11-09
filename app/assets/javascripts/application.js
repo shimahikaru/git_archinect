@@ -11,13 +11,11 @@
 // about supported directives.
 
 //= require turbolinks
-//= require swiper
 //= require jquery
 //= require jquery_ujs
-//= require cocoon
 //= require jquery-ui
+//= require swiper
 //= require activestorage
-//= require social-share-button
 //= require_tree .
 
 
