@@ -3,10 +3,6 @@
 <% provide :title, "#{@product.title} | " %>
 <div class="product_page">
   <div class="container">
-    <div class="select_btn">
-    <div class="detail_show_btn">写真</div>
-    <div class="detail_btn">概要</div>
-    </div>
    <div class="conA">
     <div class="proA" id="proA">
         <% @photos.each do | img | %>
@@ -82,33 +78,4 @@
      </div>
 </div>
 
- <script>
-$(window).on('load resize', function(){
-  var winW = $(window).width();
-  var devW = 1011;
-  if (winW <= devW) {
-    $('.select_btn').show();
-  } else {
-    $('.select_btn').hide();
-    $('#conB').show();
-  }
-});
-
-$('.detail_btn').click(function(){
-  $(this).css('opacity','1');
-  $('.detail_show_btn').css('opacity','0.4');
-  $('#proA').hide();
-  $('#conB').show();
-});
-
-$('.detail_show_btn').click(function(){
-  $(this).css('opacity','1');
-  $('.detail_btn').css('opacity','0.4');
-   // display: block!important;
-  $('#proA').show();
-  $('#conB').hide();
-});
-
-
-</script>
 
