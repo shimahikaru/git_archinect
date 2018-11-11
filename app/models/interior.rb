@@ -1,0 +1,2 @@
+class Interior < ApplicationRecord
+end
