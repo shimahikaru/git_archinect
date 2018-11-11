@@ -75,7 +75,19 @@ margin-right: auto;
                 margin: auto;
                 }
         }
-
+        .text {
+          text-align: left;
+          padding: 5px 10px;
+        h5 {
+          font-weight: bold;
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+        p {
+          font-size: 12px;
+          line-height: 20px;
+        }
+        }
     .proB {
            margin-top: 0;
            padding-bottom: 25px;
@@ -101,8 +113,6 @@ margin-right: auto;
               letter-spacing: 0.2em;
               margin-top: 10px;
             }
-
-
                    a {
                     font-size: 12px;
                     letter-spacing: 0.2em;
@@ -235,6 +245,9 @@ margin-right: auto;
     margin-right: auto;
     margin-left: auto;
   }
+  .conB {
+    width: 540px;
+  }
 
 }
 
@@ -245,7 +258,6 @@ margin-right: auto;
   .conA {
     margin-top: 35px;
   }
-
 }
 
 @media (min-width: 768px) {
@@ -255,22 +267,6 @@ max-width: 1200px;
     .container{
         padding: 20px;
 
-              .proA {
-                 .swiper-button-prev,.swiper-container-rtl .swiper-button-next{
-                  font-size: 45px;
-                  color: #696969;
-                  opacity: 0.5;
-                  left: 5px;
-                  right: auto;
-                  }
-                  .swiper-button-next,.swiper-container-rtl .swiper-button-prev{
-                  right: 20px;
-                  font-size: 45px;
-                  color: #696969;
-                  opacity: 0.5;
-                  left: auto;
-                  }
-               }
                // ここまでがproA
             .proB{
               .profile {

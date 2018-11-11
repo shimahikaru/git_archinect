@@ -7,8 +7,10 @@
     <div class="proA" id="proA">
         <% @photos.each do | img | %>
           <%= image_tag img.photo_url, :class => "photos" %>
-          <p><%= img.title %><p>
-          <p><%= img.text %><p>
+          <div class="text">
+          <h5><%= img.title %></h5>
+          <p><%= img.text %></p>
+          </div>
         <% end %>
     </div>
   <div class="conB" id="conB">
