@@ -39,8 +39,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @user = User.find(current_user.id)
-    @details = 5.times { @product.details.build }
-    @photos = 4.times { @product.whole_photos.build }
+    @photos = 8.times { @product.whole_photos.build }
     @product.user = @user
   end
 
@@ -49,7 +48,6 @@ class ProductsController < ApplicationController
     if @product.save
     else
       @photos = ( 4 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
-      ( 5 - @product.details.to_a.count ).times { @product.details.build }
       render action: :new
     end
   end
@@ -65,8 +63,6 @@ end
   @user = current_user
   @photos = @product.whole_photos.select(:id, :photo)
   ( 4 - @photos.length).times { @product.whole_photos.build }
-  details = @product.details
-  @details = ( 5 - details.length).times { @product.details.build }
   end
 
   def update
@@ -75,9 +71,7 @@ end
      if @product.update(update_params)
      redirect_to user_path(current_user)
      else
-      binding.pry
      @photos = ( 4 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
-     ( 5 - @product.details.to_a.count ).times { @product.details.build }
      binding.pry
      render action: :edit
      end
@@ -87,11 +81,11 @@ end
   private
 
   def create_params
-    params.require(:product).permit(:title, :subtitle, :charge, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache, :_destroy] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:title, :subtitle, :charge, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, whole_photos_attributes:[:id, :photo, :photo_cache,:title, :text, :_destroy] ).merge(user_id: current_user.id)
   end
 
   def update_params
-    params.require(:product).permit(:title, :subtitle, :charge, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, details_attributes:[:id, :image, :title, :text, :image_cache, :_destroy ], whole_photos_attributes:[:id, :photo, :photo_cache, :_destroy ] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:title, :subtitle, :charge, :whet, :completion, :location, :area, :text, :category, { :genre_ids=> [] }, whole_photos_attributes:[:id, :photo, :photo_cache,:title, :text, :_destroy ] ).merge(user_id: current_user.id)
   end
 
 

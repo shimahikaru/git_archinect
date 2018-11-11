@@ -1,5 +1,4 @@
 
-
 <div class="field">
   <% if @product.errors.any? %>
     <h3>入力した内容にエラーが<%= @product.errors.count %>件あります</h3>
@@ -9,7 +8,10 @@
     を入力してください。</h5>
   <% end %>
 </div>
-
+<div class="select_btn">
+<div class="detail_show_btn">概要</div>
+<div class="detail_btn">写真</div>
+</div>
    <%= form_with model: @product, local: true  do |f| %>
     <div class="products">
      <div class="field charge">
@@ -26,22 +28,6 @@
       <p><%= f.label :サブタイトル %></p>
      <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle", :maxlength => "30", placeholder: "サブタイトル(30文字以下)", class: 'form' %>
      </div>
-
-      <div class="field ">
-      <p><%= f.label :"全体画像" %><a><br >※最低1枚は選択してください(最大4枚)</a></p>
-        <ul>
-
-        <%= f.fields_for :whole_photos do |i| %>
-
-          <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
-          <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %>
-          <%= i.hidden_field :photo_cache, id: "", :class => "hidden_photo" %></label>
-          <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
-
-        <% end %>
-
-       </ul>
-    </div>
 
      <div class="field">
      <p><%= f.label :完成年月 %><a>※</a></p>
@@ -82,30 +68,24 @@
       <% end %></div>
      </label>
      </div>
-       <div class="detail_btn">詳細を追加する</div>
     </div>
-     <div class="field img_field">
-     <p class="detail_title"><%= f.label :"詳細画像や図面など" %><br ><a>(画像リサイズされません)</a></p>
-       <ul class="img_detail">
-         <%= f.fields_for :details do |img| %>
-            <li ><div class="detail">
-              <div class="detailA"><label><%= image_tag 'default.png', :class => "img add_img" %>
-              <%= img.file_field :image, id: "", :class => "img_create", autofocus: true  %></label>
-              <label><p id="remove_img" class="remove_img"><%= img.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></div>
-              <div class="detailB">
-              <p>場所名・部分名</p>
-              <%= img.text_area :title, autofocus: true, autocomplete: "title",  placeholder: "(例)１F リビングダイニング" , class: 'title_detail' %></div>
-              </div>
-            <p>詳細の説明・設備・素材・寸法etc.(250文字以内)</p>
-            <%= img.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "250", placeholder: "(例)「リビングで子供が勉強できるように」と、キッチンから見える位置に大きなデスクをつくりました。
+
+      <div class="field img_field">
+      <p><%= f.label :"画像" %><a><br >※最低1枚は選択してください(最大4枚)</a></p>
+        <ul>
+        <%= f.fields_for :whole_photos do |i| %>
+          <li><label><%= image_tag 'default.png', :class => "img add_photo" %>
+          <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %>
+          <%= i.hidden_field :photo_cache, id: "", :class => "hidden_photo" %></label>
+          <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
+          <li><%= i.text_area :title, autofocus: true, autocomplete: "title",  placeholder: "(例)１F リビングダイニング" , class: 'title_detail' %></li>
+          <li><%= i.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "250", placeholder: "(例)「リビングで子供が勉強できるように」と、キッチンから見える位置に大きなデスクをつくりました。
             横には、帰ってきたらスグに着替えもできるようにとクロゼットを造作で作りました。ご主人が大好きなお酒を飲みながらキッチンで料理をする奥様との会話を楽しめるようetc.", class: ' form_detail' %></li>
-         <% end %>
+        <% end %>
        </ul>
-       <div class="detail_show_btn">このページを閉じる</div>
     </div>
 
         <div class="field submit">
-          <p><%= f.label :"または" %></p>
         <%= f.submit "この内容で投稿する", class: 'product button', data:{confirm: '画像が多い場合、処理に時間がかかることがありますが、そのままお待ちください。'} %>
         </div>
 
@@ -484,6 +464,8 @@ $(function() {
 
 
   $('.detail_btn').click(function(){
+    $(this).css('opacity','1');
+    $('.detail_show_btn').css('opacity','0.4');
     $('.products').hide();
     $('.img_field').show();
     $('body,html').animate({
@@ -493,6 +475,8 @@ $(function() {
   });
 
   $('.detail_show_btn').click(function(){
+    $(this).css('opacity','1');
+    $('.detail_btn').css('opacity','0.4');
     $('.products').show();
     $('.img_field').hide();
   });

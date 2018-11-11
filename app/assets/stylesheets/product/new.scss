@@ -34,21 +34,28 @@
        letter-spacing: 0.2em;
        color: #A9A9A9;
        }
+    .select_btn {
+      display: flex;
+       margin-left: auto;
+       margin-right: auto;
+       width: 85%;
+       max-width: 400px;
       .detail_btn, .detail_show_btn {
         display: block;
-        background-color: #25b9d7;
+        background-color: #251b5b;
        letter-spacing: 0.3em;
-       border-radius: 20px;
+       border-radius: 8px 0 0 8px;
        line-height: 35px;
        color: #fff;
        font-weight: bold;
        font-size: 14px;
-       width: 85%;
-       max-width: 400px;
-       margin-left: auto;
-       margin-right: auto;
+       width: 200px;
       }
-
+    .detail_btn {
+      opacity: 0.4;
+      border-radius: 0 8px 8px 0;
+    }
+    }
        .field {
                margin: 25px auto;
                width: 90%;
@@ -63,7 +70,7 @@
               display: flex;
               flex-wrap: wrap;
                   li {
-                    width: 40%;
+                    width: 100%;
                     margin-bottom: 15px;
                     margin-right: auto;
                     margin-left: auto;
@@ -160,68 +167,10 @@
                       }
       }
 
-       .img_field {
-        width: 100%;
+       .field.img_field {
         display: none;
-            ul.img_detail {
-              display:block;
-                li {
-                  width: 95%;
-                  margin-bottom: 20px;
-                  margin-top: 20px;
-                   .detail {
-                    width: 100%;
-                     .detailB {
-                      padding-top: 5px;
-                      width: 100%;
-                      padding-left: 5%;
-                       .title_detail {
-                        border: none;
-                        width: 100%;
-                        height: 60px;
-                        border-radius: 5px;
-                       }
-                     }
-                     .user.form {
-                      width: 180px;
-                     }
-                   }
-                }
-            }
-            p {
-              width: 100%;
-              font-weight: bold;
-              text-align: left;
-            }
-            p.detail_title {
-              text-align: center;
-            }
-            .detail {
-              display: flex;
-              margin-bottom: 5px;
-              p.remove_img {
-                  font-size: 11px;
-                  background-color:  #68737f;
-                  color: #fff;
-                  width: 40px;
-                  padding: 3px 4px;
-                  border-radius: 3px;
-                  &:hover {
-                    opacity: 0.7;
-                  }
-              }
-            }
-            .form_detail {
-              width: 100%;
-              height: 350px;
-              border: none;
-              border-radius: 5px;
-              background-color: #fff;
-            }
        }
-      .field.submit {
-        margin-top: 15px;
-      }
+
                         // ここまでが.field
 
                          label {
