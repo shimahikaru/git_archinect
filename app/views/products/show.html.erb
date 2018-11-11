@@ -30,7 +30,7 @@
   <div class="proE">
     <h5>仕上げ</h5>
     <% @product.interiors.each do |i| %>
-    <% if i.room_name? %><p>場所：<%= i.room_name %></p><% end %>
+    <% if i.room_name? %><p><%= i.room_name %>：</p><% end %>
     <table>
     <% if i.material_one? %><tr><td>天井</td><td><%= i.material_one %></td></tr><% end %>
     <% if i.material_two? %><tr><td>壁</td><td><%= i.material_two %></td></tr><% end %>
