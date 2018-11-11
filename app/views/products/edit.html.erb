@@ -18,6 +18,11 @@
 <% end %>
 </div>
 
+<div class="select_btn">
+<div class="detail_show_btn">概要</div>
+<div class="detail_btn">写真</div>
+</div>
+
    <%= form_with model:  @product, local: true do |f| %>
 　　　<div class="products">
      <div class="field charge">
@@ -34,28 +39,6 @@
       <p><%= f.label :サブタイトル %></p>
      <%= f.text_field :subtitle, autofocus: true, autocomplete: "subtitle", :maxlength => "30", placeholder: "サブタイトル(30文字以下)", class: 'form' %>
      </div>
-
-      <div class="field ">
-      <p><%= f.label :"全体画像" %><a><br >※最低1枚は選択してください(最大4枚)</a></p>
-        <ul>
-                 <%= f.fields_for :whole_photos do |i| %>
-                     <li><label>
-                        <% if i.object.id %>
-                        <%= image_tag i.object.photo_url, :class => "img add_photo" %>
-                        <% else %>
-                        <%= image_tag 'default.png', :class => "img add_photo" %>
-                        <% end %>
-                      <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %>
-                      <%= i.hidden_field :photo_cache, id: "", :class => "hidden_photo" %>
-                      </label>
-                        <% if i.object.id %>
-                        <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
-                        <% else %>
-                        <label><p id="remove" class="remove_photo" style="display:none;"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
-                  <% end %>
-                <% end %>
-         </ul>
-      </div>
 
      <div class="field">
      <p><%= f.label :完成年月 %><a>※</a></p>
@@ -96,41 +79,33 @@
       <% end %></div>
      </label>
      </div>
+    </div>
 
-       <div class="detail_btn">詳細を追加する</div>
-    </div>
-     <div class="field img_field">
-     <p class="detail_title"><%= f.label :"詳細画像や図面など" %><br ><a>(画像リサイズされません)</a></p>
-       <ul class="img_detail">
-         <%= f.fields_for :details do |img| %>
-            <li ><div class="detail">
-              <div class="detailA"><label>
-                <% if img.object.id %>
-                <%= image_tag img.object.image_url, :class => "img add_img" %>
+      <div class="field img_field">
+      <p><%= f.label :"全体画像" %><a><br >※最低1枚は選択してください(最大4枚)</a></p>
+        <ul>
+         <%= f.fields_for :whole_photos do |i| %>
+             <li><label>
+                <% if i.object.id %>
+                <%= image_tag i.object.photo_url, :class => "img add_photo" %>
                 <% else %>
-                <%= image_tag 'default.png', :class => "img add_img" %>
+                <%= image_tag 'default.png', :class => "img add_photo" %>
                 <% end %>
-                <%= img.file_field :image, id: "", :class => "img_create", autofocus: true  %>
-                </label>
-              <% if img.object.id %>
-              <label><p id="remove_img" class="remove_img"><%= img.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></div>
-              <% else %>
-              <label><p id="remove_img" class="remove_img" style="display:none;"><%= img.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></div>
-              <% end %>
-              <div class="detailB">
-              <p>場所名・部分名</p>
-              <%= img.text_area :title, autofocus: true, autocomplete: "title",  placeholder: "(例)１F リビングダイニング" , class: 'title_detail' %></div>
-              </div>
-            <p>詳細の説明・設備・素材・寸法etc.(250文字以内)</p>
-            <%= img.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "250", placeholder: "(例)「リビングで子供が勉強できるように」と、キッチンから見える位置に大きなデスクをつくりました。
-            横には、帰ってきたらスグに着替えもできるようにとクロゼットも造作で作りました。ご主人が大好きなお酒を飲みながら....", class: ' form_detail' %></li>
-         <% end %>
-       </ul>
-       <div class="detail_show_btn">このページを閉じる</div>
-    </div>
+              <%= i.file_field :photo, id: "", :class => "add_whole_photos", autofocus: true  %>
+              <%= i.hidden_field :photo_cache, id: "", :class => "hidden_photo" %>
+               </label>
+                <% if i.object.id %>
+                <label><p id="remove" class="remove_photo"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
+                <% else %>
+                <label><p id="remove" class="remove_photo" style="display:none;"><%= i.check_box :_destroy %><%= fa_icon("times") %>削除</p></label></li>
+                <% end %>
+                <li><%= i.text_area :title, autofocus: true, autocomplete: "title",  placeholder: "写真のタイトル" , class: 'title_detail' %></li>
+                <li><%= i.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "250", placeholder: "写真についての説明", class: ' form_detail' %></li>
+            <% end %>
+         </ul>
+      </div>
 
         <div class="field submit">
-          <p><%= f.label :"または" %></p>
         <%= f.submit "変更内容を保存する", class: 'product button', data:{confirm: '画像が多い場合、処理に時間がかかることがありますが、そのままお待ちください。'} %>
         </div>
 
@@ -139,6 +114,7 @@
 
 　</div>
 </div>
+
 
 
 <script>
@@ -188,17 +164,6 @@ $(function(){
     });
 });
 
-  // 詳細のid
-var i = 0;
-  $(".img_create").each(function(i) {
-    $(this).attr('id','img' + (i+1));
-});
-  $(".add_img").each(function(i) {
-    $(this).attr('id','prev_img' + (i+1));
-});
-  $(".remove_img").each(function(i) {
-    $(this).attr('id','remove_img' + (i+1));
-});
 
 var i = 0;
   $(".add_whole_photos").each(function(i) {
@@ -215,32 +180,7 @@ var i = 0;
 });
 
 
-// $(document).on('turbolinks:load', function() {
-//     var swiper = new Swiper('.swiper-container', {
-//       loop: false,
-//       paginationClickable: true,
-//       parallax: true,
-//       speed: 200,
-//       centerMode: true,
 
-//       slidesPerView: 3.5,
-//       initialSlide: 0,
-//           breakpoints: {
-//                 430: {
-//               slidesPerView: 3,
-//               },
-//                 370: {
-//               slidesPerView: 2.5,
-//               },
-//                 310: {
-//               slidesPerView: 2,
-//               },
-//                 250: {
-//               slidesPerView: 1,
-//               }
-//          }
-//     });
-// });
 
 // 全体画像投稿
 // 削除
@@ -274,6 +214,17 @@ var i = 0;
       $('#prev6').replaceWith('<%= image_tag 'default.png', id: :prev5, :class => "img default" %>');
       $('#remove6').hide();
   });
+  jQuery('#remove7 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev7').replaceWith('<%= image_tag 'default.png', id: :prev5, :class => "img default" %>');
+      $('#remove7').hide();
+  });
+  jQuery('#remove8 input[type=checkbox]').click(function(){
+      jQuery(this).prop("checked");
+      $('#prev8').replaceWith('<%= image_tag 'default.png', id: :prev5, :class => "img default" %>');
+      $('#remove8').hide();
+  });
+
 // 画像チェンジ
 $(function() {
     if ($('#prev1').get(0)) {
@@ -388,130 +339,47 @@ $(function() {
    readURL(this);
  });
 });
-
-  jQuery('#remove_img1 input[type=checkbox]').click(function(){
-      jQuery(this).prop("checked");
-      $('#prev_img1').replaceWith('<%= image_tag 'default.png', id: :prev_img1, :class => "img default" %>');
-      $('#remove_img1.remove_img').hide();
-  });
-  jQuery('#remove_img2 input[type=checkbox]').click(function(){
-      jQuery(this).prop("checked");
-      $('#prev_img2').replaceWith('<%= image_tag 'default.png', id: :prev_img2, :class => "img default" %>');
-      $('#remove_img2.remove_img').hide();
-  });
-  jQuery('#remove_img3 input[type=checkbox]').click(function(){
-      jQuery(this).prop("checked");
-      $('#prev_img3').replaceWith('<%= image_tag 'default.png', id: :prev_img3, :class => "img default" %>');
-      $('#remove_img3.remove_img').hide();
-  });
-  jQuery('#remove_img4 input[type=checkbox]').click(function(){
-      jQuery(this).prop("checked");
-      $('#prev_img4').replaceWith('<%= image_tag 'default.png', id: :prev_img4, :class => "img default" %>');
-      $('#remove_img4.remove_img').hide();
-  });
-  jQuery('#remove_img5 input[type=checkbox]').click(function(){
-      jQuery(this).prop("checked");
-      $('#prev_img5').replaceWith('<%= image_tag 'default.png', id: :prev_img5, :class => "img default" %>');
-      $('#remove_img5.remove_img').hide();
-  });
-
 $(function() {
-    if ($('#prev_img1').get(0)) {
+    if ($('#prev7').get(0)) {
     }
  function readURL(input) {
    if (input.files && input.files[0]) {
      var reader = new FileReader();
      reader.onload = function (e) {
-       $('#prev_img1').attr('src', e.target.result);
+       $('#prev7').attr('src', e.target.result);
      }
      reader.readAsDataURL(input.files[0]);
-      $('#remove_img1.remove_img').show();
-      $('#remove_img1 input[type=checkbox]').prop('checked',false);
+      $('#remove7').show();
+      $('#remove7 input[type=checkbox]').prop('checked',false);
    }
  }
- $("#img1").change(function(){
+ $("#photo7").change(function(){
    readURL(this);
  });
 });
-
 $(function() {
-    if ($('#prev_img2').get(0)) {
+    if ($('#prev8').get(0)) {
     }
  function readURL(input) {
    if (input.files && input.files[0]) {
      var reader = new FileReader();
      reader.onload = function (e) {
-       $('#prev_img2').attr('src', e.target.result);
+       $('#prev8').attr('src', e.target.result);
      }
      reader.readAsDataURL(input.files[0]);
-      $('#remove_img2.remove_img').show();
-      $('#remove_img2 input[type=checkbox]').prop('checked',false);
+      $('#remove8').show();
+      $('#remove8 input[type=checkbox]').prop('checked',false);
    }
  }
- $("#img2").change(function(){
-   readURL(this);
- });
-});
-
-$(function() {
-    if ($('#prev_img3').get(0)) {
-    }
- function readURL(input) {
-   if (input.files && input.files[0]) {
-     var reader = new FileReader();
-     reader.onload = function (e) {
-       $('#prev_img3').attr('src', e.target.result);
-     }
-     reader.readAsDataURL(input.files[0]);
-      $('#remove_img3.remove_img').show();
-      $('#remove_img3 input[type=checkbox]').prop('checked',false);
-   }
- }
- $("#img3").change(function(){
-   readURL(this);
- });
-});
-
-$(function() {
-    if ($('#prev_img4').get(0)) {
-    }
- function readURL(input) {
-   if (input.files && input.files[0]) {
-     var reader = new FileReader();
-     reader.onload = function (e) {
-       $('#prev_img4').attr('src', e.target.result);
-     }
-     reader.readAsDataURL(input.files[0]);
-      $('#remove_img4.remove_img').show();
-      $('#remove_img4 input[type=checkbox]').prop('checked',false);
-   }
- }
- $("#img4").change(function(){
-   readURL(this);
- });
-});
-
-$(function() {
-    if ($('#prev_img5').get(0)) {
-    }
- function readURL(input) {
-   if (input.files && input.files[0]) {
-     var reader = new FileReader();
-     reader.onload = function (e) {
-       $('#prev_img5').attr('src', e.target.result);
-     }
-     reader.readAsDataURL(input.files[0]);
-      $('#remove_img5.remove_img').show();
-      $('#remove_img5 input[type=checkbox]').prop('checked',false);
-   }
- }
- $("#img5").change(function(){
+ $("#photo8").change(function(){
    readURL(this);
  });
 });
 
 
   $('.detail_btn').click(function(){
+    $(this).css('opacity','1');
+    $('.detail_show_btn').css('opacity','0.4');
     $('.products').hide();
     $('.img_field').show();
     $('body,html').animate({
@@ -521,6 +389,8 @@ $(function() {
   });
 
   $('.detail_show_btn').click(function(){
+    $(this).css('opacity','1');
+    $('.detail_btn').css('opacity','0.4');
     $('.products').show();
     $('.img_field').hide();
   });

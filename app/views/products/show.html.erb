@@ -3,39 +3,33 @@
 <% provide :title, "#{@product.title} | " %>
 <div class="product_page">
   <div class="container">
-    <div class="proA">
-     <div class="swiper-container">
-       <div class="swiper-wrapper">
-        <% @photos.each do | img | %>
-          <div class="swiper-slide">
-          <%= image_tag img.photo_url, :class => "photos" %>    <!-- Slide-01　コンテンツを挿入する -->
-          </div>
-        <% end %>
-     </div>
-
-       <div class="swiper-pagination"></div>
-       <div class="swiper-button-prev"></div>
-       <div class="swiper-button-next"></div>
-
-     </div>
+    <div class="select_btn">
+    <div class="detail_show_btn">写真</div>
+    <div class="detail_btn">概要</div>
     </div>
-
-           <div class="proB">
-                   <nav class="profile">
-                    <ul>
-                      <li><h4><%= @product.title %></h4></li>
-                      <li><%= @product.subtitle %></li>
-                      <li><%= link_to @product.category, search_products_path(category: @product.category) %></li>
-                      <li>完成：<%= @product.completion.strftime("%Y年%m月") %></li>
-                      <li><a>場所：<%= link_to @product.location, search_products_path(location: @product.location) %></a></li>
-                      <li>面積：<%= @product.area %>㎡</li>
-                      <li>工期：<%= @product.whet %>ヶ月</li>
-                      <li><a>投稿者：</a><%= link_to @product.user.name, user_path(@product.user.id) %><a> (<%= @product.charge %>)</a></li>
-                      <li><text><%= simple_format(@product.text) %></text></li>
-                   </nav>
-           </div>
+   <div class="conA">
+    <div class="proA" id="proA">
+        <% @photos.each do | img | %>
+          <%= image_tag img.photo_url, :class => "photos" %>
+          <p><%= img.title %><p>
+          <p><%= img.text %><p>
+        <% end %>
+    </div>
+  <div class="conB" id="conB">
+     <div class="proB">
+         <nav class="profile">
+            <li><h4><%= @product.title %></h4></li>
+            <li><%= @product.subtitle %></li>
+            <li><%= link_to @product.category, search_products_path(category: @product.category) %></li>
+            <li>完成：<%= @product.completion.strftime("%Y年%m月") %></li>
+            <li><a>場所：<%= link_to @product.location, search_products_path(location: @product.location) %></a></li>
+            <li>面積：<%= @product.area %>㎡</li>
+            <li>工期：<%= @product.whet %>ヶ月</li>
+            <li><a>投稿者：</a><%= link_to @product.user.name, user_path(@product.user.id) %><a> (<%= @product.charge %>)</a></li>
+            <li><text><%= simple_format(@product.text) %></text></li>
+         </nav>
+     </div>
    <div class="proC">
-   <%= render partial: 'products/detail', collection: @details %>
      <nav class="profile">
      <ul>
       <li>関連キーワード</li>
@@ -44,6 +38,10 @@
       <% end %></li>
        </ul>
      </nav>
+   </div>
+  </div>
+  </div>
+
 <div class="shere-btn">
   <div class="facebook btn">
   <a href="https://www.facebook.com/sharer/sharer.php?u=https://archinect.herokuapp.com/products/<%= @product.id %>" title="<%= @product.title %>"><%= fa_icon("facebook-square") %>シェア</a></div>
@@ -58,7 +56,6 @@
      <% if user_signed_in? && @product.user_id == current_user.id %>
        <div class="edituser" ><%= link_to "編集", edit_product_path(id: @product.id ) %><%= link_to '削除', "/products/#{@product.id}", method: :delete, data:{confirm: '削除しますか？'} %></div>
      <% end %>
-   </div>
 
 
   <div class="proD">
@@ -86,24 +83,31 @@
 </div>
 
  <script>
-$(document).on('turbolinks:load', function(){
-    //initialize swiper when document ready
-    var swiper = new Swiper('.swiper-container', {
-          navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      pagination: '.swiper-pagination',
-      paginationClickable: true,
-      parallax: true,
-      loop: true,
-      centerMode: true,
-      slidesPerView: 1,
-      centeredSlides : true,
-    });
-  });
+$(window).on('load resize', function(){
+  var winW = $(window).width();
+  var devW = 1011;
+  if (winW <= devW) {
+    $('.select_btn').show();
+  } else {
+    $('.select_btn').hide();
+    $('#conB').show();
+  }
+});
+
+$('.detail_btn').click(function(){
+  $(this).css('opacity','1');
+  $('.detail_show_btn').css('opacity','0.4');
+  $('#proA').hide();
+  $('#conB').show();
+});
+
+$('.detail_show_btn').click(function(){
+  $(this).css('opacity','1');
+  $('.detail_btn').css('opacity','0.4');
+   // display: block!important;
+  $('#proA').show();
+  $('#conB').hide();
+});
 
 
 </script>

@@ -9,9 +9,8 @@ class ProductsController < ApplicationController
 
    def show
     @product = Product.find(params[:id])
-    @photos = @product.whole_photos.select(:id, :photo)
+    @photos = @product.whole_photos
     @tags = @product.genre_products
-    @details = @product.details
     comments = Comment.all
     @comments = @product.comments
     @comment = Comment.new
@@ -47,7 +46,7 @@ class ProductsController < ApplicationController
      @product = Product.new(create_params)
     if @product.save
     else
-      @photos = ( 4 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
+      @photos = ( 8 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
       render action: :new
     end
   end
@@ -62,7 +61,7 @@ end
   @product = Product.find(params[:id])
   @user = current_user
   @photos = @product.whole_photos.select(:id, :photo)
-  ( 4 - @photos.length).times { @product.whole_photos.build }
+  ( 8 - @photos.length).times { @product.whole_photos.build }
   end
 
   def update
@@ -71,8 +70,7 @@ end
      if @product.update(update_params)
      redirect_to user_path(current_user)
      else
-     @photos = ( 4 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
-     binding.pry
+     @photos = ( 8 - @product.whole_photos.to_a.count ).times { @product.whole_photos.build }
      render action: :edit
      end
    end

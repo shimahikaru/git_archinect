@@ -261,7 +261,7 @@ li .panel-item a{
 
 
 @media (max-width: 320px) {
-  .btn-user a{
+  .conB{
     display: none;
   }
 }
