@@ -40,11 +40,11 @@
        margin-right: auto;
        width: 85%;
        max-width: 400px;
-      .detail_btn, .detail_show_btn {
+      .detail_btn, .detail_show_btn, .detail_material_btn  {
         display: block;
         background-color: #251b5b;
        letter-spacing: 0.3em;
-       border-radius: 8px 0 0 8px;
+       border-radius: 0;
        line-height: 35px;
        color: #fff;
        font-weight: bold;
@@ -52,6 +52,10 @@
        width: 200px;
       }
     .detail_btn {
+      border-radius: 8px 0 0 8px;
+      opacity: 0.4;
+    }
+    .detail_material_btn {
       opacity: 0.4;
       border-radius: 0 8px 8px 0;
     }
@@ -119,7 +123,7 @@
                     border: none;
                     border-radius: 5px;
                     background-color: #fff;
-                    width: 98%;
+                    width: 100%;
                     margin-bottom: 8px;
                      }
               .user.form {
@@ -133,6 +137,20 @@
                 margin-right: auto;
                 margin-left: auto;
               }
+                 table {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 35px;
+              td {
+                font-size: 12px;
+              }
+              tr {
+                height: 50px;
+              }
+              .form.material {
+                height: 43px
+                    }
+                       }
 
 
              .text {
@@ -165,6 +183,9 @@
                       }
       }
 
+       .field.materials {
+        display: none;
+       }
        .field.img_field {
         display: none;
             .title_detail {

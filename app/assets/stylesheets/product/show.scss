@@ -36,7 +36,7 @@ margin-right: auto;
              margin-right: auto;
              background-color: #fff;
              padding-top: 20px;
-       .conA {
+       .product_conA {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
@@ -90,7 +90,7 @@ margin-right: auto;
         }
     .proB {
            margin-top: 0;
-           padding-bottom: 25px;
+           padding-bottom: 5px;
            width: 100%;
            max-width: 440px;
 
@@ -233,28 +233,54 @@ margin-right: auto;
             }
           }
        }
+      .proE {
+        text-align: left;
+        padding: 0 10px;
+
+        h5 {
+          font-size: 13px;
+          margin-bottom: 10px;
+          font-weight: bold;
+          letter-spacing: 0.2em;
+        }
+      p {
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      table {
+        margin-bottom: 10px;
+        width: 100%;
+        color: #646464;
+        tr {
+          margin-bottom: 5px;
+        }
+          td {
+            font-size: 12px;
+            line-height: 22px;
+            letter-spacing: 0.1em;
+          }
+        }
+      }
      }
           // ここまでが.container
 }
 @media (max-width: 1010px) {
 
-  .conA {
+  .product_conA {
     justify-content: center;
   }
-  .proA, .conB {
+  .proA, .product_conB {
     margin-right: auto;
     margin-left: auto;
   }
-  .conB {
+  .product_conB {
     width: 540px;
   }
 
 }
 
 @media (min-width: 1010px) {
-  .detail_show_btn {
-    display: none;
-  }
   .conA {
     margin-top: 35px;
   }

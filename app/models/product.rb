@@ -17,6 +17,9 @@ class Product < ApplicationRecord
   belongs_to :user
   counter_culture :user
 
+  has_many :interiors, inverse_of: :product, dependent: :delete_all
+  accepts_nested_attributes_for :interiors, reject_if: :all_blank, allow_destroy: true
+
   has_many :whole_photos, inverse_of: :product, dependent: :delete_all
   accepts_nested_attributes_for :whole_photos, reject_if: :all_blank, allow_destroy: true
 

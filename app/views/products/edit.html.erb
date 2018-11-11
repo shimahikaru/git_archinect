@@ -19,8 +19,9 @@
 </div>
 
 <div class="select_btn">
-<div class="detail_show_btn">概要</div>
 <div class="detail_btn">写真</div>
+<div class="detail_show_btn">概要</div>
+<div class="detail_material_btn">仕上げ</div>
 </div>
 
    <%= form_with model:  @product, local: true do |f| %>
@@ -60,16 +61,15 @@
      <%= f.number_field :area, autofocus: true, step: "0.1", autocomplete: "area", class: 'form' %>㎡
      </div>
 
+     <div class="field">
+     <p><%= f.label :カテゴリー %><a>※</a></p>
+     <%= f.select :category, Product.categories.keys, {prompt: '選択してください'}, class: 'form' %><br />
+     </div>
 
      <div class="field">
      <p><%= f.label :"コンセプト" %><a>※</a></p>
      <p><label>残り：<span class="count"></span>文字</label></p>
      <%= f.text_area :text, autofocus: true, autocomplete: "text", :maxlength => "350",  placeholder: "概要・説明・解説など", class: 'form text limited area' %>
-     </div>
-
-     <div class="field">
-     <p><%= f.label :カテゴリー %><a>※</a></p>
-     <%= f.select :category, Product.categories.keys, {prompt: '選択してください'}, class: 'form' %><br />
      </div>
 
      <div class="field">
@@ -82,7 +82,7 @@
     </div>
 
       <div class="field img_field">
-      <p><%= f.label :"全体画像" %><a><br >※最低1枚は選択してください(最大4枚)</a></p>
+      <p><a><br >※最低1枚は選択してください(最大8枚)</a></p>
         <ul>
          <%= f.fields_for :whole_photos do |i| %>
              <li><label>
@@ -104,6 +104,21 @@
             <% end %>
          </ul>
       </div>
+
+    <div class="field materials">
+    <p><%= f.label :"内装仕上げ材" %></p>
+      <%= f.fields_for :interiors do |i| %>
+      <%= i.text_field :room_name, autofocus: true, autocomplete: "text", :maxlength => "50",  placeholder: "部屋・場所の名前", class: 'form' %>
+      <table>
+      <tr><td>天井</td><td><%= i.text_area :material_one, autofocus: true, autocomplete: "text", :maxlength => "150",  placeholder: "", class: 'form material' %></td></tr>
+      <tr><td>壁</td><td><%= i.text_area :material_two, autofocus: true, autocomplete: "text", :maxlength => "150",  placeholder: "", class: 'form material' %></td></tr>
+      <tr><td>床</td><td><%= i.text_area :material_three, autofocus: true, autocomplete: "text", :maxlength => "150",  placeholder: "", class: 'form material' %></td></tr>
+      <tr><td>家具・照明</td><td><%= i.text_area :material_four, autofocus: true, autocomplete: "text", :maxlength => "150",  placeholder: "", class: 'form material' %></td></tr>
+      <tr><td>設備・建具</td><td><%= i.text_area :material_five, autofocus: true, autocomplete: "text", :maxlength => "150",  placeholder: "", class: 'form material' %></td></tr>
+      <tr><td>その他</td><td><%= i.text_area :material_six, autofocus: true, autocomplete: "text", :maxlength => "150",  placeholder: "", class: 'form material' %></td></tr>
+      </table>
+      <% end %>
+    </div>
 
         <div class="field submit">
         <%= f.submit "変更内容を保存する", class: 'product button', data:{confirm: '画像が多い場合、処理に時間がかかることがありますが、そのままお待ちください。'} %>
@@ -377,10 +392,13 @@ $(function() {
 });
 
 
+
   $('.detail_btn').click(function(){
     $(this).css('opacity','1');
     $('.detail_show_btn').css('opacity','0.4');
+    $('.detail_material_btn').css('opacity','0.4');
     $('.products').hide();
+    $('.field.materials').hide();
     $('.img_field').show();
     $('body,html').animate({
         scrollTop: 0
@@ -391,8 +409,23 @@ $(function() {
   $('.detail_show_btn').click(function(){
     $(this).css('opacity','1');
     $('.detail_btn').css('opacity','0.4');
+    $('.detail_material_btn').css('opacity','0.4');
     $('.products').show();
     $('.img_field').hide();
+    $('.field.materials').hide();
+  });
+
+  $('.detail_material_btn').click(function(){
+    $(this).css('opacity','1');
+    $('.detail_show_btn').css('opacity','0.4');
+    $('.detail_btn').css('opacity','0.4');
+    $('.products').hide();
+    $('.img_field').hide();
+    $('.field.materials').show();
+    $('body,html').animate({
+        scrollTop: 0
+        }, 200);
+        return false;
   });
 
 

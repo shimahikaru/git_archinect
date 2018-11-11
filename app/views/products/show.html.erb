@@ -3,8 +3,8 @@
 <% provide :title, "#{@product.title} | " %>
 <div class="product_page">
   <div class="container">
-   <div class="conA">
-    <div class="proA" id="proA">
+   <div class="product_conA">
+    <div class="proA">
         <% @photos.each do | img | %>
           <%= image_tag img.photo_url, :class => "photos" %>
           <div class="text">
@@ -13,7 +13,7 @@
           </div>
         <% end %>
     </div>
-  <div class="conB" id="conB">
+  <div class="product_conB">
      <div class="proB">
          <nav class="profile">
             <li><h4><%= @product.title %></h4></li>
@@ -27,6 +27,20 @@
             <li><text><%= simple_format(@product.text) %></text></li>
          </nav>
      </div>
+  <div class="proE">
+    <h5>仕上げ</h5>
+    <% @product.interiors.each do |i| %>
+    <% if i.room_name? %><p>場所：<%= i.room_name %></p><% end %>
+    <table>
+    <% if i.material_one? %><tr><td>天井</td><td><%= i.material_one %></td></tr><% end %>
+    <% if i.material_two? %><tr><td>壁</td><td><%= i.material_two %></td></tr><% end %>
+    <% if i.material_three? %><tr><td>床</td><td><%= i.material_three %></td></tr><% end %>
+    <% if i.material_four? %><tr><td>設備・照明</td><td><%= i.material_four %></td></tr><% end %>
+    <% if i.material_five? %><tr><td>家具・建具</td><td><%= i.material_five %></td></tr><% end %>
+    <% if i.material_six? %><tr><td>その他</td><td><%= i.material_six %></td></tr><% end %>
+    </table>
+    <% end %>
+  </div>
    <div class="proC">
      <nav class="profile">
      <ul>
