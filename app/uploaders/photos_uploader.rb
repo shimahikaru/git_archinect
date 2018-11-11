@@ -32,7 +32,7 @@ class PhotosUploader < CarrierWave::Uploader::Base
 
 
 
-    process resize_to_fill: [800, 950, "Center" ]
+    process resize_to_limit: [900, nil]
 
 
   # Add a white list of extensions which are allowed to be uploaded.
