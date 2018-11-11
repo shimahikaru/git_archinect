@@ -42,13 +42,13 @@
 
 <div class="shere-btn">
   <div class="facebook btn">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://archinect.herokuapp.com/products/<%= @product.id %>" title="<%= @product.title %>"><%= fa_icon("facebook-square") %>シェア</a></div>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.archinect-japan.com/products/<%= @product.id %>" title="<%= @product.title %>"><%= fa_icon("facebook-square") %>シェア</a></div>
 
   <div class="twitter btn">
-  <a href="http://twitter.com/share?url=https://archinect.herokuapp.com/products/<%= @product.id %>" title="<%= @product.title %>"><%= fa_icon("twitter") %>ツイート</a></div>
+  <a href="http://twitter.com/share?url=https://www.archinect-japan.com/products/<%= @product.id %>" title="<%= @product.title %>"><%= fa_icon("twitter") %>ツイート</a></div>
 
   <div class="line btn">
-  <a href="http://line.me/R/msg/text/?https://archinect.herokuapp.com/products/<%= @product.id %>"><%= fa_icon("comment") %>LINEで送る</a></div>
+  <a href="http://line.me/R/msg/text/?https://www.archinect-japan.com/products/<%= @product.id %>"><%= fa_icon("comment") %>LINEで送る</a></div>
 </div>
 
      <% if user_signed_in? && @product.user_id == current_user.id %>
