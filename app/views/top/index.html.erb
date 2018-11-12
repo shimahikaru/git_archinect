@@ -6,17 +6,13 @@
   <% unless user_signed_in? %>
     <div class="concept">
     <div class="text">
-    <h4>あなたが手掛けた建物や内装を投稿しよう</h4>
-    <%= image_tag 'top.jpg', :class=>"top_jpg" %>
-    <p>様々な情報と関連付けて<br ><a>投稿</a>・<a>管理</a>・<a>編集</a>・<a>シェア</a>etc.<br ><a>簡単・全て無料 </a></p>
+    <h4>建築事例の投稿・検索サービス</h4>
+<!--     <%= image_tag 'top.jpg', :class=>"top_jpg" %> -->
+    <%= render "devise/registrations/signup" %>
+<!--     <p>様々な情報と関連付けて<br ><a>投稿</a>・<a>管理</a>・<a>編集</a>・<a>シェア</a>etc.<br ><a>簡単・全て無料 </a></p> -->
   </div>
     <div class="container">
-          <div class="button1">
-              <%= link_to "今スグ会員登録", new_user_registration_path %>
-          </div>
-          <div class="button1 button2">
-              <%= link_to "ログイン",  new_user_session_path %>
-          </div>
+
        </div>
      </div>
     <% else %>

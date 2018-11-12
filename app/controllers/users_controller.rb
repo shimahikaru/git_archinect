@@ -15,7 +15,7 @@ before_action :authenticate_user!, only: [:edit, :update, ]
   end
 
   def search
-    @users = User.select(:id, :familyname, :firstname, :location, :avatar, :text,).order("id DESC")
+    @users = User.select(:id, :familyname, :location, :avatar, :text,).order("id DESC")
     @users = @users.where(offer: "1")
     @users = @users.count_order(params[:count]) if params[:count].present?
     @users = @users.search_work(params[:work_user]) if params[:work_user] && params[:work_user].compact.reject(&:empty?).present?
@@ -57,7 +57,7 @@ before_action :authenticate_user!, only: [:edit, :update, ]
 private
 
 def update_params
-  params.require(:user).permit(:familyname, :firstname, :email, :location, :office, :phone, :address, :local, :url, :avatar, :offer, :text, :avatar_cache,:remove_avatar, { :work_ids=> [] })
+  params.require(:user).permit(:familyname, :email, :location, :office, :phone, :address, :local, :url, :avatar, :offer, :text, :avatar_cache,:remove_avatar, { :work_ids=> [] })
 end
 
 

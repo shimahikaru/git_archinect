@@ -8,13 +8,8 @@
    <%= form_with model: @user, local: true do |f| %>
 
      <div class="field">
-        <p><%= f.label :苗字 %><a>※</a></p>
+        <p><%= f.label :氏名または会社名 %><a>※</a></p>
      <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname",   class: 'user form' %>
-     </div>
-
-     <div class="field">
-    <p><%= f.label :名前 %><a>※</a></p>
-     <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname",   class: 'user form' %>
      </div>
 
      <div class="field">
@@ -75,7 +70,7 @@
      </div>
 
      <div class="field">
-     <p><%= f.label :自己紹介コメント %></p>
+     <p><%= f.label :紹介コメント %></p>
      <p><label>残り：<span class="count">0</span>文字</label></p>
      <%= f.text_area :text, autofocus: true, :maxlength => "100", autocomplete: "text",  placeholder: "", class: 'user form text' %>
      </div>

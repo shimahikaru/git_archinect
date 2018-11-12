@@ -15,13 +15,9 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
       <div class="field">
-      <div class="field_with_errors"><p><%= f.label :"苗字" %><a>※</a></p></div>
+      <div class="field_with_errors"><p><%= f.label :"氏名または会社名" %><a>※</a></p></div>
     <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname", :maxlength => "10", placeholder: "(例)ヤマダ" , class: 'user form' %>
   </div>
-      <div class="field">
-       <p><%= f.label :"名前" %><a>※</a></p>
-     <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", :maxlength => "10", placeholder: "(例)タロウ", class: 'user form' %>
-    </div>
 
   <div class="field">
     <p><%= f.label :"登録メールアドレス" %><a>※</a></p>
@@ -29,7 +25,7 @@
   </div>
 
     <div class="field">
-  <p><%= f.label :"主な勤務地・居住地" %><a>※</a></p>
+  <p><%= f.label :"主な勤務地" %><a>※</a></p>
   <%= f.select :location, User.locations.keys, {prompt: '選択してください'}, class: 'user btn-info' %>
    </div>
 
@@ -38,10 +34,7 @@
     <%= f.password_field :password, autocomplete: "new-password",  placeholder: "６文字以上", class: 'user form' %>
   </div>
 
-  <div class="field">
-    <p><%= f.label :"パスワード(再入力)" %><a>※</a></p>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password",  placeholder: "６文字以上(再入力)", class: 'user form'  %>
-  </div>
+
 
   <div class="field">
     <%= f.submit "仮登録メールを送信", class: 'user button' %>
@@ -55,11 +48,7 @@
 <script>
 $(".user.button").on('click', function(){
   if ($('#user_familyname').val() == '') {
-    alert('苗字を入力してください');
-    return false;
-  }
-  if ($('#user_firstname').val() == '') {
-    alert('名前を入力してください');
+    alert('氏名または会社名を入力してください');
     return false;
   }
   if ($('#user_email').val() == '') {
@@ -72,10 +61,6 @@ $(".user.button").on('click', function(){
   }
   if ($('#user_password').val() == '') {
     alert('パスワードを入力してください');
-    return false;
-  }
-  if ($('#user_password_confirmation').val() == '') {
-    alert('パスワード(再入力)を入力してください');
     return false;
   }
 });

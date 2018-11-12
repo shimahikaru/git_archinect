@@ -1,0 +1,44 @@
+
+.user_new {
+  text-align: center;
+
+    .field {
+        width: 100%;
+         .user {
+          width: 90%;
+          max-width: 400px;
+          margin-bottom: 13px;
+         }
+         input, select {
+          border: none;
+          background-color: #f1f1f1;
+          border-radius: 7px;
+          height: 25px;
+          padding-left: 10px;
+          color: #251b5b;
+         }
+        .user.button {
+          background-color: #251b5b;
+          color: #fff;
+          letter-spacing: 0.2em;
+          border-radius: 15px;
+          font-size: 14px;
+          font-weight: bold;
+          height: 28px;
+       }
+    }
+    a.btn {
+      text-decoration: none;
+      border-radius: 10px;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.2em;
+      width: 90%;
+      max-width: 400px;
+      line-height: 28px;
+      border: solid 1px #251b5b;
+      color: #251b5b;
+      border-radius: 15px;
+    }
+}

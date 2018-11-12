@@ -62,13 +62,12 @@ mount_uploader :avatar, AvatarsUploader
 
   def add_error
     errors[:base] << "苗字は必須です。" if familyname.blank?
-    errors[:base] << "名前は必須です。" if firstname.blank?
     errors[:base] << "勤務地は必須です。" if location.blank?
     errors[:base] << "登録メールアドレスは必須です。" if email.blank?
   end
 
 def name
-   self.familyname + self.firstname
+   self.familyname
 end
 
 def follow(other_user)
@@ -85,12 +84,6 @@ end
 def following?(other_user)
   self.followings.include?(other_user)
 end
-# def self.search(search)
-#     if search
-#       where(['familyname LIKE ?', "%#{search}%"]) || where(['firstname LIKE ?', "%#{search}%"]) || where(['office LIKE ?', "%#{search}%"]) #検索とnameの部分一致を表示。User.は省略
-#     else
-#       all #全て表示。User.は省略
-#     end
-#   end
+
 
 end
