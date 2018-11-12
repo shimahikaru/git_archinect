@@ -24,11 +24,6 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: "(例)archinectjapan@mail.com", class: 'user form' %>
   </div>
 
-    <div class="field">
-  <p><%= f.label :"主な勤務地" %><a>※</a></p>
-  <%= f.select :location, User.locations.keys, {prompt: '選択してください'}, class: 'user btn-info' %>
-   </div>
-
   <div class="field">
     <p><%= f.label :"パスワード" %><a>※</a></p>
     <%= f.password_field :password, autocomplete: "new-password",  placeholder: "６文字以上", class: 'user form' %>
@@ -53,10 +48,6 @@ $(".user.button").on('click', function(){
   }
   if ($('#user_email').val() == '') {
     alert('メールアドレスを入力してください');
-    return false;
-  }
-  if ($('#user_location').val() == '') {
-    alert('場所を選択してください');
     return false;
   }
   if ($('#user_password').val() == '') {

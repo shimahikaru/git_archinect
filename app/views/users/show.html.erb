@@ -11,10 +11,12 @@
       <%= image_tag @user.avatar.url, :class => "image" %>
     <div class="proA-text">
       <h4><%= @user.name %><% if user_signed_in? && current_user.following?(@user)  %><%= fa_icon("check") %><% end %></h4>
-          <% if @user.local? %>
+          <% if @user.local? && @user.location? %>
         <a><%= fa_icon("map-marker") %></a><%= link_to @user.location, search_users_path(location: @user.location) %><a><%= @user.local%></a>
-        <% else %>
+        <% elsif @user.location? %>
         <a><%= fa_icon("map-marker") %></a><a><%= @user.location %></a>
+        <% elsif @user.local? %>
+        <a><%= fa_icon("map-marker") %></a><a><%= @user.local %></a>
         <% end %>
         <% if user_signed_in? && @user.id == current_user.id %>
         <div class ="edituser post"><%= link_to fa_icon("edit")+"投稿", new_product_path %>

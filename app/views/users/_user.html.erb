@@ -12,7 +12,9 @@
 
       </div>
       <div class="con3">
+        <% if user.location? %>
       <p><%= fa_icon("map-marker") %>  <%= user.location %></p>
+      <% end %>
       </div>
       <div class="con2">
       <% if user.works && user.works.count >= 4 %>

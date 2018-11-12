@@ -62,7 +62,6 @@ mount_uploader :avatar, AvatarsUploader
 
   def add_error
     errors[:base] << "苗字は必須です。" if familyname.blank?
-    errors[:base] << "勤務地は必須です。" if location.blank?
     errors[:base] << "登録メールアドレスは必須です。" if email.blank?
   end
 
