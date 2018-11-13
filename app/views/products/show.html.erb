@@ -23,7 +23,7 @@
             <li><a>場所：<%= link_to @product.location, search_products_path(location: @product.location) %></a></li>
             <li>面積：<%= @product.area %>㎡</li>
             <li>工期：<%= @product.whet %>ヶ月</li>
-            <li><a>投稿者：</a><%= link_to @product.user.name, user_path(@product.user.id) %><a> (<%= @product.charge %>)</a></li>
+            <li><a>投稿者：</a><%= link_to @product.user.name, user_path(@product.user.id) %></li>
             <li><text><%= simple_format(@product.text) %></text></li>
          </nav>
      </div>
