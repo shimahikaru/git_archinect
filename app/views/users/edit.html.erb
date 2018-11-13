@@ -9,7 +9,7 @@
 
      <div class="field">
         <p><%= f.label :氏名または会社名 %><a>※</a></p>
-     <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname",   class: 'user form' %>
+     <%= f.text_field :familyname, autofocus: true, autocomplete: "familyname", :maxlength => "18",  class: 'user form' %>
      </div>
 
      <div class="field">
