@@ -86,3 +86,4 @@ gem 'carrierwave_backgrounder', :git => 'https://github.com/lardawge/carrierwave
 gem 'ransack'
 gem 'delayed_job_active_record'
 gem 'spinjs-rails'
+

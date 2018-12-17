@@ -4,7 +4,8 @@ class User < ApplicationRecord
   # default_scope { order(created_at: :desc)}
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable, authentication_keys: []
+         # :confirmable
 
 has_many :user_works
 has_many :works, through: :user_works
@@ -25,7 +26,13 @@ has_many :followers, through: :reverses_of_relationship, source: :user
 has_many :emails
 has_one :notice, dependent: :destroy
 
+  def email_required?
+    false
+  end
 
+  def email_changed?
+    false
+  end
 
 mount_uploader :avatar, AvatarsUploader
 
@@ -62,7 +69,7 @@ mount_uploader :avatar, AvatarsUploader
 
   def add_error
     errors[:base] << "苗字は必須です。" if familyname.blank?
-    errors[:base] << "登録メールアドレスは必須です。" if email.blank?
+    # errors[:base] << "登録メールアドレスは必須です。" if email.blank?
   end
 
 def name
